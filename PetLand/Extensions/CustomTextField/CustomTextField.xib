@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mulish-Regular.ttf">
+            <string>Mulish-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomTextField" customModule="PetLand" customModuleProvider="target">
+            <connections>
+                <outlet property="errorLabel" destination="jHt-jC-edD" id="yIw-yw-9qe"/>
+                <outlet property="textField" destination="siq-C8-xs4" id="vfP-SV-6SL"/>
+                <outlet property="visibilityToggle" destination="V3V-lY-l6g" id="FJf-JE-G87"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="siq-C8-xs4">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="45"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Ii3-cj-rh3"/>
+                    </constraints>
+                    <color key="textColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="onEditingBegin" destination="-1" eventType="editingDidBegin" id="bhH-5t-fj1"/>
+                        <action selector="onEditingEnd" destination="-1" eventType="editingDidEnd" id="xrs-Fq-gBC"/>
+                        <action selector="onEdtingChanged" destination="-1" eventType="editingChanged" id="yqN-d8-wTp"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHt-jC-edD">
+                    <rect key="frame" x="20" y="45" width="65.666666666666671" height="15.666666666666664"/>
+                    <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="13"/>
+                    <color key="textColor" systemColor="systemRedColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3V-lY-l6g">
+                    <rect key="frame" x="355" y="0.0" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="V3V-lY-l6g" secondAttribute="height" multiplier="1:1" id="izH-lF-Fhh"/>
+                    </constraints>
+                    <color key="tintColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="icons:eye-closed"/>
+                    <connections>
+                        <action selector="onVisibilityTogglePress" destination="-1" eventType="touchUpInside" id="uqu-4M-HPf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="V3V-lY-l6g" firstAttribute="centerY" secondItem="siq-C8-xs4" secondAttribute="centerY" id="4Bi-Sh-KYd"/>
+                <constraint firstItem="jHt-jC-edD" firstAttribute="leading" secondItem="siq-C8-xs4" secondAttribute="leading" constant="20" id="FFK-Y0-5PF"/>
+                <constraint firstItem="siq-C8-xs4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Kc9-zg-Wxz"/>
+                <constraint firstAttribute="trailing" secondItem="siq-C8-xs4" secondAttribute="trailing" id="O1u-iS-JmF"/>
+                <constraint firstAttribute="bottom" secondItem="siq-C8-xs4" secondAttribute="bottom" id="OFp-pP-b8D"/>
+                <constraint firstItem="siq-C8-xs4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ta6-3Q-110"/>
+                <constraint firstItem="siq-C8-xs4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="X7N-r7-szo"/>
+                <constraint firstItem="siq-C8-xs4" firstAttribute="bottom" secondItem="jHt-jC-edD" secondAttribute="top" id="aLl-b5-k9F"/>
+                <constraint firstItem="siq-C8-xs4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="c7g-QC-kHF"/>
+                <constraint firstItem="V3V-lY-l6g" firstAttribute="trailing" secondItem="siq-C8-xs4" secondAttribute="trailing" id="mbt-Qj-eVh"/>
+                <constraint firstItem="V3V-lY-l6g" firstAttribute="height" secondItem="siq-C8-xs4" secondAttribute="height" id="uSd-0p-hVm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="88.549618320610676" y="-201.7605633802817"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icons:eye-closed" width="17" height="9"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

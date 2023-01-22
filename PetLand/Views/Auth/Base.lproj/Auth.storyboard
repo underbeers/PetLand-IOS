@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mulish-Bold.ttf">
+            <string>Mulish-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--LoginVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="Auth.Login" id="BYZ-38-t0r" customClass="LoginVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backdrop" translatesAutoresizingMaskIntoConstraints="NO" id="ZbQ-mi-YfO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="HeQ-pG-MDu">
+                                <rect key="frame" x="0.0" y="46.999999999999986" width="375" height="243.66666666666663"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpX-Ka-Bb2">
+                                <rect key="frame" x="120.66666666666669" y="290.66666666666669" width="134" height="26"/>
+                                <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWl-ju-esa" customClass="CustomTextField" customModule="PetLand" customModuleProvider="target">
+                                <rect key="frame" x="28" y="336.66666666666669" width="319" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="zJk-mR-bjL"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4J-vT-r4l" customClass="CustomTextField" customModule="PetLand" customModuleProvider="target">
+                                <rect key="frame" x="28" y="406.66666666666669" width="319" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="vBk-ha-iVi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PWl-ju-esa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3Os-Ye-MhX"/>
+                            <constraint firstItem="C4J-vT-r4l" firstAttribute="centerX" secondItem="PWl-ju-esa" secondAttribute="centerX" id="9oq-MH-9TR"/>
+                            <constraint firstItem="ZbQ-mi-YfO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dja-oq-NSn"/>
+                            <constraint firstItem="PWl-ju-esa" firstAttribute="top" secondItem="rpX-Ka-Bb2" secondAttribute="bottom" constant="20" id="Eod-0D-E6X"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HeQ-pG-MDu" secondAttribute="trailing" id="J3Y-MC-P0I"/>
+                            <constraint firstItem="ZbQ-mi-YfO" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="O7V-mB-MYZ"/>
+                            <constraint firstItem="C4J-vT-r4l" firstAttribute="top" secondItem="PWl-ju-esa" secondAttribute="bottom" constant="25" id="Oux-c5-qXv"/>
+                            <constraint firstItem="rpX-Ka-Bb2" firstAttribute="centerX" secondItem="HeQ-pG-MDu" secondAttribute="centerX" id="Oxr-e7-ApD"/>
+                            <constraint firstItem="HeQ-pG-MDu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="THV-5A-loj"/>
+                            <constraint firstItem="rpX-Ka-Bb2" firstAttribute="top" secondItem="HeQ-pG-MDu" secondAttribute="bottom" id="WgA-wu-dDS"/>
+                            <constraint firstItem="PWl-ju-esa" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.85" id="YdE-dE-jON"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZbQ-mi-YfO" secondAttribute="trailing" id="fNv-ZM-XPp"/>
+                            <constraint firstItem="C4J-vT-r4l" firstAttribute="width" secondItem="PWl-ju-esa" secondAttribute="width" id="op1-zW-jAg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="HeQ-pG-MDu" secondAttribute="top" id="sIk-ig-Lur"/>
+                            <constraint firstItem="ZbQ-mi-YfO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tc1-dK-scw"/>
+                            <constraint firstItem="HeQ-pG-MDu" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="uAh-hl-xrt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="PWl-ju-esa" id="f4j-0O-b2f"/>
+                        <outlet property="passwordTextField" destination="C4J-vT-r4l" id="lmO-Ec-k5W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="-2.2488755622188905"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backdrop" width="1560" height="3376"/>
+        <image name="logo" width="245.33332824707031" height="284"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
