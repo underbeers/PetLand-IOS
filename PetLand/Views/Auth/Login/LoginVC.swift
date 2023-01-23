@@ -12,11 +12,16 @@ class LoginVC: UIViewController {
     
     @IBOutlet var loginTextField: CustomTextField!
     @IBOutlet var passwordTextField: CustomTextField!
+    @IBOutlet var forgotPasswordButton: UIButton!
+    @IBOutlet var staySignedInCheckbox: CustomCheckbox!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .cBackground
+        
         loginTextField.configure(for: .email, required: true)
         passwordTextField.configure(for: .password, required: true)
+        staySignedInCheckbox.configure(label: "Не выходить из аккаунта")
     }
 }

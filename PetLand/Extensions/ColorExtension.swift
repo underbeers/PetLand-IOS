@@ -37,7 +37,7 @@ public extension UIColor {
     static let cFavoriteRed = UIColor(hex: 0xF71B47)
     static let cRatingStar = UIColor(hex: 0xFFA046)
     static var cBackground: UIColor = {
-        if let backdrop = UIImage(named: "backdrop") {
+        if let backdrop = UIImage(named: "petland:backdrop") {
             return UIColor(patternImage: backdrop)
         } else {
             return UIColor(hex: 0xF5F1EE)

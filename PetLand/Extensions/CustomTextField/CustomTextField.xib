@@ -40,7 +40,7 @@
                     </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHt-jC-edD">
-                    <rect key="frame" x="20" y="45" width="65.666666666666671" height="15.666666666666664"/>
+                    <rect key="frame" x="20" y="50" width="65.666666666666671" height="15.666666666666671"/>
                     <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="13"/>
                     <color key="textColor" systemColor="systemRedColor"/>
                     <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                 <constraint firstAttribute="bottom" secondItem="siq-C8-xs4" secondAttribute="bottom" id="OFp-pP-b8D"/>
                 <constraint firstItem="siq-C8-xs4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ta6-3Q-110"/>
                 <constraint firstItem="siq-C8-xs4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="X7N-r7-szo"/>
-                <constraint firstItem="siq-C8-xs4" firstAttribute="bottom" secondItem="jHt-jC-edD" secondAttribute="top" id="aLl-b5-k9F"/>
+                <constraint firstItem="jHt-jC-edD" firstAttribute="top" secondItem="siq-C8-xs4" secondAttribute="bottom" constant="5" id="aLl-b5-k9F"/>
                 <constraint firstItem="siq-C8-xs4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="c7g-QC-kHF"/>
                 <constraint firstItem="V3V-lY-l6g" firstAttribute="trailing" secondItem="siq-C8-xs4" secondAttribute="trailing" id="mbt-Qj-eVh"/>
                 <constraint firstItem="V3V-lY-l6g" firstAttribute="height" secondItem="siq-C8-xs4" secondAttribute="height" id="uSd-0p-hVm"/>

@@ -57,6 +57,7 @@ class CustomTextField: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
+        self.backgroundColor = .none
         addSubview(view)
 
         visibilityToggle.isHidden = true
