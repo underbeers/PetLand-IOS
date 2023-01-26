@@ -31,46 +31,176 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpX-Ka-Bb2" userLabel="Authorization Title">
-                                <rect key="frame" x="126.66666666666669" y="286.33333333333331" width="122" height="23.333333333333314"/>
+                                <rect key="frame" x="121" y="286.33333333333331" width="133" height="25"/>
                                 <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWl-ju-esa" customClass="CustomTextField" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="47" y="329.66666666666669" width="281" height="45"/>
+                                <rect key="frame" x="47" y="331.33333333333331" width="281" height="45"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="zJk-mR-bjL"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4J-vT-r4l" customClass="CustomTextField" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="47" y="399.66666666666669" width="281" height="45"/>
+                                <rect key="frame" x="47" y="401.33333333333331" width="281" height="45"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="vBk-ha-iVi"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zrk-YQ-pxq">
-                                <rect key="frame" x="211" y="459.66666666666669" width="117" height="29.333333333333314"/>
+                                <rect key="frame" x="215" y="461.33333333333331" width="113" height="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Забыли пароль?">
                                             <attributes>
-                                                <color key="NSColor" red="0.68235294117647061" green="0.72549019607843135" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="15" name="Mulish-Regular"/>
+                                                <color key="NSColor" red="0.68235294117647061" green="0.7254902124" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="14" name="Mulish-Regular"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="forgorPasswordButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="eUk-kF-4v7"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdn-bi-PcY" customClass="CustomCheckbox" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="47" y="494" width="281" height="20"/>
+                                <rect key="frame" x="47" y="496.33333333333331" width="281" height="19.999999999999943"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="KFy-ip-8zc"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pid-QN-egn" userLabel="Spacer 1">
+                                <rect key="frame" x="0.0" y="516.33333333333337" width="375" height="56.666666666666629"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63s-k0-IIf" customClass="CustomButton" customModule="PetLand" customModuleProvider="target">
+                                <rect key="frame" x="151" y="573" width="73" height="34.666666666666629"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Войти"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Войти">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="qbd-yT-78b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="headTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-0I-dHR">
+                                <rect key="frame" x="104" y="617.66666666666663" width="167" height="47"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment>
+                                            <string key="content">У вас еще нет аккаунта?
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.68235000000000001" green="0.72548999999999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="14" name="Mulish-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="28.299999237060547">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="56.650001525878906">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="85">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="113.34999847412109">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="141.69999694824219">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="170.05000305175781">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="198.39999389648438">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="226.75">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="255.10000610351562">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="283.45001220703125">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="311.79998779296875">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="340.14999389648438">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Зарегистрироваться">
+                                            <attributes>
+                                                <color key="NSColor" red="0.68235000000000001" green="0.72548999999999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="14" name="Mulish-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="28.299999237060547">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="56.650001525878906">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="85">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="113.34999847412109">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="141.69999694824219">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="170.05000305175781">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="198.39999389648438">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="226.75">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="255.10000610351562">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="283.45001220703125">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="311.79998779296875">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="340.14999389648438">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="registerButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sen-AZ-au7"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spU-pn-FS1" userLabel="Spacer 2">
+                                <rect key="frame" x="0.0" y="664.66666666666663" width="375" height="56.666666666666629"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMX-3y-Azt" userLabel="Spacer 3">
+                                <rect key="frame" x="0.0" y="721.33333333333337" width="375" height="56.666666666666629"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -79,29 +209,47 @@
                             <constraint firstItem="Z5v-j0-8dh" firstAttribute="centerX" secondItem="7c5-yD-znH" secondAttribute="centerX" id="0I7-ok-IdN"/>
                             <constraint firstItem="PWl-ju-esa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3Os-Ye-MhX"/>
                             <constraint firstItem="Pdn-bi-PcY" firstAttribute="leading" secondItem="C4J-vT-r4l" secondAttribute="leading" id="6dY-MD-g01"/>
+                            <constraint firstItem="Pid-QN-egn" firstAttribute="top" secondItem="Pdn-bi-PcY" secondAttribute="bottom" id="7WP-ST-Lbj"/>
+                            <constraint firstItem="KMX-3y-Azt" firstAttribute="top" secondItem="spU-pn-FS1" secondAttribute="bottom" id="97U-QS-n3m"/>
                             <constraint firstItem="C4J-vT-r4l" firstAttribute="centerX" secondItem="PWl-ju-esa" secondAttribute="centerX" id="9oq-MH-9TR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="spU-pn-FS1" secondAttribute="trailing" id="ETK-eO-hdT"/>
                             <constraint firstItem="Z5v-j0-8dh" firstAttribute="bottom" secondItem="7c5-yD-znH" secondAttribute="bottom" id="EhQ-t1-VJN"/>
                             <constraint firstItem="PWl-ju-esa" firstAttribute="top" secondItem="rpX-Ka-Bb2" secondAttribute="bottom" constant="20" id="Eod-0D-E6X"/>
                             <constraint firstItem="7c5-yD-znH" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.3" id="Mtv-3M-0xt"/>
                             <constraint firstItem="C4J-vT-r4l" firstAttribute="top" secondItem="PWl-ju-esa" secondAttribute="bottom" constant="25" id="Oux-c5-qXv"/>
+                            <constraint firstItem="jcP-0I-dHR" firstAttribute="bottom" secondItem="spU-pn-FS1" secondAttribute="top" id="PNQ-au-l72"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pid-QN-egn" secondAttribute="trailing" id="PcW-na-Rfy"/>
                             <constraint firstItem="rpX-Ka-Bb2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RBq-02-ZjR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KMX-3y-Azt" secondAttribute="bottom" id="Sap-Ug-hhm"/>
+                            <constraint firstItem="Pid-QN-egn" firstAttribute="height" secondItem="spU-pn-FS1" secondAttribute="height" id="UP2-Gi-3O2"/>
                             <constraint firstItem="Pdn-bi-PcY" firstAttribute="trailing" secondItem="C4J-vT-r4l" secondAttribute="trailing" id="VX1-kS-lFY"/>
+                            <constraint firstItem="spU-pn-FS1" firstAttribute="height" secondItem="KMX-3y-Azt" secondAttribute="height" id="Vbh-Ko-OUh"/>
                             <constraint firstItem="PWl-ju-esa" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.75" id="YdE-dE-jON"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KMX-3y-Azt" secondAttribute="trailing" id="ZTL-yA-e6k"/>
+                            <constraint firstItem="jcP-0I-dHR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZoE-2v-SW1"/>
+                            <constraint firstItem="Pid-QN-egn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="alk-Ls-MxW"/>
+                            <constraint firstItem="KMX-3y-Azt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cTm-br-UsQ"/>
                             <constraint firstItem="Pdn-bi-PcY" firstAttribute="top" secondItem="Zrk-YQ-pxq" secondAttribute="bottom" constant="5" id="eSI-Pu-z3C"/>
                             <constraint firstItem="7c5-yD-znH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="erI-GO-7bk"/>
                             <constraint firstItem="Z5v-j0-8dh" firstAttribute="width" secondItem="7c5-yD-znH" secondAttribute="width" multiplier="0.6" id="fNZ-IS-9Pl"/>
+                            <constraint firstItem="spU-pn-FS1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mhv-hj-cdQ"/>
                             <constraint firstItem="C4J-vT-r4l" firstAttribute="width" secondItem="PWl-ju-esa" secondAttribute="width" id="op1-zW-jAg"/>
                             <constraint firstItem="rpX-Ka-Bb2" firstAttribute="top" secondItem="Z5v-j0-8dh" secondAttribute="bottom" constant="20" id="rKl-vl-Efg"/>
                             <constraint firstItem="Zrk-YQ-pxq" firstAttribute="top" secondItem="C4J-vT-r4l" secondAttribute="bottom" constant="15" id="tpl-Df-N0u"/>
                             <constraint firstItem="7c5-yD-znH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="u2v-zT-3lu"/>
                             <constraint firstItem="7c5-yD-znH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wZs-gY-Cr8"/>
+                            <constraint firstItem="Pid-QN-egn" firstAttribute="bottom" secondItem="63s-k0-IIf" secondAttribute="top" id="wb2-Qi-DMF"/>
+                            <constraint firstItem="jcP-0I-dHR" firstAttribute="top" secondItem="63s-k0-IIf" secondAttribute="bottom" constant="10" id="ww4-ze-0DC"/>
+                            <constraint firstItem="63s-k0-IIf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zSZ-I7-I6p"/>
                             <constraint firstItem="Zrk-YQ-pxq" firstAttribute="trailing" secondItem="C4J-vT-r4l" secondAttribute="trailing" id="zkt-Jt-UvX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="forgotPasswordButton" destination="Zrk-YQ-pxq" id="w9L-5E-mBp"/>
+                        <outlet property="loginButton" destination="63s-k0-IIf" id="wEu-4W-MXI"/>
                         <outlet property="loginTextField" destination="PWl-ju-esa" id="f4j-0O-b2f"/>
                         <outlet property="passwordTextField" destination="C4J-vT-r4l" id="lmO-Ec-k5W"/>
+                        <outlet property="registerButton" destination="jcP-0I-dHR" id="rQD-dx-yR6"/>
                         <outlet property="staySignedInCheckbox" destination="Pdn-bi-PcY" id="ARU-xJ-gg3"/>
                     </connections>
                 </viewController>

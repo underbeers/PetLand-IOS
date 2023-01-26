@@ -14,6 +14,8 @@ class LoginVC: UIViewController {
     @IBOutlet var passwordTextField: CustomTextField!
     @IBOutlet var forgotPasswordButton: UIButton!
     @IBOutlet var staySignedInCheckbox: CustomCheckbox!
+    @IBOutlet var loginButton: CustomButton!
+    @IBOutlet var registerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,5 +25,23 @@ class LoginVC: UIViewController {
         loginTextField.configure(for: .email, required: true)
         passwordTextField.configure(for: .password, required: true)
         staySignedInCheckbox.configure(label: "Не выходить из аккаунта")
+        loginButton.configure(isFilled: true)
+        
+        // must override to show both lines
+        registerButton.titleLabel?.numberOfLines = 0
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func forgorPasswordButtonPressed() {
+        if let url = URL(string: "http://raezhov.fun") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func loginButtonPressed() {}
+    
+    @IBAction func registerButtonPressed() {}
 }

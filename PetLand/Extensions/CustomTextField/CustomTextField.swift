@@ -57,23 +57,27 @@ class CustomTextField: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-        self.backgroundColor = .none
+        backgroundColor = .none
         addSubview(view)
 
+        configureUI()
+    }
+
+    private func configureUI() {
         visibilityToggle.isHidden = true
         errorLabel.isHidden = true
 
         textField.layer.cornerRadius = 20
-
-        textField.layer.shadowColor = UIColor.cGreen.cgColor
         textField.layer.shadowOffset = .zero
-        textField.layer.shadowRadius = 2.5
-        textField.layer.shadowOpacity = 0
+        textField.delegate = self
 
+        // align input with corner curvature
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
         textField.leftViewMode = .always
         textField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
         textField.rightViewMode = .always
+
+        setShadowBlack()
     }
 
     // MARK: Actions
@@ -107,25 +111,29 @@ class CustomTextField: UIView {
     }
 
     private func displayError(_ error: String) {
-        textField.layer.shadowColor = UIColor.cRed.cgColor
+        setShadowRedActive()
         errorLabel.text = error
         errorLabel.isHidden = false
     }
 
     private func hideError() {
-        textField.layer.shadowColor = UIColor.cGreen.cgColor
+        setShadowGreen()
         errorLabel.isHidden = true
     }
-    
+
     @IBAction func onEditingBegin() {
         if errorLabel.isHidden {
-            textField.layer.shadowOpacity = 1
+            setShadowGreen()
+        } else {
+            setShadowRedActive()
         }
     }
-    
+
     @IBAction func onEditingEnd() {
         if errorLabel.isHidden {
-            textField.layer.shadowOpacity = 0
+            setShadowBlack()
+        } else {
+            setShadowRedPassive()
         }
     }
 }
@@ -190,9 +198,36 @@ extension CustomTextField {
     }
 }
 
+// MARK: Shadows
+
+extension CustomTextField {
+    private func setShadowBlack() {
+        textField.layer.shadowColor = UIColor.black.cgColor
+        textField.layer.shadowRadius = 5
+        textField.layer.shadowOpacity = 0.1
+    }
+
+    private func setShadowRedActive() {
+        textField.layer.shadowColor = UIColor.cRed.cgColor
+        textField.layer.shadowOpacity = 0.85
+    }
+
+    private func setShadowRedPassive() {
+        textField.layer.shadowColor = UIColor.cRed.cgColor
+        textField.layer.shadowOpacity = 0.4
+    }
+
+    private func setShadowGreen() {
+        textField.layer.shadowColor = UIColor.cGreen.cgColor
+        textField.layer.shadowOpacity = 0.85
+    }
+}
+
+// MARK: TextField Delegate
 
 extension CustomTextField: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
         return true
     }
 }
