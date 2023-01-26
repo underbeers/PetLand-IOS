@@ -7,8 +7,14 @@
 
 import UIKit
 
+@IBDesignable
 class CustomCheckbox: UIView {
     static let identifier = "CustomCheckbox"
+    
+    @IBInspectable var titleLabel: String? {
+        set { checkboxLabel.text = newValue}
+        get { checkboxLabel.text }
+    }
     
     @IBOutlet var checkboxToggle: UIButton!
     @IBOutlet var checkboxLabel: UILabel!
@@ -24,18 +30,18 @@ class CustomCheckbox: UIView {
     }
     
     private func setup() {
-        let nib = UINib(nibName: CustomCheckbox.identifier, bundle: nil)
-        guard let view = nib.instantiate(withOwner: self).first as? UIView
-        else { fatalError("Unable to convert nib") }
+        let bundle = Bundle(for: Self.self)
+        
+        guard let view = bundle.loadNibNamed(Self.identifier, owner: self, options: nil)?.first as? UIView
+        else { fatalError("Unable to load nib") }
         
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        backgroundColor = .none
         addSubview(view)
         
-        guard let offImage = UIImage(named: "petland:checkbox:off"),
-              let onImage = UIImage(named: "petland:checkbox:on")
+        guard let offImage = UIImage(named: "petland:checkbox:off", in: bundle, with: nil),
+              let onImage = UIImage(named: "petland:checkbox:on", in: bundle, with: nil)
         else { fatalError("Missing checkbox assets") }
         
         checkboxToggle.setImage(offImage, for: .normal)
@@ -44,8 +50,7 @@ class CustomCheckbox: UIView {
 }
 
 extension CustomCheckbox {
-    func configure(label: String, isChecked: Bool = false) {
-        checkboxLabel.text = label
+    func configure(isChecked: Bool = false) {
         checkboxToggle.isSelected = isChecked
     }
     

@@ -22,10 +22,8 @@ class LoginVC: UIViewController {
         
         view.backgroundColor = .cBackground
         
-        loginTextField.configure(for: .email, required: true)
-        passwordTextField.configure(for: .password, required: true)
-        staySignedInCheckbox.configure(label: "Не выходить из аккаунта")
-        loginButton.configure(isFilled: true)
+        loginTextField.configure(for: .email)
+        passwordTextField.configure(for: .password)
         
         // must override to show both lines
         registerButton.titleLabel?.numberOfLines = 0

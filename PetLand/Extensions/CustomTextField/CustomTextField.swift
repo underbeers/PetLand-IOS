@@ -7,6 +7,7 @@
 
 import UIKit
 
+@IBDesignable
 class CustomTextField: UIView {
     static let identifier = "CustomTextField"
 
@@ -30,7 +31,7 @@ class CustomTextField: UIView {
              custom(placeholder: String)
     }
 
-    private var isRequired: Bool = false
+    @IBInspectable var isRequired: Bool = false
     private var isSecure: Bool = true
     private var contentType: ContentType?
     private var validationType: ValidationType?
@@ -50,14 +51,14 @@ class CustomTextField: UIView {
     }
 
     private func setup() {
-        let nib = UINib(nibName: CustomTextField.identifier, bundle: nil)
-        guard let view = nib.instantiate(withOwner: self).first as? UIView
-        else { fatalError("Unable to convert nib") }
+        let bundle = Bundle(for: Self.self)
+
+        guard let view = bundle.loadNibNamed(Self.identifier, owner: self, options: nil)?.first as? UIView
+        else { fatalError("Unable to load nib") }
 
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-        backgroundColor = .none
         addSubview(view)
 
         configureUI()
@@ -141,10 +142,7 @@ class CustomTextField: UIView {
 // MARK: Configuration
 
 extension CustomTextField {
-    func configure(for type: ContentType,
-                   required: Bool = false)
-    {
-        isRequired = required
+    func configure(for type: ContentType) {
         switch type {
             case .firstName:
                 validationType = .name

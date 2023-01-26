@@ -6,10 +6,11 @@
 //
 import UIKit
 
+@IBDesignable
 class CustomButton: UIButton {
-    private var isFilled = true
-    private var isBold = true
-    private var accentColor = UIColor.cAccent1
+    @IBInspectable var isFilled: Bool = true
+    @IBInspectable var isBold: Bool = true
+    @IBInspectable var accentColor: UIColor = UIColor.cAccent1
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,13 +47,5 @@ class CustomButton: UIButton {
         }
 
         titleLabel?.numberOfLines = 1
-    }
-
-    func configure(isFilled: Bool = true, isBold: Bool = true, accentColor: UIColor = .cAccent1) {
-        self.isFilled = isFilled
-        self.isBold = isBold
-        self.accentColor = accentColor
-        
-        layoutSubviews()
     }
 }
