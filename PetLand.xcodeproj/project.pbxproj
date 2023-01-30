@@ -36,6 +36,9 @@
 		FF1D437D297437D100E3B172 /* Mulish-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D4369297437D000E3B172 /* Mulish-Italic-VariableFont_wght.ttf */; };
 		FF1D437E297437D100E3B172 /* Mulish-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D436A297437D000E3B172 /* Mulish-VariableFont_wght.ttf */; };
 		FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D43812974955300E3B172 /* ColorExtension.swift */; };
+		FF4C1CEB297EA536001526E2 /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C1CEA297EA536001526E2 /* CustomCheckbox.swift */; };
+		FF4C1CED297EA548001526E2 /* CustomCheckbox.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF4C1CEC297EA548001526E2 /* CustomCheckbox.xib */; };
+		FF4C1CF0297ECA09001526E2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C1CEF297ECA09001526E2 /* CustomButton.swift */; };
 		FF5BA5D829709B2A0049C57E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5D729709B2A0049C57E /* CustomTextField.swift */; };
 		FF5BA5DA29709B380049C57E /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5BA5D929709B380049C57E /* CustomTextField.xib */; };
 		FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DB2970AB060049C57E /* ValidationManager.swift */; };
@@ -74,6 +77,9 @@
 		FF1D4369297437D000E3B172 /* Mulish-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		FF1D436A297437D000E3B172 /* Mulish-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		FF1D43812974955300E3B172 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		FF4C1CEA297EA536001526E2 /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
+		FF4C1CEC297EA548001526E2 /* CustomCheckbox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCheckbox.xib; sourceTree = "<group>"; };
+		FF4C1CEF297ECA09001526E2 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FF5BA5D729709B2A0049C57E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		FF5BA5D929709B380049C57E /* CustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
 		FF5BA5DB2970AB060049C57E /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
@@ -193,6 +199,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FF4C1CE9297EA4D6001526E2 /* CustomCheckbox */ = {
+			isa = PBXGroup;
+			children = (
+				FF4C1CEA297EA536001526E2 /* CustomCheckbox.swift */,
+				FF4C1CEC297EA548001526E2 /* CustomCheckbox.xib */,
+			);
+			path = CustomCheckbox;
+			sourceTree = "<group>";
+		};
 		FF5BA5C529708D000049C57E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +219,9 @@
 		FF5BA5C629708D320049C57E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FF4C1CE9297EA4D6001526E2 /* CustomCheckbox */,
 				FF5BA5D629709B0A0049C57E /* CustomTextField */,
+				FF4C1CEF297ECA09001526E2 /* CustomButton.swift */,
 				FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */,
 				FF1D43812974955300E3B172 /* ColorExtension.swift */,
 			);
@@ -307,6 +324,7 @@
 				FF1D437A297437D100E3B172 /* Mulish-BoldItalic.ttf in Resources */,
 				FF1D436B297437D100E3B172 /* Mulish-LightItalic.ttf in Resources */,
 				FF1D436C297437D100E3B172 /* Mulish-ExtraBoldItalic.ttf in Resources */,
+				FF4C1CED297EA548001526E2 /* CustomCheckbox.xib in Resources */,
 				FF1D436E297437D100E3B172 /* Mulish-Regular.ttf in Resources */,
 				FF5BA5DA29709B380049C57E /* CustomTextField.xib in Resources */,
 				FF18D466296EAF5500DCB69E /* Auth.storyboard in Resources */,
@@ -322,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */,
+				FF4C1CF0297ECA09001526E2 /* CustomButton.swift in Sources */,
 				FF18D463296EAF5500DCB69E /* ViewController.swift in Sources */,
 				FF1D435029742AE700E3B172 /* LoginVC.swift in Sources */,
 				FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */,
@@ -329,6 +348,7 @@
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
 				FF5BA5D829709B2A0049C57E /* CustomTextField.swift in Sources */,
 				FF18D461296EAF5500DCB69E /* SceneDelegate.swift in Sources */,
+				FF4C1CEB297EA536001526E2 /* CustomCheckbox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
