@@ -43,6 +43,7 @@
 		FF5BA5DA29709B380049C57E /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5BA5D929709B380049C57E /* CustomTextField.xib */; };
 		FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DB2970AB060049C57E /* ValidationManager.swift */; };
 		FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */; };
+		FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72EFEA2988206700C20AF5 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		FF5BA5D929709B380049C57E /* CustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
 		FF5BA5DB2970AB060049C57E /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexExtension.swift; sourceTree = "<group>"; };
+		FF72EFEA2988206700C20AF5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				FF5BA5DB2970AB060049C57E /* ValidationManager.swift */,
+				FF72EFEA2988206700C20AF5 /* APIService.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				FF4C1CF0297ECA09001526E2 /* CustomButton.swift in Sources */,
 				FF18D463296EAF5500DCB69E /* ViewController.swift in Sources */,
 				FF1D435029742AE700E3B172 /* LoginVC.swift in Sources */,
+				FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */,
 				FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */,
 				FF18D45F296EAF5500DCB69E /* AppDelegate.swift in Sources */,
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
