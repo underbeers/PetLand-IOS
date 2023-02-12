@@ -16,17 +16,17 @@ extension URLSession {
     ) -> URLSessionDataTask {
         dataTask(with: urlRequest) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                DispatchQueue.main.async { completion(.failure(error)) }
                 return
             }
 
             guard let response = response
             else {
-                completion(.failure(APIService.Error.noData))
+                DispatchQueue.main.async { completion(.failure(APIService.Error.noData)) }
                 return
             }
 
-            completion(.success((response, data)))
+            DispatchQueue.main.async { completion(.success((response, data))) }
         }
     }
 }
@@ -75,7 +75,7 @@ extension APIEndPoint {
 
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod
-        
+
         headers?.forEach { header, value in
             urlRequest.setValue(value, forHTTPHeaderField: header)
         }

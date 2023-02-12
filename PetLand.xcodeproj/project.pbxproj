@@ -10,7 +10,6 @@
 		FF18D45F296EAF5500DCB69E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18D45E296EAF5500DCB69E /* AppDelegate.swift */; };
 		FF18D461296EAF5500DCB69E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18D460296EAF5500DCB69E /* SceneDelegate.swift */; };
 		FF18D463296EAF5500DCB69E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18D462296EAF5500DCB69E /* ViewController.swift */; };
-		FF18D466296EAF5500DCB69E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF18D464296EAF5500DCB69E /* Auth.storyboard */; };
 		FF18D468296EAF5600DCB69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF18D467296EAF5600DCB69E /* Assets.xcassets */; };
 		FF18D46B296EAF5600DCB69E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF18D469296EAF5600DCB69E /* LaunchScreen.storyboard */; };
 		FF1D435029742AE700E3B172 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D434F29742AE700E3B172 /* LoginVC.swift */; };
@@ -43,7 +42,14 @@
 		FF5BA5DA29709B380049C57E /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5BA5D929709B380049C57E /* CustomTextField.xib */; };
 		FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DB2970AB060049C57E /* ValidationManager.swift */; };
 		FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */; };
+		FF63CA1329897C7A005D83D3 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63CA1229897C7A005D83D3 /* LoginRouter.swift */; };
 		FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72EFEA2988206700C20AF5 /* APIService.swift */; };
+		FF8D1258299939590083F901 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8D1257299939590083F901 /* Navigation.storyboard */; };
+		FF8D125B299947B90083F901 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8D125A299947B90083F901 /* Auth.storyboard */; };
+		FF931EEE29896050003F829F /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EED29896050003F829F /* LoginProtocols.swift */; };
+		FF931EF029896058003F829F /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EEF29896058003F829F /* LoginInteractor.swift */; };
+		FF931EF229896060003F829F /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EF129896060003F829F /* LoginPresenter.swift */; };
+		FF931EF4298961E5003F829F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EF3298961E5003F829F /* AuthManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +57,6 @@
 		FF18D45E296EAF5500DCB69E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF18D460296EAF5500DCB69E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FF18D462296EAF5500DCB69E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FF18D465296EAF5500DCB69E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
 		FF18D467296EAF5600DCB69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF18D46A296EAF5600DCB69E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF18D46C296EAF5600DCB69E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,7 +90,14 @@
 		FF5BA5D929709B380049C57E /* CustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
 		FF5BA5DB2970AB060049C57E /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexExtension.swift; sourceTree = "<group>"; };
+		FF63CA1229897C7A005D83D3 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		FF72EFEA2988206700C20AF5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		FF8D1257299939590083F901 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
+		FF8D125A299947B90083F901 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Auth.storyboard; path = PetLand/Views/Auth/Auth.storyboard; sourceTree = SOURCE_ROOT; };
+		FF931EED29896050003F829F /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
+		FF931EEF29896058003F829F /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		FF931EF129896060003F829F /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		FF931EF3298961E5003F829F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +148,7 @@
 		FF1D434D29742AC500E3B172 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FF18D464296EAF5500DCB69E /* Auth.storyboard */,
+				FF8D125A299947B90083F901 /* Auth.storyboard */,
 				FF1D434E29742ACE00E3B172 /* Login */,
 			);
 			path = Auth;
@@ -146,6 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				FF1D434F29742AE700E3B172 /* LoginVC.swift */,
+				FF931EED29896050003F829F /* LoginProtocols.swift */,
+				FF931EEF29896058003F829F /* LoginInteractor.swift */,
+				FF931EF129896060003F829F /* LoginPresenter.swift */,
+				FF63CA1229897C7A005D83D3 /* LoginRouter.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -214,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				FF1D434D29742AC500E3B172 /* Auth */,
+				FF8D12562999392E0083F901 /* Main */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +252,7 @@
 			children = (
 				FF5BA5DB2970AB060049C57E /* ValidationManager.swift */,
 				FF72EFEA2988206700C20AF5 /* APIService.swift */,
+				FF931EF3298961E5003F829F /* AuthManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -246,6 +264,14 @@
 				FF5BA5D929709B380049C57E /* CustomTextField.xib */,
 			);
 			path = CustomTextField;
+			sourceTree = "<group>";
+		};
+		FF8D12562999392E0083F901 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FF8D1257299939590083F901 /* Navigation.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8D125B299947B90083F901 /* Auth.storyboard in Resources */,
 				FF1D4370297437D100E3B172 /* Mulish-BlackItalic.ttf in Resources */,
 				FF1D4373297437D100E3B172 /* Mulish-Bold.ttf in Resources */,
 				FF1D4372297437D100E3B172 /* Mulish-ExtraLightItalic.ttf in Resources */,
@@ -316,6 +343,7 @@
 				FF1D436F297437D100E3B172 /* Mulish-Black.ttf in Resources */,
 				FF1D4377297437D100E3B172 /* Mulish-Medium.ttf in Resources */,
 				FF1D4376297437D100E3B172 /* Mulish-ExtraLight.ttf in Resources */,
+				FF8D1258299939590083F901 /* Navigation.storyboard in Resources */,
 				FF1D4379297437D100E3B172 /* Mulish-SemiBold.ttf in Resources */,
 				FF1D436D297437D100E3B172 /* Mulish-Italic.ttf in Resources */,
 				FF1D4374297437D100E3B172 /* Mulish-Light.ttf in Resources */,
@@ -330,7 +358,6 @@
 				FF4C1CED297EA548001526E2 /* CustomCheckbox.xib in Resources */,
 				FF1D436E297437D100E3B172 /* Mulish-Regular.ttf in Resources */,
 				FF5BA5DA29709B380049C57E /* CustomTextField.xib in Resources */,
-				FF18D466296EAF5500DCB69E /* Auth.storyboard in Resources */,
 				FF1D437D297437D100E3B172 /* Mulish-Italic-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,13 +371,18 @@
 			files = (
 				FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */,
 				FF4C1CF0297ECA09001526E2 /* CustomButton.swift in Sources */,
+				FF931EF229896060003F829F /* LoginPresenter.swift in Sources */,
 				FF18D463296EAF5500DCB69E /* ViewController.swift in Sources */,
+				FF931EF4298961E5003F829F /* AuthManager.swift in Sources */,
 				FF1D435029742AE700E3B172 /* LoginVC.swift in Sources */,
+				FF63CA1329897C7A005D83D3 /* LoginRouter.swift in Sources */,
 				FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */,
 				FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */,
 				FF18D45F296EAF5500DCB69E /* AppDelegate.swift in Sources */,
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
 				FF5BA5D829709B2A0049C57E /* CustomTextField.swift in Sources */,
+				FF931EEE29896050003F829F /* LoginProtocols.swift in Sources */,
+				FF931EF029896058003F829F /* LoginInteractor.swift in Sources */,
 				FF18D461296EAF5500DCB69E /* SceneDelegate.swift in Sources */,
 				FF4C1CEB297EA536001526E2 /* CustomCheckbox.swift in Sources */,
 			);
@@ -359,14 +391,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FF18D464296EAF5500DCB69E /* Auth.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF18D465296EAF5500DCB69E /* Base */,
-			);
-			name = Auth.storyboard;
-			sourceTree = "<group>";
-		};
 		FF18D469296EAF5600DCB69E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
