@@ -8,10 +8,16 @@ import UIKit
 
 @IBDesignable
 class CustomButton: UIButton {
+    override var isEnabled: Bool {
+        didSet {
+            layoutSubviews()
+        }
+    }
+
     @IBInspectable var isFilled: Bool = true
     @IBInspectable var isBold: Bool = true
-    @IBInspectable var accentColor: UIColor = UIColor.cAccent1
-    
+    @IBInspectable var accentColor: UIColor = .cAccent1
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -26,18 +32,20 @@ class CustomButton: UIButton {
         configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
         layer.cornerRadius = 15
         clipsToBounds = true
+
+        layoutSubviews()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         if isFilled {
-            backgroundColor = accentColor
+            backgroundColor = accentColor.withAlphaComponent(isEnabled ? 1 : 0.75)
             titleLabel?.textColor = .white
         } else {
             backgroundColor = .clear
             titleLabel?.textColor = .cText
             layer.borderWidth = 3
-            layer.borderColor = accentColor.cgColor
+            layer.borderColor = accentColor.withAlphaComponent(isEnabled ? 1 : 0.5).cgColor
         }
 
         if isBold {

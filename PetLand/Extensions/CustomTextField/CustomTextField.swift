@@ -35,6 +35,15 @@ class CustomTextField: UIView {
     private var isSecure: Bool = true
     private var contentType: ContentType?
     private var validationType: ValidationType?
+    private var delegate: CustomTextFieldDelegate?
+
+    var text: String {
+        textField.text ?? ""
+    }
+
+    var isValid: Bool {
+        errorLabel.isHidden && (!isRequired || textField.hasText)
+    }
 
     private let validationManager: ValidationManagerProtocol = ValidationManager.shared
 
@@ -98,6 +107,8 @@ class CustomTextField: UIView {
         } else {
             hideError()
         }
+        
+        delegate?.onEditingChanged()
     }
 
     @IBAction func onVisibilityTogglePress() {
@@ -142,7 +153,9 @@ class CustomTextField: UIView {
 // MARK: Configuration
 
 extension CustomTextField {
-    func configure(for type: ContentType) {
+    func configure(for type: ContentType, delegate: CustomTextFieldDelegate? = nil) {
+        self.delegate = delegate
+        
         switch type {
             case .firstName:
                 validationType = .name
@@ -228,4 +241,10 @@ extension CustomTextField: UITextFieldDelegate {
         endEditing(true)
         return true
     }
+}
+
+// MARK: CustomTextField Delegate
+
+protocol CustomTextFieldDelegate {
+    func onEditingChanged()
 }
