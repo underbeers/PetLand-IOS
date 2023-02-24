@@ -46,6 +46,11 @@
 		FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72EFEA2988206700C20AF5 /* APIService.swift */; };
 		FF8D1258299939590083F901 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8D1257299939590083F901 /* Navigation.storyboard */; };
 		FF8D125B299947B90083F901 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8D125A299947B90083F901 /* Auth.storyboard */; };
+		FF8D125E299957940083F901 /* RegistrationPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D125D299957940083F901 /* RegistrationPageVC.swift */; };
+		FF8D12612999585F0083F901 /* RegistrationPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D12602999585E0083F901 /* RegistrationPage1.swift */; };
+		FF8D12632999586C0083F901 /* RegistrationPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D12622999586C0083F901 /* RegistrationPage2.swift */; };
+		FF8D1265299958780083F901 /* RegistrationPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1264299958780083F901 /* RegistrationPage3.swift */; };
+		FF8D1267299962E20083F901 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1266299962E20083F901 /* RegistrationVC.swift */; };
 		FF931EEE29896050003F829F /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EED29896050003F829F /* LoginProtocols.swift */; };
 		FF931EF029896058003F829F /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EEF29896058003F829F /* LoginInteractor.swift */; };
 		FF931EF229896060003F829F /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EF129896060003F829F /* LoginPresenter.swift */; };
@@ -94,6 +99,11 @@
 		FF72EFEA2988206700C20AF5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FF8D1257299939590083F901 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		FF8D125A299947B90083F901 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Auth.storyboard; path = PetLand/Views/Auth/Auth.storyboard; sourceTree = SOURCE_ROOT; };
+		FF8D125D299957940083F901 /* RegistrationPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageVC.swift; sourceTree = "<group>"; };
+		FF8D12602999585E0083F901 /* RegistrationPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage1.swift; sourceTree = "<group>"; };
+		FF8D12622999586C0083F901 /* RegistrationPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2.swift; sourceTree = "<group>"; };
+		FF8D1264299958780083F901 /* RegistrationPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage3.swift; sourceTree = "<group>"; };
+		FF8D1266299962E20083F901 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		FF931EED29896050003F829F /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		FF931EEF29896058003F829F /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		FF931EF129896060003F829F /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -150,6 +160,7 @@
 			children = (
 				FF8D125A299947B90083F901 /* Auth.storyboard */,
 				FF1D434E29742ACE00E3B172 /* Login */,
+				FF8D125C299957620083F901 /* Registration */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -274,6 +285,26 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		FF8D125C299957620083F901 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				FF8D125D299957940083F901 /* RegistrationPageVC.swift */,
+				FF8D125F2999580B0083F901 /* Pages */,
+				FF8D1266299962E20083F901 /* RegistrationVC.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		FF8D125F2999580B0083F901 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				FF8D12602999585E0083F901 /* RegistrationPage1.swift */,
+				FF8D12622999586C0083F901 /* RegistrationPage2.swift */,
+				FF8D1264299958780083F901 /* RegistrationPage3.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -373,17 +404,22 @@
 				FF4C1CF0297ECA09001526E2 /* CustomButton.swift in Sources */,
 				FF931EF229896060003F829F /* LoginPresenter.swift in Sources */,
 				FF18D463296EAF5500DCB69E /* ViewController.swift in Sources */,
+				FF8D125E299957940083F901 /* RegistrationPageVC.swift in Sources */,
+				FF8D1265299958780083F901 /* RegistrationPage3.swift in Sources */,
 				FF931EF4298961E5003F829F /* AuthManager.swift in Sources */,
 				FF1D435029742AE700E3B172 /* LoginVC.swift in Sources */,
 				FF63CA1329897C7A005D83D3 /* LoginRouter.swift in Sources */,
 				FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */,
+				FF8D12612999585F0083F901 /* RegistrationPage1.swift in Sources */,
 				FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */,
 				FF18D45F296EAF5500DCB69E /* AppDelegate.swift in Sources */,
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
+				FF8D12632999586C0083F901 /* RegistrationPage2.swift in Sources */,
 				FF5BA5D829709B2A0049C57E /* CustomTextField.swift in Sources */,
 				FF931EEE29896050003F829F /* LoginProtocols.swift in Sources */,
 				FF931EF029896058003F829F /* LoginInteractor.swift in Sources */,
 				FF18D461296EAF5500DCB69E /* SceneDelegate.swift in Sources */,
+				FF8D1267299962E20083F901 /* RegistrationVC.swift in Sources */,
 				FF4C1CEB297EA536001526E2 /* CustomCheckbox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
