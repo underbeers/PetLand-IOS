@@ -55,7 +55,7 @@ class ValidationManager: ValidationManagerProtocol {
     }
     
     private func isValidName(_ input: String) -> String? {
-        let regex = /[a-zA-Zа-яА-Я \-'‘’]/
+        let regex = /[a-zA-Zа-яА-Я \-'‘’]+/
         return regex.check(for: input) ? nil : "Неподдерживаемый символ"
     }
 

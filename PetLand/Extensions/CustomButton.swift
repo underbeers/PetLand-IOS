@@ -31,13 +31,17 @@ class CustomButton: UIButton {
     private func setup() {
         configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
         layer.cornerRadius = 15
-        clipsToBounds = true
-
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setup()
         layoutSubviews()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
+
         if isFilled {
             backgroundColor = accentColor.withAlphaComponent(isEnabled ? 1 : 0.75)
             titleLabel?.textColor = .white
