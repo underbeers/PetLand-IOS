@@ -12,10 +12,12 @@ class RegistrationPage2: UIViewController {
     
     @IBOutlet var emailTF: CustomTextField!
     @IBOutlet var sendCodeButton: CustomButton!
+    @IBOutlet var waitLabel: UILabel!
     @IBOutlet var codeTF: CustomTextField!
     @IBOutlet var nextButton: CustomButton!
     
     private var completion: (() -> ())?
+    private var secondsLeft: Int = 30
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,22 @@ class RegistrationPage2: UIViewController {
     @IBAction func onSendCodeButtonPress() {
         let code = Int.random(in: 100_000 ... 999_999)
         print(code)
+        
+        secondsLeft = 30
+        waitLabel.text = "Подождите \(secondsLeft) секунд"
+        waitLabel.isHidden = false        
+        sendCodeButton.isEnabled = false
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            self?.secondsLeft -= 1
+            if self?.secondsLeft == 0 {
+                self?.waitLabel.isHidden = true
+                self?.sendCodeButton.isEnabled = true
+                timer.invalidate()
+            } else {
+                self?.waitLabel.text = "Подождите \(self?.secondsLeft ?? 0) секунд"
+            }
+        }
     }
     
     @IBAction func onNextButtonPress() {
