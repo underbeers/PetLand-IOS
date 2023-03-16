@@ -14,7 +14,8 @@ class RegistrationPage3: UIViewController {
     @IBOutlet var confirmPasswordTF: CustomTextField!
     @IBOutlet var finishButton: CustomButton!
 
-    private var completion: (() -> ())?
+    private var model: RegistrationUserModel?
+    private var interactor: RegistrationBusinessLogic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +25,14 @@ class RegistrationPage3: UIViewController {
     }
 
     @IBAction func onNextButtonPress() {
-        completion?()
+        interactor?.model.password = newPasswordTF.text
+        interactor?.register()
     }
 }
 
 extension RegistrationPage3: RegistrationPageProtocol {
-    func configure(_ completion: @escaping () -> ()) {
-        self.completion = completion
+    func configure(interactor: RegistrationBusinessLogic?) {
+        self.interactor = interactor
     }
 }
 

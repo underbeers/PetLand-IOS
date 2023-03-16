@@ -20,6 +20,7 @@ enum ValidationType {
 
 protocol ValidationManagerProtocol {
     func validate(_ input: String, as type: ValidationType?) -> String?
+    func generateVerificationCode() -> Int
 }
 
 class ValidationManager: ValidationManagerProtocol {
@@ -28,6 +29,11 @@ class ValidationManager: ValidationManagerProtocol {
     private var verificationCode: Int?
     private var newPassword: String?
 
+    func generateVerificationCode() -> Int {
+        verificationCode = Int.random(in: 100_000 ... 999_999)
+        return verificationCode!
+    }
+    
     func validate(_ input: String, as type: ValidationType?) -> String? {
         getFunction(for: type)(input)
     }
@@ -40,6 +46,7 @@ class ValidationManager: ValidationManagerProtocol {
             case .email: return isValidEmail(_:)
             case .password: return isValidPassword(_:)
             case .confirmPassword: return isValidConfirmPassword(_:)
+            case .verificationCode: return isValidVerificationCode(_:)
             default: return { _ in nil }
         }
     }

@@ -286,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="50" y="-56"/>
         </scene>
-        <!--RegistrationVC-->
+        <!--Registration ContainerVC-->
         <scene sceneID="Nhe-7o-Yu6">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="MfE-qU-ms0" customClass="RegistrationVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="MfE-qU-ms0" customClass="RegistrationContainerVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VgO-qS-11h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -312,7 +312,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5H-Fy-16V">
                                 <rect key="frame" x="0.0" y="340" width="375" height="367"/>
                                 <connections>
-                                    <segue destination="VvS-Wj-qnm" kind="embed" id="Mg4-wi-89h"/>
+                                    <segue destination="VvS-Wj-qnm" kind="embed" id="ppi-32-drg"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="headTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b84-kS-T7H">
@@ -534,7 +534,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aX3-Zy-a35" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2617" y="-56"/>
+            <point key="canvasLocation" x="2616.8000000000002" y="-56.157635467980299"/>
         </scene>
         <!--Page 2-->
         <scene sceneID="uoN-Gg-3RO">
@@ -729,10 +729,10 @@
             </objects>
             <point key="canvasLocation" x="4000.8000000000002" y="-56.157635467980299"/>
         </scene>
-        <!--Registration PageVC-->
+        <!--RegistrationVC-->
         <scene sceneID="IOQ-QS-XGu">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="VvS-Wj-qnm" customClass="RegistrationPageVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="VvS-Wj-qnm" customClass="RegistrationVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="yVR-UD-TSr" kind="show" identifier="showNavigation" id="ZxY-ie-cC4"/>
                     </connections>
@@ -770,7 +770,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Drc-Xc-Nhy"/>
+        <segue reference="ZxY-ie-cC4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="petland:cutelogo" width="796" height="940"/>

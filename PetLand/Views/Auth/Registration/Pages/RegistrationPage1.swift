@@ -14,7 +14,8 @@ class RegistrationPage1: UIViewController {
     @IBOutlet var lastNameTF: CustomTextField!
     @IBOutlet var nextButton: CustomButton!
 
-    private var completion: (() -> ())?
+    private var model: RegistrationUserModel?
+    private var interactor: RegistrationBusinessLogic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +25,15 @@ class RegistrationPage1: UIViewController {
     }
 
     @IBAction func onNextButtonPress() {
-        completion?()
+        interactor?.model.firstName = firstNameTF.text
+        interactor?.model.lastName = lastNameTF.text
+        interactor?.advancePage()
     }
 }
 
 extension RegistrationPage1: RegistrationPageProtocol {
-    func configure(_ completion: @escaping () -> ()) {
-        self.completion = completion
+    func configure(interactor: RegistrationBusinessLogic?) {
+        self.interactor = interactor
     }
 }
 
