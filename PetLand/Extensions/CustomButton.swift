@@ -8,12 +8,6 @@ import UIKit
 
 @IBDesignable
 class CustomButton: UIButton {
-    override var isEnabled: Bool {
-        didSet {
-            layoutSubviews()
-        }
-    }
-
     @IBInspectable var isFilled: Bool = true
     @IBInspectable var isBold: Bool = true
     @IBInspectable var accentColor: UIColor = .cAccent1
@@ -47,9 +41,9 @@ class CustomButton: UIButton {
             titleLabel?.textColor = .white
         } else {
             backgroundColor = .clear
-            titleLabel?.textColor = .cText
+            titleLabel?.textColor = .cText.withAlphaComponent(isEnabled ? 1 : 0.75)
             layer.borderWidth = 3
-            layer.borderColor = accentColor.withAlphaComponent(isEnabled ? 1 : 0.5).cgColor
+            layer.borderColor = accentColor.withAlphaComponent(isEnabled ? 1 : 0.75).cgColor
         }
 
         if isBold {

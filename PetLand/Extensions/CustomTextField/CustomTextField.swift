@@ -38,7 +38,12 @@ class CustomTextField: UIView {
     private var delegate: CustomTextFieldDelegate?
 
     var text: String {
-        textField.text ?? ""
+        get {
+            textField.text ?? ""
+        }
+        set {
+            textField.text = newValue
+        }
     }
 
     var isValid: Bool {

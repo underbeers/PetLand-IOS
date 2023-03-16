@@ -11,6 +11,9 @@
         <array key="Mulish-Bold.ttf">
             <string>Mulish-Bold</string>
         </array>
+        <array key="Mulish-Regular.ttf">
+            <string>Mulish-Regular</string>
+        </array>
         <array key="Mulish-SemiBold.ttf">
             <string>Mulish-SemiBold</string>
         </array>
@@ -93,7 +96,7 @@
                                 <color key="textColor" red="1" green="0.32941177490000001" blue="0.32941177490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63s-k0-IIf" customClass="CustomButton" customModule="PetLand" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63s-k0-IIf" customClass="CustomButton" customModule="PetLand" customModuleProvider="target">
                                 <rect key="frame" x="140.33333333333334" y="612.66666666666663" width="94.333333333333343" height="42.666666666666629"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -283,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="50" y="-56"/>
         </scene>
-        <!--RegistrationVC-->
+        <!--Registration ContainerVC-->
         <scene sceneID="Nhe-7o-Yu6">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="MfE-qU-ms0" customClass="RegistrationVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="MfE-qU-ms0" customClass="RegistrationContainerVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VgO-qS-11h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,7 +312,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5H-Fy-16V">
                                 <rect key="frame" x="0.0" y="340" width="375" height="367"/>
                                 <connections>
-                                    <segue destination="VvS-Wj-qnm" kind="embed" id="Mg4-wi-89h"/>
+                                    <segue destination="VvS-Wj-qnm" kind="embed" id="ppi-32-drg"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="headTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b84-kS-T7H">
@@ -531,7 +534,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aX3-Zy-a35" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2617" y="-56"/>
+            <point key="canvasLocation" x="2616.8000000000002" y="-56.157635467980299"/>
         </scene>
         <!--Page 2-->
         <scene sceneID="uoN-Gg-3RO">
@@ -556,8 +559,8 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRequired" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6X-nO-LZa" customClass="CustomButton" customModule="PetLand" customModuleProvider="target">
-                                                <rect key="frame" x="61.666666666666671" y="72.999999999999986" width="157.66666666666663" height="40.333333333333329"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6X-nO-LZa" customClass="CustomButton" customModule="PetLand" customModuleProvider="target">
+                                                <rect key="frame" x="62.000000000000014" y="72.999999999999986" width="157.33333333333337" height="40.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Отправить код"/>
                                                 <userDefinedRuntimeAttributes>
@@ -577,10 +580,18 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRequired" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подождите 30 секунд" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyc-eg-weM">
+                                                <rect key="frame" x="76.666666666666657" y="113.33333333333333" width="127.66666666666666" height="15.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="12"/>
+                                                <color key="textColor" red="0.56078433989999998" green="0.61176472900000001" blue="0.7019608021" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="Cyc-eg-weM" firstAttribute="centerX" secondItem="T6X-nO-LZa" secondAttribute="centerX" id="3yx-9e-A9g"/>
                                             <constraint firstItem="ynT-gD-OzG" firstAttribute="leading" secondItem="2Cg-0S-XKf" secondAttribute="leading" id="71k-e6-VnV"/>
                                             <constraint firstItem="T6X-nO-LZa" firstAttribute="centerX" secondItem="2Cg-0S-XKf" secondAttribute="centerX" id="SHb-4a-Bk7"/>
+                                            <constraint firstItem="Cyc-eg-weM" firstAttribute="top" secondItem="T6X-nO-LZa" secondAttribute="bottom" id="XqD-py-Ij1"/>
                                             <constraint firstItem="ynT-gD-OzG" firstAttribute="top" secondItem="T6X-nO-LZa" secondAttribute="bottom" constant="28" id="bm4-zi-twr"/>
                                             <constraint firstAttribute="bottom" secondItem="ynT-gD-OzG" secondAttribute="bottom" id="euo-5P-ssQ"/>
                                             <constraint firstItem="ynT-gD-OzG" firstAttribute="width" secondItem="cWP-Ti-SHD" secondAttribute="width" id="fIO-CL-4Dk"/>
@@ -627,11 +638,12 @@
                         <outlet property="emailTF" destination="cWP-Ti-SHD" id="raK-Ui-dH0"/>
                         <outlet property="nextButton" destination="hb3-3d-r8n" id="eEM-MT-e16"/>
                         <outlet property="sendCodeButton" destination="T6X-nO-LZa" id="WhP-zV-xZp"/>
+                        <outlet property="waitLabel" destination="Cyc-eg-weM" id="Byn-Vw-7fg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXr-s8-7u3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3302" y="-56"/>
+            <point key="canvasLocation" x="3301.5999999999999" y="-56.157635467980299"/>
         </scene>
         <!--Page 3-->
         <scene sceneID="z7j-ax-oLT">
@@ -717,10 +729,10 @@
             </objects>
             <point key="canvasLocation" x="4000.8000000000002" y="-56.157635467980299"/>
         </scene>
-        <!--Registration PageVC-->
+        <!--RegistrationVC-->
         <scene sceneID="IOQ-QS-XGu">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="VvS-Wj-qnm" customClass="RegistrationPageVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="VvS-Wj-qnm" customClass="RegistrationVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="yVR-UD-TSr" kind="show" identifier="showNavigation" id="ZxY-ie-cC4"/>
                     </connections>
@@ -758,7 +770,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Drc-Xc-Nhy"/>
+        <segue reference="ZxY-ie-cC4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="petland:cutelogo" width="796" height="940"/>

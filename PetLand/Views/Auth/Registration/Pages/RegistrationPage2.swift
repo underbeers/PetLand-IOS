@@ -12,36 +12,65 @@ class RegistrationPage2: UIViewController {
     
     @IBOutlet var emailTF: CustomTextField!
     @IBOutlet var sendCodeButton: CustomButton!
+    @IBOutlet var waitLabel: UILabel!
     @IBOutlet var codeTF: CustomTextField!
     @IBOutlet var nextButton: CustomButton!
     
-    private var completion: (() -> ())?
+    private var interactor: RegistrationBusinessLogic?
+    
+    private var secondsLeft: Int = 30
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sendCodeButton.isEnabled = false
         
         emailTF.configure(for: .email, delegate: self)
         codeTF.configure(for: .verificationCode, delegate: self)
     }
     
     @IBAction func onSendCodeButtonPress() {
-        let code = Int.random(in: 100_000 ... 999_999)
-        print(code)
+        let code = ValidationManager.shared.generateVerificationCode()
+        interactor?.verifyEmail(email: emailTF.text, code: code)
+        
+        secondsLeft = 30
+        waitLabel.text = "Подождите \(secondsLeft) секунд"
+        waitLabel.isHidden = false        
+        codeTF.text = ""
+        updateSendCodeButton()
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            self?.secondsLeft -= 1
+            if self?.secondsLeft == 0 {
+                self?.waitLabel.isHidden = true
+                self?.updateSendCodeButton()
+                timer.invalidate()
+            } else {
+                self?.waitLabel.text = "Подождите \(self?.secondsLeft ?? 0) секунд"
+            }
+        }
+    }
+    
+    func updateSendCodeButton() {
+        sendCodeButton.isEnabled = emailTF.isValid && waitLabel.isHidden
     }
     
     @IBAction func onNextButtonPress() {
-        completion?()
+        interactor?.model.email = emailTF.text
+        interactor?.advancePage()
     }
 }
 
 extension RegistrationPage2: RegistrationPageProtocol {
-    func configure(_ completion: @escaping () -> ()) {
-        self.completion = completion
+    func configure(interactor: RegistrationBusinessLogic?) {
+        self.interactor = interactor
     }
 }
 
 extension RegistrationPage2: CustomTextFieldDelegate {
     func onEditingChanged() {
+        updateSendCodeButton()
         nextButton.isEnabled = emailTF.isValid && codeTF.isValid
+        codeTF.isUserInteractionEnabled = !codeTF.isValid
     }
 }

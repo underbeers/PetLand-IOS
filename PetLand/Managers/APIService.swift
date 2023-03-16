@@ -58,7 +58,7 @@ protocol APIEndPoint {
     var baseURLString: String { get }
     var path: String { get }
     var headers: [String: String]? { get }
-    var body: [String: String]? { get }
+    var encodedBody: Result<Data?, Error> { get }
 }
 
 extension APIEndPoint {
@@ -80,12 +80,12 @@ extension APIEndPoint {
             urlRequest.setValue(value, forHTTPHeaderField: header)
         }
 
-        guard let httpBody = try? JSONEncoder().encode(body)
-        else {
-            completion(.failure(APIService.Error.encodeError))
-            return
+        switch encodedBody {
+            case .success(let data):
+                urlRequest.httpBody = data
+            case .failure(let error):
+                completion(.failure(error))
         }
-        urlRequest.httpBody = httpBody
 
         URLSession.shared.makeRequest(urlRequest) { result in
             switch result {
