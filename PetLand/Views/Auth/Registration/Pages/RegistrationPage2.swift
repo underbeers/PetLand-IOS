@@ -10,11 +10,11 @@ import UIKit
 class RegistrationPage2: UIViewController {
     static let id = "Registration.Page2"
     
-    @IBOutlet var emailTF: CustomTextField!
-    @IBOutlet var sendCodeButton: CustomButton!
+    @IBOutlet var emailTF: OldCustomTextField!
+    @IBOutlet var sendCodeButton: OldCustomButton!
     @IBOutlet var waitLabel: UILabel!
-    @IBOutlet var codeTF: CustomTextField!
-    @IBOutlet var nextButton: CustomButton!
+    @IBOutlet var codeTF: OldCustomTextField!
+    @IBOutlet var nextButton: OldCustomButton!
     
     private var interactor: RegistrationBusinessLogic?
     

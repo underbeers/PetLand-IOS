@@ -10,9 +10,9 @@ import UIKit
 class RegistrationPage1: UIViewController {
     static let id = "Registration.Page1"
 
-    @IBOutlet var firstNameTF: CustomTextField!
-    @IBOutlet var lastNameTF: CustomTextField!
-    @IBOutlet var nextButton: CustomButton!
+    @IBOutlet var firstNameTF: OldCustomTextField!
+    @IBOutlet var lastNameTF: OldCustomTextField!
+    @IBOutlet var nextButton: OldCustomButton!
 
     private var model: RegistrationUserModel?
     private var interactor: RegistrationBusinessLogic?

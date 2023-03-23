@@ -12,7 +12,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomTextField" customModule="PetLand" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OldCustomTextField" customModule="PetLand" customModuleProvider="target">
             <connections>
                 <outlet property="errorLabel" destination="jHt-jC-edD" id="yIw-yw-9qe"/>
                 <outlet property="textField" destination="siq-C8-xs4" id="vfP-SV-6SL"/>

@@ -10,12 +10,12 @@ import UIKit
 class LoginVC: UIViewController {
     static let identifier = "Auth.Login"
     
-    @IBOutlet var loginTextField: CustomTextField!
-    @IBOutlet var passwordTextField: CustomTextField!
+    @IBOutlet var loginTextField: OldCustomTextField!
+    @IBOutlet var passwordTextField: OldCustomTextField!
     @IBOutlet var forgotPasswordButton: UIButton!
-    @IBOutlet var staySignedInCheckbox: CustomCheckbox!
+    @IBOutlet var staySignedInCheckbox: OldCustomCheckbox!
     @IBOutlet var errorLabel: UILabel!
-    @IBOutlet var loginButton: CustomButton!
+    @IBOutlet var loginButton: OldCustomButton!
     @IBOutlet var registerButton: UIButton!
     
     private var interactor: LoginBusinessLogic?
@@ -41,7 +41,7 @@ class LoginVC: UIViewController {
         
         setup()
         
-        view.backgroundColor = .cBackground
+        view.backgroundColor = .purple
         
         loginTextField.configure(for: .email, delegate: self)
         passwordTextField.configure(for: .password, delegate: self)

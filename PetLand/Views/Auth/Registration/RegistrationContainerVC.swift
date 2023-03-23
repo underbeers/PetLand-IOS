@@ -13,7 +13,7 @@ class RegistrationContainerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .cBackground
+        view.backgroundColor = .purple
         
         loginButton.titleLabel?.numberOfLines = 0
     }

@@ -1,5 +1,5 @@
 //
-//  CustomCheckbox.swift
+//  OldCustomCheckbox.swift
 //  PetLand
 //
 //  Created by Никита Сигал on 23.01.2023.
@@ -8,8 +8,8 @@
 import UIKit
 
 @IBDesignable
-class CustomCheckbox: UIView {
-    static let identifier = "CustomCheckbox"
+class OldCustomCheckbox: UIView {
+    static let identifier = "OldCustomCheckbox"
     
     @IBInspectable var titleLabel: String? {
         set { checkboxLabel.text = newValue}
@@ -49,7 +49,7 @@ class CustomCheckbox: UIView {
     }
 }
 
-extension CustomCheckbox {
+extension OldCustomCheckbox {
     func configure(isChecked: Bool = false) {
         checkboxToggle.isSelected = isChecked
     }

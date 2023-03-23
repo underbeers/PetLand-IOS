@@ -1,5 +1,5 @@
 //
-//  CustomTextField.swift
+//  OldCustomTextField.swift
 //  PetLand
 //
 //  Created by Никита Сигал on 12.01.2023.
@@ -8,8 +8,8 @@
 import UIKit
 
 @IBDesignable
-class CustomTextField: UIView {
-    static let identifier = "CustomTextField"
+class OldCustomTextField: UIView {
+    static let identifier = "OldCustomTextField"
 
     // MARK: Outlets
 
@@ -34,7 +34,7 @@ class CustomTextField: UIView {
     @IBInspectable var isRequired: Bool = false
     private var isSecure: Bool = true
     private var contentType: ContentType?
-    private var validationType: ValidationType?
+    private var validationType: TextContentType?
     private var delegate: CustomTextFieldDelegate?
 
     var text: String {
@@ -107,7 +107,7 @@ class CustomTextField: UIView {
             } else {
                 hideError()
             }
-        } else if let error = validationManager.validate(text, as: validationType) {
+        } else if let error = validationManager.validate(text, as: validationType!) {
             displayError(error)
         } else {
             hideError()
@@ -123,7 +123,7 @@ class CustomTextField: UIView {
             UIImage(named: isSecure
                 ? "icons:eye-closed"
                 : "icons:eye-open")!
-                .withTintColor(UIColor.cText),
+                .withTintColor(UIColor.blue),
             for: .normal)
     }
 
@@ -157,66 +157,66 @@ class CustomTextField: UIView {
 
 // MARK: Configuration
 
-extension CustomTextField {
+extension OldCustomTextField {
     func configure(for type: ContentType, delegate: CustomTextFieldDelegate? = nil) {
         self.delegate = delegate
         
-        switch type {
-            case .firstName:
-                validationType = .name
-                textField.placeholder = "Имя"
-                textField.textContentType = .givenName
-            case .lastName:
-                validationType = .name
-                textField.placeholder = "Фамилия"
-                textField.textContentType = .familyName
-            case .verificationCode:
-                validationType = .verificationCode
-                textField.placeholder = "Код"
-                textField.textContentType = .oneTimeCode
-                textField.keyboardType = .numberPad
-            case .email:
-                validationType = .email
-                textField.placeholder = "Email"
-                textField.textContentType = .emailAddress
-                textField.keyboardType = .emailAddress
-                textField.autocorrectionType = .no
-            case .phoneNumber:
-                validationType = .phoneNumber
-                textField.placeholder = "Номер телефона"
-                textField.textContentType = .telephoneNumber
-                textField.keyboardType = .namePhonePad
-            case .password:
-                validationType = .password
-                textField.placeholder = "Пароль"
-                textField.textContentType = .password
-                textField.keyboardType = .asciiCapable
-                visibilityToggle.isHidden = false
-                textField.isSecureTextEntry = true
-            case .newPassword:
-                validationType = .password
-                textField.placeholder = "Пароль"
-                textField.textContentType = .newPassword
-                textField.keyboardType = .asciiCapable
-                visibilityToggle.isHidden = false
-                textField.isSecureTextEntry = true
-            case .confirmPassword:
-                validationType = .confirmPassword
-                textField.placeholder = "Повторите пароль"
-                textField.textContentType = .newPassword
-                textField.keyboardType = .asciiCapable
-                visibilityToggle.isHidden = false
-                textField.isSecureTextEntry = true
-            case .custom(placeholder: let text):
-                textField.placeholder = text
-                validationType = .none
-        }
+//        switch type {
+//            case .firstName:
+//                validationType = .name
+//                textField.placeholder = "Имя"
+//                textField.textContentType = .givenName
+//            case .lastName:
+//                validationType = .name
+//                textField.placeholder = "Фамилия"
+//                textField.textContentType = .familyName
+//            case .verificationCode:
+//                validationType = .verificationCode
+//                textField.placeholder = "Код"
+//                textField.textContentType = .oneTimeCode
+//                textField.keyboardType = .numberPad
+//            case .email:
+//                validationType = .email
+//                textField.placeholder = "Email"
+//                textField.textContentType = .emailAddress
+//                textField.keyboardType = .emailAddress
+//                textField.autocorrectionType = .no
+//            case .phoneNumber:
+//                validationType = .phoneNumber
+//                textField.placeholder = "Номер телефона"
+//                textField.textContentType = .telephoneNumber
+//                textField.keyboardType = .namePhonePad
+//            case .password:
+//                validationType = .password
+//                textField.placeholder = "Пароль"
+//                textField.textContentType = .password
+//                textField.keyboardType = .asciiCapable
+//                visibilityToggle.isHidden = false
+//                textField.isSecureTextEntry = true
+//            case .newPassword:
+//                validationType = .password
+//                textField.placeholder = "Пароль"
+//                textField.textContentType = .newPassword
+//                textField.keyboardType = .asciiCapable
+//                visibilityToggle.isHidden = false
+//                textField.isSecureTextEntry = true
+//            case .confirmPassword:
+//                validationType = .confirmPassword
+//                textField.placeholder = "Повторите пароль"
+//                textField.textContentType = .newPassword
+//                textField.keyboardType = .asciiCapable
+//                visibilityToggle.isHidden = false
+//                textField.isSecureTextEntry = true
+//            case .custom(placeholder: let text):
+//                textField.placeholder = text
+//                validationType = .none
+//        }
     }
 }
 
 // MARK: Shadows
 
-extension CustomTextField {
+extension OldCustomTextField {
     private func setShadowBlack() {
         textField.layer.shadowColor = UIColor.black.cgColor
         textField.layer.shadowRadius = 5
@@ -224,31 +224,31 @@ extension CustomTextField {
     }
 
     private func setShadowRedActive() {
-        textField.layer.shadowColor = UIColor.cRed.cgColor
+        textField.layer.shadowColor = UIColor.red.cgColor
         textField.layer.shadowOpacity = 0.85
     }
 
     private func setShadowRedPassive() {
-        textField.layer.shadowColor = UIColor.cRed.cgColor
+        textField.layer.shadowColor = UIColor.red.cgColor
         textField.layer.shadowOpacity = 0.4
     }
 
     private func setShadowGreen() {
-        textField.layer.shadowColor = UIColor.cGreen.cgColor
+        textField.layer.shadowColor = UIColor.green.cgColor
         textField.layer.shadowOpacity = 0.85
     }
 }
 
 // MARK: TextField Delegate
 
-extension CustomTextField: UITextFieldDelegate {
+extension OldCustomTextField: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         endEditing(true)
         return true
     }
 }
 
-// MARK: CustomTextField Delegate
+// MARK: OldCustomTextField Delegate
 
 protocol CustomTextFieldDelegate {
     func onEditingChanged()

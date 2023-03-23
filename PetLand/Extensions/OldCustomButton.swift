@@ -1,5 +1,5 @@
 //
-//  CustomButton.swift
+//  OldCustomButton.swift
 //  PetLand
 //
 //  Created by Никита Сигал on 23.01.2023.
@@ -7,10 +7,10 @@
 import UIKit
 
 @IBDesignable
-class CustomButton: UIButton {
+class OldCustomButton: UIButton {
     @IBInspectable var isFilled: Bool = true
     @IBInspectable var isBold: Bool = true
-    @IBInspectable var accentColor: UIColor = .cAccent1
+    @IBInspectable var accentColor: UIColor = .blue
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,7 +41,7 @@ class CustomButton: UIButton {
             titleLabel?.textColor = .white
         } else {
             backgroundColor = .clear
-            titleLabel?.textColor = .cText.withAlphaComponent(isEnabled ? 1 : 0.75)
+            titleLabel?.textColor = .blue.withAlphaComponent(isEnabled ? 1 : 0.75)
             layer.borderWidth = 3
             layer.borderColor = accentColor.withAlphaComponent(isEnabled ? 1 : 0.75).cgColor
         }
