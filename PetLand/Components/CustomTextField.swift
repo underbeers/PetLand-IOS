@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CustomTextField: View {
+    // MARK: Configurtation
+
     private var type: TextContentType
     private var isRequired: Bool
 
-    @State var text: String = ""
-    @State var isSecure: Bool = true
-    @State private var wasInteractedWith: Bool = false
+    // MARK: State
 
     private enum Focus: Hashable {
         case secure
@@ -21,18 +21,11 @@ struct CustomTextField: View {
     }
 
     @FocusState private var currentFocus: Focus?
-
-    private var error: String? {
-        if wasInteractedWith {
-            if isRequired && text.isEmpty {
-                return "Обязательное поле"
-            } else {
-                return type.validate(text)
-            }
-        } else {
-            return nil
-        }
-    }
+    @Binding var text: String
+    @Binding var isValid: Bool
+    @State private var isSecure: Bool = true
+    @State private var wasInteractedWith: Bool = false
+    @State private var error: String?
 
     private var shadowColor: Color {
         if error != nil {
@@ -42,6 +35,31 @@ struct CustomTextField: View {
         } else {
             return .black.opacity(0.25)
         }
+    }
+    
+    private func validate() {
+        // Update error
+        if !wasInteractedWith {
+            error = nil
+        } else if isRequired && text.isEmpty {
+            error = "Обязательное поле"
+        } else {
+            error = type.validate(text)
+        }
+        
+        // Update isValid
+        if error != nil || isRequired && text.isEmpty {
+            isValid = false
+        } else {
+            isValid = true
+        }
+    }
+
+    init(_ type: TextContentType, text: Binding<String>, isValid: Binding<Bool>, isRequired: Bool = false) {
+        self.type = type
+        self._text = text
+        self._isValid = isValid
+        self.isRequired = isRequired
     }
 
     var body: some View {
@@ -91,20 +109,29 @@ struct CustomTextField: View {
                 .font(.cSecondary2)
                 .foregroundColor(.cRed)
         }
+        .onChange(of: text) {_ in validate() }
+        .onChange(of: currentFocus) {_ in validate() }
     }
+}
 
-    init(_ type: TextContentType, isRequired: Bool) {
-        self.type = type
-        self.isRequired = isRequired
+private struct CustomTextField_Example: View {
+    @State var email: String = ""
+    @State var password: String = ""
+
+    @State var emailIsValid: Bool = false
+    @State var passwordIsValid: Bool = false
+
+    var body: some View {
+        VStack {
+            CustomTextField(.email, text: $email, isValid: $emailIsValid, isRequired: true)
+            CustomTextField(.password, text: $password, isValid: $passwordIsValid, isRequired: true)
+        }
+        .padding()
     }
 }
 
 struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            CustomTextField(.email, isRequired: true)
-            CustomTextField(.password, isRequired: true)
-        }
-        .padding()
+        CustomTextField_Example()
     }
 }

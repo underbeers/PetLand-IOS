@@ -19,7 +19,7 @@ extension APIService.EndPoints {
         
         var httpMethod: String = "POST"
         var port: Int = 6002
-        var baseURLString: String = "http://79.137.198.139:6002/api/v1"
+        var baseURLString: String = "http://petland-backend-k8s.raezhov.fun/api/v1"
         var path: String = "/login"
         var headers: [String: String]? = ["Content-Type": "application/json"]
         
@@ -42,7 +42,7 @@ extension APIService.EndPoints {
         
         var httpMethod: String = "POST"
         var port: Int = 6002
-        var baseURLString: String = "http://79.137.198.139:6002/api/v1"
+        var baseURLString: String = "http://petland-backend-k8s.raezhov.fun/api/v1"
         var path: String = "/email/code"
         var headers: [String: String]? = ["Content-Type": "application/json"]
         
@@ -66,7 +66,7 @@ extension APIService.EndPoints {
         
         var httpMethod: String = "POST"
         var port: Int = 6002
-        var baseURLString: String = "http://79.137.198.139:6002/api/v1"
+        var baseURLString: String = "http://petland-backend-k8s.raezhov.fun/api/v1"
         var path: String = "/registration/new"
         var headers: [String: String]? = ["Content-Type": "application/json"]
         

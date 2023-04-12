@@ -33,7 +33,24 @@ public extension Color {
     static let cOrange = Color(hex: 0xF47932)
     static let cGreen = Color(hex: 0x98B14B)
     static let cGray = Color(hex: 0xCBCBCB)
-    static let cRed = Color(hex: 0xFF6164)
-    static let cBackground = Color(hex: 0xF5F1EE)
+    static let cRed = Color(hex: 0xFF6164) 
     static let cTransparent = Color.white.opacity(0)
+    
+    
+    static let cBase900 = Color(hex: 0x2D2D2D)
+    static let cBase800 = Color(hex: 0x4F4F4F)
+    static let cBase700 = Color(hex: 0x6F6F6F)
+    static let cBase600 = Color(hex: 0x848484)
+    static let cBase500 = Color(hex: 0xAEAEAE)
+    static let cBase400 = Color(hex: 0xCBCBCB)
+    static let cBase300 = Color(hex: 0xEDEDED)
+    static let cBase200 = Color(hex: 0xF2F2F2)
+    static let cBase100 = Color(hex: 0xF7F7F7)
+    static let cBase0 = Color.white
+    
+    static let cBlue300 = Color(hex: 0x909DB4)
+    
+    static let cOrange900 = Color(hex: 0xF47932)
+    
+    static let cRed500 = Color(hex: 0xFF514B)
 }

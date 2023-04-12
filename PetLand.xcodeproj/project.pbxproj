@@ -40,6 +40,9 @@
 		FF63CA1329897C7A005D83D3 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63CA1229897C7A005D83D3 /* LoginRouter.swift */; };
 		FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72EFEA2988206700C20AF5 /* APIService.swift */; };
 		FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709529CCED430082A4B1 /* LoginView.swift */; };
+		FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */; };
+		FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709929CD31860082A4B1 /* AppState.swift */; };
+		FF7A709C29CD385B0082A4B1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709B29CD385B0082A4B1 /* MainView.swift */; };
 		FF8D1258299939590083F901 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8D1257299939590083F901 /* Navigation.storyboard */; };
 		FF8D125B299947B90083F901 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8D125A299947B90083F901 /* Auth.storyboard */; };
 		FF8D125E299957940083F901 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D125D299957940083F901 /* RegistrationVC.swift */; };
@@ -100,6 +103,9 @@
 		FF63CA1229897C7A005D83D3 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		FF72EFEA2988206700C20AF5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FF7A709529CCED430082A4B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FF7A709929CD31860082A4B1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FF7A709B29CD385B0082A4B1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FF8D1257299939590083F901 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		FF8D125A299947B90083F901 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Auth.storyboard; path = PetLand/Views/Auth/Auth.storyboard; sourceTree = SOURCE_ROOT; };
 		FF8D125D299957940083F901 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 				FF5BA5C529708D000049C57E /* Views */,
 				FF18D46C296EAF5600DCB69E /* Info.plist */,
 				FFAAD3E229C3CD2C00359F86 /* PetLand.swift */,
+				FF7A709929CD31860082A4B1 /* AppState.swift */,
 			);
 			path = PetLand;
 			sourceTree = "<group>";
@@ -184,6 +191,7 @@
 				FF931EF129896060003F829F /* LoginPresenter.swift */,
 				FF63CA1229897C7A005D83D3 /* LoginRouter.swift */,
 				FF7A709529CCED430082A4B1 /* LoginView.swift */,
+				FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -295,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				FF8D1257299939590083F901 /* Navigation.storyboard */,
+				FF7A709B29CD385B0082A4B1 /* MainView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -442,16 +451,19 @@
 				FFAAD3EE29C4151F00359F86 /* CustomButton.swift in Sources */,
 				FF931EF229896060003F829F /* LoginPresenter.swift in Sources */,
 				FF8D125E299957940083F901 /* RegistrationVC.swift in Sources */,
+				FF7A709C29CD385B0082A4B1 /* MainView.swift in Sources */,
 				FFF1DEDB29BA329700A606A3 /* RegistrationRouter.swift in Sources */,
 				FF8D1265299958780083F901 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E929C3D43300359F86 /* CustomTextField.swift in Sources */,
 				FFF1DED529BA2E4C00A606A3 /* RegistrationProtocols.swift in Sources */,
+				FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */,
 				FF931EF4298961E5003F829F /* AuthManager.swift in Sources */,
 				FF1D435029742AE700E3B172 /* LoginVC.swift in Sources */,
 				FF63CA1329897C7A005D83D3 /* LoginRouter.swift in Sources */,
 				FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */,
 				FF8D12612999585F0083F901 /* RegistrationPage1.swift in Sources */,
 				FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */,
+				FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */,
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
 				FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */,
 				FF8D12632999586C0083F901 /* RegistrationPage2.swift in Sources */,
@@ -600,6 +612,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -631,6 +644,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

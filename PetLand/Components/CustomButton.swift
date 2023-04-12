@@ -13,25 +13,22 @@ struct CustomButton: ButtonStyle {
              secondary,
              text
     }
-    
-    private var type: ButtonType
-    private var isDisabled: Bool
-    
-    init(_ type: ButtonType, isDisabled: Bool) {
-        self.type = type
-        self.isDisabled = isDisabled
-    }
-    
-    var foregroundColor: Color {
-        type == .primary ? .white : (isDisabled ? .cGray : .cOrange)
-    }
-    
-    var backgroundColor: Color {
-        type != .primary ? .cTransparent : (isDisabled ? .cGray : .cOrange)
-    }
-    
-    var strokeColor: Color {
-        type != .secondary ? .cTransparent : (isDisabled ? .cGray : .cOrange)
+
+    var foregroundColor: Color
+    var backgroundColor: Color = .cTransparent
+    var borderColor: Color = .cTransparent
+
+    init(_ type: ButtonType, isEnabled: Bool = true) {
+        switch type {
+            case .primary:
+                foregroundColor = .cBase0
+                backgroundColor = isEnabled ? .cOrange900 : .cBase400
+            case .secondary:
+                foregroundColor = isEnabled ? .cOrange900 : .cBase400
+                borderColor = isEnabled ? .cOrange900 : .cBase400
+            case .text:
+                foregroundColor = isEnabled ? .cOrange900 : .cBase400
+        }
     }
 
     func makeBody(configuration: Configuration) -> some View {
@@ -41,17 +38,17 @@ struct CustomButton: ButtonStyle {
             .font(.cButton)
             .foregroundColor(foregroundColor)
             .background(backgroundColor)
-            .overlay(RoundedRectangle(cornerRadius: 12)
-                .stroke(strokeColor))
+            .overlay {
+                RoundedRectangle(cornerRadius: 12)
+                        .stroke(borderColor)
+            }
             .cornerRadius(12)
     }
 }
 
 struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        Button(action: {}, label: {
-            Text("Кнопка")
-        })
-        .buttonStyle(CustomButton(.primary, isDisabled: false))
+        Button("Кнопка") {}
+            .buttonStyle(CustomButton(.primary))
     }
 }

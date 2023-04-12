@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,26 +25,26 @@
             <objects>
                 <viewController storyboardIdentifier="Auth.Login" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petland:cutelogo" translatesAutoresizingMaskIntoConstraints="NO" id="7c5-yD-znH" userLabel="PetLand Logo">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petland:titletext" translatesAutoresizingMaskIntoConstraints="NO" id="Z5v-j0-8dh" userLabel="PetLand Title">
-                                <rect key="frame" x="120" y="112" width="360" height="68"/>
+                                <rect key="frame" x="75" y="157.5" width="225" height="42.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Z5v-j0-8dh" secondAttribute="height" multiplier="977:185" id="67e-6f-hxe"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpX-Ka-Bb2" userLabel="Authorization Title">
-                                <rect key="frame" x="239" y="204" width="122" height="23.333333333333343"/>
+                                <rect key="frame" x="121" y="224" width="133.5" height="25.5"/>
                                 <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWl-ju-esa" customClass="OldCustomTextField" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="75" y="247.33333333333337" width="450" height="45"/>
+                                <rect key="frame" x="47" y="269.5" width="281" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="zJk-mR-bjL"/>
                                 </constraints>
@@ -51,7 +53,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4J-vT-r4l" customClass="OldCustomTextField" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="75" y="317.33333333333331" width="450" height="45"/>
+                                <rect key="frame" x="47" y="339.5" width="281" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="vBk-ha-iVi"/>
                                 </constraints>
@@ -60,7 +62,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zrk-YQ-pxq">
-                                <rect key="frame" x="415" y="377.33333333333331" width="110" height="28.333333333333314"/>
+                                <rect key="frame" x="215" y="399.5" width="113" height="29.5"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -78,7 +80,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdn-bi-PcY" customClass="OldCustomCheckbox" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="75" y="420.66666666666669" width="450" height="20"/>
+                                <rect key="frame" x="47" y="444" width="281" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="KFy-ip-8zc"/>
                                 </constraints>
@@ -87,16 +89,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pid-QN-egn" userLabel="Spacer 1">
-                                <rect key="frame" x="0.0" y="440.66666666666669" width="600" height="18"/>
+                                <rect key="frame" x="0.0" y="464" width="375" height="31.5"/>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Что-то пошло не так..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJD-D7-VXr" userLabel="Error Label">
-                                <rect key="frame" x="75" y="458.66666666666669" width="450" height="16.333333333333314"/>
+                                <rect key="frame" x="47" y="495.5" width="281" height="18"/>
                                 <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.32941177490000001" blue="0.32941177490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63s-k0-IIf" customClass="OldCustomButton" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="263.66666666666669" y="480" width="72.666666666666686" height="34.333333333333371"/>
+                                <rect key="frame" x="151" y="518.5" width="73" height="34"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Войти"/>
@@ -111,7 +113,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="headTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-0I-dHR">
-                                <rect key="frame" x="219" y="519.33333333333337" width="162" height="44.666666666666629"/>
+                                <rect key="frame" x="104" y="557.5" width="167" height="47"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -218,10 +220,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spU-pn-FS1" userLabel="Spacer 2">
-                                <rect key="frame" x="0.0" y="564" width="600" height="18"/>
+                                <rect key="frame" x="0.0" y="604.5" width="375" height="31"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMX-3y-Azt" userLabel="Spacer 3">
-                                <rect key="frame" x="0.0" y="582" width="600" height="18"/>
+                                <rect key="frame" x="0.0" y="635.5" width="375" height="31.5"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jMi-0z-7XQ"/>
@@ -290,32 +292,32 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="MfE-qU-ms0" customClass="RegistrationContainerVC" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VgO-qS-11h">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petland:cutelogo" translatesAutoresizingMaskIntoConstraints="NO" id="lBt-fZ-Net" userLabel="PetLand Logo">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petland:titletext" translatesAutoresizingMaskIntoConstraints="NO" id="q0Z-jA-vPo" userLabel="PetLand Title">
-                                <rect key="frame" x="120" y="112" width="360" height="68"/>
+                                <rect key="frame" x="75" y="157.5" width="225" height="42.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="q0Z-jA-vPo" secondAttribute="height" multiplier="977:185" id="Dy2-yf-mjU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Регистрация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dj9-oW-4fp" userLabel="Authorization Title">
-                                <rect key="frame" x="240.33333333333334" y="204" width="119.66666666666666" height="23.333333333333343"/>
+                                <rect key="frame" x="123.5" y="224" width="128" height="25.5"/>
                                 <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5H-Fy-16V">
-                                <rect key="frame" x="0.0" y="227.33333333333337" width="600" height="304"/>
+                                <rect key="frame" x="0.0" y="249.5" width="375" height="346.5"/>
                                 <connections>
                                     <segue destination="VvS-Wj-qnm" kind="embed" id="ppi-32-drg"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="headTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b84-kS-T7H">
-                                <rect key="frame" x="219.66666666666663" y="531.33333333333337" width="161" height="44.666666666666629"/>
+                                <rect key="frame" x="105.5" y="596" width="164" height="47"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -461,10 +463,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0y-lm-BDa" userLabel="Container">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="347.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="341.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQ4-33-R9Q" userLabel="Group">
-                                        <rect key="frame" x="47" y="109" width="281" height="130"/>
+                                        <rect key="frame" x="47" y="106" width="281" height="130"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f12-8Y-SUD" customClass="OldCustomTextField" customModule="PetLand" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="281" height="45"/>
@@ -503,7 +505,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrK-Qu-hCA" customClass="OldCustomButton" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="110.33333333333333" y="347.66666666666669" width="154.33333333333337" height="34.333333333333314"/>
+                                <rect key="frame" x="103" y="341.5" width="169" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Следующий шаг"/>
                                 <userDefinedRuntimeAttributes>
@@ -544,10 +546,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-ec-YwE" userLabel="Container">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="347.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="341.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Cg-0S-XKf" userLabel="Group">
-                                        <rect key="frame" x="47" y="83.666666666666671" width="281" height="180.33333333333331"/>
+                                        <rect key="frame" x="47" y="77.5" width="281" height="186.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWP-Ti-SHD" customClass="OldCustomTextField" customModule="PetLand" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="281" height="45"/>
@@ -559,7 +561,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6X-nO-LZa" customClass="OldCustomButton" customModule="PetLand" customModuleProvider="target">
-                                                <rect key="frame" x="69.666666666666671" y="72.999999999999986" width="141.66666666666663" height="34.333333333333329"/>
+                                                <rect key="frame" x="62" y="73" width="157.5" height="40.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Отправить код"/>
                                                 <userDefinedRuntimeAttributes>
@@ -571,7 +573,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ynT-gD-OzG" customClass="OldCustomTextField" customModule="PetLand" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="135.33333333333331" width="281" height="45"/>
+                                                <rect key="frame" x="0.0" y="141.5" width="281" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Ior-rF-BIp"/>
                                                 </constraints>
@@ -580,7 +582,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подождите 30 секунд" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyc-eg-weM">
-                                                <rect key="frame" x="78.666666666666657" y="107.33333333333333" width="123.66666666666666" height="14"/>
+                                                <rect key="frame" x="77" y="113.5" width="127.5" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="12"/>
                                                 <color key="textColor" red="0.56078433989999998" green="0.61176472900000001" blue="0.7019608021" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -609,7 +611,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hb3-3d-r8n" customClass="OldCustomButton" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="110.33333333333333" y="347.66666666666669" width="154.33333333333337" height="34.333333333333314"/>
+                                <rect key="frame" x="103" y="341.5" width="169" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Следующий шаг"/>
                                 <userDefinedRuntimeAttributes>
@@ -653,10 +655,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYR-S9-LGA" userLabel="Container">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="347.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="341.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxU-GU-jNO" userLabel="Group">
-                                        <rect key="frame" x="47" y="109" width="281" height="130"/>
+                                        <rect key="frame" x="47" y="106" width="281" height="130"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9d0-Xc-9O3" customClass="OldCustomTextField" customModule="PetLand" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="281" height="45"/>
@@ -695,7 +697,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wc6-sL-HvE" customClass="OldCustomButton" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="109.33333333333333" y="347.66666666666669" width="156.66666666666669" height="34.333333333333314"/>
+                                <rect key="frame" x="101" y="341.5" width="173" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Создать аккаунт"/>
                                 <userDefinedRuntimeAttributes>
@@ -751,8 +753,25 @@
             <point key="canvasLocation" x="692" y="-660"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="63s-k0-IIf">
+            <size key="intrinsicContentSize" width="73" height="34.5"/>
+        </designable>
+        <designable name="OrK-Qu-hCA">
+            <size key="intrinsicContentSize" width="169" height="40.5"/>
+        </designable>
+        <designable name="T6X-nO-LZa">
+            <size key="intrinsicContentSize" width="157.5" height="40.5"/>
+        </designable>
+        <designable name="Wc6-sL-HvE">
+            <size key="intrinsicContentSize" width="173" height="40.5"/>
+        </designable>
+        <designable name="hb3-3d-r8n">
+            <size key="intrinsicContentSize" width="169" height="40.5"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="ZxY-ie-cC4"/>
+        <segue reference="Drc-Xc-Nhy"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="petland:cutelogo" width="796" height="940"/>
