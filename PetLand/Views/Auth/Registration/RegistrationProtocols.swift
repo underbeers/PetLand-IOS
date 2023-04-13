@@ -16,7 +16,7 @@ struct RegistrationUserModel {
 
 protocol RegistrationBusinessLogic {
     var model: RegistrationUserModel { get set }
-    func verifyEmail(email: String, code: Int)
+    func verifyEmail(email: String)
     func register()
     func advancePage()
 }

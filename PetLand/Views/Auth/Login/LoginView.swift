@@ -12,6 +12,8 @@ struct LoginView: View {
     @Environment(\.openURL) var openURL
     
     @StateObject private var model = LoginViewModel()
+    @State var emailIsValid: Bool = false
+    @State var passwordIsValid: Bool = false
     
     var body: some View {
         GeometryReader { metrics in
@@ -35,9 +37,9 @@ struct LoginView: View {
                     Spacer()
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        CustomTextField(.email, text: $model.email, isValid: $model.emailIsValid, isRequired: true)
+                        CustomTextField(.email, text: $model.email, isValid: $emailIsValid, isRequired: true)
                             .padding(.bottom, 8)
-                        CustomTextField(.password, text: $model.password, isValid: $model.passwordIsValid, isRequired: true)
+                        CustomTextField(.password, text: $model.password, isValid: $passwordIsValid, isRequired: true)
                         
                         HStack {
                             Spacer()
@@ -66,12 +68,10 @@ struct LoginView: View {
                             .foregroundColor(.cRed500)
                         
                         Button("Войти") {
-                            model.login {
-                                appState.setRootScreen(to: .main)
-                            }
+                            model.login()
                         }
-                        .buttonStyle(CustomButton(.primary, isEnabled: model.isValid))
-                        .disabled(!model.isValid)
+                        .buttonStyle(CustomButton(.primary, isEnabled: emailIsValid && passwordIsValid))
+                        .disabled(!emailIsValid || !passwordIsValid)
                         
                         Button(action: {
                             appState.setRootScreen(to: .registration)
@@ -98,6 +98,9 @@ struct LoginView: View {
             .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {} message: {
                 Text(model.alertMessage)
             }
+        }
+        .onAppear {
+            model.setup(appState)
         }
     }
 }

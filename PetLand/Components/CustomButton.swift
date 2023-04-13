@@ -40,7 +40,7 @@ struct CustomButton: ButtonStyle {
             .background(backgroundColor)
             .overlay {
                 RoundedRectangle(cornerRadius: 12)
-                        .stroke(borderColor)
+                    .stroke(borderColor, lineWidth: 3)
             }
             .cornerRadius(12)
     }

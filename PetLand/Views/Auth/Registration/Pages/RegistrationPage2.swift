@@ -2,75 +2,75 @@
 //  RegistrationPage2.swift
 //  PetLand
 //
-//  Created by Никита Сигал on 12.02.2023.
+//  Created by Никита Сигал on 12.04.2023.
 //
 
-import UIKit
+import SwiftUI
 
-class RegistrationPage2: UIViewController {
-    static let id = "Registration.Page2"
+struct RegistrationPage2: View {
+    @EnvironmentObject var model: RegistrationView.RegistrationViewModel
+    @State var emailIsValid: Bool = false
+    @State var codeIsValid: Bool = false
     
-    @IBOutlet var emailTF: OldCustomTextField!
-    @IBOutlet var sendCodeButton: OldCustomButton!
-    @IBOutlet var waitLabel: UILabel!
-    @IBOutlet var codeTF: OldCustomTextField!
-    @IBOutlet var nextButton: OldCustomButton!
+    @State var secondsLeft: Int = 0
+    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    private var interactor: RegistrationBusinessLogic?
-    
-    private var secondsLeft: Int = 30
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        sendCodeButton.isEnabled = false
-        
-        emailTF.configure(for: .email, delegate: self)
-        codeTF.configure(for: .verificationCode, delegate: self)
-    }
-    
-    @IBAction func onSendCodeButtonPress() {
-        let code = ValidationManager.shared.generateVerificationCode()
-        interactor?.verifyEmail(email: emailTF.text, code: code)
-        
-        secondsLeft = 30
-        waitLabel.text = "Подождите \(secondsLeft) секунд"
-        waitLabel.isHidden = false        
-        codeTF.text = ""
-        updateSendCodeButton()
-        
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-            self?.secondsLeft -= 1
-            if self?.secondsLeft == 0 {
-                self?.waitLabel.isHidden = true
-                self?.updateSendCodeButton()
-                timer.invalidate()
-            } else {
-                self?.waitLabel.text = "Подождите \(self?.secondsLeft ?? 0) секунд"
+    var body: some View {
+        GeometryReader { metrics in
+            VStack {
+                Spacer()
+                
+                VStack(spacing: 0) {
+                    CustomTextField(.email, text: $model.email, isValid: $emailIsValid, isRequired: true)
+                    
+                    VStack(spacing: 4) {
+                        Button("Отправить код") {
+                            model.sendVerificationCode()
+                            model.code = ""
+                            secondsLeft = 30
+                        }
+                        .buttonStyle(CustomButton(.secondary, isEnabled: emailIsValid && secondsLeft == 0))
+                        .disabled(!emailIsValid || secondsLeft != 0)
+                        
+                        Text("Подождите \(secondsLeft) сек.")
+                            .opacity(secondsLeft != 0 ? 1 : 0)
+                            .font(.cSecondary1)
+                            .foregroundColor(.cBlue300)
+                            .onReceive(timer) { _ in
+                                if secondsLeft > 0 {
+                                    secondsLeft -= 1
+                                }
+                            }
+                    }
+                    .padding(.top, 8)
+                    .padding(.bottom, 12)
+                    
+                    CustomTextField(.verificationCode, text: $model.code, isValid: $codeIsValid, isRequired: true)
+                        .disabled(codeIsValid)
+                }
+                .frame(width: 0.75 * metrics.size.width)
+                
+                Spacer()
+                
+                Text(model.error ?? " ")
+                    .opacity(model.error != nil ? 1 : 0)
+                    .font(.cSecondary1)
+                    .foregroundColor(.cRed500)
+                
+                Button("Следующий шаг") {
+                    model.nextPage()
+                }
+                .buttonStyle(CustomButton(.primary, isEnabled: emailIsValid && codeIsValid))
+                .disabled(!emailIsValid || !codeIsValid)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
-    
-    func updateSendCodeButton() {
-        sendCodeButton.isEnabled = emailTF.isValid && waitLabel.isHidden
-    }
-    
-    @IBAction func onNextButtonPress() {
-        interactor?.model.email = emailTF.text
-        interactor?.advancePage()
-    }
 }
 
-extension RegistrationPage2: RegistrationPageProtocol {
-    func configure(interactor: RegistrationBusinessLogic?) {
-        self.interactor = interactor
-    }
-}
-
-extension RegistrationPage2: CustomTextFieldDelegate {
-    func onEditingChanged() {
-        updateSendCodeButton()
-        nextButton.isEnabled = emailTF.isValid && codeTF.isValid
-        codeTF.isUserInteractionEnabled = !codeTF.isValid
+struct RegistrationPage2_Previews: PreviewProvider {
+    static var previews: some View {
+        RegistrationPage2()
+            .environmentObject(RegistrationView.RegistrationViewModel())
     }
 }

@@ -15,8 +15,8 @@ class RegistrationInteractor {
 }
 
 extension RegistrationInteractor: RegistrationBusinessLogic {
-    func verifyEmail(email: String, code: Int) {
-        authManager.verifyEmail(email: email, code: code) { [weak self] error in
+    func verifyEmail(email: String) {
+        authManager.verifyEmail(email: email) { [weak self] error in
             if let error {
                 self?.presenter?.presentError(error)
             }

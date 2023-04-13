@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -457,7 +456,7 @@
         <!--Page 1-->
         <scene sceneID="cBg-Yn-Fd4">
             <objects>
-                <viewController storyboardIdentifier="Registration.Page1" title="Page 1" id="bv8-rV-Exn" customClass="RegistrationPage1" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Registration.Page1" title="Page 1" id="bv8-rV-Exn" customClass="OldRegistrationPage1" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2fh-oY-xaF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="390"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -505,7 +504,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrK-Qu-hCA" customClass="OldCustomButton" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="103" y="341.5" width="169" height="40.5"/>
+                                <rect key="frame" x="102.5" y="341.5" width="170.5" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Следующий шаг"/>
                                 <userDefinedRuntimeAttributes>
@@ -540,7 +539,7 @@
         <!--Page 2-->
         <scene sceneID="uoN-Gg-3RO">
             <objects>
-                <viewController storyboardIdentifier="Registration.Page2" title="Page 2" id="cE0-gK-fel" customClass="RegistrationPage2" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Registration.Page2" title="Page 2" id="cE0-gK-fel" customClass="OldRegistrationPage2" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uwi-SB-HpW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="390"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -561,7 +560,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6X-nO-LZa" customClass="OldCustomButton" customModule="PetLand" customModuleProvider="target">
-                                                <rect key="frame" x="62" y="73" width="157.5" height="40.5"/>
+                                                <rect key="frame" x="61.5" y="73" width="158" height="40.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Отправить код"/>
                                                 <userDefinedRuntimeAttributes>
@@ -582,7 +581,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подождите 30 секунд" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyc-eg-weM">
-                                                <rect key="frame" x="77" y="113.5" width="127.5" height="15.5"/>
+                                                <rect key="frame" x="78.5" y="113.5" width="124" height="14"/>
                                                 <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="12"/>
                                                 <color key="textColor" red="0.56078433989999998" green="0.61176472900000001" blue="0.7019608021" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -611,7 +610,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hb3-3d-r8n" customClass="OldCustomButton" customModule="PetLand" customModuleProvider="target">
-                                <rect key="frame" x="103" y="341.5" width="169" height="40.5"/>
+                                <rect key="frame" x="102.5" y="341.5" width="170.5" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Следующий шаг"/>
                                 <userDefinedRuntimeAttributes>
@@ -649,7 +648,7 @@
         <!--Page 3-->
         <scene sceneID="z7j-ax-oLT">
             <objects>
-                <viewController storyboardIdentifier="Registration.Page3" title="Page 3" id="fKt-eO-96b" customClass="RegistrationPage3" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Registration.Page3" title="Page 3" id="fKt-eO-96b" customClass="OldRegistrationPage3" customModule="PetLand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vfm-Fy-5gK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="390"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -758,16 +757,16 @@
             <size key="intrinsicContentSize" width="73" height="34.5"/>
         </designable>
         <designable name="OrK-Qu-hCA">
-            <size key="intrinsicContentSize" width="169" height="40.5"/>
+            <size key="intrinsicContentSize" width="170.5" height="40.5"/>
         </designable>
         <designable name="T6X-nO-LZa">
-            <size key="intrinsicContentSize" width="157.5" height="40.5"/>
+            <size key="intrinsicContentSize" width="158" height="40.5"/>
         </designable>
         <designable name="Wc6-sL-HvE">
-            <size key="intrinsicContentSize" width="173" height="40.5"/>
+            <size key="intrinsicContentSize" width="172.5" height="40.5"/>
         </designable>
         <designable name="hb3-3d-r8n">
-            <size key="intrinsicContentSize" width="169" height="40.5"/>
+            <size key="intrinsicContentSize" width="170.5" height="40.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>

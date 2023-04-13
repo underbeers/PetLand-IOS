@@ -18,8 +18,8 @@ extension APIService.EndPoints {
         typealias ResponseType = Response
         
         var httpMethod: String = "POST"
-        var port: Int = 6002
-        var baseURLString: String = "http://petland-backend-k8s.raezhov.fun/api/v1"
+        var port: Int = 8080
+        var baseURLString: String = "http://petland-backend-k8s.underbeers.space/api/v1"
         var path: String = "/login"
         var headers: [String: String]? = ["Content-Type": "application/json"]
         
@@ -41,8 +41,8 @@ extension APIService.EndPoints {
         typealias ResponseType = APIService.EmptyResponse
         
         var httpMethod: String = "POST"
-        var port: Int = 6002
-        var baseURLString: String = "http://petland-backend-k8s.raezhov.fun/api/v1"
+        var port: Int = 8080
+        var baseURLString: String = "http://petland-backend-k8s.underbeers.space/api/v1"
         var path: String = "/email/code"
         var headers: [String: String]? = ["Content-Type": "application/json"]
         
@@ -65,8 +65,8 @@ extension APIService.EndPoints {
         typealias ResponseType = APIService.EmptyResponse
         
         var httpMethod: String = "POST"
-        var port: Int = 6002
-        var baseURLString: String = "http://petland-backend-k8s.raezhov.fun/api/v1"
+        var port: Int = 8080
+        var baseURLString: String = "http://petland-backend-k8s.underbeers.space/api/v1"
         var path: String = "/registration/new"
         var headers: [String: String]? = ["Content-Type": "application/json"]
         

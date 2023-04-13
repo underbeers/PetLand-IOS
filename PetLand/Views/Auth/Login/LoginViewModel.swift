@@ -10,23 +10,21 @@ import SwiftUI
 extension LoginView {
     @MainActor class LoginViewModel: ObservableObject {
         private let authManager: AuthManagerProtocol = AuthManager()
+        private var appState: AppState? = nil
         
         @Published var email: String = ""
         @Published var password: String = ""
         @Published var staySignedIn: Bool = false
         
-        @Published var emailIsValid: Bool = false
-        @Published var passwordIsValid: Bool = false
-        @Published var error: String?
-        
-        @Published var presentingAlert: Bool = false
+        @Published var error: String?        
         @Published var alertMessage: String = ""
-
-        var isValid: Bool {
-            emailIsValid && passwordIsValid
-        } 
+        @Published var presentingAlert: Bool = false
         
-        func login(completion: @escaping () -> ()) {
+        func setup(_ appState: AppState) {
+            self.appState = appState
+        }
+        
+        func login() {
             authManager.login(email: email, password: password) { [weak self] error in
                 if let error {
                     switch error {
@@ -39,7 +37,7 @@ extension LoginView {
                             self?.presentingAlert = true
                     }
                 } else {
-                    completion()
+                    self?.appState?.setRootScreen(to: .main)
                 }
             }
         }

@@ -22,10 +22,9 @@ struct PetLand: App {
                         .environmentObject(appState)
                         .transition(transition)
                 } else if appState.rootScreen == .registration {
-                    Button("Return to Login") {
-                        appState.setRootScreen(to: .login)
-                    }
-                    .transition(transition)
+                    RegistrationView()
+                        .environmentObject(appState)
+                        .transition(transition)
                 } else {
                     MainView()
                         .transition(transition)

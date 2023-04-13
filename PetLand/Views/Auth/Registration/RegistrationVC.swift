@@ -43,9 +43,9 @@ class RegistrationVC: UIPageViewController {
     }
 
     private func configurePages() {
-        pages = [RegistrationPage1.id,
-                 RegistrationPage2.id,
-                 RegistrationPage3.id]
+        pages = [OldRegistrationPage1.id,
+                 OldRegistrationPage2.id,
+                 OldRegistrationPage3.id]
             .map {
                 guard let vc = self.storyboard?.instantiateViewController(withIdentifier: $0)
                 else { fatalError("Cannot create Registration page") }
