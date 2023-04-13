@@ -62,7 +62,7 @@ extension RegistrationView {
                     switch error {
                         case APIService.Error.failedWithStatusCode(500):
                             self?.error = "Проблемы с доступом к серверу. Попробуйте позже."
-                        case APIService.Error.failedWithStatusCode(400):
+                        case APIService.Error.failedWithStatusCode(409):
                             self?.error = "Аккаунт с этим email уже существует"
                         default:
                             self?.alertMessage = error.localizedDescription

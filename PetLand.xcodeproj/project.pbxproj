@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FF18D468296EAF5600DCB69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF18D467296EAF5600DCB69E /* Assets.xcassets */; };
-		FF1D435029742AE700E3B172 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D434F29742AE700E3B172 /* LoginVC.swift */; };
 		FF1D436B297437D100E3B172 /* Mulish-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D4357297437D000E3B172 /* Mulish-LightItalic.ttf */; };
 		FF1D436C297437D100E3B172 /* Mulish-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D4358297437D000E3B172 /* Mulish-ExtraBoldItalic.ttf */; };
 		FF1D436D297437D100E3B172 /* Mulish-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D4359297437D000E3B172 /* Mulish-Italic.ttf */; };
@@ -30,29 +29,13 @@
 		FF1D437D297437D100E3B172 /* Mulish-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D4369297437D000E3B172 /* Mulish-Italic-VariableFont_wght.ttf */; };
 		FF1D437E297437D100E3B172 /* Mulish-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D436A297437D000E3B172 /* Mulish-VariableFont_wght.ttf */; };
 		FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D43812974955300E3B172 /* ColorExtension.swift */; };
-		FF4C1CEB297EA536001526E2 /* OldCustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C1CEA297EA536001526E2 /* OldCustomCheckbox.swift */; };
-		FF4C1CED297EA548001526E2 /* OldCustomCheckbox.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF4C1CEC297EA548001526E2 /* OldCustomCheckbox.xib */; };
-		FF4C1CF0297ECA09001526E2 /* OldCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C1CEF297ECA09001526E2 /* OldCustomButton.swift */; };
-		FF5BA5D829709B2A0049C57E /* OldCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5D729709B2A0049C57E /* OldCustomTextField.swift */; };
-		FF5BA5DA29709B380049C57E /* OldCustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5BA5D929709B380049C57E /* OldCustomTextField.xib */; };
 		FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DB2970AB060049C57E /* ValidationManager.swift */; };
 		FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */; };
-		FF63CA1329897C7A005D83D3 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63CA1229897C7A005D83D3 /* LoginRouter.swift */; };
 		FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72EFEA2988206700C20AF5 /* APIService.swift */; };
 		FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709529CCED430082A4B1 /* LoginView.swift */; };
 		FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */; };
 		FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709929CD31860082A4B1 /* AppState.swift */; };
 		FF7A709C29CD385B0082A4B1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709B29CD385B0082A4B1 /* MainView.swift */; };
-		FF8D1258299939590083F901 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8D1257299939590083F901 /* Navigation.storyboard */; };
-		FF8D125B299947B90083F901 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8D125A299947B90083F901 /* Auth.storyboard */; };
-		FF8D125E299957940083F901 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D125D299957940083F901 /* RegistrationVC.swift */; };
-		FF8D12612999585F0083F901 /* OldRegistrationPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D12602999585E0083F901 /* OldRegistrationPage1.swift */; };
-		FF8D12632999586C0083F901 /* OldRegistrationPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D12622999586C0083F901 /* OldRegistrationPage2.swift */; };
-		FF8D1265299958780083F901 /* OldRegistrationPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1264299958780083F901 /* OldRegistrationPage3.swift */; };
-		FF8D1267299962E20083F901 /* RegistrationContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D1266299962E20083F901 /* RegistrationContainerVC.swift */; };
-		FF931EEE29896050003F829F /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EED29896050003F829F /* LoginProtocols.swift */; };
-		FF931EF029896058003F829F /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EEF29896058003F829F /* LoginInteractor.swift */; };
-		FF931EF229896060003F829F /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EF129896060003F829F /* LoginPresenter.swift */; };
 		FF931EF4298961E5003F829F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EF3298961E5003F829F /* AuthManager.swift */; };
 		FFA3AA4B29BA5B89000C28B2 /* AuthEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3AA4A29BA5B89000C28B2 /* AuthEndPoints.swift */; };
 		FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E229C3CD2C00359F86 /* PetLand.swift */; };
@@ -66,17 +49,12 @@
 		FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */; };
 		FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */; };
 		FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */; };
-		FFF1DED529BA2E4C00A606A3 /* RegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF1DED429BA2E4C00A606A3 /* RegistrationProtocols.swift */; };
-		FFF1DED729BA328000A606A3 /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF1DED629BA328000A606A3 /* RegistrationInteractor.swift */; };
-		FFF1DED929BA328900A606A3 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF1DED829BA328900A606A3 /* RegistrationPresenter.swift */; };
-		FFF1DEDB29BA329700A606A3 /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF1DEDA29BA329700A606A3 /* RegistrationRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FF18D45B296EAF5500DCB69E /* PetLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF18D467296EAF5600DCB69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF18D46C296EAF5600DCB69E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF1D434F29742AE700E3B172 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		FF1D4357297437D000E3B172 /* Mulish-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-LightItalic.ttf"; sourceTree = "<group>"; };
 		FF1D4358297437D000E3B172 /* Mulish-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		FF1D4359297437D000E3B172 /* Mulish-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Italic.ttf"; sourceTree = "<group>"; };
@@ -98,29 +76,13 @@
 		FF1D4369297437D000E3B172 /* Mulish-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		FF1D436A297437D000E3B172 /* Mulish-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		FF1D43812974955300E3B172 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		FF4C1CEA297EA536001526E2 /* OldCustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldCustomCheckbox.swift; sourceTree = "<group>"; };
-		FF4C1CEC297EA548001526E2 /* OldCustomCheckbox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OldCustomCheckbox.xib; sourceTree = "<group>"; };
-		FF4C1CEF297ECA09001526E2 /* OldCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldCustomButton.swift; sourceTree = "<group>"; };
-		FF5BA5D729709B2A0049C57E /* OldCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldCustomTextField.swift; sourceTree = "<group>"; };
-		FF5BA5D929709B380049C57E /* OldCustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OldCustomTextField.xib; sourceTree = "<group>"; };
 		FF5BA5DB2970AB060049C57E /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexExtension.swift; sourceTree = "<group>"; };
-		FF63CA1229897C7A005D83D3 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		FF72EFEA2988206700C20AF5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FF7A709529CCED430082A4B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FF7A709929CD31860082A4B1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FF7A709B29CD385B0082A4B1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		FF8D1257299939590083F901 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
-		FF8D125A299947B90083F901 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Auth.storyboard; path = PetLand/Views/Auth/Auth.storyboard; sourceTree = SOURCE_ROOT; };
-		FF8D125D299957940083F901 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
-		FF8D12602999585E0083F901 /* OldRegistrationPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldRegistrationPage1.swift; sourceTree = "<group>"; };
-		FF8D12622999586C0083F901 /* OldRegistrationPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldRegistrationPage2.swift; sourceTree = "<group>"; };
-		FF8D1264299958780083F901 /* OldRegistrationPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldRegistrationPage3.swift; sourceTree = "<group>"; };
-		FF8D1266299962E20083F901 /* RegistrationContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationContainerVC.swift; sourceTree = "<group>"; };
-		FF931EED29896050003F829F /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
-		FF931EEF29896058003F829F /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
-		FF931EF129896060003F829F /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		FF931EF3298961E5003F829F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FFA3AA4A29BA5B89000C28B2 /* AuthEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndPoints.swift; sourceTree = "<group>"; };
 		FFAAD3E229C3CD2C00359F86 /* PetLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetLand.swift; sourceTree = "<group>"; };
@@ -134,10 +96,6 @@
 		FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2.swift; sourceTree = "<group>"; };
 		FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage3.swift; sourceTree = "<group>"; };
 		FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
-		FFF1DED429BA2E4C00A606A3 /* RegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProtocols.swift; sourceTree = "<group>"; };
-		FFF1DED629BA328000A606A3 /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
-		FFF1DED829BA328900A606A3 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
-		FFF1DEDA29BA329700A606A3 /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +143,6 @@
 		FF1D434D29742AC500E3B172 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FF8D125A299947B90083F901 /* Auth.storyboard */,
 				FF1D434E29742ACE00E3B172 /* Login */,
 				FF8D125C299957620083F901 /* Registration */,
 			);
@@ -195,11 +152,6 @@
 		FF1D434E29742ACE00E3B172 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				FF1D434F29742AE700E3B172 /* LoginVC.swift */,
-				FF931EED29896050003F829F /* LoginProtocols.swift */,
-				FF931EEF29896058003F829F /* LoginInteractor.swift */,
-				FF931EF129896060003F829F /* LoginPresenter.swift */,
-				FF63CA1229897C7A005D83D3 /* LoginRouter.swift */,
 				FF7A709529CCED430082A4B1 /* LoginView.swift */,
 				FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */,
 			);
@@ -258,15 +210,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		FF4C1CE9297EA4D6001526E2 /* OldCustomCheckbox */ = {
-			isa = PBXGroup;
-			children = (
-				FF4C1CEA297EA536001526E2 /* OldCustomCheckbox.swift */,
-				FF4C1CEC297EA548001526E2 /* OldCustomCheckbox.xib */,
-			);
-			path = OldCustomCheckbox;
-			sourceTree = "<group>";
-		};
 		FF5BA5C529708D000049C57E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,9 +222,6 @@
 		FF5BA5C629708D320049C57E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FF4C1CE9297EA4D6001526E2 /* OldCustomCheckbox */,
-				FF5BA5D629709B0A0049C57E /* OldCustomTextField */,
-				FF4C1CEF297ECA09001526E2 /* OldCustomButton.swift */,
 				FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */,
 				FF1D43812974955300E3B172 /* ColorExtension.swift */,
 				FFAAD3E629C3D2D000359F86 /* FontExtension.swift */,
@@ -300,19 +240,9 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		FF5BA5D629709B0A0049C57E /* OldCustomTextField */ = {
-			isa = PBXGroup;
-			children = (
-				FF5BA5D729709B2A0049C57E /* OldCustomTextField.swift */,
-				FF5BA5D929709B380049C57E /* OldCustomTextField.xib */,
-			);
-			path = OldCustomTextField;
-			sourceTree = "<group>";
-		};
 		FF8D12562999392E0083F901 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				FF8D1257299939590083F901 /* Navigation.storyboard */,
 				FF7A709B29CD385B0082A4B1 /* MainView.swift */,
 			);
 			path = Main;
@@ -322,12 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				FF8D125F2999580B0083F901 /* Pages */,
-				FF8D1266299962E20083F901 /* RegistrationContainerVC.swift */,
-				FF8D125D299957940083F901 /* RegistrationVC.swift */,
-				FFF1DED429BA2E4C00A606A3 /* RegistrationProtocols.swift */,
-				FFF1DED629BA328000A606A3 /* RegistrationInteractor.swift */,
-				FFF1DED829BA328900A606A3 /* RegistrationPresenter.swift */,
-				FFF1DEDA29BA329700A606A3 /* RegistrationRouter.swift */,
 				FFAD428729E6C72D00DB6D13 /* RegistrationView.swift */,
 				FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */,
 			);
@@ -337,9 +261,6 @@
 		FF8D125F2999580B0083F901 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				FF8D12602999585E0083F901 /* OldRegistrationPage1.swift */,
-				FF8D12622999586C0083F901 /* OldRegistrationPage2.swift */,
-				FF8D1264299958780083F901 /* OldRegistrationPage3.swift */,
 				FFAD428929E6C7CD00DB6D13 /* RegistrationPage1.swift */,
 				FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */,
 				FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */,
@@ -424,7 +345,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF8D125B299947B90083F901 /* Auth.storyboard in Resources */,
 				FF1D4370297437D100E3B172 /* Mulish-BlackItalic.ttf in Resources */,
 				FF1D4373297437D100E3B172 /* Mulish-Bold.ttf in Resources */,
 				FF1D4372297437D100E3B172 /* Mulish-ExtraLightItalic.ttf in Resources */,
@@ -433,7 +353,6 @@
 				FF1D436F297437D100E3B172 /* Mulish-Black.ttf in Resources */,
 				FF1D4377297437D100E3B172 /* Mulish-Medium.ttf in Resources */,
 				FF1D4376297437D100E3B172 /* Mulish-ExtraLight.ttf in Resources */,
-				FF8D1258299939590083F901 /* Navigation.storyboard in Resources */,
 				FF1D4379297437D100E3B172 /* Mulish-SemiBold.ttf in Resources */,
 				FF1D436D297437D100E3B172 /* Mulish-Italic.ttf in Resources */,
 				FF1D4374297437D100E3B172 /* Mulish-Light.ttf in Resources */,
@@ -445,9 +364,7 @@
 				FF1D437A297437D100E3B172 /* Mulish-BoldItalic.ttf in Resources */,
 				FF1D436B297437D100E3B172 /* Mulish-LightItalic.ttf in Resources */,
 				FF1D436C297437D100E3B172 /* Mulish-ExtraBoldItalic.ttf in Resources */,
-				FF4C1CED297EA548001526E2 /* OldCustomCheckbox.xib in Resources */,
 				FF1D436E297437D100E3B172 /* Mulish-Regular.ttf in Resources */,
-				FF5BA5DA29709B380049C57E /* OldCustomTextField.xib in Resources */,
 				FF1D437D297437D100E3B172 /* Mulish-Italic-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,39 +381,22 @@
 				FFA3AA4B29BA5B89000C28B2 /* AuthEndPoints.swift in Sources */,
 				FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */,
 				FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */,
-				FF4C1CF0297ECA09001526E2 /* OldCustomButton.swift in Sources */,
 				FFAAD3EE29C4151F00359F86 /* CustomButton.swift in Sources */,
 				FFAD428829E6C72D00DB6D13 /* RegistrationView.swift in Sources */,
-				FF931EF229896060003F829F /* LoginPresenter.swift in Sources */,
-				FF8D125E299957940083F901 /* RegistrationVC.swift in Sources */,
 				FF7A709C29CD385B0082A4B1 /* MainView.swift in Sources */,
-				FFF1DEDB29BA329700A606A3 /* RegistrationRouter.swift in Sources */,
-				FF8D1265299958780083F901 /* OldRegistrationPage3.swift in Sources */,
 				FFAAD3E929C3D43300359F86 /* CustomTextField.swift in Sources */,
-				FFF1DED529BA2E4C00A606A3 /* RegistrationProtocols.swift in Sources */,
 				FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */,
 				FF931EF4298961E5003F829F /* AuthManager.swift in Sources */,
 				FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */,
-				FF1D435029742AE700E3B172 /* LoginVC.swift in Sources */,
-				FF63CA1329897C7A005D83D3 /* LoginRouter.swift in Sources */,
 				FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */,
-				FF8D12612999585F0083F901 /* OldRegistrationPage1.swift in Sources */,
 				FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */,
 				FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */,
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
 				FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */,
-				FF8D12632999586C0083F901 /* OldRegistrationPage2.swift in Sources */,
-				FF5BA5D829709B2A0049C57E /* OldCustomTextField.swift in Sources */,
-				FF931EEE29896050003F829F /* LoginProtocols.swift in Sources */,
-				FF931EF029896058003F829F /* LoginInteractor.swift in Sources */,
-				FFF1DED929BA328900A606A3 /* RegistrationPresenter.swift in Sources */,
-				FFF1DED729BA328000A606A3 /* RegistrationInteractor.swift in Sources */,
 				FFAAD3E529C3CE8900359F86 /* CustomCheckbox.swift in Sources */,
-				FF8D1267299962E20083F901 /* RegistrationContainerVC.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
 				FFAAD3EB29C3EE5A00359F86 /* TextContentTypes.swift in Sources */,
-				FF4C1CEB297EA536001526E2 /* OldCustomCheckbox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,7 @@ struct CustomCheckbox: ToggleStyle {
                 configuration.label
                     .font(.cMain)
                     .foregroundColor(.cText)
+                    .multilineTextAlignment(.leading)
             }
         })
     }
