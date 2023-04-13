@@ -5,18 +5,18 @@
 //  Created by Никита Сигал on 15.01.2023.
 //
 
-import UIKit
+import SwiftUI
 
-public extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
+public extension Color {
+    init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
 
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0)
     }
 
-    convenience init(hex: Int) {
+    init(hex: Int) {
         self.init(
             red: (hex >> 16) & 0xFF,
             green: (hex >> 8) & 0xFF,
@@ -27,20 +27,30 @@ public extension UIColor {
 
 // MARK: Custom Colors
 
-public extension UIColor {
-    static let cText = UIColor(hex: 0x4F4F4F)
-    static let cSubtext = UIColor(hex: 0xAEB9CC)
-    static let cAccent1 = UIColor(hex: 0xF47932)
-    static let cAccent2 = UIColor(hex: 0x97B14B)
-    static let cRed = UIColor(hex: 0xFF5454)
-    static let cGreen = UIColor(hex: 0x7CC350)
-    static let cFavoriteRed = UIColor(hex: 0xF71B47)
-    static let cRatingStar = UIColor(hex: 0xFFA046)
-    static var cBackground: UIColor = {
-        if let backdrop = UIImage(named: "petland:backdrop") {
-            return UIColor(patternImage: backdrop)
-        } else {
-            return UIColor(hex: 0xF5F1EE)
-        }
-    }()
+public extension Color {
+    static let cText = Color(hex: 0x4F4F4F)
+    static let cSubtext = Color(hex: 0xAEB9CC)
+    static let cOrange = Color(hex: 0xF47932)
+    static let cGreen = Color(hex: 0x98B14B)
+    static let cGray = Color(hex: 0xCBCBCB)
+    static let cRed = Color(hex: 0xFF6164) 
+    static let cTransparent = Color.white.opacity(0)
+    
+    
+    static let cBase900 = Color(hex: 0x2D2D2D)
+    static let cBase800 = Color(hex: 0x4F4F4F)
+    static let cBase700 = Color(hex: 0x6F6F6F)
+    static let cBase600 = Color(hex: 0x848484)
+    static let cBase500 = Color(hex: 0xAEAEAE)
+    static let cBase400 = Color(hex: 0xCBCBCB)
+    static let cBase300 = Color(hex: 0xEDEDED)
+    static let cBase200 = Color(hex: 0xF2F2F2)
+    static let cBase100 = Color(hex: 0xF7F7F7)
+    static let cBase0 = Color.white
+    
+    static let cBlue300 = Color(hex: 0x909DB4)
+    
+    static let cOrange900 = Color(hex: 0xF47932)
+    
+    static let cRed500 = Color(hex: 0xFF514B)
 }

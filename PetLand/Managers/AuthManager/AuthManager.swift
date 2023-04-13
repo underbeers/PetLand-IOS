@@ -18,7 +18,6 @@ protocol AuthManagerProtocol {
                   phoneNumber: String?,
                   _ completion: @escaping (Error?) -> Void)
     func verifyEmail(email: String,
-                     code: Int,
                      _ completion: @escaping (Error?) -> Void)
     func logout()
     var accessToken: String? { get }
@@ -41,7 +40,8 @@ class AuthManager: AuthManagerProtocol {
         }
     }
     
-    func verifyEmail(email: String, code: Int, _ completion: @escaping (Error?) -> Void) {
+    func verifyEmail(email: String, _ completion: @escaping (Error?) -> Void) {
+        let code = ValidationManager.shared.generateVerificationCode()
         APIService.EndPoints.VerifyEmail(email: email, code: code).call { result in
             switch result {
                 case .success:

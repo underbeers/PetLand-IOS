@@ -2,43 +2,43 @@
 //  RegistrationPage1.swift
 //  PetLand
 //
-//  Created by Никита Сигал on 12.02.2023.
+//  Created by Никита Сигал on 12.04.2023.
 //
 
-import UIKit
+import SwiftUI
 
-class RegistrationPage1: UIViewController {
-    static let id = "Registration.Page1"
+struct RegistrationPage1: View {
+    @EnvironmentObject var model: RegistrationView.RegistrationViewModel
+    @State var firstNameIsValid: Bool = false
+    @State var lastNameIsValid: Bool = false
 
-    @IBOutlet var firstNameTF: CustomTextField!
-    @IBOutlet var lastNameTF: CustomTextField!
-    @IBOutlet var nextButton: CustomButton!
+    var body: some View {
+        GeometryReader { metrics in
+            VStack {
+                Spacer()
 
-    private var model: RegistrationUserModel?
-    private var interactor: RegistrationBusinessLogic?
+                VStack {
+                    CustomTextField(.firstName, text: $model.firstName, isValid: $firstNameIsValid, isRequired: true)
+                    CustomTextField(.lastName, text: $model.lastName, isValid: $lastNameIsValid, isRequired: true)
+                }
+                .frame(width: 0.75 * metrics.size.width)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+                Spacer()
 
-        firstNameTF.configure(for: .firstName, delegate: self)
-        lastNameTF.configure(for: .lastName, delegate: self)
-    }
-
-    @IBAction func onNextButtonPress() {
-        interactor?.model.firstName = firstNameTF.text
-        interactor?.model.lastName = lastNameTF.text
-        interactor?.advancePage()
+                Button("Следующий шаг") {
+                    model.nextPage()
+                }
+                .buttonStyle(CustomButton(.primary, isEnabled: firstNameIsValid && lastNameIsValid))
+                .disabled(!firstNameIsValid || !lastNameIsValid)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 
-extension RegistrationPage1: RegistrationPageProtocol {
-    func configure(interactor: RegistrationBusinessLogic?) {
-        self.interactor = interactor
-    }
-}
-
-extension RegistrationPage1: CustomTextFieldDelegate {
-    func onEditingChanged() {
-        nextButton.isEnabled = firstNameTF.isValid && lastNameTF.isValid
+struct RegistrationPage1_Previews: PreviewProvider {
+    static var previews: some View {
+        RegistrationPage1()
+            .environmentObject(RegistrationView.RegistrationViewModel())
     }
 }

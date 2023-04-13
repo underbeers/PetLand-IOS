@@ -2,42 +2,51 @@
 //  RegistrationPage3.swift
 //  PetLand
 //
-//  Created by Никита Сигал on 12.02.2023.
+//  Created by Никита Сигал on 12.04.2023.
 //
 
-import UIKit
+import SwiftUI
 
-class RegistrationPage3: UIViewController {
-    static let id = "Registration.Page3"
+struct RegistrationPage3: View {
+    @EnvironmentObject var model: RegistrationView.RegistrationViewModel
+    @State var newPassworsIsValid: Bool = false
+    @State var confirmPasswordIsValid: Bool = false
+    @State var agreedToTOS: Bool = false
 
-    @IBOutlet var newPasswordTF: CustomTextField!
-    @IBOutlet var confirmPasswordTF: CustomTextField!
-    @IBOutlet var finishButton: CustomButton!
+    var body: some View {
+        GeometryReader { metrics in
+            VStack {
+                Spacer()
 
-    private var model: RegistrationUserModel?
-    private var interactor: RegistrationBusinessLogic?
+                VStack {
+                    CustomTextField(.newPassword, text: $model.newPassword, isValid: $newPassworsIsValid, isRequired: true)
+                    CustomTextField(.confirmPassword, text: $model.confirmPassword, isValid: $confirmPasswordIsValid, isRequired: true)
+                    Toggle("Согласие с пользовательским соглашением", isOn: $agreedToTOS)
+                        .toggleStyle(CustomCheckbox())
+                }
+                .frame(width: 0.75 * metrics.size.width)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+                Spacer()
 
-        newPasswordTF.configure(for: .newPassword, delegate: self)
-        confirmPasswordTF.configure(for: .confirmPassword, delegate: self)
-    }
-
-    @IBAction func onNextButtonPress() {
-        interactor?.model.password = newPasswordTF.text
-        interactor?.register()
+                Text(model.error ?? " ")
+                    .opacity(model.error != nil ? 1 : 0)
+                    .font(.cSecondary1)
+                    .foregroundColor(.cRed500)
+                
+                Button("Создать аккаунт") {
+                    model.register()
+                }
+                .buttonStyle(CustomButton(.primary, isEnabled: newPassworsIsValid && confirmPasswordIsValid && agreedToTOS))
+                .disabled(!newPassworsIsValid || !confirmPasswordIsValid || !agreedToTOS)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 
-extension RegistrationPage3: RegistrationPageProtocol {
-    func configure(interactor: RegistrationBusinessLogic?) {
-        self.interactor = interactor
-    }
-}
-
-extension RegistrationPage3: CustomTextFieldDelegate {
-    func onEditingChanged() {
-        finishButton.isEnabled = newPasswordTF.isValid && confirmPasswordTF.isValid
+struct RegistrationPage3_Previews: PreviewProvider {
+    static var previews: some View {
+        RegistrationPage3()
+            .environmentObject(RegistrationView.RegistrationViewModel())
     }
 }
