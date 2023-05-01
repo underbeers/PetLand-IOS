@@ -8,63 +8,77 @@
 import SwiftUI
 
 struct RegistrationPage2: View {
+    // MARK: Environment
+
     @EnvironmentObject var model: RegistrationView.RegistrationViewModel
+    
+    // MARK: State
+
     @State var emailIsValid: Bool = false
     @State var codeIsValid: Bool = false
-    
-    @State var secondsLeft: Int = 0
+    private var canSend: Bool {
+        emailIsValid && secondsLeft == 0
+    }
+
+    private var canAdvance: Bool {
+        emailIsValid && codeIsValid
+    }
+
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var secondsLeft: Int = 0
     
     var body: some View {
-        GeometryReader { metrics in
-            VStack {
-                Spacer()
+        VStack {
+            Spacer()
                 
-                VStack(spacing: 0) {
-                    CustomTextField(.email, text: $model.email, isValid: $emailIsValid, isRequired: true)
-                    
-                    VStack(spacing: 4) {
-                        Button("Отправить код") {
-                            model.sendVerificationCode()
-                            model.code = ""
-                            secondsLeft = 30
-                        }
-                        .buttonStyle(CustomButton(.secondary, isEnabled: emailIsValid && secondsLeft == 0))
-                        .disabled(!emailIsValid || secondsLeft != 0)
-                        
-                        Text("Подождите \(secondsLeft) сек.")
-                            .opacity(secondsLeft != 0 ? 1 : 0)
-                            .font(.cSecondary1)
-                            .foregroundColor(.cBlue300)
-                            .onReceive(timer) { _ in
-                                if secondsLeft > 0 {
-                                    secondsLeft -= 1
-                                }
-                            }
+            VStack(spacing: 0) {
+                CustomTextField(.email, text: $model.email, isValid: $emailIsValid, isRequired: true) {
+                    if canSend {
+                        model.sendVerificationCode()
+                        secondsLeft = 30
                     }
-                    .padding(.top, 8)
-                    .padding(.bottom, 12)
+                }
                     
-                    CustomTextField(.verificationCode, text: $model.code, isValid: $codeIsValid, isRequired: true)
-                        .disabled(codeIsValid)
+                VStack(spacing: 4) {
+                    Button("Отправить код") {
+                        model.sendVerificationCode()
+                        secondsLeft = 30
+                    }
+                    .buttonStyle(CustomButton(.secondary, isEnabled: canSend))
+                    .disabled(!canSend)
+                        
+                    Text("Подождите \(secondsLeft) сек.")
+                        .opacity(secondsLeft != 0 ? 1 : 0)
+                        .font(.cSecondary1)
+                        .foregroundColor(.cBlue300)
+                        .onReceive(timer) { _ in
+                            if secondsLeft > 0 {
+                                secondsLeft -= 1
+                            }
+                        }
                 }
-                .frame(width: 0.75 * metrics.size.width)
-                
-                Spacer()
-                
-                Text(model.error ?? " ")
-                    .opacity(model.error != nil ? 1 : 0)
-                    .font(.cSecondary1)
-                    .foregroundColor(.cRed500)
-                
-                Button("Следующий шаг") {
-                    model.nextPage()
-                }
-                .buttonStyle(CustomButton(.primary, isEnabled: emailIsValid && codeIsValid))
-                .disabled(!emailIsValid || !codeIsValid)
+                .padding(.top, 8)
+                .padding(.bottom, 12)
+                    
+                CustomTextField(.verificationCode, text: $model.code, isValid: $codeIsValid, isRequired: true)
+                    .disabled(codeIsValid)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 40)
+                
+            Spacer()
+                
+            Text(model.error ?? " ")
+                .opacity(model.error != nil ? 1 : 0)
+                .font(.cSecondary1)
+                .foregroundColor(.cRed500)
+                
+            Button("Следующий шаг") {
+                model.nextPage()
+            }
+            .buttonStyle(CustomButton(.primary, isEnabled: canAdvance))
+            .disabled(!canAdvance)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

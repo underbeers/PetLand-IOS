@@ -8,31 +8,55 @@
 import SwiftUI
 
 struct RegistrationPage1: View {
+    // MARK: Environment
+
     @EnvironmentObject var model: RegistrationView.RegistrationViewModel
+
+    // MARK: Focus
+
+    enum Focusable: Hashable {
+        case firstName, lastName
+    }
+
+    @FocusState var currentFocus: Focusable?
+
+    // MARK: State
+
     @State var firstNameIsValid: Bool = false
     @State var lastNameIsValid: Bool = false
+    private var canAdvance: Bool {
+        firstNameIsValid && lastNameIsValid
+    }
 
     var body: some View {
-        GeometryReader { metrics in
+        VStack {
+            Spacer()
+
             VStack {
-                Spacer()
-
-                VStack {
-                    CustomTextField(.firstName, text: $model.firstName, isValid: $firstNameIsValid, isRequired: true)
-                    CustomTextField(.lastName, text: $model.lastName, isValid: $lastNameIsValid, isRequired: true)
+                CustomTextField(.firstName, text: $model.firstName, isValid: $firstNameIsValid, isRequired: true) {
+                    if firstNameIsValid {
+                        currentFocus = .lastName
+                    }
                 }
-                .frame(width: 0.75 * metrics.size.width)
-
-                Spacer()
-
-                Button("Следующий шаг") {
-                    model.nextPage()
+                .focused($currentFocus, equals: .firstName)
+                CustomTextField(.lastName, text: $model.lastName, isValid: $lastNameIsValid, isRequired: true) {
+                    if canAdvance {
+                        model.nextPage()
+                    }
                 }
-                .buttonStyle(CustomButton(.primary, isEnabled: firstNameIsValid && lastNameIsValid))
-                .disabled(!firstNameIsValid || !lastNameIsValid)
+                .focused($currentFocus, equals: .lastName)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 40)
+
+            Spacer()
+
+            Button("Следующий шаг") {
+                model.nextPage()
+            }
+            .buttonStyle(CustomButton(.primary, isEnabled: canAdvance))
+            .disabled(!canAdvance)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

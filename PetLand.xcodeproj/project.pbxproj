@@ -31,6 +31,8 @@
 		FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D43812974955300E3B172 /* ColorExtension.swift */; };
 		FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DB2970AB060049C57E /* ValidationManager.swift */; };
 		FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */; };
+		FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */; };
+		FF7272A429FFE4340057886B /* LogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7272A329FFE4340057886B /* LogoImage.swift */; };
 		FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72EFEA2988206700C20AF5 /* APIService.swift */; };
 		FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709529CCED430082A4B1 /* LoginView.swift */; };
 		FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */; };
@@ -78,6 +80,8 @@
 		FF1D43812974955300E3B172 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		FF5BA5DB2970AB060049C57E /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexExtension.swift; sourceTree = "<group>"; };
+		FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtension.swift; sourceTree = "<group>"; };
+		FF7272A329FFE4340057886B /* LogoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImage.swift; sourceTree = "<group>"; };
 		FF72EFEA2988206700C20AF5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FF7A709529CCED430082A4B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 		FF5BA5C629708D320049C57E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */,
 				FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */,
 				FF1D43812974955300E3B172 /* ColorExtension.swift */,
 				FFAAD3E629C3D2D000359F86 /* FontExtension.swift */,
@@ -283,6 +288,7 @@
 				FFAAD3E429C3CE8900359F86 /* CustomCheckbox.swift */,
 				FFAAD3E829C3D43300359F86 /* CustomTextField.swift */,
 				FFAAD3ED29C4151F00359F86 /* CustomButton.swift */,
+				FF7272A329FFE4340057886B /* LogoImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 				FFAAD3EE29C4151F00359F86 /* CustomButton.swift in Sources */,
 				FFAD428829E6C72D00DB6D13 /* RegistrationView.swift in Sources */,
 				FF7A709C29CD385B0082A4B1 /* MainView.swift in Sources */,
+				FF7272A429FFE4340057886B /* LogoImage.swift in Sources */,
 				FFAAD3E929C3D43300359F86 /* CustomTextField.swift in Sources */,
 				FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */,
 				FF931EF4298961E5003F829F /* AuthManager.swift in Sources */,
@@ -394,6 +401,7 @@
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
 				FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */,
 				FFAAD3E529C3CE8900359F86 /* CustomCheckbox.swift in Sources */,
+				FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
 				FFAAD3EB29C3EE5A00359F86 /* TextContentTypes.swift in Sources */,

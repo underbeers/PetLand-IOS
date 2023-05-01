@@ -9,37 +9,54 @@ import SwiftUI
 
 struct RegistrationPage3: View {
     @EnvironmentObject var model: RegistrationView.RegistrationViewModel
-    @State var newPassworsIsValid: Bool = false
-    @State var confirmPasswordIsValid: Bool = false
-    @State var agreedToTOS: Bool = false
+    
+    private enum Focusable: Hashable {
+        case newPassword, confirmPassword
+    }
+    @FocusState private var currentFocus: Focusable?
+    
+    @State private var newPassworsIsValid: Bool = false
+    @State private var confirmPasswordIsValid: Bool = false
+    @State private var agreedToTOS: Bool = false
+    
+    private var canRegister: Bool {
+        newPassworsIsValid && confirmPasswordIsValid && agreedToTOS
+    }
 
     var body: some View {
-        GeometryReader { metrics in
-            VStack {
-                Spacer()
+        VStack {
+            Spacer()
 
-                VStack {
-                    CustomTextField(.newPassword, text: $model.newPassword, isValid: $newPassworsIsValid, isRequired: true)
-                    CustomTextField(.confirmPassword, text: $model.confirmPassword, isValid: $confirmPasswordIsValid, isRequired: true)
-                    Toggle("Согласие с пользовательским соглашением", isOn: $agreedToTOS)
-                        .toggleStyle(CustomCheckbox())
+            VStack(alignment: .leading) {
+                CustomTextField(.newPassword, text: $model.newPassword, isValid: $newPassworsIsValid, isRequired: true) {
+                    if newPassworsIsValid {
+                        currentFocus = .confirmPassword
+                    }
                 }
-                .frame(width: 0.75 * metrics.size.width)
-
-                Spacer()
-
-                Text(model.error ?? " ")
-                    .opacity(model.error != nil ? 1 : 0)
-                    .font(.cSecondary1)
-                    .foregroundColor(.cRed500)
-                
-                Button("Создать аккаунт") {
-                    model.register()
-                }
-                .buttonStyle(CustomButton(.primary, isEnabled: newPassworsIsValid && confirmPasswordIsValid && agreedToTOS))
-                .disabled(!newPassworsIsValid || !confirmPasswordIsValid || !agreedToTOS)
+                .focused($currentFocus, equals: .newPassword)
+                CustomTextField(.confirmPassword, text: $model.confirmPassword, isValid: $confirmPasswordIsValid, isRequired: true)
+                    .focused($currentFocus, equals: .confirmPassword)
+                Toggle("Согласие с пользовательским соглашением", isOn: $agreedToTOS)
+                    .toggleStyle(CustomCheckbox())
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 40)
+
+            Spacer()
+
+            Text(model.error ?? " ")
+                .opacity(model.error != nil ? 1 : 0)
+                .font(.cSecondary1)
+                .foregroundColor(.cRed500)
+
+            Button("Создать аккаунт") {
+                model.register()
+            }
+            .buttonStyle(CustomButton(.primary, isEnabled: canRegister))
+            .disabled(!canRegister)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onDisappear {
+            currentFocus = nil
         }
     }
 }

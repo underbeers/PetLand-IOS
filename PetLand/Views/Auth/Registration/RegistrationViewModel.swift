@@ -38,6 +38,7 @@ extension RegistrationView {
         }
         
         func sendVerificationCode() {
+            code = ""
             authManager.verifyEmail(email: email) { [weak self] error in
                 if let error {
                     switch error {
