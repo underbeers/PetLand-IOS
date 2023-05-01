@@ -20,6 +20,7 @@ class ValidationManager: ValidationManagerProtocol {
 
     func generateVerificationCode() -> Int {
         verificationCode = Int.random(in: 100_000 ... 999_999)
+        print(verificationCode!)
         return verificationCode!
     }
 

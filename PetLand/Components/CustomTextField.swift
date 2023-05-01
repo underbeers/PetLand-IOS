@@ -12,15 +12,19 @@ struct CustomTextField: View {
 
     private var type: TextContentType
     private var isRequired: Bool
+    private var onSubmitHandler: ()->()
 
-    // MARK: State
+    // MARK: Focus
 
-    private enum Focus: Hashable {
+    private enum Focusable: Hashable {
         case secure
         case regular
     }
 
-    @FocusState private var currentFocus: Focus?
+    @FocusState private var currentFocus: Focusable?
+
+    // MARK: State
+
     @Binding var text: String
     @Binding var isValid: Bool
     @State private var isSecure: Bool = true
@@ -36,7 +40,7 @@ struct CustomTextField: View {
             return .black.opacity(0.25)
         }
     }
-    
+
     private func validate() {
         // Update error
         if !wasInteractedWith {
@@ -46,7 +50,7 @@ struct CustomTextField: View {
         } else {
             error = type.validate(text)
         }
-        
+
         // Update isValid
         if error != nil || isRequired && text.isEmpty {
             isValid = false
@@ -55,11 +59,12 @@ struct CustomTextField: View {
         }
     }
 
-    init(_ type: TextContentType, text: Binding<String>, isValid: Binding<Bool>, isRequired: Bool = false) {
+    init(_ type: TextContentType, text: Binding<String>, isValid: Binding<Bool>, isRequired: Bool = false, onSubmit: @escaping ()->() = {}) {
         self.type = type
         self._text = text
         self._isValid = isValid
         self.isRequired = isRequired
+        self.onSubmitHandler = onSubmit
     }
 
     var body: some View {
@@ -76,6 +81,7 @@ struct CustomTextField: View {
                         .focused($currentFocus, equals: .secure)
                         .onTapGesture { wasInteractedWith = true }
                 }
+                .onSubmit(onSubmitHandler)
                 .textContentType(type.contentType)
                 .keyboardType(type.keyboardType)
                 .textInputAutocapitalization(type.autocapitalization)
@@ -109,8 +115,11 @@ struct CustomTextField: View {
                 .font(.cSecondary2)
                 .foregroundColor(.cRed)
         }
-        .onChange(of: text) {_ in validate() }
+        .onChange(of: text) { _ in validate() }
         .onChange(of: currentFocus) {_ in validate() }
+        .onDisappear {
+            currentFocus = nil
+        }
     }
 }
 
