@@ -36,7 +36,7 @@
 		FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709529CCED430082A4B1 /* LoginView.swift */; };
 		FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */; };
 		FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709929CD31860082A4B1 /* AppState.swift */; };
-		FF7A709C29CD385B0082A4B1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709B29CD385B0082A4B1 /* MainView.swift */; };
+		FF7A709C29CD385B0082A4B1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709B29CD385B0082A4B1 /* MainTabView.swift */; };
 		FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E229C3CD2C00359F86 /* PetLand.swift */; };
 		FFAAD3E529C3CE8900359F86 /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E429C3CE8900359F86 /* CustomCheckbox.swift */; };
 		FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E629C3D2D000359F86 /* FontExtension.swift */; };
@@ -48,6 +48,11 @@
 		FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */; };
 		FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */; };
 		FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */; };
+		FFC942622A05679100108349 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942612A05679100108349 /* ProfileView.swift */; };
+		FFC942642A0567A700108349 /* MarketplaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942632A0567A700108349 /* MarketplaceView.swift */; };
+		FFC942662A0567B600108349 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942652A0567B600108349 /* ServicesView.swift */; };
+		FFC942682A0567C900108349 /* MessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942672A0567C900108349 /* MessengerView.swift */; };
+		FFC9426A2A0567FA00108349 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942692A0567FA00108349 /* FavouritesView.swift */; };
 		FFDF81772A040B1900539F74 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFDF81762A040B1900539F74 /* Alamofire */; };
 		FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF81782A0535B000539F74 /* Endpoint.swift */; };
 		FFDF817B2A0543F500539F74 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF817A2A0543F500539F74 /* UserService.swift */; };
@@ -85,7 +90,7 @@
 		FF7A709529CCED430082A4B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FF7A709929CD31860082A4B1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		FF7A709B29CD385B0082A4B1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FF7A709B29CD385B0082A4B1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		FFAAD3E229C3CD2C00359F86 /* PetLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetLand.swift; sourceTree = "<group>"; };
 		FFAAD3E429C3CE8900359F86 /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
 		FFAAD3E629C3D2D000359F86 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
@@ -97,6 +102,11 @@
 		FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2.swift; sourceTree = "<group>"; };
 		FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage3.swift; sourceTree = "<group>"; };
 		FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		FFC942612A05679100108349 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FFC942632A0567A700108349 /* MarketplaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceView.swift; sourceTree = "<group>"; };
+		FFC942652A0567B600108349 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
+		FFC942672A0567C900108349 /* MessengerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerView.swift; sourceTree = "<group>"; };
+		FFC942692A0567FA00108349 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		FFDF81782A0535B000539F74 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FFDF817A2A0543F500539F74 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,7 +258,12 @@
 		FF8D12562999392E0083F901 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				FF7A709B29CD385B0082A4B1 /* MainView.swift */,
+				FF7A709B29CD385B0082A4B1 /* MainTabView.swift */,
+				FFC942612A05679100108349 /* ProfileView.swift */,
+				FFC942632A0567A700108349 /* MarketplaceView.swift */,
+				FFC942652A0567B600108349 /* ServicesView.swift */,
+				FFC942672A0567C900108349 /* MessengerView.swift */,
+				FFC942692A0567FA00108349 /* FavouritesView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -384,9 +399,10 @@
 				FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */,
 				FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */,
 				FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */,
+				FFC942662A0567B600108349 /* ServicesView.swift in Sources */,
 				FFAAD3EE29C4151F00359F86 /* CustomButton.swift in Sources */,
 				FFAD428829E6C72D00DB6D13 /* RegistrationView.swift in Sources */,
-				FF7A709C29CD385B0082A4B1 /* MainView.swift in Sources */,
+				FF7A709C29CD385B0082A4B1 /* MainTabView.swift in Sources */,
 				FF7272A429FFE4340057886B /* LogoImage.swift in Sources */,
 				FFAAD3E929C3D43300359F86 /* CustomTextField.swift in Sources */,
 				FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */,
@@ -396,8 +412,12 @@
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
 				FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */,
 				FFAAD3E529C3CE8900359F86 /* CustomCheckbox.swift in Sources */,
+				FFC942622A05679100108349 /* ProfileView.swift in Sources */,
+				FFC9426A2A0567FA00108349 /* FavouritesView.swift in Sources */,
 				FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */,
+				FFC942682A0567C900108349 /* MessengerView.swift in Sources */,
 				FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */,
+				FFC942642A0567A700108349 /* MarketplaceView.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
 				FFAAD3EB29C3EE5A00359F86 /* TextContentTypes.swift in Sources */,
