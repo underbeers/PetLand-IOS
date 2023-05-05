@@ -9,14 +9,21 @@ import SwiftUI
 
 @MainActor
 class AppState: ObservableObject {
-     enum Screen {
+    enum Screen {
         case login,
              registration,
              main
     }
 
-    @Published private(set) var rootScreen: Screen = .login
-    
+    @Published private(set) var rootScreen: Screen = {
+        if UserService.shared.restoreToken() {
+            return .main
+        }
+        else {
+            return .login
+        }
+    }()
+
     func setRootScreen(to screen: Screen) {
         withAnimation {
             rootScreen = screen

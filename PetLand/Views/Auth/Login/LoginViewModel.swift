@@ -14,7 +14,7 @@ extension LoginView {
         
         @Published var email: String = ""
         @Published var password: String = ""
-        @Published var staySignedIn: Bool = false
+        @Published var stayLoggedIn: Bool = false
         
         @Published var error: String?
         @Published var alertMessage: String = ""
@@ -25,7 +25,7 @@ extension LoginView {
         }
         
         func login() {
-            userService.login(user: email, password: password) { [weak self] error in
+            userService.login(user: email, password: password, stayLoggedIn: stayLoggedIn) { [weak self] error in
                 guard let error else {
                     self?.appState?.setRootScreen(to: .main)
                     return
