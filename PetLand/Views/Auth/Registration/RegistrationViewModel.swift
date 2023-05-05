@@ -9,7 +9,7 @@ import SwiftUI
 
 extension RegistrationView {
     @MainActor class RegistrationViewModel: ObservableObject {
-        private let authManager: AuthManagerProtocol = AuthManager.shared
+        private let userService: UserServiceProtocol = UserService.shared
         private var appState: AppState? = nil
         
         @Published var page: Int = 0
@@ -39,38 +39,38 @@ extension RegistrationView {
         
         func sendVerificationCode() {
             code = ""
-            authManager.verifyEmail(email: email) { [weak self] error in
-                if let error {
-                    switch error {
-                        case APIService.Error.failedWithStatusCode(500):
-                            self?.error = "Проблемы с доступом к серверу. Попробуйте позже."
-                        default:
-                            self?.alertMessage = error.localizedDescription
-                            self?.presentingAlert = true
-                    }
+            userService.verifyEmail(email: email) { [weak self] error in
+                guard let error else { return }
+                
+                switch error {
+                    case UserServiceError.serverDown:
+                        self?.error = "Проблемы с доступом к серверу. Попробуйте позже."
+                    default:
+                        self?.alertMessage = error.localizedDescription
+                        self?.presentingAlert = true
                 }
             }
         }
         
         func register() {
-            authManager.register(firstname: firstName,
-                                 lastname: lastName,
+            userService.register(firstName: firstName,
+                                 lastName: lastName,
                                  email: email,
-                                 password: newPassword,
-                                 phoneNumber: nil)
+                                 password: newPassword)
             { [weak self] error in
-                if let error {
-                    switch error {
-                        case APIService.Error.failedWithStatusCode(500):
-                            self?.error = "Проблемы с доступом к серверу. Попробуйте позже."
-                        case APIService.Error.failedWithStatusCode(409):
-                            self?.error = "Аккаунт с этим email уже существует"
-                        default:
-                            self?.alertMessage = error.localizedDescription
-                            self?.presentingAlert = true
-                    }
-                } else {
+                guard let error else {
                     self?.appState?.setRootScreen(to: .main)
+                    return
+                }
+                
+                switch error {
+                    case UserServiceError.userAlreadyExists:
+                        self?.error = "Аккаунт с этим email уже существует"
+                    case UserServiceError.serverDown:
+                        self?.error = "Проблемы с доступом к серверу. Попробуйте позже."
+                    default:
+                        self?.alertMessage = error.localizedDescription
+                        self?.presentingAlert = true
                 }
             }
         }

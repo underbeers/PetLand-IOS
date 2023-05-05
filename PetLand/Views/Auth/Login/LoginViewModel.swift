@@ -9,14 +9,14 @@ import SwiftUI
 
 extension LoginView {
     @MainActor class LoginViewModel: ObservableObject {
-        private let authManager: AuthManagerProtocol = AuthManager()
+        private let userService: UserServiceProtocol = UserService.shared
         private var appState: AppState? = nil
         
         @Published var email: String = ""
         @Published var password: String = ""
         @Published var staySignedIn: Bool = false
         
-        @Published var error: String?        
+        @Published var error: String?
         @Published var alertMessage: String = ""
         @Published var presentingAlert: Bool = false
         
@@ -25,19 +25,20 @@ extension LoginView {
         }
         
         func login() {
-            authManager.login(email: email, password: password) { [weak self] error in
-                if let error {
-                    switch error {
-                        case APIService.Error.failedWithStatusCode(400):
-                            self?.error = "Неправильный логин/пароль"
-                        case APIService.Error.failedWithStatusCode(500):
-                            self?.error = "Проблемы с доступом к серверу"
-                        default:
-                            self?.alertMessage = error.localizedDescription
-                            self?.presentingAlert = true
-                    }
-                } else {
+            userService.login(user: email, password: password) { [weak self] error in
+                guard let error else {
                     self?.appState?.setRootScreen(to: .main)
+                    return
+                }
+                
+                switch error {
+                    case UserServiceError.wrongCredentials:
+                        self?.error = "Неправильный логин/пароль"
+                    case UserServiceError.serverDown:
+                        self?.error = "Проблемы с доступом к серверу. Попробуйте позже."
+                    default:
+                        self?.alertMessage = error.localizedDescription
+                        self?.presentingAlert = true
                 }
             }
         }

@@ -33,13 +33,10 @@
 		FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */; };
 		FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */; };
 		FF7272A429FFE4340057886B /* LogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7272A329FFE4340057886B /* LogoImage.swift */; };
-		FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72EFEA2988206700C20AF5 /* APIService.swift */; };
 		FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709529CCED430082A4B1 /* LoginView.swift */; };
 		FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */; };
 		FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709929CD31860082A4B1 /* AppState.swift */; };
 		FF7A709C29CD385B0082A4B1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709B29CD385B0082A4B1 /* MainView.swift */; };
-		FF931EF4298961E5003F829F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF931EF3298961E5003F829F /* AuthManager.swift */; };
-		FFA3AA4B29BA5B89000C28B2 /* AuthEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3AA4A29BA5B89000C28B2 /* AuthEndPoints.swift */; };
 		FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E229C3CD2C00359F86 /* PetLand.swift */; };
 		FFAAD3E529C3CE8900359F86 /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E429C3CE8900359F86 /* CustomCheckbox.swift */; };
 		FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E629C3D2D000359F86 /* FontExtension.swift */; };
@@ -51,6 +48,9 @@
 		FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */; };
 		FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */; };
 		FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */; };
+		FFDF81772A040B1900539F74 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFDF81762A040B1900539F74 /* Alamofire */; };
+		FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF81782A0535B000539F74 /* Endpoint.swift */; };
+		FFDF817B2A0543F500539F74 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF817A2A0543F500539F74 /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,13 +82,10 @@
 		FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexExtension.swift; sourceTree = "<group>"; };
 		FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtension.swift; sourceTree = "<group>"; };
 		FF7272A329FFE4340057886B /* LogoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImage.swift; sourceTree = "<group>"; };
-		FF72EFEA2988206700C20AF5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FF7A709529CCED430082A4B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FF7A709929CD31860082A4B1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FF7A709B29CD385B0082A4B1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		FF931EF3298961E5003F829F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		FFA3AA4A29BA5B89000C28B2 /* AuthEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndPoints.swift; sourceTree = "<group>"; };
 		FFAAD3E229C3CD2C00359F86 /* PetLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetLand.swift; sourceTree = "<group>"; };
 		FFAAD3E429C3CE8900359F86 /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
 		FFAAD3E629C3D2D000359F86 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
@@ -100,6 +97,8 @@
 		FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2.swift; sourceTree = "<group>"; };
 		FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage3.swift; sourceTree = "<group>"; };
 		FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		FFDF81782A0535B000539F74 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		FFDF817A2A0543F500539F74 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFDF81772A040B1900539F74 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				FF1D438029743C7A00E3B172 /* Resources */,
-				FF5BA5D529709A490049C57E /* Managers */,
+				FF5BA5D529709A490049C57E /* Services */,
 				FF5BA5C629708D320049C57E /* Extensions */,
 				FFAAD3EC29C414B300359F86 /* Components */,
 				FF5BA5C529708D000049C57E /* Views */,
@@ -235,14 +235,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FF5BA5D529709A490049C57E /* Managers */ = {
+		FF5BA5D529709A490049C57E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FFA3AA4929BA5B73000C28B2 /* AuthManager */,
 				FF5BA5DB2970AB060049C57E /* ValidationManager.swift */,
-				FF72EFEA2988206700C20AF5 /* APIService.swift */,
+				FFDF81782A0535B000539F74 /* Endpoint.swift */,
+				FFDF817A2A0543F500539F74 /* UserService.swift */,
 			);
-			path = Managers;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FF8D12562999392E0083F901 /* Main */ = {
@@ -273,15 +273,6 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
-		FFA3AA4929BA5B73000C28B2 /* AuthManager */ = {
-			isa = PBXGroup;
-			children = (
-				FF931EF3298961E5003F829F /* AuthManager.swift */,
-				FFA3AA4A29BA5B89000C28B2 /* AuthEndPoints.swift */,
-			);
-			path = AuthManager;
-			sourceTree = "<group>";
-		};
 		FFAAD3EC29C414B300359F86 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +300,9 @@
 			dependencies = (
 			);
 			name = PetLand;
+			packageProductDependencies = (
+				FFDF81762A040B1900539F74 /* Alamofire */,
+			);
 			productName = PetLand;
 			productReference = FF18D45B296EAF5500DCB69E /* PetLand.app */;
 			productType = "com.apple.product-type.application";
@@ -337,6 +331,9 @@
 				Base,
 			);
 			mainGroup = FF18D452296EAF5500DCB69E;
+			packageReferences = (
+				FFDF81752A040B1900539F74 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = FF18D45C296EAF5500DCB69E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -383,8 +380,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFAD428A29E6C7CD00DB6D13 /* RegistrationPage1.swift in Sources */,
+				FFDF817B2A0543F500539F74 /* UserService.swift in Sources */,
 				FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */,
-				FFA3AA4B29BA5B89000C28B2 /* AuthEndPoints.swift in Sources */,
 				FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */,
 				FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */,
 				FFAAD3EE29C4151F00359F86 /* CustomButton.swift in Sources */,
@@ -393,14 +390,13 @@
 				FF7272A429FFE4340057886B /* LogoImage.swift in Sources */,
 				FFAAD3E929C3D43300359F86 /* CustomTextField.swift in Sources */,
 				FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */,
-				FF931EF4298961E5003F829F /* AuthManager.swift in Sources */,
 				FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */,
-				FF72EFEB2988206700C20AF5 /* APIService.swift in Sources */,
 				FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */,
 				FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */,
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
 				FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */,
 				FFAAD3E529C3CE8900359F86 /* CustomCheckbox.swift in Sources */,
+				FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */,
 				FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
@@ -611,6 +607,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFDF81752A040B1900539F74 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFDF81762A040B1900539F74 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFDF81752A040B1900539F74 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FF18D453296EAF5500DCB69E /* Project object */;
 }
