@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var appState: AppState
+    
     var body: some View {
-        Color.pink
+        Button("Выйти из аккаунта") {
+            UserService.shared.logout()
+            appState.setRootScreen(to: .login)
+        }
     }
 }
 

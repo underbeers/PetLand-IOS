@@ -27,6 +27,7 @@ struct PetLand: App {
                         .transition(transition)
                 } else {
                     MainTabView()
+                        .environmentObject(appState)
                         .transition(transition)
                 }
             }

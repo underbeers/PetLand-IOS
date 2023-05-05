@@ -74,7 +74,7 @@ struct LoginView: View {
                     })
                 }
                                 
-                Toggle("Не выходить из аккаунта", isOn: $model.staySignedIn)
+                Toggle("Не выходить из аккаунта", isOn: $model.stayLoggedIn)
                     .toggleStyle(CustomCheckbox())
                     .padding(.top, 24)
             }

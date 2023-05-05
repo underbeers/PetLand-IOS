@@ -53,6 +53,7 @@
 		FFC942662A0567B600108349 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942652A0567B600108349 /* ServicesView.swift */; };
 		FFC942682A0567C900108349 /* MessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942672A0567C900108349 /* MessengerView.swift */; };
 		FFC9426A2A0567FA00108349 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942692A0567FA00108349 /* FavouritesView.swift */; };
+		FFC9426C2A057D5100108349 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9426B2A057D5100108349 /* KeychainManager.swift */; };
 		FFDF81772A040B1900539F74 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFDF81762A040B1900539F74 /* Alamofire */; };
 		FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF81782A0535B000539F74 /* Endpoint.swift */; };
 		FFDF817B2A0543F500539F74 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF817A2A0543F500539F74 /* UserService.swift */; };
@@ -107,6 +108,7 @@
 		FFC942652A0567B600108349 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
 		FFC942672A0567C900108349 /* MessengerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerView.swift; sourceTree = "<group>"; };
 		FFC942692A0567FA00108349 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		FFC9426B2A057D5100108349 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FFDF81782A0535B000539F74 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FFDF817A2A0543F500539F74 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,6 +253,7 @@
 				FF5BA5DB2970AB060049C57E /* ValidationManager.swift */,
 				FFDF81782A0535B000539F74 /* Endpoint.swift */,
 				FFDF817A2A0543F500539F74 /* UserService.swift */,
+				FFC9426B2A057D5100108349 /* KeychainManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */,
 				FFC942682A0567C900108349 /* MessengerView.swift in Sources */,
 				FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */,
+				FFC9426C2A057D5100108349 /* KeychainManager.swift in Sources */,
 				FFC942642A0567A700108349 /* MarketplaceView.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
