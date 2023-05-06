@@ -59,7 +59,7 @@ struct LoginView: View {
                         model.login()
                     }
                 }
-                    .focused($currentFocus, equals: .password)
+                .focused($currentFocus, equals: .password)
                                 
                 HStack {
                     Spacer()

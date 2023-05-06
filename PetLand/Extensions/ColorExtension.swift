@@ -51,6 +51,7 @@ public extension Color {
     static let cBlue200 = Color(hex: 0xAEB9CC)
     static let cBlue300 = Color(hex: 0x909DB4)
     
+    static let cOrange400 = Color(hex: 0xFFCB4C)
     static let cOrange900 = Color(hex: 0xF47932)
     
     static let cRed500 = Color(hex: 0xFF514B)

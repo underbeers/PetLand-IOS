@@ -29,6 +29,8 @@
 		FF1D437D297437D100E3B172 /* Mulish-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D4369297437D000E3B172 /* Mulish-Italic-VariableFont_wght.ttf */; };
 		FF1D437E297437D100E3B172 /* Mulish-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D436A297437D000E3B172 /* Mulish-VariableFont_wght.ttf */; };
 		FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D43812974955300E3B172 /* ColorExtension.swift */; };
+		FF3B2F302A069AFA00DDBDBF /* LoremIpsum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F2F2A069AFA00DDBDBF /* LoremIpsum.swift */; };
+		FF3B2F322A06A02200DDBDBF /* Dummies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F312A06A02200DDBDBF /* Dummies.swift */; };
 		FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DB2970AB060049C57E /* ValidationManager.swift */; };
 		FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */; };
 		FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */; };
@@ -54,6 +56,9 @@
 		FFC942682A0567C900108349 /* MessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942672A0567C900108349 /* MessengerView.swift */; };
 		FFC9426A2A0567FA00108349 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942692A0567FA00108349 /* FavouritesView.swift */; };
 		FFC9426C2A057D5100108349 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9426B2A057D5100108349 /* KeychainManager.swift */; };
+		FFC9426F2A066E2900108349 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9426E2A066E2900108349 /* ProfileViewModel.swift */; };
+		FFC942722A0671DF00108349 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942712A0671DF00108349 /* UserModel.swift */; };
+		FFC942772A0694D900108349 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFC942762A0694D900108349 /* Preview Assets.xcassets */; };
 		FFDF81772A040B1900539F74 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFDF81762A040B1900539F74 /* Alamofire */; };
 		FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF81782A0535B000539F74 /* Endpoint.swift */; };
 		FFDF817B2A0543F500539F74 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF817A2A0543F500539F74 /* UserService.swift */; };
@@ -84,6 +89,8 @@
 		FF1D4369297437D000E3B172 /* Mulish-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		FF1D436A297437D000E3B172 /* Mulish-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		FF1D43812974955300E3B172 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		FF3B2F2F2A069AFA00DDBDBF /* LoremIpsum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremIpsum.swift; sourceTree = "<group>"; };
+		FF3B2F312A06A02200DDBDBF /* Dummies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummies.swift; sourceTree = "<group>"; };
 		FF5BA5DB2970AB060049C57E /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexExtension.swift; sourceTree = "<group>"; };
 		FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtension.swift; sourceTree = "<group>"; };
@@ -109,6 +116,9 @@
 		FFC942672A0567C900108349 /* MessengerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerView.swift; sourceTree = "<group>"; };
 		FFC942692A0567FA00108349 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		FFC9426B2A057D5100108349 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		FFC9426E2A066E2900108349 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		FFC942712A0671DF00108349 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		FFC942762A0694D900108349 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FFDF81782A0535B000539F74 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FFDF817A2A0543F500539F74 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +154,7 @@
 		FF18D45D296EAF5500DCB69E /* PetLand */ = {
 			isa = PBXGroup;
 			children = (
+				FFC942702A0671D500108349 /* Models */,
 				FF1D438029743C7A00E3B172 /* Resources */,
 				FF5BA5D529709A490049C57E /* Services */,
 				FF5BA5C629708D320049C57E /* Extensions */,
@@ -152,6 +163,7 @@
 				FF18D46C296EAF5600DCB69E /* Info.plist */,
 				FFAAD3E229C3CD2C00359F86 /* PetLand.swift */,
 				FF7A709929CD31860082A4B1 /* AppState.swift */,
+				FFC942752A0694C000108349 /* Preview Content */,
 			);
 			path = PetLand;
 			sourceTree = "<group>";
@@ -261,8 +273,8 @@
 		FF8D12562999392E0083F901 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				FFC9426D2A066E1200108349 /* ProfileView */,
 				FF7A709B29CD385B0082A4B1 /* MainTabView.swift */,
-				FFC942612A05679100108349 /* ProfileView.swift */,
 				FFC942632A0567A700108349 /* MarketplaceView.swift */,
 				FFC942652A0567B600108349 /* ServicesView.swift */,
 				FFC942672A0567C900108349 /* MessengerView.swift */,
@@ -300,6 +312,33 @@
 				FF7272A329FFE4340057886B /* LogoImage.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		FFC9426D2A066E1200108349 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				FFC942612A05679100108349 /* ProfileView.swift */,
+				FFC9426E2A066E2900108349 /* ProfileViewModel.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		FFC942702A0671D500108349 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FFC942712A0671DF00108349 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FFC942752A0694C000108349 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FFC942762A0694D900108349 /* Preview Assets.xcassets */,
+				FF3B2F2F2A069AFA00DDBDBF /* LoremIpsum.swift */,
+				FF3B2F312A06A02200DDBDBF /* Dummies.swift */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +417,7 @@
 				FF1D436D297437D100E3B172 /* Mulish-Italic.ttf in Resources */,
 				FF1D4374297437D100E3B172 /* Mulish-Light.ttf in Resources */,
 				FF1D437E297437D100E3B172 /* Mulish-VariableFont_wght.ttf in Resources */,
+				FFC942772A0694D900108349 /* Preview Assets.xcassets in Resources */,
 				FF1D437B297437D100E3B172 /* OFL.txt in Resources */,
 				FF1D4371297437D100E3B172 /* Mulish-SemiBoldItalic.ttf in Resources */,
 				FF1D4378297437D100E3B172 /* Mulish-MediumItalic.ttf in Resources */,
@@ -399,11 +439,13 @@
 			files = (
 				FFAD428A29E6C7CD00DB6D13 /* RegistrationPage1.swift in Sources */,
 				FFDF817B2A0543F500539F74 /* UserService.swift in Sources */,
+				FFC9426F2A066E2900108349 /* ProfileViewModel.swift in Sources */,
 				FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */,
 				FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */,
 				FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */,
 				FFC942662A0567B600108349 /* ServicesView.swift in Sources */,
 				FFAAD3EE29C4151F00359F86 /* CustomButton.swift in Sources */,
+				FF3B2F322A06A02200DDBDBF /* Dummies.swift in Sources */,
 				FFAD428829E6C72D00DB6D13 /* RegistrationView.swift in Sources */,
 				FF7A709C29CD385B0082A4B1 /* MainTabView.swift in Sources */,
 				FF7272A429FFE4340057886B /* LogoImage.swift in Sources */,
@@ -419,11 +461,13 @@
 				FFC9426A2A0567FA00108349 /* FavouritesView.swift in Sources */,
 				FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */,
 				FFC942682A0567C900108349 /* MessengerView.swift in Sources */,
+				FF3B2F302A069AFA00DDBDBF /* LoremIpsum.swift in Sources */,
 				FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */,
 				FFC9426C2A057D5100108349 /* KeychainManager.swift in Sources */,
 				FFC942642A0567A700108349 /* MarketplaceView.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
+				FFC942722A0671DF00108349 /* UserModel.swift in Sources */,
 				FFAAD3EB29C3EE5A00359F86 /* TextContentTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
