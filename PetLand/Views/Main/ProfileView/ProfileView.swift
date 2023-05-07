@@ -17,9 +17,19 @@ struct ProfileView: View {
                 VStack {
                     VStack(spacing: 8) {
                         HStack(spacing: 24) {
-                            Image(model.image)
-                                .resizable()
-                                .frame(width: 100, height: 100)
+                            if let image = model.image {
+                                Image(image)
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .clipShape(Circle())
+                            }
+                            else {
+                                Image("icons:profile")
+                                    .resizable()
+                                    .renderingMode(.template)
+                                    .foregroundColor(.cBlue200)
+                                    .frame(width: 100, height: 100)
+                            }
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(model.user.firstName + " " + model.user.lastName)
                                     .font(.cTitle4)
@@ -135,6 +145,9 @@ struct ProfileView: View {
                 .padding(.horizontal, 18)
             }
             .navigationTitle("Профиль")
+        }
+        .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
+            Text(model.alertMessage)
         }
         .onAppear {
             model.setup(appState)

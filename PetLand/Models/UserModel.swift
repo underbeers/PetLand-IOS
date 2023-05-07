@@ -8,12 +8,12 @@
 import Foundation
 
 struct User: Codable, Identifiable {
-    var id: UUID = .init()
+    var id: String = UUID().uuidString
     var firstName: String = ""
     var lastName: String = ""
     var email: String = ""
-    var chatID: UUID = .init()
-    var sessionID: UUID = .init()
+    var chatID: String = UUID().uuidString
+    var sessionID: String = UUID().uuidString
 
     enum CodingKeys: String, CodingKey {
         case id = "userID"

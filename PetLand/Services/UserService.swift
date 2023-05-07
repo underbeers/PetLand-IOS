@@ -12,11 +12,13 @@ extension Endpoint {
     static let login: Endpoint = .init(path: "/login", method: .post)
     static let registration: Endpoint = .init(path: "/registration/new", method: .post)
     static let verifyEmail: Endpoint = .init(path: "/email/code", method: .post)
+    static let getUserInfo: Endpoint = .init(path: "/user/info", method: .get)
 }
 
 enum UserServiceError: Error {
     case wrongCredentials
     case userAlreadyExists
+    case unauthorized
     case serverDown
 }
 
@@ -28,6 +30,7 @@ protocol UserServiceProtocol {
     func login(user: String, password: String, stayLoggedIn: Bool, completion: @escaping (Error?) -> ())
     func register(firstName: String, lastName: String, email: String, password: String, completion: @escaping (Error?) -> ())
     func verifyEmail(email: String, completion: @escaping (Error?) -> ())
+    func getUserInfo(completion: @escaping (Result<User, Error>) -> ())
 }
 
 class UserService: UserServiceProtocol {
@@ -35,6 +38,7 @@ class UserService: UserServiceProtocol {
 
     private let validationManager: ValidationManagerProtocol = ValidationManager.shared
     private var accessToken: String?
+    private var authHeaders: HTTPHeaders { [.authorization(bearerToken: accessToken ?? "")] }
 
     func saveToken(_ token: String) {
         accessToken = token
@@ -106,6 +110,7 @@ class UserService: UserServiceProtocol {
                         default:
                             completion(error)
                     }
+                    return
                 }
 
                 self?.login(user: email, password: password, stayLoggedIn: true, completion: completion)
@@ -134,6 +139,30 @@ class UserService: UserServiceProtocol {
                 }
 
                 completion(nil)
+            }
+    }
+
+    func getUserInfo(completion: @escaping (Result<User, Error>) -> ()) {
+        let endpoint = Endpoint.getUserInfo
+
+        AF.request(endpoint.url, method: endpoint.method, headers: authHeaders)
+            .validate()
+            .responseDecodable(of: User.self) { response in
+                guard let value = response.value else {
+                    if let error = response.error {
+                        switch error {
+                            case .responseValidationFailed(reason: .unacceptableStatusCode(code: 401)):
+                                completion(.failure(UserServiceError.unauthorized))
+                            case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
+                                completion(.failure(UserServiceError.serverDown))
+                            default:
+                                completion(.failure(error))
+                        }
+                    }
+                    return
+                }
+                
+                completion(.success(value))
             }
     }
 }

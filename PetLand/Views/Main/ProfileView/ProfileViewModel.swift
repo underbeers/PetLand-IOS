@@ -13,15 +13,32 @@ extension ProfileView {
         private let userService: UserServiceProtocol = UserService.shared
 
         @Published var user: User = .init()
-        @Published var image: String = "icons:profile"
+        @Published var image: String?
+        
+        @Published var alertMessage: String = ""
+        @Published var presentingAlert: Bool = false
 
         func setup(_ appState: AppState) {
             self.appState = appState
         }
 
         func fetchUserInfo() {
-            user = .dummy
-            image = User.dummyImage
+            userService.getUserInfo { [weak self] result in
+                switch result {
+                    case .success(let value):
+                        self?.user = value
+                    case .failure(let error):
+                        switch error {
+                            case UserServiceError.unauthorized:
+                                self?.alertMessage = "Ошибка авторизации. Зайдите в аккаунт заново."
+                            case UserServiceError.serverDown:
+                                self?.alertMessage = "Проблема с доступом к серверу"
+                            default:
+                                self?.alertMessage = error.localizedDescription
+                        }
+                        self?.presentingAlert = true
+                }
+            }
         }
     }
 }
