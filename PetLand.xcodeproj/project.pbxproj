@@ -55,7 +55,7 @@
 		FFC942662A0567B600108349 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942652A0567B600108349 /* ServicesView.swift */; };
 		FFC942682A0567C900108349 /* MessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942672A0567C900108349 /* MessengerView.swift */; };
 		FFC9426A2A0567FA00108349 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942692A0567FA00108349 /* FavouritesView.swift */; };
-		FFC9426C2A057D5100108349 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9426B2A057D5100108349 /* KeychainManager.swift */; };
+		FFC9426C2A057D5100108349 /* AccessTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9426B2A057D5100108349 /* AccessTokenStorage.swift */; };
 		FFC9426F2A066E2900108349 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9426E2A066E2900108349 /* ProfileViewModel.swift */; };
 		FFC942722A0671DF00108349 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942712A0671DF00108349 /* UserModel.swift */; };
 		FFC942772A0694D900108349 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFC942762A0694D900108349 /* Preview Assets.xcassets */; };
@@ -115,7 +115,7 @@
 		FFC942652A0567B600108349 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
 		FFC942672A0567C900108349 /* MessengerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerView.swift; sourceTree = "<group>"; };
 		FFC942692A0567FA00108349 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
-		FFC9426B2A057D5100108349 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		FFC9426B2A057D5100108349 /* AccessTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenStorage.swift; sourceTree = "<group>"; };
 		FFC9426E2A066E2900108349 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FFC942712A0671DF00108349 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		FFC942762A0694D900108349 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -154,8 +154,8 @@
 		FF18D45D296EAF5500DCB69E /* PetLand */ = {
 			isa = PBXGroup;
 			children = (
-				FFC942702A0671D500108349 /* Models */,
 				FF1D438029743C7A00E3B172 /* Resources */,
+				FFC942702A0671D500108349 /* Models */,
 				FF5BA5D529709A490049C57E /* Services */,
 				FF5BA5C629708D320049C57E /* Extensions */,
 				FFAAD3EC29C414B300359F86 /* Components */,
@@ -265,7 +265,7 @@
 				FF5BA5DB2970AB060049C57E /* ValidationManager.swift */,
 				FFDF81782A0535B000539F74 /* Endpoint.swift */,
 				FFDF817A2A0543F500539F74 /* UserService.swift */,
-				FFC9426B2A057D5100108349 /* KeychainManager.swift */,
+				FFC9426B2A057D5100108349 /* AccessTokenStorage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -463,7 +463,7 @@
 				FFC942682A0567C900108349 /* MessengerView.swift in Sources */,
 				FF3B2F302A069AFA00DDBDBF /* LoremIpsum.swift in Sources */,
 				FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */,
-				FFC9426C2A057D5100108349 /* KeychainManager.swift in Sources */,
+				FFC9426C2A057D5100108349 /* AccessTokenStorage.swift in Sources */,
 				FFC942642A0567A700108349 /* MarketplaceView.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
@@ -596,6 +596,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "PetLand/Preview\\ Content";
 				DEVELOPMENT_TEAM = 757KZK47PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PetLand/Info.plist;
@@ -628,6 +629,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "PetLand/Preview\\ Content";
 				DEVELOPMENT_TEAM = 757KZK47PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PetLand/Info.plist;

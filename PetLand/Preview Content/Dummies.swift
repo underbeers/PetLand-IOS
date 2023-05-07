@@ -8,6 +8,5 @@
 import Foundation
 
 extension User {
-    static let dummy = User(firstName: "Test", lastName: "Testing", email: "test@server.domain")
-    static let dummyImage = "preview:profile-photo"
+    static let dummy = User(firstName: "Test", lastName: "Testing", email: "test@server.domain", image: "preview:profile-photo")
 }

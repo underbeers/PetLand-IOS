@@ -12,6 +12,7 @@ struct User: Codable, Identifiable {
     var firstName: String = ""
     var lastName: String = ""
     var email: String = ""
+    var image: String?
     var chatID: String = UUID().uuidString
     var sessionID: String = UUID().uuidString
 

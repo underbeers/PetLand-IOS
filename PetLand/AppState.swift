@@ -8,7 +8,9 @@
 import SwiftUI
 
 @MainActor
-class AppState: ObservableObject {
+final class AppState: ObservableObject {
+    private static let accessTokenStorage: AccessTokenStorageProtocol = AccessTokenStorage.shared
+    
     enum Screen {
         case login,
              registration,
@@ -16,7 +18,7 @@ class AppState: ObservableObject {
     }
 
     @Published private(set) var rootScreen: Screen = {
-        if UserService.shared.restoreToken() {
+        if accessTokenStorage.restore() {
             return .main
         }
         else {
@@ -28,5 +30,10 @@ class AppState: ObservableObject {
         withAnimation {
             rootScreen = screen
         }
+    }
+    
+    func signOut() {
+        AppState.accessTokenStorage.delete()
+        setRootScreen(to: .login)
     }
 }

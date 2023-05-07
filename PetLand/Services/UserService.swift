@@ -23,10 +23,6 @@ enum UserServiceError: Error {
 }
 
 protocol UserServiceProtocol {
-    func saveToken(_ token: String)
-    func restoreToken() -> Bool
-    func logout()
-
     func login(user: String, password: String, stayLoggedIn: Bool, completion: @escaping (Error?) -> ())
     func register(firstName: String, lastName: String, email: String, password: String, completion: @escaping (Error?) -> ())
     func verifyEmail(email: String, completion: @escaping (Error?) -> ())
@@ -37,26 +33,7 @@ class UserService: UserServiceProtocol {
     static let shared = UserService()
 
     private let validationManager: ValidationManagerProtocol = ValidationManager.shared
-    private var accessToken: String?
-    private var authHeaders: HTTPHeaders { [.authorization(bearerToken: accessToken ?? "")] }
-
-    func saveToken(_ token: String) {
-        accessToken = token
-        KeychainManager.save(service: "petland", account: "accessToken", data: accessToken!.data(using: .utf8)!)
-    }
-
-    func restoreToken() -> Bool {
-        guard let data = KeychainManager.get(service: "petland", account: "accessToken")
-        else { return false }
-
-        accessToken = String(data: data, encoding: .utf8)
-        return true
-    }
-
-    func logout() {
-        accessToken = nil
-        KeychainManager.delete(service: "petland", account: "accessToken")
-    }
+    private let accessTokenStorage: AccessTokenStorageProtocol = AccessTokenStorage.shared
 
     func login(user: String, password: String, stayLoggedIn: Bool, completion: @escaping (Error?) -> ()) {
         let endpoint = Endpoint.login
@@ -83,7 +60,7 @@ class UserService: UserServiceProtocol {
                 }
 
                 if stayLoggedIn {
-                    self?.saveToken(token)
+                    self?.accessTokenStorage.save(token)
                 }
                 completion(nil)
             }
@@ -145,7 +122,7 @@ class UserService: UserServiceProtocol {
     func getUserInfo(completion: @escaping (Result<User, Error>) -> ()) {
         let endpoint = Endpoint.getUserInfo
 
-        AF.request(endpoint.url, method: endpoint.method, headers: authHeaders)
+        AF.request(endpoint.url, method: endpoint.method, headers: [accessTokenStorage.authHeader])
             .validate()
             .responseDecodable(of: User.self) { response in
                 guard let value = response.value else {
