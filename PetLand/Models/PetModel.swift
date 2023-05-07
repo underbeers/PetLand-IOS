@@ -8,16 +8,17 @@
 import Foundation
 
 struct Pet: Codable, Identifiable {
-    var id: Int?
-    var petTypeID: Int?
-    var petType: String?
+    var id: Int
+    var name: String
     var userID: String?
+    var typeID: Int?
+    var type: String
     var breedID: Int?
-    var breed: String?
-    var photo: String?
-    var birthDate: String?
+    var breed: String
+    var photo: String
+    var birthDate: String
     var isMale: Bool?
-    var gender: String?
+    var gender: String
     var color: String?
     var care: String?
     var character: String?
@@ -27,9 +28,10 @@ struct Pet: Codable, Identifiable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        case petTypeID
-        case petType
+        case name = "petName"
         case userID
+        case typeID = "petTypeID"
+        case type = "petType"
         case breedID
         case breed
         case photo
@@ -42,5 +44,24 @@ struct Pet: Codable, Identifiable {
         case pedigree
         case sterilized = "sterilization"
         case vaccinated = "vaccination"
+    }
+    
+    private var convertedBirthDate: Date {
+        ISO8601DateFormatter().date(from: birthDate)!
+    }
+    
+    var formattedAge: String {
+        let currentDate = Date()
+        let deltaSeconds = currentDate.timeIntervalSince(convertedBirthDate)
+        let deltaDays = deltaSeconds / 60 / 60 / 24
+        let deltaMonths = deltaDays / 30
+        
+        if deltaDays <= 30 {
+            return "\(Int(deltaDays)) ".ending(for: Int(deltaDays), with: .day)
+        } else if deltaMonths <= 18 {
+            return "\(Int(deltaMonths)) ".ending(for: Int(deltaMonths), with: .month)
+        } else {
+            return "\(Int(deltaMonths / 12)) ".ending(for: Int(deltaMonths / 12), with: .year)
+        }
     }
 }

@@ -10,3 +10,7 @@ import Foundation
 extension User {
     static let dummy = User(firstName: "Test", lastName: "Testing", email: "test@server.domain", image: "preview:profile-photo")
 }
+
+extension Pet {
+    static let dummy = Pet(id: 0, name: "Шарик", type: "Собака", breed: "Овчарка", photo: "", birthDate: "2023-04-14T00:00:00Z", gender: "Мальчик")
+}

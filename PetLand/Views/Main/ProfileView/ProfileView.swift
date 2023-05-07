@@ -65,7 +65,7 @@ struct ProfileView: View {
                     .multilineTextAlignment(.leading)
                     
                     NavigationLink {
-                        Text("My Pets View Placeholder")
+                        MyPetsView(pets: model.pets)
                     } label: {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
@@ -156,12 +156,13 @@ struct ProfileView: View {
                         Image("icons:sign-out")
                             .resizable()
                             .renderingMode(.template)
-                            .foregroundColor(.cRed500)
+                            .foregroundColor(.cRed)
                             .frame(width: 24, height: 24)
                     }
                 }
             }
         }
+        .accentColor(.cOrange)
         .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
             Text(model.alertMessage)
         }

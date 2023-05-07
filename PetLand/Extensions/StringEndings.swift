@@ -12,7 +12,10 @@ extension String {
         case wi,
              ec,
              oe,
-             ie
+             ie,
+             day,
+             month,
+             year
         
         var variants: [String] {
             switch self {
@@ -24,6 +27,12 @@ extension String {
                     return ["ых", "ое", "ых"]
                 case .ie:
                     return ["ий", "ие", "ий"]
+                case .day:
+                    return ["дней", "день", "дня"]
+                case .month:
+                    return ["месяцев", "месяц", "месяца"]
+                case .year:
+                    return ["лет", "год", "года"]
             }
         }
     }

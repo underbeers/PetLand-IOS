@@ -40,8 +40,6 @@ final class PetService: PetServiceProtocol {
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters, headers: [accessTokenStorage.authHeader])
             .validate()
             .responseDecodable(of: [Pet].self) { response in
-                debugPrint(response)
-                
                 guard let pets = response.value else {
                     if let error = response.error {
                         switch error {
