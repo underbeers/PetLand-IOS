@@ -43,6 +43,10 @@ class UserService: UserServiceProtocol {
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters, encoder: JSONParameterEncoder())
             .validate()
             .responseDecodable(of: [String: String].self) { [weak self] response in
+#if DEBUG
+                debugPrint(response)
+#endif
+
                 guard let token = response.value?["accessToken"] else {
                     if let error = response.error {
                         switch error {
@@ -76,6 +80,10 @@ class UserService: UserServiceProtocol {
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters, encoder: JSONParameterEncoder())
             .validate()
             .response { [weak self] response in
+#if DEBUG
+                debugPrint(response)
+#endif
+
                 if let error = response.error {
                     switch error {
                         case .responseValidationFailed(reason: .unacceptableStatusCode(code: 409)):
@@ -104,6 +112,10 @@ class UserService: UserServiceProtocol {
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters, encoder: JSONParameterEncoder())
             .validate()
             .response { response in
+#if DEBUG
+                debugPrint(response)
+#endif
+
                 if let error = response.error {
                     switch error {
                         case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
@@ -123,6 +135,10 @@ class UserService: UserServiceProtocol {
         AF.request(endpoint.url, method: endpoint.method, headers: [accessTokenStorage.authHeader])
             .validate()
             .responseDecodable(of: User.self) { response in
+#if DEBUG
+                debugPrint(response)
+#endif
+
                 guard let value = response.value else {
                     if let error = response.error {
                         switch error {

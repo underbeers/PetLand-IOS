@@ -22,9 +22,9 @@ class AccessTokenStorage: AccessTokenStorageProtocol {
     private let service = "petland"
     private let account = "accessToken"
     
-    private var accessToken: String?
+    private var accessToken: String = ""
     var authHeader: HTTPHeader {
-        .authorization(bearerToken: accessToken ?? "")
+        .authorization(bearerToken: accessToken)
     }
     
     func restore() -> Bool {
@@ -39,8 +39,8 @@ class AccessTokenStorage: AccessTokenStorageProtocol {
         var result: AnyObject?
         SecItemCopyMatching(query as CFDictionary, &result)
         
-        accessToken = String(data: result as? Data ?? Data(), encoding: .utf8)
-        return accessToken != nil
+        accessToken = String(data: result as? Data ?? Data(), encoding: .utf8)!
+        return !accessToken.isEmpty
     }
     
     func save(_ token: String) {
@@ -52,6 +52,7 @@ class AccessTokenStorage: AccessTokenStorageProtocol {
         ]
         
         SecItemAdd(query as CFDictionary, nil)
+        accessToken = token
     }
     
     func delete() {

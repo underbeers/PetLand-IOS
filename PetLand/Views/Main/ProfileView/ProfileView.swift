@@ -37,6 +37,7 @@ struct ProfileView: View {
                                 Text(model.user.email)
                                     .font(.cMain)
                                     .foregroundColor(.cSubtext)
+                                    .lineLimit(1)
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -65,7 +66,7 @@ struct ProfileView: View {
                     .multilineTextAlignment(.leading)
                     
                     NavigationLink {
-                        MyPetsView(pets: model.pets)
+                        PetsView(pets: model.pets)
                     } label: {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {

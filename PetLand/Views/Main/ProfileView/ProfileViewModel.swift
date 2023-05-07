@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension ProfileView {
     @MainActor final class ProfileViewModel: ObservableObject {
@@ -18,6 +19,7 @@ extension ProfileView {
                 fetchPets()
             }
         }
+
         @Published var pets: [Pet] = []
 
         @Published var alertMessage: String = ""
@@ -35,7 +37,9 @@ extension ProfileView {
             userService.getUserInfo { [weak self] result in
                 switch result {
                     case .success(let value):
-                        self?.user = value
+                        withAnimation {
+                            self?.user = value
+                        }
                     case .failure(let error):
                         switch error {
                             case APIError.unauthorized:
@@ -49,12 +53,14 @@ extension ProfileView {
                 }
             }
         }
-        
+
         func fetchPets() {
             petService.getPetInfoGeneral(petID: nil, userID: user.id, petTypeID: nil, breedID: nil, gender: nil) { [weak self] result in
                 switch result {
                     case .success(let pets):
-                        self?.pets = pets
+                        withAnimation {
+                            self?.pets = pets
+                        }
                     case .failure(let error):
                         switch error {
                             case APIError.serverDown:

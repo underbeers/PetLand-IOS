@@ -34,7 +34,7 @@
 		FF3B2F342A07D6CC00DDBDBF /* PetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F332A07D6CC00DDBDBF /* PetService.swift */; };
 		FF3B2F362A07DA1900DDBDBF /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F352A07DA1900DDBDBF /* PetModel.swift */; };
 		FF3B2F382A07E96E00DDBDBF /* StringEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F372A07E96E00DDBDBF /* StringEndings.swift */; };
-		FF3B2F3A2A07F11200DDBDBF /* MyPetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F392A07F11200DDBDBF /* MyPetsView.swift */; };
+		FF3B2F3A2A07F11200DDBDBF /* PetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F392A07F11200DDBDBF /* PetsView.swift */; };
 		FF3B2F3C2A07F3E100DDBDBF /* TextChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F3B2A07F3E100DDBDBF /* TextChip.swift */; };
 		FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DB2970AB060049C57E /* ValidationManager.swift */; };
 		FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */; };
@@ -99,7 +99,7 @@
 		FF3B2F332A07D6CC00DDBDBF /* PetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetService.swift; sourceTree = "<group>"; };
 		FF3B2F352A07DA1900DDBDBF /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
 		FF3B2F372A07E96E00DDBDBF /* StringEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEndings.swift; sourceTree = "<group>"; };
-		FF3B2F392A07F11200DDBDBF /* MyPetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPetsView.swift; sourceTree = "<group>"; };
+		FF3B2F392A07F11200DDBDBF /* PetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsView.swift; sourceTree = "<group>"; };
 		FF3B2F3B2A07F3E100DDBDBF /* TextChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChip.swift; sourceTree = "<group>"; };
 		FF5BA5DB2970AB060049C57E /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexExtension.swift; sourceTree = "<group>"; };
@@ -285,8 +285,8 @@
 		FF8D12562999392E0083F901 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				FFC9426D2A066E1200108349 /* ProfileView */,
 				FF7A709B29CD385B0082A4B1 /* MainTabView.swift */,
+				FFC9426D2A066E1200108349 /* ProfileView */,
 				FFC942632A0567A700108349 /* MarketplaceView.swift */,
 				FFC942652A0567B600108349 /* ServicesView.swift */,
 				FFC942672A0567C900108349 /* MessengerView.swift */,
@@ -332,7 +332,7 @@
 			children = (
 				FFC942612A05679100108349 /* ProfileView.swift */,
 				FFC9426E2A066E2900108349 /* ProfileViewModel.swift */,
-				FF3B2F392A07F11200DDBDBF /* MyPetsView.swift */,
+				FF3B2F392A07F11200DDBDBF /* PetsView.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -485,7 +485,7 @@
 				FFC942642A0567A700108349 /* MarketplaceView.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
-				FF3B2F3A2A07F11200DDBDBF /* MyPetsView.swift in Sources */,
+				FF3B2F3A2A07F11200DDBDBF /* PetsView.swift in Sources */,
 				FFC942722A0671DF00108349 /* UserModel.swift in Sources */,
 				FFAAD3EB29C3EE5A00359F86 /* TextContentTypes.swift in Sources */,
 				FF3B2F382A07E96E00DDBDBF /* StringEndings.swift in Sources */,

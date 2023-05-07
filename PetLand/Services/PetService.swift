@@ -14,8 +14,7 @@ extension Endpoint {
     }
 }
 
-enum PetServiceError: Error {
-}
+enum PetServiceError: Error {}
 
 protocol PetServiceProtocol {
     func getPetInfoGeneral(petID: String?, userID: String?, petTypeID: String?, breedID: String?, gender: String?, completion: @escaping (Result<[Pet], Error>) -> ())
@@ -23,12 +22,12 @@ protocol PetServiceProtocol {
 
 final class PetService: PetServiceProtocol {
     static let shared = PetService()
-    
+
     private let accessTokenStorage: AccessTokenStorageProtocol = AccessTokenStorage.shared
-    
+
     func getPetInfoGeneral(petID: String? = nil, userID: String? = nil, petTypeID: String? = nil, breedID: String? = nil, gender: String? = nil, completion: @escaping (Result<[Pet], Error>) -> ()) {
         let endpoint = Endpoint.PetService.getPetInfoGeneral
-        
+
         let parameters = [
             "petID": petID,
             "userID": userID,
@@ -36,10 +35,14 @@ final class PetService: PetServiceProtocol {
             "breedID": breedID,
             "gender": gender
         ].filter { $0.value != nil }
-        
+
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters, headers: [accessTokenStorage.authHeader])
             .validate()
             .responseDecodable(of: [Pet].self) { response in
+#if DEBUG
+                debugPrint(response)
+#endif
+
                 guard let pets = response.value else {
                     if let error = response.error {
                         switch error {
@@ -51,7 +54,7 @@ final class PetService: PetServiceProtocol {
                     }
                     return
                 }
-                
+
                 completion(.success(pets))
             }
     }
