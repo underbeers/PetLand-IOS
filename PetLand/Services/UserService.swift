@@ -9,17 +9,15 @@ import Alamofire
 import Foundation
 
 extension Endpoint {
-    static let login: Endpoint = .init(path: "/login", method: .post)
-    static let registration: Endpoint = .init(path: "/registration/new", method: .post)
-    static let verifyEmail: Endpoint = .init(path: "/email/code", method: .post)
-    static let getUserInfo: Endpoint = .init(path: "/user/info", method: .get)
+    static let login = Endpoint(path: "/login", method: .post)
+    static let registration = Endpoint(path: "/registration/new", method: .post)
+    static let verifyEmail = Endpoint(path: "/email/code", method: .post)
+    static let getUserInfo = Endpoint(path: "/user/info", method: .get)
 }
 
 enum UserServiceError: Error {
     case wrongCredentials
     case userAlreadyExists
-    case unauthorized
-    case serverDown
 }
 
 protocol UserServiceProtocol {
@@ -51,7 +49,7 @@ class UserService: UserServiceProtocol {
                             case .responseValidationFailed(reason: .unacceptableStatusCode(code: 400)):
                                 completion(UserServiceError.wrongCredentials)
                             case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
-                                completion(UserServiceError.serverDown)
+                                completion(APIError.serverDown)
                             default:
                                 completion(error)
                         }
@@ -83,7 +81,7 @@ class UserService: UserServiceProtocol {
                         case .responseValidationFailed(reason: .unacceptableStatusCode(code: 409)):
                             completion(UserServiceError.userAlreadyExists)
                         case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
-                            completion(UserServiceError.serverDown)
+                            completion(APIError.serverDown)
                         default:
                             completion(error)
                     }
@@ -109,7 +107,7 @@ class UserService: UserServiceProtocol {
                 if let error = response.error {
                     switch error {
                         case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
-                            completion(UserServiceError.serverDown)
+                            completion(APIError.serverDown)
                         default:
                             completion(error)
                     }
@@ -129,16 +127,16 @@ class UserService: UserServiceProtocol {
                     if let error = response.error {
                         switch error {
                             case .responseValidationFailed(reason: .unacceptableStatusCode(code: 401)):
-                                completion(.failure(UserServiceError.unauthorized))
+                                completion(.failure(APIError.unauthorized))
                             case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
-                                completion(.failure(UserServiceError.serverDown))
+                                completion(.failure(APIError.serverDown))
                             default:
                                 completion(.failure(error))
                         }
                     }
                     return
                 }
-                
+
                 completion(.success(value))
             }
     }

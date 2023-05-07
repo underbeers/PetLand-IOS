@@ -43,7 +43,7 @@ extension RegistrationView {
                 guard let error else { return }
                 
                 switch error {
-                    case UserServiceError.serverDown:
+                    case APIError.serverDown:
                         self?.error = "Проблемы с доступом к серверу. Попробуйте позже."
                     default:
                         self?.alertMessage = error.localizedDescription
@@ -66,7 +66,7 @@ extension RegistrationView {
                 switch error {
                     case UserServiceError.userAlreadyExists:
                         self?.error = "Аккаунт с этим email уже существует"
-                    case UserServiceError.serverDown:
+                    case APIError.serverDown:
                         self?.error = "Проблемы с доступом к серверу. Попробуйте позже."
                     default:
                         self?.alertMessage = error.localizedDescription

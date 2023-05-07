@@ -72,9 +72,12 @@ struct ProfileView: View {
                                 Text("Питомцы")
                                     .font(.cTitle4)
                                     .foregroundColor(.cText)
-                                Text("3 добавленных питомца")
-                                    .font(.cSecondary1)
-                                    .foregroundColor(.cSubtext)
+                                Text("\(model.pets.count)"
+                                    + " добавленн".ending(for: model.pets.count, with: .wi)
+                                    + " питом".ending(for: model.pets.count, with: .ec)
+                                )
+                                .font(.cSecondary1)
+                                .foregroundColor(.cSubtext)
                             }
                             Spacer()
                             rightChevron
