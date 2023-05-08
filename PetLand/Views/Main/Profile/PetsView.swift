@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PetsView: View {
     @EnvironmentObject var appState: AppState
-    
+
     @State var pets: [Pet]
 
     var body: some View {
@@ -32,7 +32,7 @@ struct PetsView: View {
                         }
                     }
                     .buttonStyle(CustomButton(.primary, isEnabled: true))
-                    
+
                     Text("Или найдите друга в объявлениях PetLand")
                         .font(.cMain)
                         .foregroundColor(.cText)
@@ -79,8 +79,8 @@ struct PetsView: View {
                 .padding(16)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            
+                        NavigationLink {
+                            NewPetView()
                         } label: {
                             Image("icons:plus")
                                 .resizable()
@@ -102,7 +102,7 @@ struct PetsView_Previews: PreviewProvider {
             PetsView(pets: Array(repeating: .dummy, count: 5))
                 .environmentObject(AppState())
         }
-        
+
         NavigationStack {
             PetsView(pets: [])
                 .environmentObject(AppState())

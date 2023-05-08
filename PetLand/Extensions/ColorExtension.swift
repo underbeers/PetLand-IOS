@@ -31,7 +31,7 @@ public extension Color {
     static let cTransparent = Color.white.opacity(0)
     
     static let cText = Color.cBase800
-    static let cSubtext = Color.cBase600
+    static let cSubtext = Color.cBase500
     
     static let cOrange = Color.cOrange900
     static let cGreen = Color.cGreen600

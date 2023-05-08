@@ -67,6 +67,11 @@
 		FFDF81772A040B1900539F74 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFDF81762A040B1900539F74 /* Alamofire */; };
 		FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF81782A0535B000539F74 /* Endpoint.swift */; };
 		FFDF817B2A0543F500539F74 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF817A2A0543F500539F74 /* UserService.swift */; };
+		FFE277452A09120000B38B80 /* NewPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE277442A09120000B38B80 /* NewPetView.swift */; };
+		FFE277472A0925A400B38B80 /* CustomDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE277462A0925A400B38B80 /* CustomDropdown.swift */; };
+		FFE277492A092B2E00B38B80 /* CustomWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE277482A092B2E00B38B80 /* CustomWrapper.swift */; };
+		FFE2774B2A0931AE00B38B80 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2774A2A0931AE00B38B80 /* CustomDatePicker.swift */; };
+		FFE2774D2A09352400B38B80 /* CustomTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2774C2A09352400B38B80 /* CustomTextArea.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +136,11 @@
 		FFC942762A0694D900108349 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FFDF81782A0535B000539F74 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FFDF817A2A0543F500539F74 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FFE277442A09120000B38B80 /* NewPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPetView.swift; sourceTree = "<group>"; };
+		FFE277462A0925A400B38B80 /* CustomDropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropdown.swift; sourceTree = "<group>"; };
+		FFE277482A092B2E00B38B80 /* CustomWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWrapper.swift; sourceTree = "<group>"; };
+		FFE2774A2A0931AE00B38B80 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		FFE2774C2A09352400B38B80 /* CustomTextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextArea.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,7 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				FF7A709B29CD385B0082A4B1 /* MainTabView.swift */,
-				FFC9426D2A066E1200108349 /* ProfileView */,
+				FFC9426D2A066E1200108349 /* Profile */,
 				FFC942632A0567A700108349 /* MarketplaceView.swift */,
 				FFC942652A0567B600108349 /* ServicesView.swift */,
 				FFC942672A0567C900108349 /* MessengerView.swift */,
@@ -323,18 +333,23 @@
 				FFAAD3ED29C4151F00359F86 /* CustomButton.swift */,
 				FF7272A329FFE4340057886B /* LogoImage.swift */,
 				FF3B2F3B2A07F3E100DDBDBF /* TextChip.swift */,
+				FFE277462A0925A400B38B80 /* CustomDropdown.swift */,
+				FFE277482A092B2E00B38B80 /* CustomWrapper.swift */,
+				FFE2774A2A0931AE00B38B80 /* CustomDatePicker.swift */,
+				FFE2774C2A09352400B38B80 /* CustomTextArea.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		FFC9426D2A066E1200108349 /* ProfileView */ = {
+		FFC9426D2A066E1200108349 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				FFC942612A05679100108349 /* ProfileView.swift */,
 				FFC9426E2A066E2900108349 /* ProfileViewModel.swift */,
 				FF3B2F392A07F11200DDBDBF /* PetsView.swift */,
+				FFE277442A09120000B38B80 /* NewPetView.swift */,
 			);
-			path = ProfileView;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		FFC942702A0671D500108349 /* Models */ = {
@@ -456,12 +471,15 @@
 				FF3B2F362A07DA1900DDBDBF /* PetModel.swift in Sources */,
 				FFDF817B2A0543F500539F74 /* UserService.swift in Sources */,
 				FFC9426F2A066E2900108349 /* ProfileViewModel.swift in Sources */,
+				FFE277472A0925A400B38B80 /* CustomDropdown.swift in Sources */,
+				FFE2774B2A0931AE00B38B80 /* CustomDatePicker.swift in Sources */,
 				FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */,
 				FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */,
 				FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */,
 				FFC942662A0567B600108349 /* ServicesView.swift in Sources */,
 				FFAAD3EE29C4151F00359F86 /* CustomButton.swift in Sources */,
 				FF3B2F322A06A02200DDBDBF /* Dummies.swift in Sources */,
+				FFE2774D2A09352400B38B80 /* CustomTextArea.swift in Sources */,
 				FFAD428829E6C72D00DB6D13 /* RegistrationView.swift in Sources */,
 				FF7A709C29CD385B0082A4B1 /* MainTabView.swift in Sources */,
 				FF7272A429FFE4340057886B /* LogoImage.swift in Sources */,
@@ -469,6 +487,7 @@
 				FFAAD3E929C3D43300359F86 /* CustomTextField.swift in Sources */,
 				FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */,
 				FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */,
+				FFE277492A092B2E00B38B80 /* CustomWrapper.swift in Sources */,
 				FF3B2F3C2A07F3E100DDBDBF /* TextChip.swift in Sources */,
 				FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */,
 				FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */,
@@ -479,6 +498,7 @@
 				FFC9426A2A0567FA00108349 /* FavouritesView.swift in Sources */,
 				FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */,
 				FFC942682A0567C900108349 /* MessengerView.swift in Sources */,
+				FFE277452A09120000B38B80 /* NewPetView.swift in Sources */,
 				FF3B2F302A069AFA00DDBDBF /* LoremIpsum.swift in Sources */,
 				FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */,
 				FFC9426C2A057D5100108349 /* AccessTokenStorage.swift in Sources */,

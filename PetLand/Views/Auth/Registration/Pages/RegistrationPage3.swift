@@ -28,13 +28,17 @@ struct RegistrationPage3: View {
             Spacer()
 
             VStack(alignment: .leading) {
-                CustomTextField(.newPassword, text: $model.newPassword, isValid: $newPassworsIsValid, isRequired: true) {
-                    if newPassworsIsValid {
-                        currentFocus = .confirmPassword
+                CustomWrapper(isValid: $newPassworsIsValid) {
+                    CustomTextField(.newPassword, text: $model.newPassword) {
+                        if newPassworsIsValid {
+                            currentFocus = .confirmPassword
+                        }
                     }
                 }
                 .focused($currentFocus, equals: .newPassword)
-                CustomTextField(.confirmPassword, text: $model.confirmPassword, isValid: $confirmPasswordIsValid, isRequired: true)
+                CustomWrapper(isValid: $confirmPasswordIsValid )  {
+                    CustomTextField(.confirmPassword, text: $model.confirmPassword)
+                }
                     .focused($currentFocus, equals: .confirmPassword)
                 Toggle("Согласие с пользовательским соглашением", isOn: $agreedToTOS)
                     .toggleStyle(CustomCheckbox())

@@ -38,6 +38,7 @@ struct MainTabView: View {
             .padding(.vertical, 8)
             .background(.white)
         }
+        .ignoresSafeArea(.keyboard)
     }
 }
 

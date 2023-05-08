@@ -32,10 +32,12 @@ struct RegistrationPage2: View {
             Spacer()
                 
             VStack(spacing: 0) {
-                CustomTextField(.email, text: $model.email, isValid: $emailIsValid, isRequired: true) {
-                    if canSend {
-                        model.sendVerificationCode()
-                        secondsLeft = 30
+                CustomWrapper(isValid: $emailIsValid) {
+                    CustomTextField(.email, text: $model.email) {
+                        if canSend {
+                            model.sendVerificationCode()
+                            secondsLeft = 30
+                        }
                     }
                 }
                     
@@ -60,8 +62,10 @@ struct RegistrationPage2: View {
                 .padding(.top, 8)
                 .padding(.bottom, 12)
                     
-                CustomTextField(.verificationCode, text: $model.code, isValid: $codeIsValid, isRequired: true)
-                    .disabled(codeIsValid)
+                CustomWrapper(isValid: $codeIsValid) {
+                    CustomTextField(.verificationCode, text: $model.code)
+                }
+                .disabled(codeIsValid)
             }
             .padding(.horizontal, 40)
                 

@@ -69,13 +69,13 @@ class ValidationManager: ValidationManagerProtocol {
     }
 
     private func isValidName(_ input: String) -> String? {
-        let regex = /[a-zA-Zа-яА-Я \-'‘’]+/
+        let regex = /[a-zA-Zа-яА-Я \-'‘’]*/
         return regex.check(for: input) ? nil : "Неподдерживаемый символ"
     }
 
     private func isValidEmail(_ input: String) -> String? {
         let regex = /[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\.)+[A-Za-z]{2,}/
-        return regex.check(for: input) ? nil : "Некорректный формат"
+        return regex.check(for: input) || input.isEmpty ? nil : "Некорректный формат"
     }
 
     private func isValidPhoneNumber(_ input: String) -> String? {
