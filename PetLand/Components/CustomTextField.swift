@@ -61,6 +61,7 @@ struct CustomTextField: View {
                     .focused($currentFocus, equals: .regular)
 
                 SecureField(type.placeholder, text: $text)
+                    .allowsHitTesting(type.shouldBeSecure && isSecure)
                     .opacity(type.shouldBeSecure && isSecure ? 1 : 0)
                     .focused($currentFocus, equals: .secure)
             }
@@ -96,7 +97,7 @@ struct CustomTextField: View {
         .onChange(of: currentFocus) { _ in validate() }
         .onDisappear { currentFocus = nil }
 
-        .animation(.default, value: shadowColor)
+        .animation(.default, value: config.isValid)
         .animation(.default, value: isSecure)
     }
 }

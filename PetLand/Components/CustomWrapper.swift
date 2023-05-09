@@ -66,15 +66,19 @@ struct CustomWrapper<Content: View>: View {
             }
             content
                 .environmentObject(config)
+                .onTapGesture { wasInteractedWith = true }
             Text(error ?? tip)
                 .font(.cSecondary2)
                 .foregroundColor(error == nil ? .cBlue300 : .cRed)
         }
-        .onTapGesture { wasInteractedWith = true }
+        .onAppear {
+            if !required {
+                isValid = true
+            }
+        }
         .onChange(of: config.error) { _ in validate() }
         .onChange(of: config.isEmpty) { _ in validate() }
         .onChange(of: wasInteractedWith) { _ in validate() }
-
         .animation(.default, value: error)
     }
 }

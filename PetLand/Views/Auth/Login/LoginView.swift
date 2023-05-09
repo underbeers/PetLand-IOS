@@ -55,7 +55,6 @@ struct LoginView: View {
                     }
                 }
                 .focused($currentFocus, equals: .email)
-                .padding(.bottom, 8)
                 CustomWrapper(isValid: $passwordIsValid) {
                     CustomTextField(.password, text: $model.password) {
                         if canLogin {

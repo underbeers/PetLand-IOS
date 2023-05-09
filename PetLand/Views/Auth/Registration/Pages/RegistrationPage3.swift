@@ -9,16 +9,17 @@ import SwiftUI
 
 struct RegistrationPage3: View {
     @EnvironmentObject var model: RegistrationView.RegistrationViewModel
-    
+
     private enum Focusable: Hashable {
         case newPassword, confirmPassword
     }
+
     @FocusState private var currentFocus: Focusable?
-    
+
     @State private var newPassworsIsValid: Bool = false
     @State private var confirmPasswordIsValid: Bool = false
     @State private var agreedToTOS: Bool = false
-    
+
     private var canRegister: Bool {
         newPassworsIsValid && confirmPasswordIsValid && agreedToTOS
     }
@@ -27,7 +28,7 @@ struct RegistrationPage3: View {
         VStack {
             Spacer()
 
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 CustomWrapper(isValid: $newPassworsIsValid) {
                     CustomTextField(.newPassword, text: $model.newPassword) {
                         if newPassworsIsValid {
@@ -36,10 +37,12 @@ struct RegistrationPage3: View {
                     }
                 }
                 .focused($currentFocus, equals: .newPassword)
-                CustomWrapper(isValid: $confirmPasswordIsValid )  {
+                
+                CustomWrapper(isValid: $confirmPasswordIsValid) {
                     CustomTextField(.confirmPassword, text: $model.confirmPassword)
                 }
-                    .focused($currentFocus, equals: .confirmPassword)
+                .focused($currentFocus, equals: .confirmPassword)
+                
                 Toggle("Согласие с пользовательским соглашением", isOn: $agreedToTOS)
                     .toggleStyle(CustomCheckbox())
             }
@@ -59,6 +62,7 @@ struct RegistrationPage3: View {
             .disabled(!canRegister)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .animation(.default, value: canRegister)
         .onDisappear {
             currentFocus = nil
         }

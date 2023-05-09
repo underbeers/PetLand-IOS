@@ -32,7 +32,7 @@ struct RegistrationPage1: View {
         VStack {
             Spacer()
 
-            VStack {
+            VStack(spacing: 0) {
                 CustomWrapper(isValid: $firstNameIsValid) {
                     CustomTextField(.firstName, text: $model.firstName) {
                         if firstNameIsValid {
@@ -61,6 +61,7 @@ struct RegistrationPage1: View {
             .disabled(!canAdvance)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .animation(.default, value: canAdvance)
     }
 }
 

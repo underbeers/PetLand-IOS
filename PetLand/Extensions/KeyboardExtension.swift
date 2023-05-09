@@ -35,9 +35,6 @@ extension View {
                 isPresented.wrappedValue = value
             }
         }
-        .onTapGesture {
-            hideKeyboard()
-        }
         .gesture(DragGesture().onChanged { _ in hideKeyboard() })
     }
 }

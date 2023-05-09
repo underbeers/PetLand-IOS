@@ -59,6 +59,7 @@ struct CustomTextArea: View {
                         Text(text.isEmpty ? placeholder : "")
                             .font(.cMain)
                             .foregroundColor(.cSubtext)
+                            .allowsHitTesting(false)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 16)
                     }
@@ -66,15 +67,6 @@ struct CustomTextArea: View {
             .onChange(of: text) { _ in validate() }
             .onChange(of: isFocused) { _ in validate() }
             .animation(.default, value: shadowColor)
-            .toolbar {
-                ToolbarItem(placement: .keyboard) {
-                    Button("Готово") {
-                        isFocused = false
-                    }
-                    .font(.cButton)
-                    .foregroundColor(.cOrange)
-                }
-            }
     }
 }
 

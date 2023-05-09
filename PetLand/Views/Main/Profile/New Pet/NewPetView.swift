@@ -129,7 +129,7 @@ struct NewPetView: View {
         }
         .navigationTitle("Новый питомец")
         .scrollDismissesKeyboard(.interactively)
-        .animation(.default, value: model.pet.type)
+        .animation(.default, value: canCreatePet)
         .onAppear {
             model.fetchTypes()
         }
