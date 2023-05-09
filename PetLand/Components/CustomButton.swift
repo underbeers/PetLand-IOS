@@ -14,20 +14,30 @@ struct CustomButton: ButtonStyle {
              text
     }
 
-    var foregroundColor: Color
-    var backgroundColor: Color = .cTransparent
-    var borderColor: Color = .cTransparent
+    enum ButtonColor {
+        case green,
+             orange
+    }
 
-    init(_ type: ButtonType, isEnabled: Bool = true) {
+    private let isEnabled: Bool
+    private let foregroundColor: Color
+    private var backgroundColor: Color = .cTransparent
+    private var borderColor: Color = .cTransparent
+
+    init(_ type: ButtonType, isEnabled: Bool = true, color: ButtonColor = .orange) {
+        self.isEnabled = isEnabled
+        
+        let base: Color = color == .orange ? .cOrange : .cGreen
+
         switch type {
             case .primary:
                 foregroundColor = .cBase0
-                backgroundColor = isEnabled ? .cOrange900 : .cBase400
+                backgroundColor = isEnabled ? base : .cBase400
             case .secondary:
-                foregroundColor = isEnabled ? .cOrange900 : .cBase400
-                borderColor = isEnabled ? .cOrange900 : .cBase400
+                foregroundColor = isEnabled ? base : .cBase400
+                borderColor = isEnabled ? base : .cBase400
             case .text:
-                foregroundColor = isEnabled ? .cOrange900 : .cBase400
+                foregroundColor = isEnabled ? base : .cBase400
         }
     }
 
@@ -48,7 +58,11 @@ struct CustomButton: ButtonStyle {
 
 struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        Button("Кнопка") {}
-            .buttonStyle(CustomButton(.primary))
+        VStack {
+            Button("Кнопка") {}
+                .buttonStyle(CustomButton(.primary))
+            Button("Кнопка") {}
+                .buttonStyle(CustomButton(.primary, color: .green))
+        }
     }
 }

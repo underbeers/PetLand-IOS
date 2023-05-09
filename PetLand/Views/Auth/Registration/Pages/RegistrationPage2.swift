@@ -11,7 +11,7 @@ struct RegistrationPage2: View {
     // MARK: Environment
 
     @EnvironmentObject var model: RegistrationView.RegistrationViewModel
-    
+
     // MARK: State
 
     @State var emailIsValid: Bool = false
@@ -26,52 +26,47 @@ struct RegistrationPage2: View {
 
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var secondsLeft: Int = 0
-    
+
     var body: some View {
         VStack {
             Spacer()
-                
-            VStack(spacing: 0) {
-                CustomTextField(.email, text: $model.email, isValid: $emailIsValid, isRequired: true) {
-                    if canSend {
-                        model.sendVerificationCode()
-                        secondsLeft = 30
-                    }
-                }
-                    
-                VStack(spacing: 4) {
-                    Button("Отправить код") {
-                        model.sendVerificationCode()
-                        secondsLeft = 30
-                    }
-                    .buttonStyle(CustomButton(.secondary, isEnabled: canSend))
-                    .disabled(!canSend)
-                        
-                    Text("Подождите \(secondsLeft) сек.")
-                        .opacity(secondsLeft != 0 ? 1 : 0)
-                        .font(.cSecondary1)
-                        .foregroundColor(.cBlue300)
-                        .onReceive(timer) { _ in
-                            if secondsLeft > 0 {
-                                secondsLeft -= 1
-                            }
+
+            VStack(spacing: 8) {
+                CustomWrapper(isValid: $emailIsValid) {
+                    CustomTextField(.email, text: $model.email) {
+                        if canSend {
+                            model.sendVerificationCode()
+                            secondsLeft = 30
                         }
+                    }
                 }
-                .padding(.top, 8)
-                .padding(.bottom, 12)
-                    
-                CustomTextField(.verificationCode, text: $model.code, isValid: $codeIsValid, isRequired: true)
-                    .disabled(codeIsValid)
+
+                Button(secondsLeft == 0 ? "Отправить код" : "Подождите \(secondsLeft) сек.") {
+                    model.sendVerificationCode()
+                    secondsLeft = 30
+                }
+                .buttonStyle(CustomButton(.secondary, isEnabled: canSend))
+                .disabled(!canSend)
+                .onReceive(timer) { _ in
+                    if secondsLeft > 0 {
+                        secondsLeft -= 1
+                    }
+                }
+
+                CustomWrapper(isValid: $codeIsValid) {
+                    CustomTextField(.verificationCode, text: $model.code)
+                }
+                .disabled(codeIsValid)
             }
             .padding(.horizontal, 40)
-                
+
             Spacer()
-                
+
             Text(model.error ?? " ")
                 .opacity(model.error != nil ? 1 : 0)
                 .font(.cSecondary1)
                 .foregroundColor(.cRed500)
-                
+
             Button("Следующий шаг") {
                 model.nextPage()
             }
@@ -79,6 +74,9 @@ struct RegistrationPage2: View {
             .disabled(!canAdvance)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .animation(.default, value: emailIsValid)
+        .animation(.default, value: codeIsValid)
+        .animation(.default, value: secondsLeft == 0)
     }
 }
 

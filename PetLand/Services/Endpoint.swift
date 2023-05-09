@@ -18,3 +18,8 @@ struct Endpoint {
         Endpoint.baseURL + path
     }
 }
+
+enum APIError: Error {
+    case unauthorized
+    case serverDown
+}

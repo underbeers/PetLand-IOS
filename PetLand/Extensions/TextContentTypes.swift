@@ -98,6 +98,8 @@ enum TextContentType {
         switch self {
             case .email, .password, .newPassword, .confirmPassword:
                 return .never
+            case .someText(_):
+                return .sentences
             default:
                 return .words
         }

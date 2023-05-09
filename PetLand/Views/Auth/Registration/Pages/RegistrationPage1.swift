@@ -32,16 +32,20 @@ struct RegistrationPage1: View {
         VStack {
             Spacer()
 
-            VStack {
-                CustomTextField(.firstName, text: $model.firstName, isValid: $firstNameIsValid, isRequired: true) {
-                    if firstNameIsValid {
-                        currentFocus = .lastName
+            VStack(spacing: 0) {
+                CustomWrapper(isValid: $firstNameIsValid) {
+                    CustomTextField(.firstName, text: $model.firstName) {
+                        if firstNameIsValid {
+                            currentFocus = .lastName
+                        }
                     }
                 }
                 .focused($currentFocus, equals: .firstName)
-                CustomTextField(.lastName, text: $model.lastName, isValid: $lastNameIsValid, isRequired: true) {
-                    if canAdvance {
-                        model.nextPage()
+                CustomWrapper(isValid: $lastNameIsValid) {
+                    CustomTextField(.lastName, text: $model.lastName) {
+                        if canAdvance {
+                            model.nextPage()
+                        }
                     }
                 }
                 .focused($currentFocus, equals: .lastName)
@@ -57,6 +61,7 @@ struct RegistrationPage1: View {
             .disabled(!canAdvance)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .animation(.default, value: canAdvance)
     }
 }
 

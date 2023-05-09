@@ -10,9 +10,9 @@ import SwiftUI
 struct CustomTextField: View {
     // MARK: Configurtation
 
-    private var type: TextContentType
-    private var isRequired: Bool
-    private var onSubmitHandler: ()->()
+    @EnvironmentObject var config: CustomConfig
+    private let type: TextContentType
+    private let onSubmitHandler: ()->()
 
     // MARK: Focus
 
@@ -26,13 +26,18 @@ struct CustomTextField: View {
     // MARK: State
 
     @Binding var text: String
-    @Binding var isValid: Bool
     @State private var isSecure: Bool = true
-    @State private var wasInteractedWith: Bool = false
-    @State private var error: String?
+
+    init(_ type: TextContentType, text: Binding<String>, onSubmit: @escaping ()->() = {}) {
+        self.type = type
+        self._text = text
+        self.onSubmitHandler = onSubmit
+    }
+
+    // MARK: Computed
 
     private var shadowColor: Color {
-        if error != nil {
+        if !config.isValid {
             return .cRed.opacity(0.25)
         } else if currentFocus != nil {
             return .cGreen.opacity(0.25)
@@ -42,88 +47,62 @@ struct CustomTextField: View {
     }
 
     private func validate() {
-        // Update error
-        if !wasInteractedWith {
-            error = nil
-        } else if isRequired && text.isEmpty {
-            error = "Обязательное поле"
-        } else {
-            error = type.validate(text)
-        }
-
-        // Update isValid
-        if error != nil || isRequired && text.isEmpty {
-            isValid = false
-        } else {
-            isValid = true
-        }
+        config.isEmpty = text.isEmpty
+        config.error = type.validate(text) ?? ""
     }
 
-    init(_ type: TextContentType, text: Binding<String>, isValid: Binding<Bool>, isRequired: Bool = false, onSubmit: @escaping ()->() = {}) {
-        self.type = type
-        self._text = text
-        self._isValid = isValid
-        self.isRequired = isRequired
-        self.onSubmitHandler = onSubmit
-    }
+    // MARK: Body
 
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                ZStack {
-                    TextField(type.placeholder, text: $text,
-                              onEditingChanged: { _ in wasInteractedWith = true })
-                        .opacity(type.shouldBeSecure && isSecure ? 0 : 1)
-                        .focused($currentFocus, equals: .regular)
+        HStack {
+            ZStack {
+                TextField(type.placeholder, text: $text)
+                    .opacity(type.shouldBeSecure && isSecure ? 0 : 1)
+                    .focused($currentFocus, equals: .regular)
 
-                    SecureField(type.placeholder, text: $text)
-                        .opacity(type.shouldBeSecure && isSecure ? 1 : 0)
-                        .focused($currentFocus, equals: .secure)
-                        .onTapGesture { wasInteractedWith = true }
-                }
-                .onSubmit(onSubmitHandler)
-                .textContentType(type.contentType)
-                .keyboardType(type.keyboardType)
-                .textInputAutocapitalization(type.autocapitalization)
-                .autocorrectionDisabled(type.disableAutocorrection)
-                .font(.cMain)
-                .foregroundColor(.cText)
-                .frame(height: 44)
-
-                if type.shouldBeSecure {
-                    Button(action: {
-                        isSecure.toggle()
-                        currentFocus = isSecure ? .secure : .regular
-                    }, label: {
-                        Image(isSecure
-                            ? "icons:eye:closed"
-                            : "icons:eye:opened")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.black)
-                            .frame(width: 20, height: 20)
-                    })
-                }
+                SecureField(type.placeholder, text: $text)
+                    .allowsHitTesting(type.shouldBeSecure && isSecure)
+                    .opacity(type.shouldBeSecure && isSecure ? 1 : 0)
+                    .focused($currentFocus, equals: .secure)
             }
-            .padding(.horizontal, 12)
-            .background(RoundedRectangle(cornerRadius: 12)
-                .fill(.white)
-                .shadow(color: shadowColor, radius: 6, x: 4, y: 4))
+            .onSubmit(onSubmitHandler)
+            .textContentType(type.contentType)
+            .keyboardType(type.keyboardType)
+            .textInputAutocapitalization(type.autocapitalization)
+            .autocorrectionDisabled(type.disableAutocorrection)
+            .font(.cMain)
+            .foregroundColor(.cText)
 
-            Text(error ?? " ")
-                .opacity(error == nil ? 0 : 1)
-                .font(.cSecondary2)
-                .foregroundColor(.cRed)
+            if type.shouldBeSecure {
+                Button(action: {
+                    isSecure.toggle()
+                    currentFocus = isSecure ? .secure : .regular
+                }, label: {
+                    Image(isSecure
+                        ? "icons:eye:closed"
+                        : "icons:eye:opened")
+                        .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(.black)
+                        .frame(width: 20, height: 20)
+                })
+            }
         }
+        .padding(12)
+        .background(.white)
+        .cornerRadius(12)
+        .shadow(color: shadowColor, radius: 6, x: 4, y: 4)
+
         .onChange(of: text) { _ in validate() }
-        .onChange(of: currentFocus) {_ in validate() }
-        .onDisappear {
-            currentFocus = nil
-        }
+        .onChange(of: currentFocus) { _ in validate() }
+        .onDisappear { currentFocus = nil }
+
+        .animation(.default, value: config.isValid)
+        .animation(.default, value: isSecure)
     }
 }
 
-private struct CustomTextField_Example: View {
+private struct CustomTextField_PreviewContainer: View {
     @State var email: String = ""
     @State var password: String = ""
 
@@ -131,9 +110,13 @@ private struct CustomTextField_Example: View {
     @State var passwordIsValid: Bool = false
 
     var body: some View {
-        VStack {
-            CustomTextField(.email, text: $email, isValid: $emailIsValid, isRequired: true)
-            CustomTextField(.password, text: $password, isValid: $passwordIsValid, isRequired: true)
+        VStack(spacing: 16) {
+            CustomWrapper(isValid: $emailIsValid) {
+                CustomTextField(.email, text: $email)
+            }
+            CustomWrapper(title: "Пароль", tip: "Введите ваш пароль", isValid: $emailIsValid) {
+                CustomTextField(.password, text: $password)
+            }
         }
         .padding()
     }
@@ -141,6 +124,6 @@ private struct CustomTextField_Example: View {
 
 struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTextField_Example()
+        CustomTextField_PreviewContainer()
     }
 }

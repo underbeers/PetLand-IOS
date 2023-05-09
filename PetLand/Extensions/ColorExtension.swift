@@ -28,14 +28,15 @@ public extension Color {
 // MARK: Custom Colors
 
 public extension Color {
-    static let cText = Color(hex: 0x4F4F4F)
-    static let cSubtext = Color(hex: 0xAEB9CC)
-    static let cOrange = Color(hex: 0xF47932)
-    static let cGreen = Color(hex: 0x98B14B)
-    static let cGray = Color(hex: 0xCBCBCB)
-    static let cRed = Color(hex: 0xFF6164) 
     static let cTransparent = Color.white.opacity(0)
     
+    static let cText = Color.cBase800
+    static let cSubtext = Color.cBase500
+    
+    static let cOrange = Color.cOrange900
+    static let cGreen = Color.cGreen600
+    static let cRed = Color.cRed500
+    static let cBlue = Color.cBlue300
     
     static let cBase900 = Color(hex: 0x2D2D2D)
     static let cBase800 = Color(hex: 0x4F4F4F)
@@ -48,10 +49,13 @@ public extension Color {
     static let cBase100 = Color(hex: 0xF7F7F7)
     static let cBase0 = Color.white
     
-    static let cBlue200 = Color(hex: 0xAEB9CC)
-    static let cBlue300 = Color(hex: 0x909DB4)
-    
     static let cOrange900 = Color(hex: 0xF47932)
+    static let cOrange400 = Color(hex: 0xFFCB4C)
+    
+    static let cGreen600 = Color(hex: 0x98B14B)
     
     static let cRed500 = Color(hex: 0xFF514B)
+    
+    static let cBlue200 = Color(hex: 0xAEB9CC)
+    static let cBlue300 = Color(hex: 0x909DB4)
 }

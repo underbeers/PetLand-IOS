@@ -47,19 +47,22 @@ struct LoginView: View {
             Spacer()
                             
             VStack(alignment: .leading, spacing: 0) {
-                CustomTextField(.email, text: $model.email, isValid: $emailIsValid, isRequired: true) {
-                    if emailIsValid {
-                        currentFocus = .password
+                CustomWrapper(isValid: $emailIsValid)  {
+                    CustomTextField(.email, text: $model.email) {
+                        if emailIsValid {
+                            currentFocus = .password
+                        }
                     }
                 }
                 .focused($currentFocus, equals: .email)
-                .padding(.bottom, 8)
-                CustomTextField(.password, text: $model.password, isValid: $passwordIsValid, isRequired: true) {
-                    if canLogin {
-                        model.login()
+                CustomWrapper(isValid: $passwordIsValid) {
+                    CustomTextField(.password, text: $model.password) {
+                        if canLogin {
+                            model.login()
+                        }
                     }
                 }
-                    .focused($currentFocus, equals: .password)
+                .focused($currentFocus, equals: .password)
                                 
                 HStack {
                     Spacer()

@@ -34,7 +34,7 @@ extension LoginView {
                 switch error {
                     case UserServiceError.wrongCredentials:
                         self?.error = "Неправильный логин/пароль"
-                    case UserServiceError.serverDown:
+                    case APIError.serverDown:
                         self?.error = "Проблемы с доступом к серверу. Попробуйте позже."
                     default:
                         self?.alertMessage = error.localizedDescription
