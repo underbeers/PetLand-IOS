@@ -19,13 +19,16 @@ struct CustomButton: ButtonStyle {
              orange
     }
 
-    var foregroundColor: Color
-    var backgroundColor: Color = .cTransparent
-    var borderColor: Color = .cTransparent
+    private let isEnabled: Bool
+    private let foregroundColor: Color
+    private var backgroundColor: Color = .cTransparent
+    private var borderColor: Color = .cTransparent
 
     init(_ type: ButtonType, isEnabled: Bool = true, color: ButtonColor = .orange) {
-        let base: Color = color == .orange ? .cOrange : .cGreen
+        self.isEnabled = isEnabled
         
+        let base: Color = color == .orange ? .cOrange : .cGreen
+
         switch type {
             case .primary:
                 foregroundColor = .cBase0
@@ -34,7 +37,7 @@ struct CustomButton: ButtonStyle {
                 foregroundColor = isEnabled ? base : .cBase400
                 borderColor = isEnabled ? base : .cBase400
             case .text:
-                foregroundColor = isEnabled ? base: .cBase400
+                foregroundColor = isEnabled ? base : .cBase400
         }
     }
 

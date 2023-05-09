@@ -66,7 +66,7 @@ struct ProfileView: View {
                     .multilineTextAlignment(.leading)
                     
                     NavigationLink {
-                        PetsView(pets: model.pets)
+                        PetsView()
                     } label: {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
@@ -163,13 +163,14 @@ struct ProfileView: View {
                 }
             }
         }
+        .environmentObject(model)
         .accentColor(.cOrange)
         .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
             Text(model.alertMessage)
         }
         .onAppear {
             model.setup(appState)
-            model.fetchUserInfo()
+            model.fetchUser()
         }
     }
 }

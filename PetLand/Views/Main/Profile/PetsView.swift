@@ -9,12 +9,11 @@ import SwiftUI
 
 struct PetsView: View {
     @EnvironmentObject var appState: AppState
-
-    @State var pets: [Pet]
+    @EnvironmentObject var model: ProfileView.ProfileViewModel
 
     var body: some View {
         ScrollView {
-            if pets.isEmpty {
+            if model.pets.isEmpty {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("У вас пока нет питомцев")
                         .font(.cTitle2)
@@ -22,14 +21,18 @@ struct PetsView: View {
                     Text("Если у вас уже есть питомец, добавьте его описание на PetLand")
                         .font(.cMain)
                         .foregroundColor(.cText)
-                    Button {} label: {
+                    NavigationLink {
+                        NewPetView()
+                    } label: {
                         HStack {
                             Text("Добавить питомца")
+                                .font(.cButton)
                             Image("icons:plus")
                                 .resizable()
                                 .renderingMode(.template)
                                 .frame(width: 24, height: 24)
                         }
+                        .foregroundColor(.white)
                     }
                     .buttonStyle(CustomButton(.primary, isEnabled: true))
 
@@ -53,7 +56,7 @@ struct PetsView: View {
                 .padding(16)
             } else {
                 VStack(spacing: 28) {
-                    ForEach(pets) { pet in
+                    ForEach(model.pets) { pet in
                         HStack(spacing: 16) {
                             Image("preview:dog")
                                 .resizable()
@@ -77,8 +80,10 @@ struct PetsView: View {
                     }
                 }
                 .padding(16)
+                .animation(.default, value: model.pets.count)
+                .onAppear { model.fetchPets() }
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .primaryAction) {
                         NavigationLink {
                             NewPetView()
                         } label: {
@@ -86,7 +91,7 @@ struct PetsView: View {
                                 .resizable()
                                 .renderingMode(.template)
                                 .foregroundColor(.cOrange)
-                                .frame(width: 24, height: 24)
+                                .frame(width: 32, height: 32)
                         }
                     }
                 }
@@ -97,15 +102,29 @@ struct PetsView: View {
 }
 
 struct PetsView_Previews: PreviewProvider {
+    static let someModel: ProfileView.ProfileViewModel = {
+        let model = ProfileView.ProfileViewModel()
+        model.pets = [.dummy, .dummy, .dummy]
+        return model
+    }()
+
+    static let emptyModel: ProfileView.ProfileViewModel = {
+        let model = ProfileView.ProfileViewModel()
+        model.pets = []
+        return model
+    }()
+
     static var previews: some View {
         NavigationStack {
-            PetsView(pets: Array(repeating: .dummy, count: 5))
+            PetsView()
                 .environmentObject(AppState())
+                .environmentObject(someModel)
         }
 
         NavigationStack {
-            PetsView(pets: [])
+            PetsView()
                 .environmentObject(AppState())
+                .environmentObject(emptyModel)
         }
     }
 }

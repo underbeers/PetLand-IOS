@@ -33,8 +33,8 @@ extension ProfileView {
             appState?.signOut()
         }
 
-        func fetchUserInfo() {
-            userService.getUserInfo { [weak self] result in
+        func fetchUser() {
+            userService.getUser { [weak self] result in
                 switch result {
                     case .success(let value):
                         withAnimation {
@@ -55,7 +55,7 @@ extension ProfileView {
         }
 
         func fetchPets() {
-            petService.getPetInfoGeneral(petID: nil, userID: user.id, petTypeID: nil, breedID: nil, gender: nil) { [weak self] result in
+            petService.getPets(petID: nil, userID: user.id, typeID: nil, breedID: nil, isMale: nil) { [weak self] result in
                 switch result {
                     case .success(let pets):
                         withAnimation {

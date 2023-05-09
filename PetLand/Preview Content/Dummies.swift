@@ -12,5 +12,5 @@ extension User {
 }
 
 extension Pet {
-    static let dummy = Pet(id: 0, name: "Шарик", type: "Собака", breed: "Овчарка", photo: "", birthDate: "2023-04-14T00:00:00Z", gender: "Мальчик")
+    static let dummy = Pet(id: 0, name: "Шарик", type: "Собака", breed: "Овчарка", photo: "", birthday: "2023-04-14T00:00:00Z", gender: "Мальчик")
 }

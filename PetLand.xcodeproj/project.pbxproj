@@ -72,6 +72,7 @@
 		FFE277492A092B2E00B38B80 /* CustomWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE277482A092B2E00B38B80 /* CustomWrapper.swift */; };
 		FFE2774B2A0931AE00B38B80 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2774A2A0931AE00B38B80 /* CustomDatePicker.swift */; };
 		FFE2774D2A09352400B38B80 /* CustomTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2774C2A09352400B38B80 /* CustomTextArea.swift */; };
+		FFE277502A0984F700B38B80 /* NewPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2774F2A0984F700B38B80 /* NewPetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +142,7 @@
 		FFE277482A092B2E00B38B80 /* CustomWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWrapper.swift; sourceTree = "<group>"; };
 		FFE2774A2A0931AE00B38B80 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		FFE2774C2A09352400B38B80 /* CustomTextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextArea.swift; sourceTree = "<group>"; };
+		FFE2774F2A0984F700B38B80 /* NewPetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,9 +286,9 @@
 			isa = PBXGroup;
 			children = (
 				FF5BA5DB2970AB060049C57E /* ValidationManager.swift */,
+				FFC9426B2A057D5100108349 /* AccessTokenStorage.swift */,
 				FFDF81782A0535B000539F74 /* Endpoint.swift */,
 				FFDF817A2A0543F500539F74 /* UserService.swift */,
-				FFC9426B2A057D5100108349 /* AccessTokenStorage.swift */,
 				FF3B2F332A07D6CC00DDBDBF /* PetService.swift */,
 			);
 			path = Services;
@@ -344,10 +346,10 @@
 		FFC9426D2A066E1200108349 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FFE2774E2A0984E100B38B80 /* New Pet */,
 				FFC942612A05679100108349 /* ProfileView.swift */,
 				FFC9426E2A066E2900108349 /* ProfileViewModel.swift */,
 				FF3B2F392A07F11200DDBDBF /* PetsView.swift */,
-				FFE277442A09120000B38B80 /* NewPetView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -369,6 +371,15 @@
 				FF3B2F312A06A02200DDBDBF /* Dummies.swift */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FFE2774E2A0984E100B38B80 /* New Pet */ = {
+			isa = PBXGroup;
+			children = (
+				FFE277442A09120000B38B80 /* NewPetView.swift */,
+				FFE2774F2A0984F700B38B80 /* NewPetViewModel.swift */,
+			);
+			path = "New Pet";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,6 +504,7 @@
 				FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */,
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
 				FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */,
+				FFE277502A0984F700B38B80 /* NewPetViewModel.swift in Sources */,
 				FFAAD3E529C3CE8900359F86 /* CustomCheckbox.swift in Sources */,
 				FFC942622A05679100108349 /* ProfileView.swift in Sources */,
 				FFC9426A2A0567FA00108349 /* FavouritesView.swift in Sources */,

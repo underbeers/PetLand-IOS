@@ -12,7 +12,7 @@ extension Endpoint {
     static let login = Endpoint(path: "/login", method: .post)
     static let registration = Endpoint(path: "/registration/new", method: .post)
     static let verifyEmail = Endpoint(path: "/email/code", method: .post)
-    static let getUserInfo = Endpoint(path: "/user/info", method: .get)
+    static let getUser = Endpoint(path: "/user/info", method: .get)
 }
 
 enum UserServiceError: Error {
@@ -24,7 +24,7 @@ protocol UserServiceProtocol {
     func login(user: String, password: String, stayLoggedIn: Bool, completion: @escaping (Error?) -> ())
     func register(firstName: String, lastName: String, email: String, password: String, completion: @escaping (Error?) -> ())
     func verifyEmail(email: String, completion: @escaping (Error?) -> ())
-    func getUserInfo(completion: @escaping (Result<User, Error>) -> ())
+    func getUser(completion: @escaping (Result<User, Error>) -> ())
 }
 
 class UserService: UserServiceProtocol {
@@ -129,12 +129,12 @@ class UserService: UserServiceProtocol {
             }
     }
 
-    func getUserInfo(completion: @escaping (Result<User, Error>) -> ()) {
-        let endpoint = Endpoint.getUserInfo
+    func getUser(completion: @escaping (Result<User, Error>) -> ()) {
+        let endpoint = Endpoint.getUser
 
         AF.request(endpoint.url, method: endpoint.method, headers: [accessTokenStorage.authHeader])
             .validate()
-            .responseDecodable(of: User.self) { response in
+            .responseDecodable(of: User.self) { [weak self] response in
 #if DEBUG
                 debugPrint(response)
 #endif
@@ -154,6 +154,7 @@ class UserService: UserServiceProtocol {
                 }
 
                 completion(.success(value))
+                self?.accessTokenStorage.setUserID(value.id)
             }
     }
 }

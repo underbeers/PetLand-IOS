@@ -8,23 +8,23 @@
 import Foundation
 
 struct Pet: Codable, Identifiable {
-    var id: Int
-    var name: String
-    var userID: String?
-    var typeID: Int?
-    var type: String
-    var breedID: Int?
-    var breed: String
-    var photo: String
-    var birthDate: String
-    var isMale: Bool?
-    var gender: String
-    var color: String?
-    var care: String?
-    var character: String?
-    var pedigree: String?
-    var sterilized: Bool?
-    var vaccinated: Bool?
+    var id: Int = UUID().hashValue
+    var name: String = ""
+    var userID: String = ""
+    var typeID: Int = 0
+    var type: String = ""
+    var breedID: Int = 0
+    var breed: String = ""
+    var photo: String = ""
+    var birthday: String = ""
+    var isMale: Bool = true
+    var gender: String = ""
+    var color: String = ""
+    var care: String = ""
+    var character: String = ""
+    var pedigree: String = ""
+    var sterilized: Bool = false
+    var vaccinated: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -35,7 +35,7 @@ struct Pet: Codable, Identifiable {
         case breedID
         case breed
         case photo
-        case birthDate
+        case birthday = "birthDate"
         case isMale = "male"
         case gender
         case color
@@ -43,11 +43,11 @@ struct Pet: Codable, Identifiable {
         case character = "petCharacter"
         case pedigree
         case sterilized = "sterilization"
-        case vaccinated = "vaccination"
+        case vaccinated = "vaccinations"
     }
     
     private var convertedBirthDate: Date {
-        ISO8601DateFormatter().date(from: birthDate)!
+        ISO8601DateFormatter().date(from: birthday)!
     }
     
     var formattedAge: String {
@@ -63,5 +63,28 @@ struct Pet: Codable, Identifiable {
         } else {
             return "\(Int(deltaMonths / 12)) ".ending(for: Int(deltaMonths / 12), with: .year)
         }
+    }
+}
+
+
+struct PetType: Codable, Identifiable {
+    var id: Int = 0
+    var type: String = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case type = "petType"
+    }
+}
+
+struct PetBreed: Codable, Identifiable {
+    var id: Int = 0
+    var typeID: Int = 0
+    var breed: String = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case typeID = "petTypeID"
+        case breed = "breedName"
     }
 }

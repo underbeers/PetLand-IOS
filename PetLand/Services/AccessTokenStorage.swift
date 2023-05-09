@@ -14,6 +14,9 @@ protocol AccessTokenStorageProtocol {
     func save(_ token: String)
     func restore() -> Bool
     func delete()
+    
+    var userID: String { get }
+    func setUserID(_ id: String)
 }
 
 class AccessTokenStorage: AccessTokenStorageProtocol {
@@ -63,5 +66,11 @@ class AccessTokenStorage: AccessTokenStorageProtocol {
         ]
         
         SecItemDelete(query as CFDictionary)
+    }
+    
+    var userID: String = ""
+    
+    func setUserID(_ id: String) {
+        userID = id
     }
 }
