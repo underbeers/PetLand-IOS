@@ -21,8 +21,8 @@ struct Pet: Codable, Identifiable {
     var gender: String = ""
     var color: String = ""
     var care: String = ""
-    var character: String = ""
     var pedigree: String = ""
+    var character: String = ""
     var sterilized: Bool = false
     var vaccinated: Bool = false
     
@@ -47,7 +47,7 @@ struct Pet: Codable, Identifiable {
     }
     
     private var convertedBirthDate: Date {
-        ISO8601DateFormatter().date(from: birthday)!
+        ISO8601DateFormatter().date(from: birthday) ?? .now
     }
     
     var formattedAge: String {

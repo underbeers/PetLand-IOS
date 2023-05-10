@@ -57,26 +57,30 @@ struct PetsView: View {
             } else {
                 VStack(spacing: 28) {
                     ForEach(model.pets) { pet in
-                        HStack(spacing: 16) {
-                            Image("preview:dog")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 150)
-                                .cornerRadius(8)
-                                .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text(pet.name)
-                                    .font(.cTitle2)
-                                    .foregroundColor(.cText)
-                                Spacer()
-                                TextChip(title: pet.type, color: .cGreen)
-                                TextChip(title: pet.breed, color: .cGreen)
-                                TextChip(title: pet.gender, color: .cGreen)
-                                TextChip(title: pet.formattedAge, color: .cGreen)
+                        NavigationLink {
+                            PetDetailView(pet)
+                        } label: {
+                            HStack(spacing: 16) {
+                                Image("preview:dog")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 150)
+                                    .cornerRadius(8)
+                                    .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
+                                VStack(alignment: .leading, spacing: 8) {
+                                    Text(pet.name)
+                                        .font(.cTitle2)
+                                        .foregroundColor(.cText)
+                                    Spacer()
+                                    TextChip(title: pet.type)
+                                    TextChip(title: pet.breed)
+                                    TextChip(title: pet.isMale ? "Мальчик" : "Девочка")
+                                    TextChip(title: pet.formattedAge)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(height: 180)
                         }
-                        .frame(height: 180)
                     }
                 }
                 .padding(16)
@@ -91,7 +95,7 @@ struct PetsView: View {
                                 .resizable()
                                 .renderingMode(.template)
                                 .foregroundColor(.cOrange)
-                                .frame(width: 32, height: 32)
+                                .frame(width: 24, height: 24)
                         }
                     }
                 }
