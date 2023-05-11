@@ -21,8 +21,8 @@ struct Pet: Codable, Identifiable {
     var gender: String = ""
     var color: String = ""
     var care: String = ""
-    var character: String = ""
     var pedigree: String = ""
+    var character: String = ""
     var sterilized: Bool = false
     var vaccinated: Bool = false
     
@@ -47,7 +47,47 @@ struct Pet: Codable, Identifiable {
     }
     
     private var convertedBirthDate: Date {
-        ISO8601DateFormatter().date(from: birthday)!
+        ISO8601DateFormatter().date(from: birthday) ?? .now
+    }
+    
+    var formattedAge: String {
+        let currentDate = Date()
+        let deltaSeconds = currentDate.timeIntervalSince(convertedBirthDate)
+        let deltaDays = deltaSeconds / 60 / 60 / 24
+        let deltaMonths = deltaDays / 30
+        
+        if deltaDays <= 30 {
+            return "\(Int(deltaDays)) ".ending(for: Int(deltaDays), with: .day)
+        } else if deltaMonths <= 18 {
+            return "\(Int(deltaMonths)) ".ending(for: Int(deltaMonths), with: .month)
+        } else {
+            return "\(Int(deltaMonths / 12)) ".ending(for: Int(deltaMonths / 12), with: .year)
+        }
+    }
+}
+
+struct PetGeneral: Codable, Identifiable {
+    var id: Int = UUID().hashValue
+    var name: String = ""
+    var type: String = ""
+    var breed: String = ""
+    var gender: String = ""
+    var photo: String = ""
+    var birthday: String = ""
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name = "petName"
+        case type = "petType"
+        case breed
+        case gender
+        case photo
+        case birthday = "birthDate"
+    }
+    
+    private var convertedBirthDate: Date {
+        ISO8601DateFormatter().date(from: birthday) ?? .now
     }
     
     var formattedAge: String {

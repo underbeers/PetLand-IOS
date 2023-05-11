@@ -21,8 +21,8 @@ struct CustomButton: ButtonStyle {
 
     private let isEnabled: Bool
     private let foregroundColor: Color
-    private var backgroundColor: Color = .cTransparent
-    private var borderColor: Color = .cTransparent
+    private var backgroundColor: Color = .clear
+    private var borderColor: Color = .clear
 
     init(_ type: ButtonType, isEnabled: Bool = true, color: ButtonColor = .orange) {
         self.isEnabled = isEnabled

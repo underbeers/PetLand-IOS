@@ -10,7 +10,8 @@ import Foundation
 
 extension Endpoint {
     enum PetService {
-        static let getPetInfoGeneral = Endpoint(path: "/petCards", method: .get)
+        static let getPets = Endpoint(path: "/petCards", method: .get)
+        static let getPetsGeneral = Endpoint(path: "/petCards/main", method: .get)
         static let createPet = Endpoint(path: "/petCards/new", method: .post)
         static let getTypes = Endpoint(path: "/petTypes", method: .get)
         static let getBreeds = Endpoint(path: "/breeds", method: .get)
@@ -21,6 +22,7 @@ enum PetServiceError: Error {}
 
 protocol PetServiceProtocol {
     func getPets(petID: Int?, userID: String?, typeID: Int?, breedID: Int?, isMale: Bool?, completion: @escaping (Result<[Pet], Error>) -> ())
+    func getPetsGeneral(petID: Int?, userID: String?, typeID: Int?, breedID: Int?, isMale: Bool?, completion: @escaping (Result<[PetGeneral], Error>) -> ())
     func getTypes(typeID: Int?, type: String?, completion: @escaping (Result<[PetType], Error>) -> ())
     func getBreeds(typeID: Int?, breedID: Int?, breed: String?, completion: @escaping (Result<[PetBreed], Error>) -> ())
     func createPet(pet: Pet, completion: @escaping (Error?) -> ())
@@ -32,7 +34,7 @@ final class PetService: PetServiceProtocol {
     private let accessTokenStorage: AccessTokenStorageProtocol = AccessTokenStorage.shared
 
     func getPets(petID: Int? = nil, userID: String? = nil, typeID: Int? = nil, breedID: Int? = nil, isMale: Bool? = nil, completion: @escaping (Result<[Pet], Error>) -> ()) {
-        let endpoint = Endpoint.PetService.getPetInfoGeneral
+        let endpoint = Endpoint.PetService.getPets
 
         var parameters: [String: String] = [:]
         if let petID {
@@ -57,7 +59,6 @@ final class PetService: PetServiceProtocol {
 #if DEBUG
                 debugPrint(response)
 #endif
-
                 guard let pets = response.value else {
                     if let error = response.error {
                         switch error {
@@ -70,6 +71,48 @@ final class PetService: PetServiceProtocol {
                     return
                 }
 
+                completion(.success(pets))
+            }
+    }
+    
+    func getPetsGeneral(petID: Int?, userID: String?, typeID: Int?, breedID: Int?, isMale: Bool?, completion: @escaping (Result<[PetGeneral], Error>) -> ()) {
+        let endpoint = Endpoint.PetService.getPets
+        
+        var parameters: [String: String] = [:]
+        if let petID {
+            parameters["id"] = String(petID)
+        }
+        if let userID {
+            parameters["userID"] = userID
+        }
+        if let typeID {
+            parameters["petTypeID"] = String(typeID)
+        }
+        if let breedID {
+            parameters["breedID"] = String(breedID)
+        }
+        if let isMale {
+            parameters["gender"] = isMale ? "male" : "female"
+        }
+        
+        AF.request(endpoint.url, method: endpoint.method, parameters: parameters)
+            .validate()
+            .responseDecodable(of: [PetGeneral].self) { response in
+#if DEBUG
+                debugPrint(response)
+#endif
+                guard let pets = response.value else {
+                    if let error = response.error {
+                        switch error {
+                            case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
+                                completion(.failure(APIError.serverDown))
+                            default:
+                                completion(.failure(error))
+                        }
+                    }
+                    return
+                }
+                
                 completion(.success(pets))
             }
     }
@@ -117,7 +160,6 @@ final class PetService: PetServiceProtocol {
 #if DEBUG
                 debugPrint(response)
 #endif
-
                 guard let types = response.value else {
                     if let error = response.error {
                         switch error {
@@ -154,7 +196,6 @@ final class PetService: PetServiceProtocol {
 #if DEBUG
                 debugPrint(response)
 #endif
-
                 guard let breeds = response.value else {
                     if let error = response.error {
                         switch error {
