@@ -37,9 +37,7 @@ extension ProfileView {
             userService.getUser { [weak self] result in
                 switch result {
                     case .success(let value):
-                        withAnimation {
                             self?.user = value
-                        }
                     case .failure(let error):
                         switch error {
                             case APIError.unauthorized:
@@ -58,9 +56,7 @@ extension ProfileView {
             petService.getPets(petID: nil, userID: user.id, typeID: nil, breedID: nil, isMale: nil) { [weak self] result in
                 switch result {
                     case .success(let pets):
-                        withAnimation {
                             self?.pets = pets
-                        }
                     case .failure(let error):
                         switch error {
                             case APIError.serverDown:

@@ -10,7 +10,7 @@ import Foundation
 
 extension Endpoint {
     enum PetService {
-        static let getPetInfoGeneral = Endpoint(path: "/petCards", method: .get)
+        static let getPets = Endpoint(path: "/petCards", method: .get)
         static let createPet = Endpoint(path: "/petCards/new", method: .post)
         static let getTypes = Endpoint(path: "/petTypes", method: .get)
         static let getBreeds = Endpoint(path: "/breeds", method: .get)
@@ -32,7 +32,7 @@ final class PetService: PetServiceProtocol {
     private let accessTokenStorage: AccessTokenStorageProtocol = AccessTokenStorage.shared
 
     func getPets(petID: Int? = nil, userID: String? = nil, typeID: Int? = nil, breedID: Int? = nil, isMale: Bool? = nil, completion: @escaping (Result<[Pet], Error>) -> ()) {
-        let endpoint = Endpoint.PetService.getPetInfoGeneral
+        let endpoint = Endpoint.PetService.getPets
 
         var parameters: [String: String] = [:]
         if let petID {

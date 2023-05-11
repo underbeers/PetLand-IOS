@@ -28,8 +28,6 @@ public extension Color {
 // MARK: Custom Colors
 
 public extension Color {
-    static let cTransparent = Color.white.opacity(0)
-    
     static let cText = Color.cBase800
     static let cSubtext = Color.cBase500
     

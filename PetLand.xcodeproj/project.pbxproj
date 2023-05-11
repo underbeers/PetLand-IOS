@@ -35,7 +35,7 @@
 		FF3B2F362A07DA1900DDBDBF /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F352A07DA1900DDBDBF /* PetModel.swift */; };
 		FF3B2F382A07E96E00DDBDBF /* StringEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F372A07E96E00DDBDBF /* StringEndings.swift */; };
 		FF3B2F3A2A07F11200DDBDBF /* PetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F392A07F11200DDBDBF /* PetsView.swift */; };
-		FF3B2F3C2A07F3E100DDBDBF /* TextChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F3B2A07F3E100DDBDBF /* TextChip.swift */; };
+		FF3B2F3C2A07F3E100DDBDBF /* CustomChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F3B2A07F3E100DDBDBF /* CustomChip.swift */; };
 		FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DB2970AB060049C57E /* ValidationManager.swift */; };
 		FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */; };
 		FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */; };
@@ -108,7 +108,7 @@
 		FF3B2F352A07DA1900DDBDBF /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
 		FF3B2F372A07E96E00DDBDBF /* StringEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEndings.swift; sourceTree = "<group>"; };
 		FF3B2F392A07F11200DDBDBF /* PetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsView.swift; sourceTree = "<group>"; };
-		FF3B2F3B2A07F3E100DDBDBF /* TextChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChip.swift; sourceTree = "<group>"; };
+		FF3B2F3B2A07F3E100DDBDBF /* CustomChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChip.swift; sourceTree = "<group>"; };
 		FF5BA5DB2970AB060049C57E /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexExtension.swift; sourceTree = "<group>"; };
 		FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtension.swift; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 				FFAAD3E829C3D43300359F86 /* CustomTextField.swift */,
 				FFAAD3ED29C4151F00359F86 /* CustomButton.swift */,
 				FF7272A329FFE4340057886B /* LogoImage.swift */,
-				FF3B2F3B2A07F3E100DDBDBF /* TextChip.swift */,
+				FF3B2F3B2A07F3E100DDBDBF /* CustomChip.swift */,
 				FFE277462A0925A400B38B80 /* CustomDropdown.swift */,
 				FFE277482A092B2E00B38B80 /* CustomWrapper.swift */,
 				FFE2774A2A0931AE00B38B80 /* CustomDatePicker.swift */,
@@ -427,7 +427,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					FF18D45A296EAF5500DCB69E = {
 						CreatedOnToolsVersion = 14.2;
@@ -516,7 +516,7 @@
 				FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */,
 				FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */,
 				FFE277492A092B2E00B38B80 /* CustomWrapper.swift in Sources */,
-				FF3B2F3C2A07F3E100DDBDBF /* TextChip.swift in Sources */,
+				FF3B2F3C2A07F3E100DDBDBF /* CustomChip.swift in Sources */,
 				FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */,
 				FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */,
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
@@ -548,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -608,6 +609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

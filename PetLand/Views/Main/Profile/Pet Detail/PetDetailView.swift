@@ -10,32 +10,30 @@ import SwiftUI
 struct PetDetailView: View {
     @StateObject private var model: PetDetailViewModel = .init()
     private let basePet: Pet
-    
+
     init(_ pet: Pet) {
         self.basePet = pet
     }
-    
+
     private var name: String {
         model.pet.name.isEmpty ? basePet.name : model.pet.name
     }
-    
+
     private var type: String {
         model.pet.type.isEmpty ? basePet.type : model.pet.type
     }
-    
+
     private var breed: String {
         model.pet.breed.isEmpty ? basePet.breed : model.pet.breed
     }
 
-    
     private var gender: String {
         model.pet.gender.isEmpty ? basePet.gender : model.pet.gender
     }
-    
+
     private var age: String {
         model.pet.birthday.isEmpty ? basePet.formattedAge : model.pet.formattedAge
     }
-
 
     var body: some View {
         ScrollView {
@@ -43,9 +41,10 @@ struct PetDetailView: View {
                 Image("preview:dog")
                     .resizable()
                     .scaledToFill()
-                    .frame(height: 200)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .aspectRatio(4 / 3, contentMode: .fill)
                     .cornerRadius(12)
-                    .clipped()
+                    .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
 
                 Text(name)
                     .font(.cTitle1)
@@ -53,10 +52,10 @@ struct PetDetailView: View {
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
-                        TextChip(title: type)
-                        TextChip(title: gender)
-                        TextChip(title: breed)
-                        TextChip(title: age)
+                        CustomChip(title: type)
+                        CustomChip(title: gender)
+                        CustomChip(title: breed)
+                        CustomChip(title: age)
                     }
                 }
 
@@ -126,7 +125,7 @@ struct PetDetailView: View {
         .navigationTitle(name)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            model.fetchInfoBy(id: 0)
+            model.fetchInfoBy(id: basePet.id)
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -140,6 +139,9 @@ struct PetDetailView: View {
                         .frame(width: 24, height: 24)
                 }
             }
+        }
+        .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
+            Text(model.alertMessage)
         }
     }
 }

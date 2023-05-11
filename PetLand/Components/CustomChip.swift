@@ -1,5 +1,5 @@
 //
-//  TextChip.swift
+//  CustomChip.swift
 //  PetLand
 //
 //  Created by Никита Сигал on 07.05.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextChip: View {
+struct CustomChip: View {
     enum ChipColor {
         case green
         case orange
@@ -30,17 +30,18 @@ struct TextChip: View {
     
     var body: some View {
         Text(title)
+            .lineLimit(1)
             .font(.cSecondary1)
             .foregroundColor(.white)
-            .padding(.vertical, 4)
-            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .padding(.horizontal, 16)
             .background(bgColor)
-            .cornerRadius(8)
+            .cornerRadius(.infinity)
     }
 }
 
-struct TextChip_Previews: PreviewProvider {
+struct CustomChip_Previews: PreviewProvider {
     static var previews: some View {
-        TextChip(title: "Some text")
+        CustomChip(title: "Some text")
     }
 }

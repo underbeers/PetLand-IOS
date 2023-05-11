@@ -64,22 +64,27 @@ struct PetsView: View {
                                 Image("preview:dog")
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: 150)
-                                    .cornerRadius(8)
+                                    .frame(minWidth: 0, maxWidth: .infinity)
+                                    .aspectRatio(3 / 4, contentMode: .fill)
+                                    .clipped()
+                                    .cornerRadius(12)
                                     .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
+                                
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(pet.name)
+                                        .multilineTextAlignment(.leading)
                                         .font(.cTitle2)
                                         .foregroundColor(.cText)
+                                    
                                     Spacer()
-                                    TextChip(title: pet.type)
-                                    TextChip(title: pet.breed)
-                                    TextChip(title: pet.isMale ? "Мальчик" : "Девочка")
-                                    TextChip(title: pet.formattedAge)
+                                    
+                                    CustomChip(title: pet.type)
+                                    CustomChip(title: pet.breed)
+                                    CustomChip(title: pet.isMale ? "Мальчик" : "Девочка")
+                                    CustomChip(title: pet.formattedAge)
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             }
-                            .frame(height: 180)
                         }
                     }
                 }
