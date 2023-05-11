@@ -9,30 +9,30 @@ import SwiftUI
 
 struct PetDetailView: View {
     @StateObject private var model: PetDetailViewModel = .init()
-    private let basePet: Pet
+    private let cachedPet: PetGeneral
 
-    init(_ pet: Pet) {
-        self.basePet = pet
+    init(_ pet: PetGeneral) {
+        self.cachedPet = pet
     }
 
     private var name: String {
-        model.pet.name.isEmpty ? basePet.name : model.pet.name
+        model.pet.name.isEmpty ? cachedPet.name : model.pet.name
     }
 
     private var type: String {
-        model.pet.type.isEmpty ? basePet.type : model.pet.type
+        model.pet.type.isEmpty ? cachedPet.type : model.pet.type
     }
 
     private var breed: String {
-        model.pet.breed.isEmpty ? basePet.breed : model.pet.breed
+        model.pet.breed.isEmpty ? cachedPet.breed : model.pet.breed
     }
 
     private var gender: String {
-        model.pet.gender.isEmpty ? basePet.gender : model.pet.gender
+        model.pet.gender.isEmpty ? cachedPet.gender : model.pet.gender
     }
 
     private var age: String {
-        model.pet.birthday.isEmpty ? basePet.formattedAge : model.pet.formattedAge
+        model.pet.birthday.isEmpty ? cachedPet.formattedAge : model.pet.formattedAge
     }
 
     var body: some View {
@@ -125,7 +125,7 @@ struct PetDetailView: View {
         .navigationTitle(name)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            model.fetchInfoBy(id: basePet.id)
+            model.fetchInfoBy(id: cachedPet.id)
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {

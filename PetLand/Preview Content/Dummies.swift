@@ -8,12 +8,14 @@
 import Foundation
 
 extension User {
-    static let dummy = User(firstName: "Test", lastName: "Testing", email: "test@server.domain", image: "preview:profile-photo")
+    static let dummy = User(firstName: "Test",
+                            lastName: "Testing",
+                            email: "test@server.domain",
+                            image: "preview:profile-photo")
 }
 
 extension Pet {
-    static let dummy = Pet(id: 0,
-                           name: "Котяра",
+    static let dummy = Pet(name: "Котяра",
                            type: "Собака",
                            breed: "Овчарка",
                            birthday: "2020-04-28T00:00:00Z",
@@ -24,4 +26,12 @@ extension Pet {
                            pedigree: "Из рода Бранденбургов",
                            character: "Любит играть в гольф и теннис, иногда взрывает ядерные боеприпасы",
                            vaccinated: true)
+}
+
+extension PetGeneral {
+    static let dummy = PetGeneral(name: "Коротышка",
+                                  type: "Кошка",
+                                  breed: "Сиамская",
+                                  gender: "Девочка",
+                                  birthday: "2023-01-22T00:00:00Z")
 }
