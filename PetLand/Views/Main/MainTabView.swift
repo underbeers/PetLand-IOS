@@ -13,7 +13,7 @@ struct MainTabView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $appState.currentTab) {
-                MarketplaceView()
+                AdvertsView()
                     .tag(AppState.Tab.adverts)
                 ServicesView()
                     .tag(AppState.Tab.services)
