@@ -22,7 +22,7 @@ struct PetsView: View {
                         .font(.cMain)
                         .foregroundColor(.cText)
                     NavigationLink {
-                        NewPetView()
+                        PetEditView()
                     } label: {
                         HStack {
                             Text("Добавить питомца")
@@ -94,7 +94,7 @@ struct PetsView: View {
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
                         NavigationLink {
-                            NewPetView()
+                            PetEditView()
                         } label: {
                             Image("icons:plus")
                                 .resizable()

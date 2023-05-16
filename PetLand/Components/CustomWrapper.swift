@@ -45,8 +45,8 @@ struct CustomWrapper<Content: View>: View {
             error = nil
         }
 
-        isValid = error == nil
-        config.isValid = isValid
+        isValid = config.error.isEmpty && !(required && config.isEmpty)
+        config.isValid = error == nil
     }
 
     var body: some View {
@@ -76,9 +76,17 @@ struct CustomWrapper<Content: View>: View {
                 isValid = true
             }
         }
-        .onChange(of: config.error) { _ in validate() }
-        .onChange(of: config.isEmpty) { _ in validate() }
-        .onChange(of: wasInteractedWith) { _ in validate() }
+        .onChange(of: wasInteractedWith) { _ in
+            validate()
+        }
+        .onChange(of: config.error) { _ in
+            wasInteractedWith = true
+            validate()
+        }
+        .onChange(of: config.isEmpty) { _ in
+            wasInteractedWith = true
+            validate()
+        }
         .animation(.default, value: error)
     }
 }

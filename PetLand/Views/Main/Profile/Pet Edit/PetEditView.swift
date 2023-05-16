@@ -1,5 +1,5 @@
 //
-//  NewPetView.swift
+//  PetEditView.swift
 //  PetLand
 //
 //  Created by Никита Сигал on 08.05.2023.
@@ -7,10 +7,16 @@
 
 import SwiftUI
 
-struct NewPetView: View {
+struct PetEditView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @StateObject var model: NewPetViewModel = .init()
+    private let initialPet: Pet?
+    
+    init(initialPet pet: Pet? = nil) {
+        self.initialPet = pet
+    }
+    
+    @StateObject var model: PetEditView = .init()
     @State var nameIsValid: Bool = false
     @State var typeIsValid: Bool = false
     @State var breedIsValid: Bool = false
@@ -31,7 +37,7 @@ struct NewPetView: View {
 
     @FocusState private var currentFocus: Focusable?
     
-    private var canCreatePet: Bool {
+    private var canProceed: Bool {
         nameIsValid
             && typeIsValid
             && breedIsValid
@@ -56,17 +62,18 @@ struct NewPetView: View {
                         CustomDropdown(options: model.types.map { $0.type }, selection: $model.pet.type)
                     }
                     .onChange(of: model.pet.type) { _ in
-                        model.restoreTypeID()
                         model.fetchBreeds()
+                    }
+                    .onChange(of: model.breeds) { _ in
+                        if !model.breeds.contains(where: { $0.breed == model.pet.breed }) {
+                            model.pet.breed = ""
+                        }
                     }
                     
                     CustomWrapper(title: "Порода", isValid: $breedIsValid) {
                         CustomDropdown(options: model.breeds.map { $0.breed }, selection: $model.pet.breed)
                     }
                     .disabled(!typeIsValid)
-                    .onChange(of: model.pet.breed) { _ in
-                        model.restoreBreedID()
-                    }
                 }
                 
                 CustomWrapper(title: "Пол", isValid: $genderIsValid) {
@@ -74,7 +81,7 @@ struct NewPetView: View {
                 }
                 
                 CustomWrapper(title: "Дата рождения", tip: "Если не знаете точную дату, выбирайте примерную", isValid: $birthdayIsValid) {
-                    CustomDatePicker(selection: $model.birthday)
+                    CustomDatePicker(selection: $model.pet.convertedBirthday)
                 }
                 
                 Group {
@@ -116,21 +123,24 @@ struct NewPetView: View {
                     .focused($currentFocus, equals: .charcter)
                 }
                 
-
-                Button("Создать питомца") {
-                    model.createPet()
-                    presentationMode.wrappedValue.dismiss()
+                Button(initialPet == nil ? "Создать питомца" : "Сохранить изменения") {
+                    model.commitPet(isNew: initialPet == nil) {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
-                .buttonStyle(CustomButton(.primary, isEnabled: canCreatePet))
+                .buttonStyle(CustomButton(.primary, isEnabled: canProceed))
                 .padding(.vertical, 16)
-                .disabled(!canCreatePet)
+                .disabled(!canProceed)
             }
             .padding(16)
         }
         .navigationTitle("Новый питомец")
         .scrollDismissesKeyboard(.interactively)
-        .animation(.default, value: canCreatePet)
+        .animation(.default, value: canProceed)
         .onAppear {
+            if let initialPet {
+                model.pet = initialPet
+            }
             model.fetchTypes()
         }
         .toolbar {
@@ -139,11 +149,15 @@ struct NewPetView: View {
                     .buttonStyle(CustomButton(.text))
             }
         }
+        .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
+            Text(model.alertMessage)
+        }
     }
 }
 
-struct NewPetView_Previews: PreviewProvider {
+struct PetEditView_Previews: PreviewProvider {
     static var previews: some View {
-        NewPetView()
+        PetEditView()
+        PetEditView(initialPet: .dummy)
     }
 }
