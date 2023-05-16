@@ -19,16 +19,20 @@ struct AdvertsView: View {
                     VStack(spacing: 16) {
                         // Switcher
                         HStack(spacing: 0) {
-                            Button("Объявления") {}
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 12)
-                                .background(Color.cGreen)
-                            Button("Потеряшки") {}
-                                .foregroundColor(.cGreen)
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 12)
-                                .background(.white)
+                            Button("Объявления") {
+                                model.currentMode = .sold
+                            }
+                            .foregroundColor(model.currentMode == .sold ? .white : .cGreen)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 12)
+                            .background(model.currentMode == .sold ? Color.cGreen : Color.white)
+                            Button("Потеряшки") {
+                                model.currentMode = .found
+                            }
+                            .foregroundColor(model.currentMode == .found ? .white : .cGreen)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 12)
+                            .background(model.currentMode == .found ? Color.cGreen : Color.white)
                         }
                         .font(.cMain)
                         .overlay {
@@ -69,37 +73,15 @@ struct AdvertsView: View {
                         .foregroundColor(.cText)
                     }
 
-                    LazyVGrid(columns: Array(repeating: .init(spacing: 20), count: 2), spacing: 20)
-                        {
-                            ForEach(model.advertList.adverts) { advert in
-                                VStack(alignment: .leading, spacing: 0) {
-                                    Image("preview:dog")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(minWidth: 0)
-                                        .aspectRatio(4 / 3, contentMode: .fill)
-                                        .clipped()
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text(advert.name)
-                                            .font(.cTitle4)
-                                            .foregroundColor(.cText)
-                                        Text(asCurrency(advert.price as NSNumber))
-                                            .font(.cMain)
-                                            .foregroundColor(.cText)
-                                        Text(advert.formattedPublicationDate)
-                                            .font(.cSecondary2)
-                                            .foregroundColor(.cBlue)
-                                        Text(advert.district)
-                                            .font(.cSecondary2)
-                                            .foregroundColor(.cBlue)
-                                    }
-                                    .padding(8)
-                                }
-                                .background(.white)
-                                .cornerRadius(12)
-                                .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
+                    LazyVGrid(columns: Array(repeating: .init(spacing: 20), count: 2), spacing: 20) {
+                        ForEach(model.advertList.adverts) { advertCard in
+                            NavigationLink {
+                                Text("Advert Detail Placeholder for '\(advertCard.name)'")
+                            } label: {
+                                AdvertCardView(advertCard: advertCard)
                             }
                         }
+                    }
                 }
                 .padding(16)
             }
@@ -114,8 +96,11 @@ struct AdvertsView: View {
             }
             .presentationDragIndicator(.visible)
         }
-        .alert("Что-то пошло не так...",isPresented: $model.presentingAlert) {
+        .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
             Text(model.alertMessage)
+        }
+        .onAppear {
+            model.fetchAdvertCards()
         }
     }
 }

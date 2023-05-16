@@ -19,7 +19,7 @@ struct AdvertCard: Codable, Identifiable, Equatable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        case petID
+        case petID = "petCardID"
         case name = "petName"
         case photo = "mainPhoto"
         case price
