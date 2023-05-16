@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Pet: Codable, Identifiable {
+struct Pet: Codable, Identifiable, Equatable {
     var id: Int = UUID().hashValue
     var name: String = ""
     var userID: String = ""
@@ -15,7 +15,7 @@ struct Pet: Codable, Identifiable {
     var type: String = ""
     var breedID: Int = 0
     var breed: String = ""
-    var photo: String = ""
+    var photos: [SizedImage] = []
     var birthday: String = ""
     var isMale: Bool = true
     var gender: String = ""
@@ -34,7 +34,7 @@ struct Pet: Codable, Identifiable {
         case type = "petType"
         case breedID
         case breed
-        case photo
+        case photos
         case birthday = "birthDate"
         case isMale = "male"
         case gender
@@ -46,13 +46,18 @@ struct Pet: Codable, Identifiable {
         case vaccinated = "vaccinations"
     }
     
-    private var convertedBirthDate: Date {
-        ISO8601DateFormatter().date(from: birthday) ?? .now
+    var convertedBirthday: Date {
+        get {
+            ISO8601DateFormatter().date(from: birthday) ?? .now
+        }
+        set {
+            birthday = newValue.ISO8601Format()
+        }
     }
     
     var formattedAge: String {
         let currentDate = Date()
-        let deltaSeconds = currentDate.timeIntervalSince(convertedBirthDate)
+        let deltaSeconds = currentDate.timeIntervalSince(convertedBirthday)
         let deltaDays = deltaSeconds / 60 / 60 / 24
         let deltaMonths = deltaDays / 30
         
@@ -66,13 +71,13 @@ struct Pet: Codable, Identifiable {
     }
 }
 
-struct PetGeneral: Codable, Identifiable {
+struct PetCard: Codable, Identifiable, Equatable {
     var id: Int = UUID().hashValue
     var name: String = ""
     var type: String = ""
     var breed: String = ""
     var gender: String = ""
-    var photo: String = ""
+    var photos: [String] = []
     var birthday: String = ""
     
     
@@ -82,17 +87,22 @@ struct PetGeneral: Codable, Identifiable {
         case type = "petType"
         case breed
         case gender
-        case photo
+        case photos
         case birthday = "birthDate"
     }
     
-    private var convertedBirthDate: Date {
-        ISO8601DateFormatter().date(from: birthday) ?? .now
+    var convertedBirthday: Date {
+        get {
+            ISO8601DateFormatter().date(from: birthday) ?? .now
+        }
+        set {
+            birthday = newValue.ISO8601Format()
+        }
     }
     
     var formattedAge: String {
         let currentDate = Date()
-        let deltaSeconds = currentDate.timeIntervalSince(convertedBirthDate)
+        let deltaSeconds = currentDate.timeIntervalSince(convertedBirthday)
         let deltaDays = deltaSeconds / 60 / 60 / 24
         let deltaMonths = deltaDays / 30
         
@@ -107,7 +117,7 @@ struct PetGeneral: Codable, Identifiable {
 }
 
 
-struct PetType: Codable, Identifiable {
+struct PetType: Codable, Identifiable, Equatable {
     var id: Int = 0
     var type: String = ""
     
@@ -117,7 +127,7 @@ struct PetType: Codable, Identifiable {
     }
 }
 
-struct PetBreed: Codable, Identifiable {
+struct PetBreed: Codable, Identifiable, Equatable {
     var id: Int = 0
     var typeID: Int = 0
     var breed: String = ""

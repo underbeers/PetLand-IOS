@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PetDetailView: View {
     @StateObject private var model: PetDetailViewModel = .init()
-    private let cachedPet: PetGeneral
+    private let cachedPet: PetCard
 
-    init(_ pet: PetGeneral) {
+    init(_ pet: PetCard) {
         self.cachedPet = pet
     }
 
@@ -130,7 +130,7 @@ struct PetDetailView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 NavigationLink {
-                    Text("Pet Editing Placeholder")
+                    PetEditView(initialPet: model.pet)
                 } label: {
                     Image("icons:edit")
                         .resizable()

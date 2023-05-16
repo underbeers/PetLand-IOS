@@ -43,8 +43,8 @@ struct CustomDropdown: View {
                 .shadow(color: shadowColor, radius: 6, x: 4, y: 4)
         }
         .animation(.default, value: selection)
-        .onChange(of: selection) { _ in
-            config.isEmpty = false
+        .onChange(of: selection) { newValue in
+            config.isEmpty = newValue.isEmpty
         }
     }
 }
