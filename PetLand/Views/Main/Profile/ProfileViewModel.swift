@@ -20,7 +20,7 @@ extension ProfileView {
             }
         }
 
-        @Published var pets: [PetGeneral] = []
+        @Published var pets: [PetCard] = []
 
         @Published var alertMessage: String = ""
         @Published var presentingAlert: Bool = false
@@ -53,7 +53,7 @@ extension ProfileView {
         }
 
         func fetchPets() {
-            petService.getPetsGeneral(petID: nil, userID: user.id, typeID: nil, breedID: nil, isMale: nil) { [weak self] result in
+            petService.getPetCards(petID: nil, userID: user.id, typeID: nil, breedID: nil, isMale: nil) { [weak self] result in
                 switch result {
                     case .success(let pets):
                             self?.pets = pets

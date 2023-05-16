@@ -16,8 +16,10 @@ extension User {
 
 extension Pet {
     static let dummy = Pet(name: "Котяра",
+                           typeID: 1,
                            type: "Собака",
-                           breed: "Овчарка",
+                           breedID: 2,
+                           breed: "Австралийская овчарка (аусси)",
                            birthday: "2020-04-28T00:00:00Z",
                            isMale: false,
                            gender: "Девочка",
@@ -28,8 +30,8 @@ extension Pet {
                            vaccinated: true)
 }
 
-extension PetGeneral {
-    static let dummy = PetGeneral(name: "Коротышка",
+extension PetCard {
+    static let dummy = PetCard(name: "Коротышка",
                                   type: "Кошка",
                                   breed: "Сиамская",
                                   gender: "Девочка",

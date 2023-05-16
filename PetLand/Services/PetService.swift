@@ -11,8 +11,9 @@ import Foundation
 extension Endpoint {
     enum PetService {
         static let getPets = Endpoint(path: "/petCards", method: .get)
-        static let getPetsGeneral = Endpoint(path: "/petCards/main", method: .get)
+        static let getPetCards = Endpoint(path: "/petCards/main", method: .get)
         static let createPet = Endpoint(path: "/petCards/new", method: .post)
+        static let updatePet = Endpoint(path: "/petCards/update", method: .put)
         static let getTypes = Endpoint(path: "/petTypes", method: .get)
         static let getBreeds = Endpoint(path: "/breeds", method: .get)
     }
@@ -22,10 +23,10 @@ enum PetServiceError: Error {}
 
 protocol PetServiceProtocol {
     func getPets(petID: Int?, userID: String?, typeID: Int?, breedID: Int?, isMale: Bool?, completion: @escaping (Result<[Pet], Error>) -> ())
-    func getPetsGeneral(petID: Int?, userID: String?, typeID: Int?, breedID: Int?, isMale: Bool?, completion: @escaping (Result<[PetGeneral], Error>) -> ())
+    func getPetCards(petID: Int?, userID: String?, typeID: Int?, breedID: Int?, isMale: Bool?, completion: @escaping (Result<[PetCard], Error>) -> ())
     func getTypes(typeID: Int?, type: String?, completion: @escaping (Result<[PetType], Error>) -> ())
     func getBreeds(typeID: Int?, breedID: Int?, breed: String?, completion: @escaping (Result<[PetBreed], Error>) -> ())
-    func createPet(pet: Pet, completion: @escaping (Error?) -> ())
+    func commitPet(pet: Pet, isNew: Bool, completion: @escaping (Error?) -> ())
 }
 
 final class PetService: PetServiceProtocol {
@@ -74,10 +75,10 @@ final class PetService: PetServiceProtocol {
                 completion(.success(pets))
             }
     }
-    
-    func getPetsGeneral(petID: Int?, userID: String?, typeID: Int?, breedID: Int?, isMale: Bool?, completion: @escaping (Result<[PetGeneral], Error>) -> ()) {
-        let endpoint = Endpoint.PetService.getPets
-        
+
+    func getPetCards(petID: Int?, userID: String?, typeID: Int?, breedID: Int?, isMale: Bool?, completion: @escaping (Result<[PetCard], Error>) -> ()) {
+        let endpoint = Endpoint.PetService.getPetCards
+
         var parameters: [String: String] = [:]
         if let petID {
             parameters["id"] = String(petID)
@@ -94,10 +95,10 @@ final class PetService: PetServiceProtocol {
         if let isMale {
             parameters["gender"] = isMale ? "male" : "female"
         }
-        
+
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters)
             .validate()
-            .responseDecodable(of: [PetGeneral].self) { response in
+            .responseDecodable(of: [PetCard].self) { response in
 #if DEBUG
                 debugPrint(response)
 #endif
@@ -112,18 +113,18 @@ final class PetService: PetServiceProtocol {
                     }
                     return
                 }
-                
+
                 completion(.success(pets))
             }
     }
 
-    func createPet(pet: Pet, completion: @escaping (Error?) -> ()) {
-        let endpoint = Endpoint.PetService.createPet
-        
+    func commitPet(pet: Pet, isNew: Bool, completion: @escaping (Error?) -> ()) {
+        let endpoint = isNew ? Endpoint.PetService.createPet : Endpoint.PetService.updatePet
+
         var pet = pet
         pet.userID = accessTokenStorage.userID
 
-        AF.request(endpoint.url, method: endpoint.method, parameters: pet, encoder: JSONParameterEncoder(), headers: [accessTokenStorage.authHeader])
+        AF.request(endpoint.url + (isNew ? "" : "?id=\(pet.id)"), method: endpoint.method, parameters: pet, encoder: JSONParameterEncoder(), headers: [accessTokenStorage.authHeader])
             .validate()
             .response { response in
 #if DEBUG
