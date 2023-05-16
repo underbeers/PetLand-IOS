@@ -40,6 +40,7 @@ struct AdvertsView: View {
                                 .stroke(Color.cGreen, lineWidth: 3)
                         }
                         .cornerRadius(12)
+                        .animation(.spring(), value: model.currentMode)
 
                         // Filters and Sorting
                         HStack(spacing: 16) {
@@ -55,13 +56,13 @@ struct AdvertsView: View {
 
                             Menu {
                                 Picker(selection: $model.sorting, label: EmptyView()) {
-                                    ForEach(["Сначала новые", "Сначала дешевые", "Сначала дорогие"], id: \.self) { option in
-                                        Text(option)
+                                    ForEach(AdvertsViewModel.Sorting.allCases, id: \.self) { option in
+                                        Text(option.rawValue)
                                     }
                                 }
                             } label: {
                                 Label {
-                                    Text(model.sorting)
+                                    Text(model.sorting.rawValue)
                                 } icon: {
                                     Image("icons:sort")
                                 }
@@ -82,19 +83,15 @@ struct AdvertsView: View {
                             }
                         }
                     }
+                    .animation(.spring(), value: model.advertList)
                 }
                 .padding(16)
             }
             .navigationTitle("Доска объявлений")
         }
         .sheet(isPresented: $model.presentingFilters) {
-            NavigationStack {
-                VStack {
-                    Text("Filters Placeholder")
-                }
-                .navigationTitle("Фильтры")
-            }
-            .presentationDragIndicator(.visible)
+            FiltersView()
+                .environmentObject(model)
         }
         .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
             Text(model.alertMessage)

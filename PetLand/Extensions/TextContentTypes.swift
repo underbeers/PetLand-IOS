@@ -17,7 +17,7 @@ enum TextContentType {
          confirmPassword,
          verificationCode,
          someText(_ placeholder: String),
-         someInteger(_ placeholder: String),
+         someInteger(_ placeholder: String, range: ClosedRange<Int>?),
          someDecimal(_ placeholder: String),
          custom(_ placeholder: String, validator: ((String) -> String?)?)
 
@@ -41,7 +41,7 @@ enum TextContentType {
                 return "Код"
             case .someText(let placeholder):
                 return placeholder
-            case .someInteger(let placeholder):
+            case .someInteger(let placeholder, _):
                 return placeholder
             case .someDecimal(let placeholder):
                 return placeholder

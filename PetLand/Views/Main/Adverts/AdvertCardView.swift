@@ -39,8 +39,9 @@ struct AdvertCardView: View {
                 Text(advertCard.formattedPublicationDate)
                     .font(.cSecondary2)
                     .foregroundColor(.cBlue)
-                Text(advertCard.city + ", " + advertCard.district)
+                Text(advertCard.city + "\n" + advertCard.district)
                     .lineLimit(2, reservesSpace: true)
+                    .multilineTextAlignment(.leading)
                     .font(.cSecondary2)
                     .foregroundColor(.cBlue)
             }
