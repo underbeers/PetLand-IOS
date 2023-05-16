@@ -43,8 +43,8 @@ class ValidationManager: ValidationManagerProtocol {
                 return isValidVerificationCode(_:)
             case .someText:
                 return isValidText(_:)
-            case .someInteger:
-                return isValidInteger(_:)
+            case .someInteger(_, let range):
+                return { s in self.isValidInteger(s, range: range) }
             case .someDecimal:
                 return isValidDecimal(_:)
             case .custom(_, let validator):
@@ -57,9 +57,18 @@ class ValidationManager: ValidationManagerProtocol {
         return nil
     }
 
-    private func isValidInteger(_ input: String) -> String? {
-        if let _ = Int(input) { return nil }
-        else { return "Должно быть целым числом" }
+    private func isValidInteger(_ input: String, range: ClosedRange<Int>? = nil) -> String? {
+        if input.isEmpty { return nil }
+
+        guard let number = Int(input) else { return "Должно быть целым числом" }
+        if let range {
+            if number < range.lowerBound {
+                return "Не меньше \(range.lowerBound)"
+            } else if number > range.upperBound {
+                return "Не больше \(range.upperBound)"
+            }
+        }
+        return nil
     }
 
     private func isValidDecimal(_ input: String) -> String? {
