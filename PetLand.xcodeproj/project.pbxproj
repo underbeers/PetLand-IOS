@@ -34,7 +34,7 @@
 		FF3B2F342A07D6CC00DDBDBF /* PetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F332A07D6CC00DDBDBF /* PetService.swift */; };
 		FF3B2F362A07DA1900DDBDBF /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F352A07DA1900DDBDBF /* PetModel.swift */; };
 		FF3B2F382A07E96E00DDBDBF /* StringEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F372A07E96E00DDBDBF /* StringEndings.swift */; };
-		FF3B2F3A2A07F11200DDBDBF /* PetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F392A07F11200DDBDBF /* PetsView.swift */; };
+		FF3B2F3A2A07F11200DDBDBF /* MyPetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F392A07F11200DDBDBF /* MyPetsView.swift */; };
 		FF3B2F3C2A07F3E100DDBDBF /* CustomChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F3B2A07F3E100DDBDBF /* CustomChip.swift */; };
 		FF5BA5DC2970AB060049C57E /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DB2970AB060049C57E /* ValidationManager.swift */; };
 		FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */; };
@@ -49,6 +49,7 @@
 		FFA617372A13F6AB000DA885 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA617362A13F6AB000DA885 /* ImageModel.swift */; };
 		FFA6173A2A14D50C000DA885 /* AdvertDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA617392A14D50C000DA885 /* AdvertDetailView.swift */; };
 		FFA6173C2A14D514000DA885 /* AdvertDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA6173B2A14D514000DA885 /* AdvertDetailViewModel.swift */; };
+		FFA6173E2A151BC4000DA885 /* MyAdvertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA6173D2A151BC4000DA885 /* MyAdvertsView.swift */; };
 		FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E229C3CD2C00359F86 /* PetLand.swift */; };
 		FFAAD3E529C3CE8900359F86 /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E429C3CE8900359F86 /* CustomCheckbox.swift */; };
 		FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E629C3D2D000359F86 /* FontExtension.swift */; };
@@ -116,7 +117,7 @@
 		FF3B2F332A07D6CC00DDBDBF /* PetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetService.swift; sourceTree = "<group>"; };
 		FF3B2F352A07DA1900DDBDBF /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
 		FF3B2F372A07E96E00DDBDBF /* StringEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEndings.swift; sourceTree = "<group>"; };
-		FF3B2F392A07F11200DDBDBF /* PetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsView.swift; sourceTree = "<group>"; };
+		FF3B2F392A07F11200DDBDBF /* MyPetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPetsView.swift; sourceTree = "<group>"; };
 		FF3B2F3B2A07F3E100DDBDBF /* CustomChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChip.swift; sourceTree = "<group>"; };
 		FF5BA5DB2970AB060049C57E /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		FF5BA5DD2970B1DB0049C57E /* RegexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexExtension.swift; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		FFA617362A13F6AB000DA885 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		FFA617392A14D50C000DA885 /* AdvertDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertDetailView.swift; sourceTree = "<group>"; };
 		FFA6173B2A14D514000DA885 /* AdvertDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertDetailViewModel.swift; sourceTree = "<group>"; };
+		FFA6173D2A151BC4000DA885 /* MyAdvertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdvertsView.swift; sourceTree = "<group>"; };
 		FFAAD3E229C3CD2C00359F86 /* PetLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetLand.swift; sourceTree = "<group>"; };
 		FFAAD3E429C3CE8900359F86 /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
 		FFAAD3E629C3D2D000359F86 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
@@ -381,7 +383,8 @@
 			children = (
 				FFC942612A05679100108349 /* ProfileView.swift */,
 				FFC9426E2A066E2900108349 /* ProfileViewModel.swift */,
-				FF3B2F392A07F11200DDBDBF /* PetsView.swift */,
+				FF3B2F392A07F11200DDBDBF /* MyPetsView.swift */,
+				FFA6173D2A151BC4000DA885 /* MyAdvertsView.swift */,
 				FFD622282A0BB9BE009D00B6 /* Pet Detail */,
 				FFE2774E2A0984E100B38B80 /* Pet Edit */,
 			);
@@ -553,6 +556,7 @@
 				FFD163C72A0E9A8D00F0B43F /* AdvertService.swift in Sources */,
 				FF3B2F322A06A02200DDBDBF /* Dummies.swift in Sources */,
 				FFE2774D2A09352400B38B80 /* CustomTextArea.swift in Sources */,
+				FFA6173E2A151BC4000DA885 /* MyAdvertsView.swift in Sources */,
 				FFD163C12A0E56C700F0B43F /* AdvertsViewModel.swift in Sources */,
 				FFAD428829E6C72D00DB6D13 /* RegistrationView.swift in Sources */,
 				FF7A709C29CD385B0082A4B1 /* MainTabView.swift in Sources */,
@@ -586,7 +590,7 @@
 				FFC942642A0567A700108349 /* AdvertsView.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
-				FF3B2F3A2A07F11200DDBDBF /* PetsView.swift in Sources */,
+				FF3B2F3A2A07F11200DDBDBF /* MyPetsView.swift in Sources */,
 				FFC942722A0671DF00108349 /* UserModel.swift in Sources */,
 				FFAAD3EB29C3EE5A00359F86 /* TextContentTypes.swift in Sources */,
 				FF3B2F382A07E96E00DDBDBF /* StringEndings.swift in Sources */,

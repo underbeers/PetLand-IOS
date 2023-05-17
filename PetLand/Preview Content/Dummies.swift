@@ -54,3 +54,19 @@ extension AdvertCard {
 extension AdvertCardList {
     static let dummy = AdvertCardList(adverts: [.dummy, .init(), .init(), .init(), .init()])
 }
+
+extension Advert {
+    static let dummy = Advert(name: "Котяра",
+                              type: "Собака",
+                              breed: "Австралийская овчарка (аусси)",
+                              gender: "Девочка",
+                              birthday: "2020-04-28T00:00:00Z",
+                              care: "Очень любит водку, квас и соленые огурцы",
+                              price: 12999,
+                              description: "пожалуйста купите умоляю прошу вас я бедный студент без еды и денег",
+                              chat: true,
+                              phone: "+7 123 456-78-90",
+                              city: "Нижний Новгород",
+                              district: "Советский р-н",
+                              publicationDateString: "2023-02-18T16:12:28Z")
+}

@@ -77,7 +77,7 @@ struct PetCard: Codable, Identifiable, Equatable {
     var type: String = ""
     var breed: String = ""
     var gender: String = ""
-    var photos: [String] = []
+    var photo: String = ""
     var birthday: String = ""
     
     
@@ -87,7 +87,7 @@ struct PetCard: Codable, Identifiable, Equatable {
         case type = "petType"
         case breed
         case gender
-        case photos
+        case photo
         case birthday = "birthDate"
     }
     

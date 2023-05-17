@@ -134,7 +134,7 @@ struct PetEditView: View {
             }
             .padding(16)
         }
-        .navigationTitle("Новый питомец")
+        .navigationTitle(initialPet == nil ? "Новый питомец" : "Редактирование питомца")
         .scrollDismissesKeyboard(.interactively)
         .animation(.default, value: canProceed)
         .onAppear {

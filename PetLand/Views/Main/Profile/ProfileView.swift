@@ -59,7 +59,7 @@ struct ProfileView: View {
                     .multilineTextAlignment(.leading)
                     
                     NavigationLink {
-                        PetsView()
+                        MyPetsView()
                     } label: {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
@@ -106,14 +106,16 @@ struct ProfileView: View {
                     }
                 
                     NavigationLink {
-                        Text("My Adverts View Placeholder")
+                        MyAdvertsView()
                     } label: {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("Объявления")
                                     .font(.cTitle4)
                                     .foregroundColor(.cText)
-                                Text("1 активное объявление")
+                                Text("\(model.advertCardList.total)"
+                                    + " активн".ending(for: model.advertCardList.total, with: .oe)
+                                    + " объявлен".ending(for: model.advertCardList.total, with: .ie))
                                     .font(.cSecondary1)
                                     .foregroundColor(.cSubtext)
                             }
@@ -158,6 +160,9 @@ struct ProfileView: View {
         }
         .environmentObject(model)
         .accentColor(.cOrange)
+        .animation(.spring(), value: model.user)
+        .animation(.spring(), value: model.pets)
+        .animation(.spring(), value: model.advertCardList)
         .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
             Text(model.alertMessage)
         }

@@ -12,7 +12,7 @@ extension AdvertDetailView {
         private let advertService: AdvertServiceProtocol = AdvertService.shared
 
         @Published var advert: Advert?
-        
+
         @Published var alertMessage: String = ""
         @Published var presentingAlert: Bool = false
 
