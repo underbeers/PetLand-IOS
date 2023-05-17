@@ -9,26 +9,22 @@ import Foundation
 
 extension AdvertDetailView {
     @MainActor final class AdvertDetailViewModel: ObservableObject {
-        private let petService: PetServiceProtocol = PetService.shared
+        private let advertService: AdvertServiceProtocol = AdvertService.shared
 
-        @Published var pet: Pet = .init()
-
+        @Published var advert: Advert?
+        
         @Published var alertMessage: String = ""
         @Published var presentingAlert: Bool = false
 
-        func fetchInfoBy(id: Int) {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//                self.pet = .dummy
-//            }
-            
-            petService.getPets(petID: id, userID: nil, typeID: nil, breedID: nil, isMale: nil) { [weak self] result in
+        func fetchAdvert(id: Int) {
+            advertService.getAdvert(id: id) { [weak self] result in
                 switch result {
-                    case .success(let pets):
-                        self?.pet = pets[0]
+                    case .success(let advert):
+                        self?.advert = advert
                     case .failure(let error):
                         switch error {
                             case APIError.serverDown:
-                                self?.alertMessage = "Проблемы с доступом к серверу"
+                                self?.alertMessage = "Проблема с доступом к серверу"
                             default:
                                 self?.alertMessage = error.localizedDescription
                         }
