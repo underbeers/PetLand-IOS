@@ -12,7 +12,7 @@ struct User: Codable, Identifiable {
     var firstName: String = ""
     var lastName: String = ""
     var email: String = ""
-    var image: String?
+    var image: String = ""
     var chatID: String = UUID().uuidString
     var sessionID: String = UUID().uuidString
 
@@ -21,6 +21,7 @@ struct User: Codable, Identifiable {
         case firstName
         case lastName = "surName"
         case email
+        case image = "imageLink"
         case chatID
         case sessionID
     }

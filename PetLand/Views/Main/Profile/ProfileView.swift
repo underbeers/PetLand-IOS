@@ -17,19 +17,12 @@ struct ProfileView: View {
                 VStack {
                     VStack(spacing: 8) {
                         HStack(spacing: 24) {
-                            if let image = model.user.image {
-                                Image(image)
-                                    .resizable()
-                                    .frame(width: 100, height: 100)
-                                    .clipShape(Circle())
-                            }
-                            else {
-                                Image("icons:profile")
-                                    .resizable()
-                                    .renderingMode(.template)
-                                    .foregroundColor(.cBlue200)
-                                    .frame(width: 100, height: 100)
-                            }
+                            Image("preview:person")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                            
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(model.user.firstName + " " + model.user.lastName)
                                     .font(.cTitle4)
