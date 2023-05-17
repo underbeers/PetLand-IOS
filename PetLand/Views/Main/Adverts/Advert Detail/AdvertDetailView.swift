@@ -10,9 +10,15 @@ import SwiftUI
 struct AdvertDetailView: View {
     @StateObject var model: AdvertDetailViewModel = .init()
     private let card: AdvertCard
+    private let mode: Mode
     
-    init(_ advertCard: AdvertCard) {
+    enum Mode {
+        case my, other
+    }
+    
+    init(_ advertCard: AdvertCard, mode: Mode = .other) {
         self.card = advertCard
+        self.mode = mode
     }
     
     private var advert: AdvertCommon {
@@ -128,69 +134,110 @@ struct AdvertDetailView: View {
                     }
                 }
                 
-                HStack(alignment: .center, spacing: 16) {
-                    Image("preview:person")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 70, height: 70)
-                        .clipShape(Circle())
-                    
+                if mode == .other {
+                    HStack(alignment: .center, spacing: 16) {
+                        Image("preview:person")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 70, height: 70)
+                            .clipShape(Circle())
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Иван Иванович")
+                                .font(.cTitle4)
+                                .foregroundColor(.cText)
+                            HStack(spacing: 0) {
+                                ForEach(1 ... 5, id: \.self) { _ in
+                                    Image("icons:star")
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .foregroundColor(.cOrange400)
+                                        .frame(width: 20, height: 20)
+                                }
+                                Text("5,0")
+                                    .font(.cMain)
+                                    .foregroundColor(.cSubtext)
+                                    .padding(.leading, 4)
+                            }
+                            Text("2 завершенные сделки")
+                                .font(.cSecondary1)
+                                .foregroundColor(.cSubtext)
+                        }
+                    }
+                
+                    HStack(spacing: 16) {
+                        if let phone = model.advert?.phone, !phone.isEmpty {
+                            Button {
+                                if let url = URL(string: "tel://\(phone)") {
+                                    UIApplication.shared.open(url)
+                                }
+                            } label: {
+                                Label {
+                                    Text("Позвонить")
+                                } icon: {
+                                    Image("icons:phone")
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .frame(width: 24, height: 24)
+                                }
+                            }
+                        }
+                        if model.advert?.chat ?? false {
+                            NavigationLink {
+                                Text("Chat Placeholder")
+                            } label: {
+                                Label {
+                                    Text("Написать")
+                                } icon: {
+                                    Image("icons:chat")
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .frame(width: 24, height: 24)
+                                }
+                            }
+                        }
+                    }
+                    .buttonStyle(CustomButton(.primary))
+                } else {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Иван Иванович")
+                        Text("Контакты")
                             .font(.cTitle4)
                             .foregroundColor(.cText)
-                        HStack(spacing: 0) {
-                            ForEach(1 ... 5, id: \.self) { _ in
-                                Image("icons:star")
+                        
+                        let canCall = !(model.advert?.phone.isEmpty ?? true)
+                        let canChat = model.advert?.chat ?? false
+                        
+                        HStack(alignment: .top, spacing: 32) {
+                            HStack(spacing: 8) {
+                                Image(canCall ? "icons:checkmark" : "icons:cross")
                                     .resizable()
                                     .renderingMode(.template)
-                                    .foregroundColor(.cOrange400)
-                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(canCall ? .cGreen : .cRed)
+                                    .frame(width: 28, height: 28)
+                                VStack(alignment: .leading, spacing: 0) {
+                                    Text("По телефону")
+                                        .font(.cMain)
+                                        .foregroundColor(.cText)
+                                    if canCall {
+                                        Text(model.advert?.phone ?? "")
+                                            .font(.cSecondary2)
+                                            .foregroundColor(.cSubtext)
+                                    }
+                                }
                             }
-                            Text("5,0")
-                                .font(.cMain)
-                                .foregroundColor(.cSubtext)
-                                .padding(.leading, 4)
-                        }
-                        Text("2 завершенные сделки")
-                            .font(.cSecondary1)
-                            .foregroundColor(.cSubtext)
-                    }
-                }
-                
-                HStack(spacing: 16) {
-                    if let phone = model.advert?.phone, !phone.isEmpty {
-                        Button {
-                            if let url = URL(string: "tel://\(phone)") {
-                                UIApplication.shared.open(url)
-                            }
-                        } label: {
-                            Label {
-                                Text("Позвонить")
-                            } icon: {
-                                Image("icons:phone")
+                            HStack(spacing: 8) {
+                                Image(canChat ? "icons:checkmark" : "icons:cross")
                                     .resizable()
                                     .renderingMode(.template)
-                                    .frame(width: 24, height: 24)
-                            }
-                        }
-                    }
-                    if model.advert?.chat ?? false {
-                        NavigationLink {
-                            Text("Chat Placeholder")
-                        } label: {
-                            Label {
-                                Text("Написать")
-                            } icon: {
-                                Image("icons:chat")
-                                    .resizable()
-                                    .renderingMode(.template)
-                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(canChat ? .cGreen : .cRed)
+                                    .frame(width: 28, height: 28)
+                                Text("В приложении")
+                                    .font(.cMain)
+                                    .foregroundColor(.cText)
                             }
                         }
                     }
                 }
-                .buttonStyle(CustomButton(.primary))
                 
                 Group {
                     VStack(alignment: .leading, spacing: 4) {
@@ -215,6 +262,7 @@ struct AdvertDetailView: View {
             .padding(16)
             .padding(.bottom, 32)
         }
+        .navigationTitle(advert.name)
         .navigationBarTitleDisplayMode(.inline)
         .animation(.spring(), value: model.advert)
         .onAppear {
@@ -223,11 +271,27 @@ struct AdvertDetailView: View {
         .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
             Text(model.alertMessage)
         }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                NavigationLink {
+                    Text("Advert Edit/Creation Placeholder")
+                } label: {
+                    if mode == .my {
+                        Image("icons:edit")
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(.cOrange)
+                            .frame(width: 24, height: 24)
+                    }
+                }
+            }
+        }
     }
 }
 
 struct AdvertDetailView_Previews: PreviewProvider {
     static var previews: some View {
         AdvertDetailView(.dummy)
+        AdvertDetailView(.dummy, mode: .my)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PetsView.swift
+//  MyPetsView.swift
 //  PetLand
 //
 //  Created by Никита Сигал on 07.05.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PetsView: View {
+struct MyPetsView: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var model: ProfileView.ProfileViewModel
 
@@ -89,7 +89,7 @@ struct PetsView: View {
                     }
                 }
                 .padding(16)
-                .animation(.default, value: model.pets.count)
+                .animation(.default, value: model.pets)
                 .onAppear { model.fetchPets() }
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
@@ -110,7 +110,7 @@ struct PetsView: View {
     }
 }
 
-struct PetsView_Previews: PreviewProvider {
+struct MyPetsView_Previews: PreviewProvider {
     static let someModel: ProfileView.ProfileViewModel = {
         let model = ProfileView.ProfileViewModel()
         model.pets = [.dummy, .dummy, .dummy]
@@ -125,13 +125,13 @@ struct PetsView_Previews: PreviewProvider {
 
     static var previews: some View {
         NavigationStack {
-            PetsView()
+            MyPetsView()
                 .environmentObject(AppState())
                 .environmentObject(someModel)
         }
 
         NavigationStack {
-            PetsView()
+            MyPetsView()
                 .environmentObject(AppState())
                 .environmentObject(emptyModel)
         }

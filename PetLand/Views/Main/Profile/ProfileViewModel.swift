@@ -6,21 +6,23 @@
 //
 
 import Foundation
-import SwiftUI
 
 extension ProfileView {
     @MainActor final class ProfileViewModel: ObservableObject {
         private var appState: AppState?
         private let userService: UserServiceProtocol = UserService.shared
         private let petService: PetServiceProtocol = PetService.shared
+        private let advertService: AdvertServiceProtocol = AdvertService.shared
 
         @Published var user: User = .init() {
             didSet {
                 fetchPets()
+                fetchAdverts()
             }
         }
 
         @Published var pets: [PetCard] = []
+        @Published var advertCardList: AdvertCardList = .init()
 
         @Published var alertMessage: String = ""
         @Published var presentingAlert: Bool = false
@@ -57,6 +59,23 @@ extension ProfileView {
                 switch result {
                     case .success(let pets):
                             self?.pets = pets
+                    case .failure(let error):
+                        switch error {
+                            case APIError.serverDown:
+                                self?.alertMessage = "Проблема с доступом к серверу"
+                            default:
+                                self?.alertMessage = error.localizedDescription
+                        }
+                        self?.presentingAlert = true
+                }
+            }
+        }
+        
+        func fetchAdverts() {
+            advertService.getAdvertCards(userID: user.id) { [weak self] result in
+                switch result {
+                    case .success(let cardList):
+                        self?.advertCardList = cardList
                     case .failure(let error):
                         switch error {
                             case APIError.serverDown:
