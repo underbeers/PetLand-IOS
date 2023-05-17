@@ -11,6 +11,7 @@ import Foundation
 extension Endpoint {
     enum AdvertService {
         static let getAdvertCards = Endpoint(path: "/adverts", method: .get)
+        static let getAdvert = Endpoint(path: "/adverts/full", method: .get)
     }
 }
 
@@ -18,6 +19,7 @@ enum AdvertServiceError: Error {}
 
 protocol AdvertServiceProtocol {
     func getAdvertCards(id: Int?, userID: String?, petID: Int?, typeID: Int?, breedID: Int?, gender: String?, minPrice: Int?, maxPrice: Int?, cityID: Int?, districtID: Int?, status: String?, sort: String?, page: Int?, perPage: Int?, _ completion: @escaping (Result<AdvertCardList, Error>) -> ())
+    func getAdvert(id: Int, _ completion: @escaping (Result<Advert, Error>) -> ())
 }
 
 extension AdvertServiceProtocol {
@@ -28,6 +30,7 @@ extension AdvertServiceProtocol {
 
 final class AdvertService: AdvertServiceProtocol {
     static let shared = AdvertService()
+    private let accessTokenStorage: AccessTokenStorageProtocol = AccessTokenStorage.shared
 
     func getAdvertCards(id: Int?, userID: String?, petID: Int?, typeID: Int?, breedID: Int?, gender: String?, minPrice: Int?, maxPrice: Int?, cityID: Int?, districtID: Int?, status: String?, sort: String?, page: Int?, perPage: Int?, _ completion: @escaping (Result<AdvertCardList, Error>) -> ()) {
         let endpoint = Endpoint.AdvertService.getAdvertCards
@@ -59,8 +62,8 @@ final class AdvertService: AdvertServiceProtocol {
             .validate()
             .responseDecodable(of: AdvertCardList.self) { response in
                 debugPrint(response)
-                
-                guard let cardList = response.value  else {
+
+                guard let cardList = response.value else {
                     if let error = response.error {
                         switch error {
                             case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
@@ -71,8 +74,34 @@ final class AdvertService: AdvertServiceProtocol {
                     }
                     return
                 }
-                
+
                 completion(.success(cardList))
+            }
+    }
+
+    func getAdvert(id: Int, _ completion: @escaping (Result<Advert, Error>) -> ()) {
+        let endpoint = Endpoint.AdvertService.getAdvert
+
+        let parameters = ["id": String(id)]
+
+        AF.request(endpoint.url, method: endpoint.method, parameters: parameters, headers: [accessTokenStorage.authHeader])
+            .validate()
+            .responseDecodable(of: Advert.self) { response in
+                debugPrint(response)
+
+                guard let advert = response.value else {
+                    if let error = response.error {
+                        switch error {
+                            case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
+                                completion(.failure(APIError.serverDown))
+                            default:
+                                completion(.failure(error))
+                        }
+                    }
+                    return
+                }
+
+                completion(.success(advert))
             }
     }
 }

@@ -24,7 +24,6 @@ struct MainTabView: View {
                 ProfileView()
                     .tag(AppState.Tab.profile)
             }
-            .background(.red)
 
             HStack(spacing: 0) {
                 tabItem(title: "Объявление", image: "icons:advert", tag: .adverts)
@@ -38,7 +37,7 @@ struct MainTabView: View {
             .padding(.vertical, 8)
             .background(.white)
         }
-        .ignoresSafeArea(.keyboard)
+//        .ignoresSafeArea(.keyboard)
     }
 }
 

@@ -77,7 +77,7 @@ struct AdvertsView: View {
                     LazyVGrid(columns: Array(repeating: .init(spacing: 20), count: 2), spacing: 20) {
                         ForEach(model.advertList.adverts) { advertCard in
                             NavigationLink {
-                                Text("Advert Detail Placeholder for '\(advertCard.name)'")
+                                AdvertDetailView(advertCard)
                             } label: {
                                 AdvertCardView(advertCard: advertCard)
                             }
@@ -89,6 +89,7 @@ struct AdvertsView: View {
             }
             .navigationTitle("Доска объявлений")
         }
+        .accentColor(.cOrange)
         .sheet(isPresented: $model.presentingFilters) {
             FiltersView()
                 .environmentObject(model)

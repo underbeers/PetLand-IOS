@@ -31,19 +31,24 @@ extension Pet {
 }
 
 extension PetCard {
-    static let dummy = PetCard(name: "Коротышка",
-                                  type: "Кошка",
-                                  breed: "Сиамская",
-                                  gender: "Девочка",
-                                  birthday: "2023-01-22T00:00:00Z")
+    static let dummy = PetCard(name: "Котяра",
+                               type: "Собака",
+                               breed: "Австралийская овчарка (аусси)",
+                               gender: "Девочка",
+                               birthday: "2020-04-28T00:00:00Z")
 }
 
 extension AdvertCard {
-    static let dummy = AdvertCard(name: "Объявляшка",
-                              price: 12999,
-                              city: "Нижний Новгород",
-                              district: "Советский р-н",
-                              publicationDateString: "2023-02-18T16:12:28Z")
+    static let dummy = AdvertCard(name: "Котяра",
+                                  type: "Собака",
+                                  breed: "Австралийская овчарка (аусси)",
+                                  gender: "Девочка",
+                                  birthday: "2020-04-28T00:00:00Z",
+                                  price: 12999,
+                                  description: "пожалуйста купите умоляю прошу вас я бедный студент без еды и денег",
+                                  city: "Нижний Новгород",
+                                  district: "Советский р-н",
+                                  publicationDateString: "2023-02-18T16:12:28Z")
 }
 
 extension AdvertCardList {
