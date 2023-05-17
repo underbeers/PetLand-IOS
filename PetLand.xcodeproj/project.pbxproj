@@ -47,6 +47,8 @@
 		FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709929CD31860082A4B1 /* AppState.swift */; };
 		FF7A709C29CD385B0082A4B1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709B29CD385B0082A4B1 /* MainTabView.swift */; };
 		FFA617372A13F6AB000DA885 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA617362A13F6AB000DA885 /* ImageModel.swift */; };
+		FFA6173A2A14D50C000DA885 /* AdvertDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA617392A14D50C000DA885 /* AdvertDetailView.swift */; };
+		FFA6173C2A14D514000DA885 /* AdvertDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA6173B2A14D514000DA885 /* AdvertDetailViewModel.swift */; };
 		FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E229C3CD2C00359F86 /* PetLand.swift */; };
 		FFAAD3E529C3CE8900359F86 /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E429C3CE8900359F86 /* CustomCheckbox.swift */; };
 		FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAD3E629C3D2D000359F86 /* FontExtension.swift */; };
@@ -127,6 +129,8 @@
 		FF7A709929CD31860082A4B1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FF7A709B29CD385B0082A4B1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		FFA617362A13F6AB000DA885 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		FFA617392A14D50C000DA885 /* AdvertDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertDetailView.swift; sourceTree = "<group>"; };
+		FFA6173B2A14D514000DA885 /* AdvertDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertDetailViewModel.swift; sourceTree = "<group>"; };
 		FFAAD3E229C3CD2C00359F86 /* PetLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetLand.swift; sourceTree = "<group>"; };
 		FFAAD3E429C3CE8900359F86 /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
 		FFAAD3E629C3D2D000359F86 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
@@ -347,6 +351,15 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
+		FFA617382A14D4FD000DA885 /* Advert Detail */ = {
+			isa = PBXGroup;
+			children = (
+				FFA617392A14D50C000DA885 /* AdvertDetailView.swift */,
+				FFA6173B2A14D514000DA885 /* AdvertDetailViewModel.swift */,
+			);
+			path = "Advert Detail";
+			sourceTree = "<group>";
+		};
 		FFAAD3EC29C414B300359F86 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +412,7 @@
 		FFD163BF2A0E56A500F0B43F /* Adverts */ = {
 			isa = PBXGroup;
 			children = (
+				FFA617382A14D4FD000DA885 /* Advert Detail */,
 				FFC942632A0567A700108349 /* AdvertsView.swift */,
 				FFD163C02A0E56C700F0B43F /* AdvertsViewModel.swift */,
 				FF62C3C02A13E18E0084118A /* AdvertCardView.swift */,
@@ -548,10 +562,12 @@
 				FFD622272A0BB9B3009D00B6 /* PetDetailViewModel.swift in Sources */,
 				FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */,
 				FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */,
+				FFA6173A2A14D50C000DA885 /* AdvertDetailView.swift in Sources */,
 				FFE277492A092B2E00B38B80 /* CustomWrapper.swift in Sources */,
 				FF3B2F3C2A07F3E100DDBDBF /* CustomChip.swift in Sources */,
 				FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */,
 				FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */,
+				FFA6173C2A14D514000DA885 /* AdvertDetailViewModel.swift in Sources */,
 				FF5BA5DE2970B1DC0049C57E /* RegexExtension.swift in Sources */,
 				FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */,
 				FFE277502A0984F700B38B80 /* PetEditViewModel.swift in Sources */,
