@@ -81,7 +81,7 @@ struct PetEditView: View {
                 }
                 
                 CustomWrapper(title: "Дата рождения", tip: "Если не знаете точную дату, выбирайте примерную", isValid: $birthdayIsValid) {
-                    CustomDatePicker(selection: $model.pet.convertedBirthday)
+                    CustomDatePicker(selection: $model.pet.birthday)
                 }
                 
                 Group {

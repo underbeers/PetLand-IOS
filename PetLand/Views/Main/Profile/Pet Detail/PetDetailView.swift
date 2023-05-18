@@ -32,7 +32,7 @@ struct PetDetailView: View {
     }
 
     private var age: String {
-        model.pet.birthday.isEmpty ? cachedPet.formattedAge : model.pet.formattedAge
+        model.pet.birthday == .now ? cachedPet.age : model.pet.age
     }
 
     var body: some View {

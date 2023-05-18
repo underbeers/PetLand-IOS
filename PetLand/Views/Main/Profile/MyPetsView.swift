@@ -81,7 +81,7 @@ struct MyPetsView: View {
                                     CustomChip(title: pet.type)
                                     CustomChip(title: pet.breed)
                                     CustomChip(title: pet.gender)
-                                    CustomChip(title: pet.formattedAge)
+                                    CustomChip(title: pet.age)
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             }

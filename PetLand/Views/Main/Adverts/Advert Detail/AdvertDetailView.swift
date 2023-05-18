@@ -21,7 +21,7 @@ struct AdvertDetailView: View {
         self.mode = mode
     }
     
-    private var advert: AdvertCommon {
+    private var advert: AdvertShared {
         model.advert ?? card
     }
     
@@ -50,7 +50,7 @@ struct AdvertDetailView: View {
                         CustomChip(title: advert.type)
                         CustomChip(title: advert.gender)
                         CustomChip(title: advert.breed)
-                        CustomChip(title: advert.formattedAge)
+                        CustomChip(title: advert.age)
                     }
                 }
                 
@@ -244,7 +244,7 @@ struct AdvertDetailView: View {
                         Text("Дата публикации")
                             .font(.cTitle4)
                             .foregroundColor(.cText)
-                        Text(advert.formattedPublicationDate)
+                        Text(advert.formattedPublication)
                             .font(.cMain)
                             .foregroundColor(.cText)
                     }

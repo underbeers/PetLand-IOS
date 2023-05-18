@@ -12,6 +12,8 @@ extension Endpoint {
     enum AdvertService {
         static let getAdvertCards = Endpoint(path: "/adverts", method: .get)
         static let getAdvert = Endpoint(path: "/adverts/full", method: .get)
+        static let createAdvert = Endpoint(path: "/adverts/new", method: .post)
+        static let updateAdvert = Endpoint(path: "/adverts/update", method: .put)
     }
 }
 
@@ -20,6 +22,7 @@ enum AdvertServiceError: Error {}
 protocol AdvertServiceProtocol {
     func getAdvertCards(id: Int?, userID: String?, petID: Int?, typeID: Int?, breedID: Int?, gender: String?, minPrice: Int?, maxPrice: Int?, cityID: Int?, districtID: Int?, status: String?, sort: String?, page: Int?, perPage: Int?, _ completion: @escaping (Result<AdvertCardList, Error>) -> ())
     func getAdvert(id: Int, _ completion: @escaping (Result<Advert, Error>) -> ())
+    func commitAdvert(_ advert: AdvertEdit, isNew: Bool, _ completion: @escaping (Error?) -> ())
 }
 
 extension AdvertServiceProtocol {
@@ -60,7 +63,7 @@ final class AdvertService: AdvertServiceProtocol {
 
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters)
             .validate()
-            .responseDecodable(of: AdvertCardList.self) { response in
+            .responseDecodable(of: AdvertCardList.self, decoder: JSONDecoder.custom) { response in
                 debugPrint(response)
 
                 guard let cardList = response.value else {
@@ -86,7 +89,7 @@ final class AdvertService: AdvertServiceProtocol {
 
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters, headers: [accessTokenStorage.authHeader])
             .validate()
-            .responseDecodable(of: Advert.self) { response in
+            .responseDecodable(of: Advert.self, decoder: JSONDecoder.custom) { response in
                 debugPrint(response)
 
                 guard let advert = response.value else {
@@ -102,6 +105,30 @@ final class AdvertService: AdvertServiceProtocol {
                 }
 
                 completion(.success(advert))
+            }
+    }
+    
+    func commitAdvert(_ advert: AdvertEdit, isNew: Bool, _ completion: @escaping (Error?) -> ()) {
+        let endpoint = isNew ? Endpoint.AdvertService.createAdvert : Endpoint.AdvertService.updateAdvert
+        
+        let urlParmater = isNew ? "" : "?id=\(advert.id)"
+        
+        AF.request(endpoint.url + urlParmater, method: endpoint.method, parameters: advert, encoder: JSONParameterEncoder(encoder: .custom), headers: [accessTokenStorage.authHeader])
+            .validate()
+            .response { response in
+                debugPrint(response)
+                
+                if let error = response.error {
+                    switch error {
+                        case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
+                            completion(APIError.serverDown)
+                        default:
+                            completion(error)
+                    }
+                    return
+                }
+                
+                completion(nil)
             }
     }
 }

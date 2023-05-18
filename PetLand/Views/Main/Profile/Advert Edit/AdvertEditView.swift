@@ -50,7 +50,11 @@ struct AdvertEditView: View {
                     ContactsPicker(useMessenger: $model.advert.chat, phone: $model.advert.phone)
                 }
                 
-                Button(initialAdvert == nil ? "Опубликовать объявление" : "Сохранить изменения") {}
+                Button(initialAdvert == nil ? "Опубликовать объявление" : "Сохранить изменения") {
+                    model.commitAdvert(isNew: initialAdvert == nil) {
+                        dismiss()
+                    }
+                }
                     .buttonStyle(CustomButton(.primary, isEnabled: canCommit))
                     .disabled(!canCommit)
             }
@@ -62,8 +66,11 @@ struct AdvertEditView: View {
         .animation(.spring(), value: canCommit)
         .onAppear {
             if let initialAdvert {
-                model.advert = initialAdvert
+                model.advert = .init(initialAdvert)
             }
+        }
+        .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
+            Text(model.alertMessage)
         }
     }
 }

@@ -16,7 +16,7 @@ struct Pet: Codable, Identifiable, Equatable {
     var breedID: Int = 0
     var breed: String = ""
     var photos: [SizedImage] = []
-    var birthday: String = ""
+    var birthday: Date = .now
     var isMale: Bool = true
     var gender: String = ""
     var color: String = ""
@@ -46,18 +46,9 @@ struct Pet: Codable, Identifiable, Equatable {
         case vaccinated = "vaccinations"
     }
     
-    var convertedBirthday: Date {
-        get {
-            ISO8601DateFormatter().date(from: birthday) ?? .now
-        }
-        set {
-            birthday = newValue.ISO8601Format()
-        }
-    }
-    
-    var formattedAge: String {
+    var age: String {
         let currentDate = Date()
-        let deltaSeconds = currentDate.timeIntervalSince(convertedBirthday)
+        let deltaSeconds = currentDate.timeIntervalSince(birthday)
         let deltaDays = deltaSeconds / 60 / 60 / 24
         let deltaMonths = deltaDays / 30
         
@@ -78,7 +69,7 @@ struct PetCard: Codable, Identifiable, Equatable {
     var breed: String = ""
     var gender: String = ""
     var photo: String = ""
-    var birthday: String = ""
+    var birthday: Date = .now
     
     
     enum CodingKeys: String, CodingKey {
@@ -91,18 +82,9 @@ struct PetCard: Codable, Identifiable, Equatable {
         case birthday = "birthDate"
     }
     
-    var convertedBirthday: Date {
-        get {
-            ISO8601DateFormatter().date(from: birthday) ?? .now
-        }
-        set {
-            birthday = newValue.ISO8601Format()
-        }
-    }
-    
-    var formattedAge: String {
+    var age: String {
         let currentDate = Date()
-        let deltaSeconds = currentDate.timeIntervalSince(convertedBirthday)
+        let deltaSeconds = currentDate.timeIntervalSince(birthday)
         let deltaDays = deltaSeconds / 60 / 60 / 24
         let deltaMonths = deltaDays / 30
         
