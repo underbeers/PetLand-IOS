@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension PetEditView {
-    @MainActor final class PetEditView: ObservableObject {
+    @MainActor final class PetEditViewModel: ObservableObject {
         private let petService: PetServiceProtocol = PetService.shared
         
         @Published var pet: Pet = .init()

@@ -141,7 +141,8 @@ struct ProfileView: View {
                         }
                     }
                 }
-                .padding(.horizontal, 18)
+                .padding(16)
+                .padding(.bottom, 32)
             }
             .navigationTitle("Профиль")
             .toolbar {

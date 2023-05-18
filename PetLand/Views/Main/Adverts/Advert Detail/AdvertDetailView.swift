@@ -274,7 +274,7 @@ struct AdvertDetailView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 NavigationLink {
-                    Text("Advert Edit/Creation Placeholder")
+                    AdvertEditView(model.advert)
                 } label: {
                     if mode == .my {
                         Image("icons:edit")

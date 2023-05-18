@@ -16,7 +16,7 @@ struct PetEditView: View {
         self.initialPet = pet
     }
     
-    @StateObject var model: PetEditView = .init()
+    @StateObject var model: PetEditViewModel = .init()
     @State var nameIsValid: Bool = false
     @State var typeIsValid: Bool = false
     @State var breedIsValid: Bool = false
