@@ -52,6 +52,19 @@ struct MyAdvertsView: View {
         .animation(.default, value: model.advertCardList)
         .onAppear { model.fetchAdverts() }
         .navigationTitle("Мои объявления")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                NavigationLink {
+                    AdvertEditView()
+                } label: {
+                    Image("icons:plus")
+                        .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(.cOrange)
+                        .frame(width: 24, height: 24)
+                }
+            }
+        }
     }
 }
 

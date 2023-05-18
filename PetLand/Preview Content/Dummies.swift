@@ -20,7 +20,7 @@ extension Pet {
                            type: "Собака",
                            breedID: 2,
                            breed: "Австралийская овчарка (аусси)",
-                           birthday: "2020-04-28T00:00:00Z",
+                           birthday: ISO8601DateFormatter().date(from: "2020-04-28T00:00:00Z")!,
                            isMale: false,
                            gender: "Девочка",
                            color: "Красная с белыми полосками",
@@ -35,7 +35,7 @@ extension PetCard {
                                type: "Собака",
                                breed: "Австралийская овчарка (аусси)",
                                gender: "Девочка",
-                               birthday: "2020-04-28T00:00:00Z")
+                               birthday: ISO8601DateFormatter().date(from: "2020-04-28T00:00:00Z")!)
 }
 
 extension AdvertCard {
@@ -43,12 +43,12 @@ extension AdvertCard {
                                   type: "Собака",
                                   breed: "Австралийская овчарка (аусси)",
                                   gender: "Девочка",
-                                  birthday: "2020-04-28T00:00:00Z",
+                                  birthday: ISO8601DateFormatter().date(from: "2020-04-28T00:00:00Z")!,
                                   price: 12999,
                                   description: "пожалуйста купите умоляю прошу вас я бедный студент без еды и денег",
                                   city: "Нижний Новгород",
                                   district: "Советский р-н",
-                                  publicationDateString: "2023-02-18T16:12:28Z")
+                                  publication: ISO8601DateFormatter().date(from: "2023-02-18T16:12:28Z")!)
 }
 
 extension AdvertCardList {
@@ -60,7 +60,7 @@ extension Advert {
                               type: "Собака",
                               breed: "Австралийская овчарка (аусси)",
                               gender: "Девочка",
-                              birthday: "2020-04-28T00:00:00Z",
+                              birthday: ISO8601DateFormatter().date(from: "2020-04-28T00:00:00Z")!,
                               care: "Очень любит водку, квас и соленые огурцы",
                               price: 12999,
                               description: "пожалуйста купите умоляю прошу вас я бедный студент без еды и денег",
@@ -68,5 +68,5 @@ extension Advert {
                               phone: "+7 123 456-78-90",
                               city: "Нижний Новгород",
                               district: "Советский р-н",
-                              publicationDateString: "2023-02-18T16:12:28Z")
+                              publication: ISO8601DateFormatter().date(from: "2023-02-18T16:12:28Z")!)
 }

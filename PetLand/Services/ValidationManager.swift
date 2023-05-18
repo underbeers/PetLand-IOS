@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PhoneNumberKit
 
 protocol ValidationManagerProtocol {
     func validate(_ input: String, as type: TextContentType) -> String?
@@ -87,8 +88,13 @@ class ValidationManager: ValidationManagerProtocol {
     }
 
     private func isValidPhoneNumber(_ input: String) -> String? {
-        // TODO: Implement phone number validation
-        return nil
+        if input.isEmpty { return nil }
+        do {
+            let _ = try PhoneNumberKit().parse(input)
+            return nil
+        } catch {
+            return "Неправильный формат"
+        }
     }
 
     private func isValidVerificationCode(_ input: String) -> String? {

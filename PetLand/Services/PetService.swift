@@ -56,10 +56,9 @@ final class PetService: PetServiceProtocol {
 
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters)
             .validate()
-            .responseDecodable(of: [Pet].self) { response in
-#if DEBUG
+            .responseDecodable(of: [Pet].self, decoder: JSONDecoder.custom) { response in
                 debugPrint(response)
-#endif
+
                 guard let pets = response.value else {
                     if let error = response.error {
                         switch error {
@@ -98,10 +97,10 @@ final class PetService: PetServiceProtocol {
 
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters)
             .validate()
-            .responseDecodable(of: [PetCard].self) { response in
-#if DEBUG
+            .responseDecodable(of: [PetCard].self, decoder: JSONDecoder.custom) { response in
+
                 debugPrint(response)
-#endif
+
                 guard let pets = response.value else {
                     if let error = response.error {
                         switch error {
@@ -124,12 +123,11 @@ final class PetService: PetServiceProtocol {
         var pet = pet
         pet.userID = accessTokenStorage.userID
 
-        AF.request(endpoint.url + (isNew ? "" : "?id=\(pet.id)"), method: endpoint.method, parameters: pet, encoder: JSONParameterEncoder(), headers: [accessTokenStorage.authHeader])
+        AF.request(endpoint.url + (isNew ? "" : "?id=\(pet.id)"), method: endpoint.method, parameters: pet, encoder: JSONParameterEncoder(encoder: .custom), headers: [accessTokenStorage.authHeader])
             .validate()
             .response { response in
-#if DEBUG
                 debugPrint(response)
-#endif
+
                 guard let error = response.error else {
                     completion(nil)
                     return
@@ -157,10 +155,9 @@ final class PetService: PetServiceProtocol {
 
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters)
             .validate()
-            .responseDecodable(of: [PetType].self) { response in
-#if DEBUG
+            .responseDecodable(of: [PetType].self, decoder: JSONDecoder.custom) { response in
                 debugPrint(response)
-#endif
+
                 guard let types = response.value else {
                     if let error = response.error {
                         switch error {
@@ -193,10 +190,9 @@ final class PetService: PetServiceProtocol {
 
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters)
             .validate()
-            .responseDecodable(of: [PetBreed].self) { response in
-#if DEBUG
+            .responseDecodable(of: [PetBreed].self, decoder: JSONDecoder.custom) { response in
                 debugPrint(response)
-#endif
+
                 guard let breeds = response.value else {
                     if let error = response.error {
                         switch error {

@@ -36,7 +36,7 @@ struct AdvertCardView: View {
                 Text(asCurrency(advertCard.price as NSNumber))
                     .font(.cMain)
                     .foregroundColor(.cText)
-                Text(advertCard.formattedPublicationDate)
+                Text(advertCard.formattedPublication)
                     .font(.cSecondary2)
                     .foregroundColor(.cBlue)
                 Text(advertCard.city + "\n" + advertCard.district)
