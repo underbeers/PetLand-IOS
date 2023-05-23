@@ -476,11 +476,11 @@
 		FFD163BF2A0E56A500F0B43F /* Adverts */ = {
 			isa = PBXGroup;
 			children = (
-				FFA617382A14D4FD000DA885 /* Advert Detail */,
 				FFC942632A0567A700108349 /* AdvertsView.swift */,
 				FFD163C02A0E56C700F0B43F /* AdvertsViewModel.swift */,
 				FF62C3C02A13E18E0084118A /* AdvertCardView.swift */,
 				FF62C3C22A13ED870084118A /* FiltersView.swift */,
+				FFA617382A14D4FD000DA885 /* Advert Detail */,
 			);
 			path = Adverts;
 			sourceTree = "<group>";

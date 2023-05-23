@@ -64,7 +64,7 @@ final class LocationService: LocationServiceProtocol {
     }
 
     func getDistricts(id: Int?, cityID: Int?, _ completion: @escaping (Result<[District], Error>) -> ()) {
-        let endpoint = Endpoint.LocationService.getCities
+        let endpoint = Endpoint.LocationService.getDistricts
 
         let parameters = [
             "id": id,

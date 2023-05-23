@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct City: Codable, Identifiable {
+struct City: Codable, Identifiable, Equatable {
     var id: Int = UUID().hashValue
     var name: String = ""
     
@@ -17,7 +17,7 @@ struct City: Codable, Identifiable {
     }
 }
 
-struct District: Codable, Identifiable {
+struct District: Codable, Identifiable, Equatable {
     var id: Int = UUID().hashValue
     var cityID: Int = 0
     var name: String = ""

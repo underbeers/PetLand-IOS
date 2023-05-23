@@ -15,12 +15,16 @@ struct FiltersView: View {
     @State var breedIsValid: Bool = false
     @State var minPriceIsValid: Bool = false
     @State var maxPriceIsValid: Bool = false
+    @State var cityIsValid: Bool = false
+    @State var districtIsValid: Bool = false
 
     var canApply: Bool {
         typeIsValid
             && breedIsValid
             && minPriceIsValid
             && maxPriceIsValid
+            && cityIsValid
+            && districtIsValid
     }
 
     var body: some View {
@@ -52,6 +56,23 @@ struct FiltersView: View {
                     }
                 }
 
+                CustomWrapper(title: "Город", isValid: $cityIsValid, required: false) {
+                    CustomDropdown(options: ["Не выбрано"] + model.cities.map { $0.name }, selection: $model.filterCity)
+                }
+                .onChange(of: model.filterCity) { _ in
+                    model.fetchDistricts()
+                }
+                .onChange(of: model.districts) { _ in
+                    if !model.districts.contains(where: { $0.name == model.filterDistrict }) {
+                        model.filterDistrict = ""
+                    }
+                }
+
+                CustomWrapper(title: "Район", isValid: $districtIsValid, required: false) {
+                    CustomDropdown(options: ["Не выбрано"] + model.districts.map { $0.name }, selection: $model.filterDistrict)
+                }
+                .disabled(!cityIsValid)
+                
                 Spacer()
 
                 Button("Применить") {
@@ -69,9 +90,9 @@ struct FiltersView: View {
         .animation(.default, value: canApply)
         .onAppear {
             model.fetchTypes()
+            model.fetchCities()
         }
         .onDisappear {
-            model.restoreBreedID()
             model.fetchAdvertCards()
         }
     }
