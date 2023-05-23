@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF09CDEA2A1D33B000F8251E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09CDE92A1D33B000F8251E /* LocationService.swift */; };
+		FF09CDEC2A1D357900F8251E /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09CDEB2A1D357900F8251E /* LocationModel.swift */; };
+		FF09CDF42A1D393100F8251E /* PetLandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09CDF32A1D393100F8251E /* PetLandTests.swift */; };
 		FF0BE9272A1557A200B86BDC /* AdvertEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BE9262A1557A200B86BDC /* AdvertEditView.swift */; };
 		FF0BE92B2A1559AB00B86BDC /* AdvertEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BE92A2A1559AB00B86BDC /* AdvertEditViewModel.swift */; };
 		FF0BE9302A156FEB00B86BDC /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF0BE92F2A156FEB00B86BDC /* PhoneNumberKit */; };
@@ -93,7 +96,21 @@
 		FFE277502A0984F700B38B80 /* PetEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2774F2A0984F700B38B80 /* PetEditViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FF09CDF52A1D393100F8251E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF18D453296EAF5500DCB69E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF18D45A296EAF5500DCB69E;
+			remoteInfo = PetLand;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		FF09CDE92A1D33B000F8251E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		FF09CDEB2A1D357900F8251E /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		FF09CDF12A1D393100F8251E /* PetLandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetLandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF09CDF32A1D393100F8251E /* PetLandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetLandTests.swift; sourceTree = "<group>"; };
 		FF0BE9262A1557A200B86BDC /* AdvertEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertEditView.swift; sourceTree = "<group>"; };
 		FF0BE92A2A1559AB00B86BDC /* AdvertEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertEditViewModel.swift; sourceTree = "<group>"; };
 		FF0BE9312A157A6D00B86BDC /* PricePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePicker.swift; sourceTree = "<group>"; };
@@ -181,6 +198,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FF09CDEE2A1D393100F8251E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF18D458296EAF5500DCB69E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,6 +217,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF09CDF22A1D393100F8251E /* PetLandTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF09CDF32A1D393100F8251E /* PetLandTests.swift */,
+			);
+			path = PetLandTests;
+			sourceTree = "<group>";
+		};
 		FF0BE9252A15579500B86BDC /* Advert Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				FF18D45D296EAF5500DCB69E /* PetLand */,
+				FF09CDF22A1D393100F8251E /* PetLandTests */,
 				FF18D45C296EAF5500DCB69E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -217,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				FF18D45B296EAF5500DCB69E /* PetLand.app */,
+				FF09CDF12A1D393100F8251E /* PetLandTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -340,6 +374,7 @@
 				FFDF817A2A0543F500539F74 /* UserService.swift */,
 				FF3B2F332A07D6CC00DDBDBF /* PetService.swift */,
 				FFD163C62A0E9A8D00F0B43F /* AdvertService.swift */,
+				FF09CDE92A1D33B000F8251E /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -423,6 +458,7 @@
 				FF3B2F352A07DA1900DDBDBF /* PetModel.swift */,
 				FFD163C22A0E615900F0B43F /* AdvertModel.swift */,
 				FFA617362A13F6AB000DA885 /* ImageModel.swift */,
+				FF09CDEB2A1D357900F8251E /* LocationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -470,6 +506,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FF09CDF02A1D393100F8251E /* PetLandTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF09CDF72A1D393100F8251E /* Build configuration list for PBXNativeTarget "PetLandTests" */;
+			buildPhases = (
+				FF09CDED2A1D393100F8251E /* Sources */,
+				FF09CDEE2A1D393100F8251E /* Frameworks */,
+				FF09CDEF2A1D393100F8251E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF09CDF62A1D393100F8251E /* PBXTargetDependency */,
+			);
+			name = PetLandTests;
+			productName = PetLandTests;
+			productReference = FF09CDF12A1D393100F8251E /* PetLandTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FF18D45A296EAF5500DCB69E /* PetLand */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF18D46F296EAF5600DCB69E /* Build configuration list for PBXNativeTarget "PetLand" */;
@@ -498,9 +552,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					FF09CDF02A1D393100F8251E = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = FF18D45A296EAF5500DCB69E;
+					};
 					FF18D45A296EAF5500DCB69E = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -525,11 +583,19 @@
 			projectRoot = "";
 			targets = (
 				FF18D45A296EAF5500DCB69E /* PetLand */,
+				FF09CDF02A1D393100F8251E /* PetLandTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FF09CDEF2A1D393100F8251E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF18D459296EAF5500DCB69E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -562,6 +628,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FF09CDED2A1D393100F8251E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF09CDF42A1D393100F8251E /* PetLandTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF18D457296EAF5500DCB69E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -614,6 +688,8 @@
 				FFC942682A0567C900108349 /* MessengerView.swift in Sources */,
 				FFE277452A09120000B38B80 /* PetEditView.swift in Sources */,
 				FFA617372A13F6AB000DA885 /* ImageModel.swift in Sources */,
+				FF09CDEC2A1D357900F8251E /* LocationModel.swift in Sources */,
+				FF09CDEA2A1D33B000F8251E /* LocationService.swift in Sources */,
 				FF3B2F302A069AFA00DDBDBF /* LoremIpsum.swift in Sources */,
 				FF62C3C32A13ED870084118A /* FiltersView.swift in Sources */,
 				FF62C3C12A13E18E0084118A /* AdvertCardView.swift in Sources */,
@@ -631,7 +707,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FF09CDF62A1D393100F8251E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF18D45A296EAF5500DCB69E /* PetLand */;
+			targetProxy = FF09CDF52A1D393100F8251E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		FF09CDF82A1D393100F8251E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 757KZK47PP;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.drunkvermicelli.PetLandTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PetLand.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PetLand";
+			};
+			name = Debug;
+		};
+		FF09CDF92A1D393100F8251E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 757KZK47PP;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.drunkvermicelli.PetLandTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PetLand.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PetLand";
+			};
+			name = Release;
+		};
 		FF18D46D296EAF5600DCB69E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -819,6 +947,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FF09CDF72A1D393100F8251E /* Build configuration list for PBXNativeTarget "PetLandTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF09CDF82A1D393100F8251E /* Debug */,
+				FF09CDF92A1D393100F8251E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FF18D456296EAF5500DCB69E /* Build configuration list for PBXProject "PetLand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
