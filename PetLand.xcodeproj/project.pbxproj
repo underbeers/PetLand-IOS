@@ -97,6 +97,7 @@
 		FFE2774B2A0931AE00B38B80 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2774A2A0931AE00B38B80 /* CustomDatePicker.swift */; };
 		FFE2774D2A09352400B38B80 /* CustomTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2774C2A09352400B38B80 /* CustomTextArea.swift */; };
 		FFE277502A0984F700B38B80 /* PetEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2774F2A0984F700B38B80 /* PetEditViewModel.swift */; };
+		FFF4CF3F2A1EA32A00AFE079 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4CF3E2A1EA32A00AFE079 /* FavouritesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +202,7 @@
 		FFE2774A2A0931AE00B38B80 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		FFE2774C2A09352400B38B80 /* CustomTextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextArea.swift; sourceTree = "<group>"; };
 		FFE2774F2A0984F700B38B80 /* PetEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetEditViewModel.swift; sourceTree = "<group>"; };
+		FFF4CF3E2A1EA32A00AFE079 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,9 +403,9 @@
 				FF7A709B29CD385B0082A4B1 /* MainTabView.swift */,
 				FFD163BF2A0E56A500F0B43F /* Adverts */,
 				FFC9426D2A066E1200108349 /* Profile */,
+				FFF4CF3D2A1EA2A700AFE079 /* Favourites */,
 				FFC942652A0567B600108349 /* ServicesView.swift */,
 				FFC942672A0567C900108349 /* MessengerView.swift */,
-				FFC942692A0567FA00108349 /* FavouritesView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -518,6 +520,15 @@
 				FFE2774F2A0984F700B38B80 /* PetEditViewModel.swift */,
 			);
 			path = "Pet Edit";
+			sourceTree = "<group>";
+		};
+		FFF4CF3D2A1EA2A700AFE079 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				FFC942692A0567FA00108349 /* FavouritesView.swift */,
+				FFF4CF3E2A1EA32A00AFE079 /* FavouritesViewModel.swift */,
+			);
+			path = Favourites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -701,6 +712,7 @@
 				FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */,
 				FFE277502A0984F700B38B80 /* PetEditViewModel.swift in Sources */,
 				FFAAD3E529C3CE8900359F86 /* CustomCheckbox.swift in Sources */,
+				FFF4CF3F2A1EA32A00AFE079 /* FavouritesViewModel.swift in Sources */,
 				FFC942622A05679100108349 /* ProfileView.swift in Sources */,
 				FFC9426A2A0567FA00108349 /* FavouritesView.swift in Sources */,
 				FFDF81792A0535B000539F74 /* Endpoint.swift in Sources */,

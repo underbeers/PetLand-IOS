@@ -29,7 +29,7 @@ struct AdvertCardView: View {
                     Button {
                         model.toggleFavourite()
                     } label: {
-                        Image(advertCard.favourite ? "icons:heart:fill" : "icons:heart")
+                        Image(advertCard.favouriteID != 0 ?"icons:heart:fill" : "icons:heart")
                             .resizable()
                             .renderingMode(.template)
                             .frame(width: 24, height: 24)
@@ -64,7 +64,6 @@ struct AdvertCardView_Previews: PreviewProvider {
     static var previews: some View {
         LazyVGrid(columns: [GridItem(), GridItem()]) {
             AdvertCardView(advertCard: .constant(.dummy))
-            AdvertCardView(advertCard: .constant(.init(favourite: true)))
         }
         .padding()
     }

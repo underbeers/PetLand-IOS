@@ -27,7 +27,7 @@ extension AdvertCardView {
         @Published var presentingAlert: Bool = false
         
         func toggleFavourite() {
-            if advertCard.favourite {
+            if advertCard.favouriteID != 0{
                 removeFromFavourites()
             } else {
                 addToFavourites()
@@ -62,7 +62,6 @@ extension AdvertCardView {
                     }
                     self?.presentingAlert = true
                 } else {
-                    self?.advertCard.favourite = true
                     self?.fetchInfo()
                 }
             }
@@ -82,7 +81,6 @@ extension AdvertCardView {
                     }
                     self?.presentingAlert = true
                 } else {
-                    self?.advertCard.favourite = false
                     self?.fetchInfo()
                 }
             }
