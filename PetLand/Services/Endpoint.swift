@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 struct Endpoint {
-    private static let baseURL = "http://petland-backend-k8s.underbeers.space/api/v1"
+    private static let baseURL = "http://petland-backend.underbeers.space/api/v1"
 
     var path: String
     var method: HTTPMethod

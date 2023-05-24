@@ -11,6 +11,7 @@ extension AdvertsView {
     @MainActor final class AdvertsViewModel: ObservableObject {
         private let advertService: AdvertServiceProtocol = AdvertService.shared
         private let petService: PetServiceProtocol = PetService.shared
+        private let locationService: LocationServiceProtocol = LocationService.shared
 
         enum Mode {
             case sold,
@@ -51,10 +52,14 @@ extension AdvertsView {
         @Published var presentingFilters: Bool = false
 
         @Published var filterType: String = ""
-        private var filterTypeID: Int?
+        private var filterTypeID: Int? {
+            types.first(where: { $0.type == filterType })?.id
+        }
 
         @Published var filterBreed: String = ""
-        private var filterBreedID: Int?
+        private var filterBreedID: Int? {
+            breeds.first(where: { $0.breed == filterBreed })?.id
+        }
 
         @Published var filterMinPrice: Int?
         var filterMinPriceString: String {
@@ -92,8 +97,22 @@ extension AdvertsView {
             }
         }
 
+        @Published var filterCity: String = ""
+        @Published var filterDistrict: String = ""
+
+        private var filterCityID: Int? {
+            cities.first(where: { $0.name == filterCity })?.id
+        }
+
+        private var filterDistrictID: Int? {
+            districts.first(where: { $0.name == filterDistrict })?.id
+        }
+
         @Published var types: [PetType] = []
         @Published var breeds: [PetBreed] = []
+
+        @Published var cities: [City] = []
+        @Published var districts: [District] = []
 
         @Published var alertMessage: String = ""
         @Published var presentingAlert: Bool = false
@@ -103,6 +122,8 @@ extension AdvertsView {
                                          breedID: filterBreedID,
                                          minPrice: filterMinPrice,
                                          maxPrice: filterMaxPrice,
+                                         cityID: filterCityID,
+                                         districtID: filterDistrictID,
                                          sort: sorting.requestArgument)
             { [weak self] result in
                 switch result {
@@ -118,14 +139,6 @@ extension AdvertsView {
                         self?.presentingAlert = true
                 }
             }
-        }
-
-        func restoreTypeID() {
-            filterTypeID = types.first(where: { $0.type == filterType })?.id
-        }
-
-        func restoreBreedID() {
-            filterBreedID = breeds.first(where: { $0.breed == filterBreed })?.id
         }
 
         func fetchTypes() {
@@ -146,7 +159,6 @@ extension AdvertsView {
         }
 
         func fetchBreeds() {
-            restoreTypeID()
             guard let filterTypeID else {
                 breeds = []
                 return
@@ -156,6 +168,46 @@ extension AdvertsView {
                 switch result {
                     case .success(let breeds):
                         self?.breeds = breeds
+                    case .failure(let error):
+                        switch error {
+                            case APIError.serverDown:
+                                self?.alertMessage = "Проблема с доступом к серверу"
+                            default:
+                                self?.alertMessage = error.localizedDescription
+                        }
+                        self?.presentingAlert = true
+                }
+            }
+        }
+
+        func fetchCities() {
+            locationService.getCities { [weak self] result in
+                switch result {
+                    case .success(let cities):
+                        self?.cities = cities
+                    case .failure(let error):
+                        switch error {
+                            case APIError.serverDown:
+                                self?.alertMessage = "Проблема с доступом к серверу"
+                            default:
+                                self?.alertMessage = error.localizedDescription
+                        }
+                        self?.presentingAlert = true
+                }
+            }
+        }
+
+        func fetchDistricts() {
+            guard let filterCityID else {
+                districts = []
+                debugPrint("No filterCityID")
+                return
+            }
+
+            locationService.getDistricts(cityID: filterCityID) { [weak self] result in
+                switch result {
+                    case .success(let districts):
+                        self?.districts = districts
                     case .failure(let error):
                         switch error {
                             case APIError.serverDown:
