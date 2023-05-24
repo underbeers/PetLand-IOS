@@ -10,6 +10,9 @@
 		FF09CDEA2A1D33B000F8251E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09CDE92A1D33B000F8251E /* LocationService.swift */; };
 		FF09CDEC2A1D357900F8251E /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09CDEB2A1D357900F8251E /* LocationModel.swift */; };
 		FF09CDF42A1D393100F8251E /* PetLandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09CDF32A1D393100F8251E /* PetLandTests.swift */; };
+		FF09CDFB2A1E598B00F8251E /* FavouriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09CDFA2A1E598B00F8251E /* FavouriteService.swift */; };
+		FF09CDFD2A1E5E9300F8251E /* FavouriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09CDFC2A1E5E9300F8251E /* FavouriteModel.swift */; };
+		FF09CE002A1E623100F8251E /* AdvertCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09CDFF2A1E623100F8251E /* AdvertCardViewModel.swift */; };
 		FF0BE9272A1557A200B86BDC /* AdvertEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BE9262A1557A200B86BDC /* AdvertEditView.swift */; };
 		FF0BE92B2A1559AB00B86BDC /* AdvertEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BE92A2A1559AB00B86BDC /* AdvertEditViewModel.swift */; };
 		FF0BE9302A156FEB00B86BDC /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF0BE92F2A156FEB00B86BDC /* PhoneNumberKit */; };
@@ -111,6 +114,9 @@
 		FF09CDEB2A1D357900F8251E /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		FF09CDF12A1D393100F8251E /* PetLandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetLandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF09CDF32A1D393100F8251E /* PetLandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetLandTests.swift; sourceTree = "<group>"; };
+		FF09CDFA2A1E598B00F8251E /* FavouriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteService.swift; sourceTree = "<group>"; };
+		FF09CDFC2A1E5E9300F8251E /* FavouriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModel.swift; sourceTree = "<group>"; };
+		FF09CDFF2A1E623100F8251E /* AdvertCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertCardViewModel.swift; sourceTree = "<group>"; };
 		FF0BE9262A1557A200B86BDC /* AdvertEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertEditView.swift; sourceTree = "<group>"; };
 		FF0BE92A2A1559AB00B86BDC /* AdvertEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertEditViewModel.swift; sourceTree = "<group>"; };
 		FF0BE9312A157A6D00B86BDC /* PricePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePicker.swift; sourceTree = "<group>"; };
@@ -223,6 +229,15 @@
 				FF09CDF32A1D393100F8251E /* PetLandTests.swift */,
 			);
 			path = PetLandTests;
+			sourceTree = "<group>";
+		};
+		FF09CDFE2A1E621600F8251E /* Advert Card */ = {
+			isa = PBXGroup;
+			children = (
+				FF62C3C02A13E18E0084118A /* AdvertCardView.swift */,
+				FF09CDFF2A1E623100F8251E /* AdvertCardViewModel.swift */,
+			);
+			path = "Advert Card";
 			sourceTree = "<group>";
 		};
 		FF0BE9252A15579500B86BDC /* Advert Edit */ = {
@@ -375,6 +390,7 @@
 				FF3B2F332A07D6CC00DDBDBF /* PetService.swift */,
 				FFD163C62A0E9A8D00F0B43F /* AdvertService.swift */,
 				FF09CDE92A1D33B000F8251E /* LocationService.swift */,
+				FF09CDFA2A1E598B00F8251E /* FavouriteService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -459,6 +475,7 @@
 				FFD163C22A0E615900F0B43F /* AdvertModel.swift */,
 				FFA617362A13F6AB000DA885 /* ImageModel.swift */,
 				FF09CDEB2A1D357900F8251E /* LocationModel.swift */,
+				FF09CDFC2A1E5E9300F8251E /* FavouriteModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -478,8 +495,8 @@
 			children = (
 				FFC942632A0567A700108349 /* AdvertsView.swift */,
 				FFD163C02A0E56C700F0B43F /* AdvertsViewModel.swift */,
-				FF62C3C02A13E18E0084118A /* AdvertCardView.swift */,
 				FF62C3C22A13ED870084118A /* FiltersView.swift */,
+				FF09CDFE2A1E621600F8251E /* Advert Card */,
 				FFA617382A14D4FD000DA885 /* Advert Detail */,
 			);
 			path = Adverts;
@@ -646,6 +663,7 @@
 				FF3B2F362A07DA1900DDBDBF /* PetModel.swift in Sources */,
 				FFDF817B2A0543F500539F74 /* UserService.swift in Sources */,
 				FFC9426F2A066E2900108349 /* ProfileViewModel.swift in Sources */,
+				FF09CDFB2A1E598B00F8251E /* FavouriteService.swift in Sources */,
 				FFE277472A0925A400B38B80 /* CustomDropdown.swift in Sources */,
 				FFE2774B2A0931AE00B38B80 /* CustomDatePicker.swift in Sources */,
 				FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */,
@@ -660,6 +678,7 @@
 				FFD163C72A0E9A8D00F0B43F /* AdvertService.swift in Sources */,
 				FF3B2F322A06A02200DDBDBF /* Dummies.swift in Sources */,
 				FFE2774D2A09352400B38B80 /* CustomTextArea.swift in Sources */,
+				FF09CDFD2A1E5E9300F8251E /* FavouriteModel.swift in Sources */,
 				FFA6173E2A151BC4000DA885 /* MyAdvertsView.swift in Sources */,
 				FFD163C12A0E56C700F0B43F /* AdvertsViewModel.swift in Sources */,
 				FFAD428829E6C72D00DB6D13 /* RegistrationView.swift in Sources */,
@@ -699,6 +718,7 @@
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
 				FF3B2F3A2A07F11200DDBDBF /* MyPetsView.swift in Sources */,
+				FF09CE002A1E623100F8251E /* AdvertCardViewModel.swift in Sources */,
 				FFC942722A0671DF00108349 /* UserModel.swift in Sources */,
 				FFAAD3EB29C3EE5A00359F86 /* TextContentTypes.swift in Sources */,
 				FF3B2F382A07E96E00DDBDBF /* StringEndings.swift in Sources */,
