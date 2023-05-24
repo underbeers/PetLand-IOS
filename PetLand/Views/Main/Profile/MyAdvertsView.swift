@@ -38,11 +38,11 @@ struct MyAdvertsView: View {
                 .padding(16)
             } else {
                 LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2), spacing: 20) {
-                    ForEach(model.advertCardList.adverts) { advertCard in
+                    ForEach($model.advertCardList.adverts) { $advertCard in
                         NavigationLink {
                             AdvertDetailView(advertCard, mode: .my)
                         } label: {
-                            AdvertCardView(advertCard: advertCard)
+                            AdvertCardView(advertCard: $advertCard)
                         }
                     }
                 }

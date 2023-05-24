@@ -10,8 +10,8 @@ import Foundation
 
 extension Endpoint {
     enum AdvertService {
-        static let getAdvertCards = Endpoint(path: "/adverts", method: .get)
-        static let getAdvert = Endpoint(path: "/adverts/full", method: .get)
+        static let getAdvertCards = Endpoint(path: "/auth/adverts", method: .get)
+        static let getAdvert = Endpoint(path: "/auth/adverts/full", method: .get)
         static let createAdvert = Endpoint(path: "/adverts/new", method: .post)
         static let updateAdvert = Endpoint(path: "/adverts/update", method: .put)
     }
@@ -61,7 +61,7 @@ final class AdvertService: AdvertServiceProtocol {
 
         let parameters = intArgs.merging(stringArgs, uniquingKeysWith: { first, _ in first })
 
-        AF.request(endpoint.url, method: endpoint.method, parameters: parameters)
+        AF.request(endpoint.url, method: endpoint.method, parameters: parameters, headers: [accessTokenStorage.authHeader])
             .validate()
             .responseDecodable(of: AdvertCardList.self, decoder: JSONDecoder.custom) { response in
                 debugPrint(response)

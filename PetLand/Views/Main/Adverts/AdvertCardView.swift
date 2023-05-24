@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AdvertCardView: View {
-    let advertCard: AdvertCard
+    @Binding var advertCard: AdvertCard
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -25,8 +25,10 @@ struct AdvertCardView: View {
                         .font(.cTitle4)
                         .foregroundColor(.cText)
                     Spacer()
-                    Button {} label: {
-                        Image("icons:heart")
+                    Button {
+                        advertCard.favourite.toggle()
+                    } label: {
+                        Image(advertCard.favourite ? "icons:heart:fill" : "icons:heart")
                             .resizable()
                             .renderingMode(.template)
                             .frame(width: 24, height: 24)
@@ -53,10 +55,12 @@ struct AdvertCardView: View {
     }
 }
 
+
 struct AdvertCardView_Previews: PreviewProvider {
     static var previews: some View {
         LazyVGrid(columns: [GridItem(), GridItem()]) {
-            AdvertCardView(advertCard: .dummy)
+            AdvertCardView(advertCard: .constant(.dummy))
+            AdvertCardView(advertCard: .constant(.init(favourite: true)))
         }
         .padding()
     }

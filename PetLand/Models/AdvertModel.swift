@@ -34,6 +34,9 @@ struct Advert: Codable, Identifiable, Equatable {
     var district: String = ""
     var publication: Date = .now
     
+    var favourite: Bool = false
+    var favouriteID: Int = 0
+    
     var formattedPublication: String {
         publication.formatted(date: .abbreviated, time: .omitted)
     }
@@ -79,6 +82,9 @@ struct Advert: Codable, Identifiable, Equatable {
         case city
         case district
         case publication
+        
+        case favourite = "inFavorites"
+        case favouriteID = "favoritesID"
     }
 }
 
@@ -99,6 +105,9 @@ struct AdvertCard: Codable, Identifiable, Equatable {
     var district: String = ""
     var publication: Date = .now
     
+    var favourite: Bool = false
+    var favouriteID: Int = 0
+    
     enum CodingKeys: String, CodingKey {
         case id
         case userID
@@ -115,6 +124,9 @@ struct AdvertCard: Codable, Identifiable, Equatable {
         case city
         case district
         case publication
+        
+        case favourite = "inFavorites"
+        case favouriteID = "favoritesID"
     }
     
     var formattedPublication: String {
@@ -200,6 +212,9 @@ protocol AdvertShared {
     var city: String { get }
     var district: String { get }
     var formattedPublication: String { get }
+    
+    var favourite: Bool { get }
+    var favouriteID: Int { get }
 }
 
 extension Advert: AdvertShared {}
