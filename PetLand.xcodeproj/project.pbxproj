@@ -41,6 +41,9 @@
 		FF1D437D297437D100E3B172 /* Mulish-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D4369297437D000E3B172 /* Mulish-Italic-VariableFont_wght.ttf */; };
 		FF1D437E297437D100E3B172 /* Mulish-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D436A297437D000E3B172 /* Mulish-VariableFont_wght.ttf */; };
 		FF1D43822974955300E3B172 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D43812974955300E3B172 /* ColorExtension.swift */; };
+		FF2351E32A25326000B08263 /* BookmarksImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2351E22A25326000B08263 /* BookmarksImage.swift */; };
+		FF33649E2A24D903002447C6 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = FF33649D2A24D903002447C6 /* SocketIO */; };
+		FF3364A02A2507B8002447C6 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF33649F2A2507B8002447C6 /* ChatService.swift */; };
 		FF3B2F302A069AFA00DDBDBF /* LoremIpsum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F2F2A069AFA00DDBDBF /* LoremIpsum.swift */; };
 		FF3B2F322A06A02200DDBDBF /* Dummies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F312A06A02200DDBDBF /* Dummies.swift */; };
 		FF3B2F342A07D6CC00DDBDBF /* PetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B2F332A07D6CC00DDBDBF /* PetService.swift */; };
@@ -73,6 +76,10 @@
 		FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */; };
 		FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */; };
 		FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */; };
+		FFB28C2A2A20E797007E287B /* MessengerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB28C292A20E797007E287B /* MessengerModels.swift */; };
+		FFB28C2C2A20F348007E287B /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB28C2B2A20F348007E287B /* DialogView.swift */; };
+		FFB28C2F2A20FDE2007E287B /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB28C2E2A20FDE2007E287B /* MessageBox.swift */; };
+		FFB28C312A210ABC007E287B /* DialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB28C302A210ABC007E287B /* DialogViewModel.swift */; };
 		FFC942622A05679100108349 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942612A05679100108349 /* ProfileView.swift */; };
 		FFC942642A0567A700108349 /* AdvertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942632A0567A700108349 /* AdvertsView.swift */; };
 		FFC942662A0567B600108349 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942652A0567B600108349 /* ServicesView.swift */; };
@@ -147,6 +154,8 @@
 		FF1D4369297437D000E3B172 /* Mulish-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		FF1D436A297437D000E3B172 /* Mulish-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		FF1D43812974955300E3B172 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		FF2351E22A25326000B08263 /* BookmarksImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksImage.swift; sourceTree = "<group>"; };
+		FF33649F2A2507B8002447C6 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		FF3B2F2F2A069AFA00DDBDBF /* LoremIpsum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremIpsum.swift; sourceTree = "<group>"; };
 		FF3B2F312A06A02200DDBDBF /* Dummies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummies.swift; sourceTree = "<group>"; };
 		FF3B2F332A07D6CC00DDBDBF /* PetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetService.swift; sourceTree = "<group>"; };
@@ -179,6 +188,10 @@
 		FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2.swift; sourceTree = "<group>"; };
 		FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage3.swift; sourceTree = "<group>"; };
 		FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		FFB28C292A20E797007E287B /* MessengerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerModels.swift; sourceTree = "<group>"; };
+		FFB28C2B2A20F348007E287B /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
+		FFB28C2E2A20FDE2007E287B /* MessageBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBox.swift; sourceTree = "<group>"; };
+		FFB28C302A210ABC007E287B /* DialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewModel.swift; sourceTree = "<group>"; };
 		FFC942612A05679100108349 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FFC942632A0567A700108349 /* AdvertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertsView.swift; sourceTree = "<group>"; };
 		FFC942652A0567B600108349 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
@@ -219,6 +232,7 @@
 			files = (
 				FFDF81772A040B1900539F74 /* Alamofire in Frameworks */,
 				FF0BE9302A156FEB00B86BDC /* PhoneNumberKit in Frameworks */,
+				FF33649E2A24D903002447C6 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +407,7 @@
 				FFD163C62A0E9A8D00F0B43F /* AdvertService.swift */,
 				FF09CDE92A1D33B000F8251E /* LocationService.swift */,
 				FF09CDFA2A1E598B00F8251E /* FavouriteService.swift */,
+				FF33649F2A2507B8002447C6 /* ChatService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -404,8 +419,8 @@
 				FFD163BF2A0E56A500F0B43F /* Adverts */,
 				FFC9426D2A066E1200108349 /* Profile */,
 				FFF4CF3D2A1EA2A700AFE079 /* Favourites */,
+				FFB28C262A20E254007E287B /* Messenger */,
 				FFC942652A0567B600108349 /* ServicesView.swift */,
-				FFC942672A0567C900108349 /* MessengerView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -455,6 +470,26 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		FFB28C262A20E254007E287B /* Messenger */ = {
+			isa = PBXGroup;
+			children = (
+				FFC942672A0567C900108349 /* MessengerView.swift */,
+				FFB28C2D2A20F35A007E287B /* Dialog */,
+			);
+			path = Messenger;
+			sourceTree = "<group>";
+		};
+		FFB28C2D2A20F35A007E287B /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				FFB28C2B2A20F348007E287B /* DialogView.swift */,
+				FFB28C2E2A20FDE2007E287B /* MessageBox.swift */,
+				FFB28C302A210ABC007E287B /* DialogViewModel.swift */,
+				FF2351E22A25326000B08263 /* BookmarksImage.swift */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		FFC9426D2A066E1200108349 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +513,7 @@
 				FFA617362A13F6AB000DA885 /* ImageModel.swift */,
 				FF09CDEB2A1D357900F8251E /* LocationModel.swift */,
 				FF09CDFC2A1E5E9300F8251E /* FavouriteModel.swift */,
+				FFB28C292A20E797007E287B /* MessengerModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -568,6 +604,7 @@
 			packageProductDependencies = (
 				FFDF81762A040B1900539F74 /* Alamofire */,
 				FF0BE92F2A156FEB00B86BDC /* PhoneNumberKit */,
+				FF33649D2A24D903002447C6 /* SocketIO */,
 			);
 			productName = PetLand;
 			productReference = FF18D45B296EAF5500DCB69E /* PetLand.app */;
@@ -605,6 +642,7 @@
 			packageReferences = (
 				FFDF81752A040B1900539F74 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FF0BE92E2A156FEB00B86BDC /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
+				FF33649C2A24D903002447C6 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = FF18D45C296EAF5500DCB69E /* Products */;
 			projectDirPath = "";
@@ -673,6 +711,7 @@
 				FFD622252A0BAF11009D00B6 /* PetDetailView.swift in Sources */,
 				FF3B2F362A07DA1900DDBDBF /* PetModel.swift in Sources */,
 				FFDF817B2A0543F500539F74 /* UserService.swift in Sources */,
+				FF3364A02A2507B8002447C6 /* ChatService.swift in Sources */,
 				FFC9426F2A066E2900108349 /* ProfileViewModel.swift in Sources */,
 				FF09CDFB2A1E598B00F8251E /* FavouriteService.swift in Sources */,
 				FFE277472A0925A400B38B80 /* CustomDropdown.swift in Sources */,
@@ -687,6 +726,7 @@
 				FFAAD3EE29C4151F00359F86 /* CustomButton.swift in Sources */,
 				FF0BE9272A1557A200B86BDC /* AdvertEditView.swift in Sources */,
 				FFD163C72A0E9A8D00F0B43F /* AdvertService.swift in Sources */,
+				FFB28C2C2A20F348007E287B /* DialogView.swift in Sources */,
 				FF3B2F322A06A02200DDBDBF /* Dummies.swift in Sources */,
 				FFE2774D2A09352400B38B80 /* CustomTextArea.swift in Sources */,
 				FF09CDFD2A1E5E9300F8251E /* FavouriteModel.swift in Sources */,
@@ -700,7 +740,10 @@
 				FFAAD3E929C3D43300359F86 /* CustomTextField.swift in Sources */,
 				FFD622272A0BB9B3009D00B6 /* PetDetailViewModel.swift in Sources */,
 				FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */,
+				FFB28C2F2A20FDE2007E287B /* MessageBox.swift in Sources */,
+				FF2351E32A25326000B08263 /* BookmarksImage.swift in Sources */,
 				FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */,
+				FFB28C312A210ABC007E287B /* DialogViewModel.swift in Sources */,
 				FFA6173A2A14D50C000DA885 /* AdvertDetailView.swift in Sources */,
 				FFE277492A092B2E00B38B80 /* CustomWrapper.swift in Sources */,
 				FF0BE9362A1594A700B86BDC /* PetPicker.swift in Sources */,
@@ -725,6 +768,7 @@
 				FF62C3C32A13ED870084118A /* FiltersView.swift in Sources */,
 				FF62C3C12A13E18E0084118A /* AdvertCardView.swift in Sources */,
 				FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */,
+				FFB28C2A2A20E797007E287B /* MessengerModels.swift in Sources */,
 				FFC9426C2A057D5100108349 /* AccessTokenStorage.swift in Sources */,
 				FFC942642A0567A700108349 /* AdvertsView.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
@@ -1017,6 +1061,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		FF33649C2A24D903002447C6 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		FFDF81752A040B1900539F74 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1032,6 +1084,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF0BE92E2A156FEB00B86BDC /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
 			productName = PhoneNumberKit;
+		};
+		FF33649D2A24D903002447C6 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF33649C2A24D903002447C6 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 		FFDF81762A040B1900539F74 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
