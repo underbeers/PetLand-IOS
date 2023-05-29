@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SocketIO
 
 struct Dialog: Codable, Identifiable, Equatable {
     var messages: [Message] = []
@@ -14,7 +15,7 @@ struct Dialog: Codable, Identifiable, Equatable {
     var connected: Bool = false
 
     var id: String { chatID }
-    
+
     enum CodingKeys: String, CodingKey {
         case messages
         case chatID = "userID"
@@ -23,12 +24,12 @@ struct Dialog: Codable, Identifiable, Equatable {
     }
 }
 
-struct Message: Codable, Identifiable, Equatable {
+struct Message: Codable, Identifiable, Equatable, SocketData {
     var text: String = ""
     var from: String = UUID().uuidString
     var to: String = UUID().uuidString
     var timestamp: Date = .now
-    
+
     var id: String {
         text + from + to + timestamp.formatted()
     }
@@ -38,5 +39,9 @@ struct Message: Codable, Identifiable, Equatable {
         case from
         case to
         case timestamp = "time"
+    }
+
+    func socketRepresentation() throws -> SocketData {
+        return ["content": text, "from": from, "to": to, "time": timestamp.ISO8601Format()] as [String : Any]
     }
 }

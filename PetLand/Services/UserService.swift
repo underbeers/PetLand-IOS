@@ -13,6 +13,7 @@ extension Endpoint {
     static let registration = Endpoint(path: "/registration/new", method: .post)
     static let verifyEmail = Endpoint(path: "/email/code", method: .post)
     static let getUser = Endpoint(path: "/user/info", method: .get)
+    static let updateChatCredentials = Endpoint(path: "/user/chat/update", method: .patch)
 }
 
 enum UserServiceError: Error {
@@ -25,6 +26,7 @@ protocol UserServiceProtocol {
     func register(firstName: String, lastName: String, email: String, password: String, completion: @escaping (Error?) -> ())
     func verifyEmail(email: String, completion: @escaping (Error?) -> ())
     func getUser(completion: @escaping (Result<User, Error>) -> ())
+    func updateChatCredentials(chatID: String, sessionID: String, completion: @escaping (Error?) -> ())
 }
 
 class UserService: UserServiceProtocol {
@@ -43,9 +45,7 @@ class UserService: UserServiceProtocol {
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters, encoder: JSONParameterEncoder())
             .validate()
             .responseDecodable(of: [String: String].self) { [weak self] response in
-#if DEBUG
                 debugPrint(response)
-#endif
 
                 guard let token = response.value?["accessToken"] else {
                     if let error = response.error {
@@ -80,9 +80,7 @@ class UserService: UserServiceProtocol {
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters, encoder: JSONParameterEncoder())
             .validate()
             .response { [weak self] response in
-#if DEBUG
                 debugPrint(response)
-#endif
 
                 if let error = response.error {
                     switch error {
@@ -112,9 +110,7 @@ class UserService: UserServiceProtocol {
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters, encoder: JSONParameterEncoder())
             .validate()
             .response { response in
-#if DEBUG
                 debugPrint(response)
-#endif
 
                 if let error = response.error {
                     switch error {
@@ -135,9 +131,7 @@ class UserService: UserServiceProtocol {
         AF.request(endpoint.url, method: endpoint.method, headers: [accessTokenStorage.authHeader])
             .validate()
             .responseDecodable(of: User.self) { [weak self] response in
-#if DEBUG
                 debugPrint(response)
-#endif
 
                 guard let value = response.value else {
                     if let error = response.error {
@@ -155,6 +149,32 @@ class UserService: UserServiceProtocol {
 
                 completion(.success(value))
                 self?.accessTokenStorage.setUserID(value.id)
+            }
+    }
+    
+    func updateChatCredentials(chatID: String, sessionID: String, completion: @escaping (Error?) -> ()) {
+        let endpoint = Endpoint.updateChatCredentials
+        
+        let parameters = [
+            "chatID": chatID,
+            "sessionID": sessionID
+        ]
+        
+        AF.request(endpoint.url, method: endpoint.method, parameters: parameters, encoder: JSONParameterEncoder(encoder: .custom), headers: [accessTokenStorage.authHeader])
+            .validate()
+            .response { response in
+                debugPrint(response)
+                
+                if let error = response.error {
+                    switch error {
+                        case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
+                            completion(APIError.serverDown)
+                        default:
+                            completion(error)
+                    }
+                }
+                
+                completion(nil)
             }
     }
 }

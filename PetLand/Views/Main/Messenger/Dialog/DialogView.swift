@@ -14,14 +14,25 @@ struct DialogView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView {
-                VStack(spacing: 12) {
-                    ForEach(dialog.messages) { message in
-                        MessageBox(message: message, incoming: message.from == dialog.chatID)
+            ScrollViewReader { reader in
+                ScrollView {
+                    VStack(spacing: 12) {
+                        ForEach(dialog.messages) { message in
+                            MessageBox(message: message, incoming: message.from != model.chatID)
+                        }
+                    }
+                    .padding(16)
+                }
+                .onAppear {
+                    withAnimation(.spring()) {
+                        reader.scrollTo(dialog.messages.last?.id ?? "")
                     }
                 }
-                .padding(16)
-                .padding(.bottom, 32)
+                .onChange(of: dialog) { _ in
+                    withAnimation(.spring()) {
+                        reader.scrollTo(dialog.messages.last?.id ?? "")
+                    }
+                }
             }
             Divider()
             HStack {
@@ -54,26 +65,34 @@ struct DialogView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack(spacing: 0) {
-                    Text(dialog.username)
+                    Text(model.chatID == dialog.chatID ? "Избранное" : dialog.username)
                         .font(.cTitle4)
                         .foregroundColor(.cText)
-                    HStack {
-                        Circle()
-                            .fill(dialog.connected ? Color.cGreen : Color.cRed)
-                            .frame(width: 8)
-                        Text(dialog.connected ? "Онлайн" : "Оффлайн")
-                            .font(.cSecondary1)
-                            .foregroundColor(.cSubtext)
+                    if model.chatID != dialog.chatID {
+                        HStack {
+                            Circle()
+                                .fill(dialog.connected ? Color.cGreen : Color.cRed)
+                                .frame(width: 8)
+                            Text(dialog.connected ? "Онлайн" : "Оффлайн")
+                                .font(.cSecondary1)
+                                .foregroundColor(.cSubtext)
+                        }
                     }
                 }
             }
             ToolbarItem(placement: .primaryAction) {
-                Image("preview:person")
-                    .resizable()
-                    .scaledToFill()
-                    .clipShape(Circle())
-                    .frame(height: 40)
-                    .padding(.bottom, 4)
+                ZStack {
+                    if model.chatID == dialog.chatID {
+                        BookmarksImage(24)
+                    } else {
+                        Image("preview:person")
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                    }
+                }
+                .frame(width: 40, height: 40)
+                .padding(.bottom, 4)
             }
         }
         .scrollDismissesKeyboard(.interactively)

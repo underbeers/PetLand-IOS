@@ -10,8 +10,14 @@ import SwiftUI
 
 extension DialogView {
     @MainActor final class DialogViewModel: ObservableObject {
+        private let chatService: ChatService = .shared
+
         @Published var newMessage: String = ""
         @Published var newMessageIsValid: Bool = false
+        
+        var chatID: String {
+            chatService.chatID
+        }
 
         var dialogBinding: Binding<Dialog> = .constant(.init())
         private var dialog: Dialog {
@@ -25,9 +31,8 @@ extension DialogView {
 
         func sendMessage() {
             if newMessageIsValid {
-                dialog.messages.append(.init(
+                chatService.sendMessage(.init(
                     text: newMessage.trimmingCharacters(in: .whitespacesAndNewlines),
-                    from: "0",
                     to: dialog.chatID)
                 )
                 newMessage = ""
