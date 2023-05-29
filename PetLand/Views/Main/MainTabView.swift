@@ -34,10 +34,10 @@ struct MainTabView: View {
             }
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 4)
-            .padding(.vertical, 8)
+            .padding(.vertical, 4)
             .background(.white)
         }
-//        .ignoresSafeArea(.keyboard)
+        .ignoresSafeArea(.keyboard)
     }
 }
 
@@ -46,7 +46,7 @@ extension MainTabView {
         Button {
             appState.setCurrentTab(to: tag)
         } label: {
-            VStack {
+            VStack(spacing: 4) {
                 Image(image)
                     .resizable()
                     .renderingMode(.template)

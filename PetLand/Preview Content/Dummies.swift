@@ -70,3 +70,18 @@ extension Advert {
                               district: "Советский р-н",
                               publication: ISO8601DateFormatter().date(from: "2023-02-18T16:12:28Z")!)
 }
+
+extension Message {
+    static let dummy = Message(text: "Hello, World!", from: "1", to: "0", timestamp: .now)
+}
+
+extension Dialog {
+    static let dummy = Dialog(
+        messages: [
+            .dummy,
+            .init(text: .LoremIpsum.russian, from: "0", to: "1", timestamp: .distantPast),
+        ],
+        chatID: "1",
+        username: "Test Testing",
+        connected: false)
+}

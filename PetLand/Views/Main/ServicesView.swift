@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ServicesView: View {
     var body: some View {
-        Color.blue
+        NavigationStack {
+            ScrollView {
+                VStack {}
+            }
+            .navigationTitle("Сервисы")
+        }
     }
 }
 

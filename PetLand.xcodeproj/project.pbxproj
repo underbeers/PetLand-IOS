@@ -73,6 +73,11 @@
 		FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */; };
 		FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */; };
 		FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */; };
+		FFB28C282A20E272007E287B /* MessengerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB28C272A20E272007E287B /* MessengerViewModel.swift */; };
+		FFB28C2A2A20E797007E287B /* MessengerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB28C292A20E797007E287B /* MessengerModels.swift */; };
+		FFB28C2C2A20F348007E287B /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB28C2B2A20F348007E287B /* DialogView.swift */; };
+		FFB28C2F2A20FDE2007E287B /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB28C2E2A20FDE2007E287B /* MessageBox.swift */; };
+		FFB28C312A210ABC007E287B /* DialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB28C302A210ABC007E287B /* DialogViewModel.swift */; };
 		FFC942622A05679100108349 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942612A05679100108349 /* ProfileView.swift */; };
 		FFC942642A0567A700108349 /* AdvertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942632A0567A700108349 /* AdvertsView.swift */; };
 		FFC942662A0567B600108349 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC942652A0567B600108349 /* ServicesView.swift */; };
@@ -179,6 +184,11 @@
 		FFAD428B29E6C7D600DB6D13 /* RegistrationPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2.swift; sourceTree = "<group>"; };
 		FFAD428D29E6CD0000DB6D13 /* RegistrationPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage3.swift; sourceTree = "<group>"; };
 		FFAD428F29E6CE9100DB6D13 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		FFB28C272A20E272007E287B /* MessengerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerViewModel.swift; sourceTree = "<group>"; };
+		FFB28C292A20E797007E287B /* MessengerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerModels.swift; sourceTree = "<group>"; };
+		FFB28C2B2A20F348007E287B /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
+		FFB28C2E2A20FDE2007E287B /* MessageBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBox.swift; sourceTree = "<group>"; };
+		FFB28C302A210ABC007E287B /* DialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewModel.swift; sourceTree = "<group>"; };
 		FFC942612A05679100108349 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FFC942632A0567A700108349 /* AdvertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertsView.swift; sourceTree = "<group>"; };
 		FFC942652A0567B600108349 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
@@ -404,8 +414,8 @@
 				FFD163BF2A0E56A500F0B43F /* Adverts */,
 				FFC9426D2A066E1200108349 /* Profile */,
 				FFF4CF3D2A1EA2A700AFE079 /* Favourites */,
+				FFB28C262A20E254007E287B /* Messenger */,
 				FFC942652A0567B600108349 /* ServicesView.swift */,
-				FFC942672A0567C900108349 /* MessengerView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -455,6 +465,26 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		FFB28C262A20E254007E287B /* Messenger */ = {
+			isa = PBXGroup;
+			children = (
+				FFC942672A0567C900108349 /* MessengerView.swift */,
+				FFB28C272A20E272007E287B /* MessengerViewModel.swift */,
+				FFB28C2D2A20F35A007E287B /* Dialog */,
+			);
+			path = Messenger;
+			sourceTree = "<group>";
+		};
+		FFB28C2D2A20F35A007E287B /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				FFB28C2B2A20F348007E287B /* DialogView.swift */,
+				FFB28C2E2A20FDE2007E287B /* MessageBox.swift */,
+				FFB28C302A210ABC007E287B /* DialogViewModel.swift */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		FFC9426D2A066E1200108349 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +508,7 @@
 				FFA617362A13F6AB000DA885 /* ImageModel.swift */,
 				FF09CDEB2A1D357900F8251E /* LocationModel.swift */,
 				FF09CDFC2A1E5E9300F8251E /* FavouriteModel.swift */,
+				FFB28C292A20E797007E287B /* MessengerModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -687,6 +718,7 @@
 				FFAAD3EE29C4151F00359F86 /* CustomButton.swift in Sources */,
 				FF0BE9272A1557A200B86BDC /* AdvertEditView.swift in Sources */,
 				FFD163C72A0E9A8D00F0B43F /* AdvertService.swift in Sources */,
+				FFB28C2C2A20F348007E287B /* DialogView.swift in Sources */,
 				FF3B2F322A06A02200DDBDBF /* Dummies.swift in Sources */,
 				FFE2774D2A09352400B38B80 /* CustomTextArea.swift in Sources */,
 				FF09CDFD2A1E5E9300F8251E /* FavouriteModel.swift in Sources */,
@@ -700,7 +732,9 @@
 				FFAAD3E929C3D43300359F86 /* CustomTextField.swift in Sources */,
 				FFD622272A0BB9B3009D00B6 /* PetDetailViewModel.swift in Sources */,
 				FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */,
+				FFB28C2F2A20FDE2007E287B /* MessageBox.swift in Sources */,
 				FFAD428C29E6C7D600DB6D13 /* RegistrationPage2.swift in Sources */,
+				FFB28C312A210ABC007E287B /* DialogViewModel.swift in Sources */,
 				FFA6173A2A14D50C000DA885 /* AdvertDetailView.swift in Sources */,
 				FFE277492A092B2E00B38B80 /* CustomWrapper.swift in Sources */,
 				FF0BE9362A1594A700B86BDC /* PetPicker.swift in Sources */,
@@ -725,12 +759,14 @@
 				FF62C3C32A13ED870084118A /* FiltersView.swift in Sources */,
 				FF62C3C12A13E18E0084118A /* AdvertCardView.swift in Sources */,
 				FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */,
+				FFB28C2A2A20E797007E287B /* MessengerModels.swift in Sources */,
 				FFC9426C2A057D5100108349 /* AccessTokenStorage.swift in Sources */,
 				FFC942642A0567A700108349 /* AdvertsView.swift in Sources */,
 				FFAD428E29E6CD0000DB6D13 /* RegistrationPage3.swift in Sources */,
 				FFAAD3E729C3D2D000359F86 /* FontExtension.swift in Sources */,
 				FF3B2F3A2A07F11200DDBDBF /* MyPetsView.swift in Sources */,
 				FF09CE002A1E623100F8251E /* AdvertCardViewModel.swift in Sources */,
+				FFB28C282A20E272007E287B /* MessengerViewModel.swift in Sources */,
 				FFC942722A0671DF00108349 /* UserModel.swift in Sources */,
 				FFAAD3EB29C3EE5A00359F86 /* TextContentTypes.swift in Sources */,
 				FF3B2F382A07E96E00DDBDBF /* StringEndings.swift in Sources */,
