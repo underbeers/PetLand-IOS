@@ -72,12 +72,11 @@ struct MyPetsView: View {
                                 
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(pet.name)
+                                        .lineLimit(2, reservesSpace: true)
                                         .multilineTextAlignment(.leading)
                                         .font(.cTitle2)
                                         .foregroundColor(.cText)
-                                    
                                     Spacer()
-                                    
                                     CustomChip(title: pet.type)
                                     CustomChip(title: pet.breed)
                                     CustomChip(title: pet.gender)
