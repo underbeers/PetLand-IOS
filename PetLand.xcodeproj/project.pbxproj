@@ -19,6 +19,8 @@
 		FF0BE9322A157A6D00B86BDC /* PricePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BE9312A157A6D00B86BDC /* PricePicker.swift */; };
 		FF0BE9342A1584DA00B86BDC /* ContactsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BE9332A1584DA00B86BDC /* ContactsPicker.swift */; };
 		FF0BE9362A1594A700B86BDC /* PetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BE9352A1594A700B86BDC /* PetPicker.swift */; };
+		FF0BE9382A16AE2300B86BDC /* PetImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BE9372A16AE2300B86BDC /* PetImagePicker.swift */; };
+		FF0BE93E2A16BEA200B86BDC /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BE93D2A16BEA200B86BDC /* ImageService.swift */; };
 		FF18D468296EAF5600DCB69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF18D467296EAF5600DCB69E /* Assets.xcassets */; };
 		FF1D436B297437D100E3B172 /* Mulish-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D4357297437D000E3B172 /* Mulish-LightItalic.ttf */; };
 		FF1D436C297437D100E3B172 /* Mulish-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1D4358297437D000E3B172 /* Mulish-ExtraBoldItalic.ttf */; };
@@ -130,6 +132,8 @@
 		FF0BE9312A157A6D00B86BDC /* PricePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePicker.swift; sourceTree = "<group>"; };
 		FF0BE9332A1584DA00B86BDC /* ContactsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsPicker.swift; sourceTree = "<group>"; };
 		FF0BE9352A1594A700B86BDC /* PetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPicker.swift; sourceTree = "<group>"; };
+		FF0BE9372A16AE2300B86BDC /* PetImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetImagePicker.swift; sourceTree = "<group>"; };
+		FF0BE93D2A16BEA200B86BDC /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		FF18D45B296EAF5500DCB69E /* PetLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF18D467296EAF5600DCB69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF18D46C296EAF5600DCB69E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -408,6 +412,7 @@
 				FF09CDE92A1D33B000F8251E /* LocationService.swift */,
 				FF09CDFA2A1E598B00F8251E /* FavouriteService.swift */,
 				FF33649F2A2507B8002447C6 /* ChatService.swift */,
+				FF0BE93D2A16BEA200B86BDC /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -554,6 +559,7 @@
 			children = (
 				FFE277442A09120000B38B80 /* PetEditView.swift */,
 				FFE2774F2A0984F700B38B80 /* PetEditViewModel.swift */,
+				FF0BE9372A16AE2300B86BDC /* PetImagePicker.swift */,
 			);
 			path = "Pet Edit";
 			sourceTree = "<group>";
@@ -715,6 +721,7 @@
 				FFC9426F2A066E2900108349 /* ProfileViewModel.swift in Sources */,
 				FF09CDFB2A1E598B00F8251E /* FavouriteService.swift in Sources */,
 				FFE277472A0925A400B38B80 /* CustomDropdown.swift in Sources */,
+				FF0BE9382A16AE2300B86BDC /* PetImagePicker.swift in Sources */,
 				FFE2774B2A0931AE00B38B80 /* CustomDatePicker.swift in Sources */,
 				FFAAD3E329C3CD2C00359F86 /* PetLand.swift in Sources */,
 				FFAD429029E6CE9100DB6D13 /* RegistrationViewModel.swift in Sources */,
@@ -728,6 +735,7 @@
 				FFD163C72A0E9A8D00F0B43F /* AdvertService.swift in Sources */,
 				FFB28C2C2A20F348007E287B /* DialogView.swift in Sources */,
 				FF3B2F322A06A02200DDBDBF /* Dummies.swift in Sources */,
+				FF0BE93E2A16BEA200B86BDC /* ImageService.swift in Sources */,
 				FFE2774D2A09352400B38B80 /* CustomTextArea.swift in Sources */,
 				FF09CDFD2A1E5E9300F8251E /* FavouriteModel.swift in Sources */,
 				FFA6173E2A151BC4000DA885 /* MyAdvertsView.swift in Sources */,
@@ -969,7 +977,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1003,7 +1011,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

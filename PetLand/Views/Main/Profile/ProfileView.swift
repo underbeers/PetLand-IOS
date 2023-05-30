@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ProfileView: View {
     @EnvironmentObject var appState: AppState
@@ -17,11 +18,15 @@ struct ProfileView: View {
                 VStack {
                     VStack(spacing: 8) {
                         HStack(spacing: 24) {
-                            Image("preview:person")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 100, height: 100)
-                                .clipShape(Circle())
+                            PhotosPicker(selection: $model.newProfileImage,
+                                         matching: .images,
+                                         photoLibrary: .shared()) {
+                                Image("preview:person")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 100, height: 100)
+                                    .clipShape(Circle())
+                            }
                             
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(model.user.firstName + " " + model.user.lastName)
