@@ -28,23 +28,48 @@ struct AdvertDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Image("preview:dog")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    .aspectRatio(4 / 3, contentMode: .fill)
-                    .cornerRadius(12)
-                    .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
-                
+                let photos = model.advert?.photos.map { $0.original } ?? [card.photo]
+                TabView {
+                    ForEach(photos, id: \.self) { photo in
+                        CustomImage(photo) { image in
+                            ZStack {
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .blur(radius: 8)
+                                    .brightness(-0.2)
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                                    .aspectRatio(4 / 3, contentMode: .fit)
+                            }
+                        }
+                    }
+                }
+                .tabViewStyle(.page)
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
+                .aspectRatio(4 / 3, contentMode: .fit)
+                .cornerRadius(12)
+                .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
+                    
                 VStack(alignment: .leading, spacing: 4) {
                     Text(advert.name)
                         .font(.cTitle1)
                         .foregroundColor(.cText)
-                    Text(asCurrency(advert.price as NSNumber))
-                        .font(.cTitle3)
-                        .foregroundColor(.cText)
+                    Group {
+                        if advert.price < 0 {
+                            Text("Цена договорная")
+                        } else if advert.price == 0 {
+                            Text("Бесплатно")
+                        } else {
+                            Text(asCurrency(advert.price as NSNumber))
+                        }
+                    }
+                    .font(.cTitle3)
+                    .foregroundColor(.cText)
                 }
-                
+                    
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         CustomChip(title: advert.type)
@@ -53,7 +78,7 @@ struct AdvertDetailView: View {
                         CustomChip(title: advert.age)
                     }
                 }
-                
+                    
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Описание")
                         .font(.cTitle4)
@@ -62,7 +87,7 @@ struct AdvertDetailView: View {
                         .font(.cMain)
                         .foregroundColor(.cText)
                 }
-                
+                    
                 Group {
                     if let color = model.advert?.color, !color.isEmpty {
                         VStack(alignment: .leading, spacing: 4) {
@@ -74,7 +99,7 @@ struct AdvertDetailView: View {
                                 .foregroundColor(.cText)
                         }
                     }
-
+                        
                     if let care = model.advert?.care, !care.isEmpty {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Особенности ухода")
@@ -85,7 +110,7 @@ struct AdvertDetailView: View {
                                 .foregroundColor(.cText)
                         }
                     }
-
+                        
                     if let pedigree = model.advert?.pedigree, !pedigree.isEmpty {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Родословная")
@@ -96,7 +121,7 @@ struct AdvertDetailView: View {
                                 .foregroundColor(.cText)
                         }
                     }
-
+                        
                     if let character = model.advert?.character, !character.isEmpty {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Черты характера")
@@ -108,7 +133,7 @@ struct AdvertDetailView: View {
                         }
                     }
                 }
-                
+                    
                 if let type = model.advert?.type, ["Кошка", "Собака"].contains(type) {
                     HStack(spacing: 32) {
                         HStack(spacing: 8) {
@@ -133,7 +158,7 @@ struct AdvertDetailView: View {
                         }
                     }
                 }
-                
+                    
                 if mode == .other {
                     HStack(alignment: .center, spacing: 16) {
                         Image("preview:person")
@@ -141,7 +166,7 @@ struct AdvertDetailView: View {
                             .scaledToFill()
                             .frame(width: 70, height: 70)
                             .clipShape(Circle())
-                        
+                            
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Иван Иванович")
                                 .font(.cTitle4)
@@ -164,7 +189,7 @@ struct AdvertDetailView: View {
                                 .foregroundColor(.cSubtext)
                         }
                     }
-                
+                        
                     HStack(spacing: 16) {
                         if let phone = model.advert?.phone, !phone.isEmpty {
                             Button {
@@ -203,10 +228,10 @@ struct AdvertDetailView: View {
                         Text("Контакты")
                             .font(.cTitle4)
                             .foregroundColor(.cText)
-                        
+                            
                         let canCall = !(model.advert?.phone.isEmpty ?? true)
                         let canChat = model.advert?.chat ?? false
-                        
+                            
                         HStack(alignment: .top, spacing: 32) {
                             HStack(spacing: 8) {
                                 Image(canCall ? "icons:checkmark" : "icons:cross")
@@ -238,7 +263,7 @@ struct AdvertDetailView: View {
                         }
                     }
                 }
-                
+                    
                 Group {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Дата публикации")
@@ -248,7 +273,7 @@ struct AdvertDetailView: View {
                             .font(.cMain)
                             .foregroundColor(.cText)
                     }
-                    
+                        
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Адрес")
                             .font(.cTitle4)
@@ -259,6 +284,7 @@ struct AdvertDetailView: View {
                     }
                 }
             }
+//            }
             .padding(16)
             .padding(.bottom, 32)
         }

@@ -52,6 +52,7 @@ struct AdvertsView: View {
                                 } icon: {
                                     Image("icons:filter")
                                 }
+                                .padding(4)
                             }
 
                             Menu {
@@ -66,6 +67,7 @@ struct AdvertsView: View {
                                 } icon: {
                                     Image("icons:sort")
                                 }
+                                .padding(4)
                             }
 
                             Spacer()

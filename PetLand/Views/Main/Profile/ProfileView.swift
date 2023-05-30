@@ -5,6 +5,7 @@
 //  Created by Никита Сигал on 05.05.2023.
 //
 
+import PhotosUI
 import SwiftUI
 
 struct ProfileView: View {
@@ -17,11 +18,18 @@ struct ProfileView: View {
                 VStack {
                     VStack(spacing: 8) {
                         HStack(spacing: 24) {
-                            Image("preview:person")
-                                .resizable()
-                                .scaledToFill()
+                            PhotosPicker(selection: $model.newProfileImage,
+                                         matching: .images,
+                                         photoLibrary: .shared())
+                            {
+                                CustomImage(model.user.image) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                }
                                 .frame(width: 100, height: 100)
                                 .clipShape(Circle())
+                            }
                             
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(model.user.firstName + " " + model.user.lastName)

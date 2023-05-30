@@ -13,6 +13,7 @@ extension String {
              ec,
              oe,
              ie,
+             photograph,
              day,
              month,
              year
@@ -27,6 +28,8 @@ extension String {
                     return ["ых", "ое", "ых"]
                 case .ie:
                     return ["ий", "ие", "ия"]
+                case .photograph:
+                    return ["ий", "ия", "ии"]
                 case .day:
                     return ["дней", "день", "дня"]
                 case .month:

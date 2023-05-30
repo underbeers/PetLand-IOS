@@ -11,6 +11,8 @@ import Foundation
 
 protocol AccessTokenStorageProtocol {
     var authHeader: HTTPHeader { get }
+    var accessToken: String { get }
+    
     func save(_ token: String)
     func restore() -> Bool
     func delete()
@@ -25,7 +27,7 @@ class AccessTokenStorage: AccessTokenStorageProtocol {
     private let service = "petland"
     private let account = "accessToken"
     
-    private var accessToken: String = ""
+    var accessToken: String = ""
     var authHeader: HTTPHeader {
         .authorization(bearerToken: accessToken)
     }

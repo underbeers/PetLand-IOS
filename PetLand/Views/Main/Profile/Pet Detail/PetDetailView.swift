@@ -38,13 +38,30 @@ struct PetDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Image("preview:dog")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    .aspectRatio(4 / 3, contentMode: .fill)
-                    .cornerRadius(12)
-                    .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
+                let photos = model.pet.photos.isEmpty ? [cachedPet.photo] : model.pet.photos.map { $0.original }
+                TabView {
+                    ForEach(photos, id: \.self) { photo in
+                        CustomImage(photo) { image in
+                            ZStack {
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .blur(radius: 8)
+                                    .brightness(-0.2)
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                                    .aspectRatio(4 / 3, contentMode: .fit)
+                            }
+                        }
+                    }
+                }
+                .tabViewStyle(.page)
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
+                .aspectRatio(4 / 3, contentMode: .fit)
+                .cornerRadius(12)
+                .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
 
                 Text(name)
                     .font(.cTitle1)

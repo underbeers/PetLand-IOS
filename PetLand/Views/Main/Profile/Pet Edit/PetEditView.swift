@@ -22,6 +22,7 @@ struct PetEditView: View {
     @State var breedIsValid: Bool = false
     @State var genderIsValid: Bool = false
     @State var birthdayIsValid: Bool = false
+    @State var imagesAreValid: Bool = false
     @State var colorIsValid: Bool = false
     @State var careIsValid: Bool = false
     @State var pedigreeIsValid: Bool = false
@@ -43,10 +44,15 @@ struct PetEditView: View {
             && breedIsValid
             && genderIsValid
             && birthdayIsValid
+            && (!isNew || imagesAreValid)
             && colorIsValid
             && careIsValid
             && pedigreeIsValid
             && characterIsValid
+    }
+    
+    private var isNew: Bool {
+        initialPet == nil
     }
 
     var body: some View {
@@ -82,6 +88,12 @@ struct PetEditView: View {
                 
                 CustomWrapper(title: "Дата рождения", tip: "Если не знаете точную дату, выбирайте примерную", isValid: $birthdayIsValid) {
                     CustomDatePicker(selection: $model.pet.birthday)
+                }
+                
+                if isNew {
+                    CustomWrapper(title: "Фотография", isValid: $imagesAreValid) {
+                        PetImagePicker(images: $model.images)
+                    }
                 }
                 
                 Group {
@@ -134,7 +146,7 @@ struct PetEditView: View {
             }
             .padding(16)
         }
-        .navigationTitle(initialPet == nil ? "Новый питомец" : "Редактирование питомца")
+        .navigationTitle(isNew ? "Новый питомец" : "Редактирование питомца")
         .scrollDismissesKeyboard(.interactively)
         .animation(.default, value: canProceed)
         .onAppear {
