@@ -61,14 +61,16 @@ struct MyPetsView: View {
                             PetDetailView(pet)
                         } label: {
                             HStack(spacing: 16) {
-                                Image("preview:dog")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(minWidth: 0, maxWidth: .infinity)
-                                    .aspectRatio(3 / 4, contentMode: .fill)
-                                    .clipped()
-                                    .cornerRadius(12)
-                                    .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
+                                CustomImage(pet.photo) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                }
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .aspectRatio(3 / 4, contentMode: .fill)
+                                .clipped()
+                                .cornerRadius(12)
+                                .shadow(color: .black.opacity(0.25), radius: 6, x: 4, y: 4)
                                 
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(pet.name)

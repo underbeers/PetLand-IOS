@@ -13,12 +13,17 @@ struct AdvertCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Image("preview:dog")
-                .resizable()
-                .scaledToFill()
-                .frame(minWidth: 0)
-                .aspectRatio(4 / 3, contentMode: .fill)
-                .clipped()
+            CustomImage(advertCard.photo) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(minWidth: 0, maxWidth: .infinity,
+                           minHeight: 0, maxHeight: .infinity)
+                    .allowsHitTesting(false)
+            }
+            .aspectRatio(4 / 3, contentMode: .fit)
+            .clipped()
+
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 0) {
                     Text(advertCard.name)
@@ -36,9 +41,17 @@ struct AdvertCardView: View {
                             .foregroundColor(.cRed)
                     }
                 }
-                Text(asCurrency(advertCard.price as NSNumber))
-                    .font(.cMain)
-                    .foregroundColor(.cText)
+                Group {
+                    if advertCard.price < 0 {
+                        Text("Цена договорная")
+                    } else if advertCard.price == 0 {
+                        Text("Бесплатно")
+                    } else {
+                        Text(asCurrency(advertCard.price as NSNumber))
+                    }
+                }
+                .font(.cMain)
+                .foregroundColor(.cText)
                 Text(advertCard.formattedPublication)
                     .font(.cSecondary2)
                     .foregroundColor(.cBlue)

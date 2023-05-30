@@ -59,6 +59,8 @@
 		FF62C3C32A13ED870084118A /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF62C3C22A13ED870084118A /* FiltersView.swift */; };
 		FF7272A229FFE2FC0057886B /* KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */; };
 		FF7272A429FFE4340057886B /* LogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7272A329FFE4340057886B /* LogoImage.swift */; };
+		FF7428F02A267ACC00C07468 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = FF7428EF2A267ACC00C07468 /* CachedAsyncImage */; };
+		FF7428F22A267B0000C07468 /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7428F12A267B0000C07468 /* CustomImage.swift */; };
 		FF7A709629CCED440082A4B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709529CCED430082A4B1 /* LoginView.swift */; };
 		FF7A709829CD15E20082A4B1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */; };
 		FF7A709A29CD31860082A4B1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A709929CD31860082A4B1 /* AppState.swift */; };
@@ -173,6 +175,7 @@
 		FF62C3C22A13ED870084118A /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		FF7272A129FFE2FC0057886B /* KeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtension.swift; sourceTree = "<group>"; };
 		FF7272A329FFE4340057886B /* LogoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImage.swift; sourceTree = "<group>"; };
+		FF7428F12A267B0000C07468 /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		FF7A709529CCED430082A4B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FF7A709729CD15E20082A4B1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FF7A709929CD31860082A4B1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFDF81772A040B1900539F74 /* Alamofire in Frameworks */,
+				FF7428F02A267ACC00C07468 /* CachedAsyncImage in Frameworks */,
 				FF0BE9302A156FEB00B86BDC /* PhoneNumberKit in Frameworks */,
 				FF33649E2A24D903002447C6 /* SocketIO in Frameworks */,
 			);
@@ -471,6 +475,7 @@
 				FFE277482A092B2E00B38B80 /* CustomWrapper.swift */,
 				FFE2774A2A0931AE00B38B80 /* CustomDatePicker.swift */,
 				FFE2774C2A09352400B38B80 /* CustomTextArea.swift */,
+				FF7428F12A267B0000C07468 /* CustomImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -611,6 +616,7 @@
 				FFDF81762A040B1900539F74 /* Alamofire */,
 				FF0BE92F2A156FEB00B86BDC /* PhoneNumberKit */,
 				FF33649D2A24D903002447C6 /* SocketIO */,
+				FF7428EF2A267ACC00C07468 /* CachedAsyncImage */,
 			);
 			productName = PetLand;
 			productReference = FF18D45B296EAF5500DCB69E /* PetLand.app */;
@@ -649,6 +655,7 @@
 				FFDF81752A040B1900539F74 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FF0BE92E2A156FEB00B86BDC /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 				FF33649C2A24D903002447C6 /* XCRemoteSwiftPackageReference "socket" */,
+				FF7428EE2A267ACC00C07468 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = FF18D45C296EAF5500DCB69E /* Products */;
 			projectDirPath = "";
@@ -738,6 +745,7 @@
 				FF0BE93E2A16BEA200B86BDC /* ImageService.swift in Sources */,
 				FFE2774D2A09352400B38B80 /* CustomTextArea.swift in Sources */,
 				FF09CDFD2A1E5E9300F8251E /* FavouriteModel.swift in Sources */,
+				FF7428F22A267B0000C07468 /* CustomImage.swift in Sources */,
 				FFA6173E2A151BC4000DA885 /* MyAdvertsView.swift in Sources */,
 				FFD163C12A0E56C700F0B43F /* AdvertsViewModel.swift in Sources */,
 				FFAD428829E6C72D00DB6D13 /* RegistrationView.swift in Sources */,
@@ -1077,6 +1085,14 @@
 				kind = branch;
 			};
 		};
+		FF7428EE2A267ACC00C07468 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		FFDF81752A040B1900539F74 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1097,6 +1113,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF33649C2A24D903002447C6 /* XCRemoteSwiftPackageReference "socket" */;
 			productName = SocketIO;
+		};
+		FF7428EF2A267ACC00C07468 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF7428EE2A267ACC00C07468 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
 		};
 		FFDF81762A040B1900539F74 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -44,7 +44,7 @@ struct PetEditView: View {
             && breedIsValid
             && genderIsValid
             && birthdayIsValid
-            && imagesAreValid
+            && (!isNew || imagesAreValid)
             && colorIsValid
             && careIsValid
             && pedigreeIsValid
