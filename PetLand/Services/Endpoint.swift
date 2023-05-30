@@ -24,7 +24,16 @@ enum APIError: Error {
     case serverDown
 }
 
-private let formatter: ISO8601DateFormatter = {
+private let formatterShort: ISO8601DateFormatter = {
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [
+        .withFullDate,
+        .withFullTime
+    ]
+    return formatter
+}()
+
+private let formatterFull: ISO8601DateFormatter = {
     let formatter = ISO8601DateFormatter()
     formatter.formatOptions = [
         .withFullDate,
@@ -39,7 +48,7 @@ extension JSONEncoder {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .custom { date, encoder in
             var container = encoder.singleValueContainer()
-            let dateString = formatter.string(from: date)
+            let dateString = formatterFull.string(from: date)
             try container.encode(dateString)
         }
         return encoder
@@ -52,7 +61,9 @@ extension JSONDecoder {
         decoder.dateDecodingStrategy = .custom { decoder in
             let container = try decoder.singleValueContainer()
             let dateString = try container.decode(String.self)
-            if let date = formatter.date(from: dateString) {
+            if let date = formatterFull.date(from: dateString) {
+                return date
+            } else if let date = formatterShort.date(from: dateString) {
                 return date
             }
             throw DecodingError.dataCorruptedError(in: container, debugDescription: "Cannot decode date string \(dateString)")
