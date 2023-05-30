@@ -61,9 +61,7 @@ class UserService: UserServiceProtocol {
                     return
                 }
 
-                if stayLoggedIn {
-                    self?.accessTokenStorage.save(token)
-                }
+                self?.accessTokenStorage.save(token, stayLoggedIn: stayLoggedIn)
                 completion(nil)
             }
     }
@@ -151,20 +149,20 @@ class UserService: UserServiceProtocol {
                 self?.accessTokenStorage.setUserID(value.id)
             }
     }
-    
+
     func updateChatCredentials(chatID: String, sessionID: String, completion: @escaping (Error?) -> ()) {
         let endpoint = Endpoint.updateChatCredentials
-        
+
         let parameters = [
             "chatID": chatID,
             "sessionID": sessionID
         ]
-        
+
         AF.request(endpoint.url, method: endpoint.method, parameters: parameters, encoder: JSONParameterEncoder(encoder: .custom), headers: [accessTokenStorage.authHeader])
             .validate()
             .response { response in
                 debugPrint(response)
-                
+
                 if let error = response.error {
                     switch error {
                         case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
@@ -173,7 +171,7 @@ class UserService: UserServiceProtocol {
                             completion(error)
                     }
                 }
-                
+
                 completion(nil)
             }
     }
