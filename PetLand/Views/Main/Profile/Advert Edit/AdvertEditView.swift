@@ -33,6 +33,14 @@ struct AdvertEditView: View {
             && districtIsValid
     }
     
+    private enum Focusable {
+        case price,
+             description,
+             contacts
+    }
+    
+    @FocusState private var currentFocus: Focusable?
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
@@ -45,14 +53,17 @@ struct AdvertEditView: View {
                 CustomWrapper(title: "Цена", isValid: $priceIsValid) {
                     PricePicker(price: $model.advert.price)
                 }
+                .focused($currentFocus, equals: .price)
                     
                 CustomWrapper(title: "Описание", isValid: $descriptionIsValid) {
                     CustomTextArea(placeholder: "Добавьте описание объявления", text: $model.advert.description)
                 }
+                .focused($currentFocus, equals: .description)
                 
                 CustomWrapper(title: "Контакты", isValid: $contactsAreValid) {
                     ContactsPicker(useMessenger: $model.advert.chat, phone: $model.advert.phone)
                 }
+                .focused($currentFocus, equals: .contacts)
                 
                 CustomWrapper(title: "Город", isValid: $cityIsValid) {
                     CustomDropdown(options: model.cities.map { $0.name }, selection: $model.advert.city)
@@ -82,9 +93,10 @@ struct AdvertEditView: View {
             .padding(16)
             .padding(.bottom, 32)
         }
-        .navigationTitle(initialAdvert == nil ? "Создание объявления" : "Редактирование объявления")
+        .navigationTitle(initialAdvert == nil ? "Новое объявление" : "Редактирование объявления")
         .animation(.spring(), value: model.advert)
         .animation(.spring(), value: canCommit)
+        .scrollDismissesKeyboard(.interactively)
         .onAppear {
             if let initialAdvert {
                 model.advert = .init(initialAdvert)
@@ -93,6 +105,12 @@ struct AdvertEditView: View {
         }
         .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
             Text(model.alertMessage)
+        }
+        .toolbar {
+            ToolbarItem(placement: .keyboard) {
+                Button("Готово") { currentFocus = nil }
+                    .buttonStyle(CustomButton(.text))
+            }
         }
     }
 }

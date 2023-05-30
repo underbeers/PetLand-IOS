@@ -93,6 +93,7 @@ struct CustomTextField: View {
         .cornerRadius(12)
         .shadow(color: shadowColor, radius: 6, x: 4, y: 4)
 
+        .onAppear { validate() }
         .onChange(of: text) { _ in validate() }
         .onChange(of: currentFocus) { _ in validate() }
         .onDisappear { currentFocus = nil }

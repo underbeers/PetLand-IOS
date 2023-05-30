@@ -196,7 +196,7 @@ struct AdvertDetailView: View {
                     HStack(spacing: 16) {
                         if let phone = model.advert?.phone, !phone.isEmpty {
                             Button {
-                                if let url = URL(string: "tel://\(phone)") {
+                                if let url = URL(string: "tel://\(phone.components(separatedBy: .whitespaces).joined())") {
                                     UIApplication.shared.open(url)
                                 }
                             } label: {
@@ -304,8 +304,8 @@ struct AdvertDetailView: View {
             Alert(title: Text("Удаление объявления"),
                   message: Text("Вы уверены, что хотите удалить объявление?\n\nЭто действие невозможно отменить."),
                   primaryButton: .destructive(Text("Да, удалить")) {
-                model.delete { dismiss() }
-            },
+                      model.delete { dismiss() }
+                  },
                   secondaryButton: .cancel(Text("Отмена")) {})
         }
         .toolbar {

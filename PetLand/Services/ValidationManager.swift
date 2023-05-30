@@ -90,7 +90,7 @@ class ValidationManager: ValidationManagerProtocol {
     private func isValidPhoneNumber(_ input: String) -> String? {
         if input.isEmpty { return nil }
         do {
-            let _ = try PhoneNumberKit().parse(input)
+            let _ = try PhoneNumberKit().parse(input, ignoreType: true)
             return nil
         } catch {
             return "Неправильный формат"

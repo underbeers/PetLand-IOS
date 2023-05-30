@@ -21,7 +21,7 @@ struct MyAdvertsView: View {
                         .font(.cMain)
                         .foregroundColor(.cText)
                     NavigationLink {
-                        Text("Advert Edit/Creation View")
+                        AdvertEditView()
                     } label: {
                         HStack {
                             Text("Создать объявление")
