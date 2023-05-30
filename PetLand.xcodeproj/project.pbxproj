@@ -483,8 +483,8 @@
 			isa = PBXGroup;
 			children = (
 				FFB28C2B2A20F348007E287B /* DialogView.swift */,
-				FFB28C2E2A20FDE2007E287B /* MessageBox.swift */,
 				FFB28C302A210ABC007E287B /* DialogViewModel.swift */,
+				FFB28C2E2A20FDE2007E287B /* MessageBox.swift */,
 				FF2351E22A25326000B08263 /* BookmarksImage.swift */,
 			);
 			path = Dialog;

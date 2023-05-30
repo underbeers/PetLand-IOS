@@ -19,7 +19,8 @@ final class ChatService: ObservableObject {
     private var user: User = .init()
     private let socket: SocketIOClient
     private let manager: SocketManager = .init(socketURL: URL(string: "http://petland-chat-backend.underbeers.space")!,
-                                               config: [.log(true), .forceWebsockets(true)])
+                                               config: [.log(true),
+                                                        .forceWebsockets(true)])
 
     var chatID: String { user.chatID }
     @Published var dialogs: [Dialog] = []
@@ -28,12 +29,13 @@ final class ChatService: ObservableObject {
 
     init() {
         socket = manager.defaultSocket
+        addHandlers()
 
         userService.getUser { [weak self] result in
             switch result {
                 case .success(let user):
                     self?.user = user
-                    self?.connectSocket()
+                    self?.connect()
                 default:
                     break
             }
@@ -56,7 +58,15 @@ final class ChatService: ObservableObject {
         presentingAlert = true
     }
 
-    private func connectSocket() {
+    private func connect() {
+        if user.chatID.isEmpty || user.sessionID.isEmpty {
+            socket.connect(withPayload: ["username": user.firstName + " " + user.lastName])
+        } else {
+            socket.connect(withPayload: ["chatID": user.chatID, "sessionID": user.sessionID])
+        }
+    }
+
+    private func addHandlers() {
         socket.on("users") { [weak self] data, _ in
             if let jsonData = try? JSONSerialization.data(withJSONObject: data[0]),
                let dialogs = try? JSONDecoder.custom.decode([Dialog].self, from: jsonData)
@@ -94,7 +104,10 @@ final class ChatService: ObservableObject {
             }
 
             guard let dialogIndex = self?.dialogs.firstIndex(where: { $0.chatID == dialog.chatID })
-            else { return }
+            else {
+                self?.dialogs.append(dialog)
+                return
+            }
 
             self?.dialogs[dialogIndex].connected = true
         }
@@ -132,10 +145,9 @@ final class ChatService: ObservableObject {
             }
         }
 
-        if user.chatID.isEmpty || user.sessionID.isEmpty {
-            socket.connect(withPayload: ["username": user.firstName + " " + user.lastName])
-        } else {
-            socket.connect(withPayload: ["chatID": user.chatID, "sessionID": user.sessionID])
+        socket.on(clientEvent: .reconnectAttempt) { [weak self] _, _ in
+            self?.manager.disconnect()
+            self?.connect()
         }
     }
 }
