@@ -32,5 +32,23 @@ extension AdvertDetailView {
                 }
             }
         }
+
+        func delete(completion: @escaping () -> ()) {
+            guard let id = advert?.id else { return }
+
+            advertService.deleteAdvert(advertID: id) { [weak self] error in
+                if let error {
+                    switch error {
+                        case APIError.serverDown:
+                            self?.alertMessage = "Проблемы с доступом к серверу"
+                        default:
+                            self?.alertMessage = error.localizedDescription
+                    }
+                    self?.presentingAlert = true
+                } else {
+                    completion()
+                }
+            }
+        }
     }
 }

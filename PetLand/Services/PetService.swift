@@ -14,6 +14,7 @@ extension Endpoint {
         static let getPetCards = Endpoint(path: "/petCards/main", method: .get)
         static let createPet = Endpoint(path: "/petCards/new", method: .post)
         static let updatePet = Endpoint(path: "/petCards/update", method: .put)
+        static let deletePet = Endpoint(path: "/petCards/delete", method: .delete)
         static let getTypes = Endpoint(path: "/petTypes", method: .get)
         static let getBreeds = Endpoint(path: "/breeds", method: .get)
     }
@@ -27,6 +28,7 @@ protocol PetServiceProtocol {
     func getTypes(typeID: Int?, type: String?, completion: @escaping (Result<[PetType], Error>) -> ())
     func getBreeds(typeID: Int?, breedID: Int?, breed: String?, completion: @escaping (Result<[PetBreed], Error>) -> ())
     func commitPet(pet: Pet, isNew: Bool, completion: @escaping (Error?) -> ())
+    func deletePet(petID: Int, completion: @escaping (Error?) -> ())
 }
 
 final class PetService: PetServiceProtocol {
@@ -206,6 +208,28 @@ final class PetService: PetServiceProtocol {
                 }
 
                 completion(.success(breeds))
+            }
+    }
+    
+    func deletePet(petID: Int, completion: @escaping (Error?) -> ()) {
+        let endpoint = Endpoint.PetService.deletePet
+        
+        AF.request(endpoint.url, method: endpoint.method, parameters: ["id": petID], encoder: URLEncodedFormParameterEncoder(), headers: [accessTokenStorage.authHeader])
+            .validate()
+            .response { response in
+                debugPrint(response)
+                
+                guard let error = response.error else {
+                    completion(nil)
+                    return
+                }
+                
+                switch error {
+                    case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
+                        completion(APIError.serverDown)
+                    default:
+                        completion(error)
+                }
             }
     }
 }

@@ -14,6 +14,7 @@ extension Endpoint {
         static let getAdvert = Endpoint(path: "/auth/adverts/full", method: .get)
         static let createAdvert = Endpoint(path: "/adverts/new", method: .post)
         static let updateAdvert = Endpoint(path: "/adverts/update", method: .put)
+        static let deleteAdvert = Endpoint(path: "/adverts/delete", method: .delete)
     }
 }
 
@@ -23,6 +24,7 @@ protocol AdvertServiceProtocol {
     func getAdvertCards(id: Int?, userID: String?, petID: Int?, typeID: Int?, breedID: Int?, gender: String?, minPrice: Int?, maxPrice: Int?, cityID: Int?, districtID: Int?, status: String?, sort: String?, page: Int?, perPage: Int?, _ completion: @escaping (Result<AdvertCardList, Error>) -> ())
     func getAdvert(id: Int, _ completion: @escaping (Result<Advert, Error>) -> ())
     func commitAdvert(_ advert: AdvertEdit, isNew: Bool, _ completion: @escaping (Error?) -> ())
+    func deleteAdvert(advertID: Int, _ completion: @escaping (Error?) -> ())
 }
 
 extension AdvertServiceProtocol {
@@ -114,6 +116,28 @@ final class AdvertService: AdvertServiceProtocol {
         let urlParmater = isNew ? "" : "?id=\(advert.id)"
         
         AF.request(endpoint.url + urlParmater, method: endpoint.method, parameters: advert, encoder: JSONParameterEncoder(encoder: .custom), headers: [accessTokenStorage.authHeader])
+            .validate()
+            .response { response in
+                debugPrint(response)
+                
+                if let error = response.error {
+                    switch error {
+                        case .responseValidationFailed(reason: .unacceptableStatusCode(code: 500)):
+                            completion(APIError.serverDown)
+                        default:
+                            completion(error)
+                    }
+                    return
+                }
+                
+                completion(nil)
+            }
+    }
+    
+    func deleteAdvert(advertID: Int, _ completion: @escaping (Error?) -> ()) {
+        let endpoint = Endpoint.AdvertService.deleteAdvert
+        
+        AF.request(endpoint.url, method: endpoint.method, parameters: ["id": advertID], encoder: URLEncodedFormParameterEncoder(), headers: [accessTokenStorage.authHeader])
             .validate()
             .response { response in
                 debugPrint(response)

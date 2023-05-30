@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AdvertDetailView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var model: AdvertDetailViewModel = .init()
     private let card: AdvertCard
     private let mode: Mode
@@ -24,6 +25,8 @@ struct AdvertDetailView: View {
     private var advert: AdvertShared {
         model.advert ?? card
     }
+    
+    @State var presentingDeletion: Bool = false
     
     var body: some View {
         ScrollView {
@@ -297,6 +300,14 @@ struct AdvertDetailView: View {
         .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
             Text(model.alertMessage)
         }
+        .alert(isPresented: $presentingDeletion) {
+            Alert(title: Text("Удаление объявления"),
+                  message: Text("Вы уверены, что хотите удалить объявление?\n\nЭто действие невозможно отменить."),
+                  primaryButton: .destructive(Text("Да, удалить")) {
+                model.delete { dismiss() }
+            },
+                  secondaryButton: .cancel(Text("Отмена")) {})
+        }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 NavigationLink {
@@ -307,6 +318,19 @@ struct AdvertDetailView: View {
                             .resizable()
                             .renderingMode(.template)
                             .foregroundColor(.cOrange)
+                            .frame(width: 24, height: 24)
+                    }
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    presentingDeletion = true
+                } label: {
+                    if mode == .my {
+                        Image("icons:delete")
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(.cRed)
                             .frame(width: 24, height: 24)
                     }
                 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PetDetailView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject private var model: PetDetailViewModel = .init()
     private let cachedPet: PetCard
 
@@ -34,6 +35,8 @@ struct PetDetailView: View {
     private var age: String {
         model.pet.birthday == .now ? cachedPet.age : model.pet.age
     }
+
+    @State var presentingDeletion: Bool = false
 
     var body: some View {
         ScrollView {
@@ -156,6 +159,25 @@ struct PetDetailView: View {
                         .frame(width: 24, height: 24)
                 }
             }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    presentingDeletion = true
+                } label: {
+                    Image("icons:delete")
+                        .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(.cRed)
+                        .frame(width: 24, height: 24)
+                }
+            }
+        }
+        .alert(isPresented: $presentingDeletion) {
+            Alert(title: Text("Удаление питомца"),
+                  message: Text("Вы уверены, что хотите удалить питомца?\n\nЭто действие невозможно отменить."),
+                  primaryButton: .destructive(Text("Да, удалить")) {
+                      model.delete { dismiss() }
+                  },
+                  secondaryButton: .cancel(Text("Отмена")) {})
         }
         .alert("Что-то пошло не так...", isPresented: $model.presentingAlert) {
             Text(model.alertMessage)
